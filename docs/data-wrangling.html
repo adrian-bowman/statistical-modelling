@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data wrangling | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data wrangling | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data wrangling | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="R-introduction.html"/>
+<link rel="next" href="data-visualisation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i>Getting started with R</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="where-data.html"><a href="where-data.html"><i class="fa fa-check"></i><b>1</b> Where do data come from?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="where-data.html"><a href="where-data.html#examples-data"><i class="fa fa-check"></i><b>1.1</b> Some examples of data</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="where-data.html"><a href="where-data.html#co2-and-global-warming"><i class="fa fa-check"></i><b>1.1.1</b> CO2 and global warming</a></li>
+<li class="chapter" data-level="1.1.2" data-path="where-data.html"><a href="where-data.html#the-first-tuberculosis-trial"><i class="fa fa-check"></i><b>1.1.2</b> The first tuberculosis trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="where-data.html"><a href="where-data.html#the-birds-and-the-bees-how-to-tell-the-sex-of-a-herring-gull"><i class="fa fa-check"></i><b>1.1.3</b> The birds and the bees: how to tell the sex of a herring gull</a></li>
+<li class="chapter" data-level="1.1.4" data-path="where-data.html"><a href="where-data.html#tracking-the-covid-pandemic"><i class="fa fa-check"></i><b>1.1.4</b> Tracking the covid pandemic</a></li>
+<li class="chapter" data-level="1.1.5" data-path="where-data.html"><a href="where-data.html#more-complex-data-objects"><i class="fa fa-check"></i><b>1.1.5</b> More complex data objects</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="where-data.html"><a href="where-data.html#some-broad-issues"><i class="fa fa-check"></i><b>1.2</b> Some broad issues</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="where-data.html"><a href="where-data.html#whats-the-problem"><i class="fa fa-check"></i><b>1.2.1</b> What’s the problem?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="where-data.html"><a href="where-data.html#whats-the-plan"><i class="fa fa-check"></i><b>1.2.2</b> What’s the plan?</a></li>
+<li class="chapter" data-level="1.2.3" data-path="where-data.html"><a href="where-data.html#where-do-the-data-come-from"><i class="fa fa-check"></i><b>1.2.3</b> Where do the data come from?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="where-data.html"><a href="where-data.html#who-do-you-trust"><i class="fa fa-check"></i><b>1.2.4</b> Who do you trust?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="where-data.html"><a href="where-data.html#what-could-possibly-go-wrong"><i class="fa fa-check"></i><b>1.3</b> What could possibly go wrong?</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="where-data.html"><a href="where-data.html#us-presidential-elections-1936-and-1948"><i class="fa fa-check"></i><b>1.3.1</b> US presidential elections, 1936 and 1948</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="where-data.html"><a href="where-data.html#further-reading"><i class="fa fa-check"></i><b>1.4</b> Further reading</a></li>
+<li class="chapter" data-level="1.5" data-path="where-data.html"><a href="where-data.html#exercises"><i class="fa fa-check"></i><b>1.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="where-data.html"><a href="where-data.html#an-investigation-of-short-term-memory"><i class="fa fa-check"></i><b>1.5.1</b> An investigation of short-term memory</a></li>
+<li class="chapter" data-level="1.5.2" data-path="where-data.html"><a href="where-data.html#a-survey-of-dental-health"><i class="fa fa-check"></i><b>1.5.2</b> A survey of dental health</a></li>
+<li class="chapter" data-level="1.5.3" data-path="where-data.html"><a href="where-data.html#hearings-aid-and-dementia"><i class="fa fa-check"></i><b>1.5.3</b> Hearings aid and dementia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="R-introduction.html"><a href="R-introduction.html"><i class="fa fa-check"></i><b>2</b> A gentle introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="R-introduction.html"><a href="R-introduction.html#r-fuss"><i class="fa fa-check"></i><b>2.1</b> R: what’s all the fuss about?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="R-introduction.html"><a href="R-introduction.html#history"><i class="fa fa-check"></i><b>2.1.1</b> History</a></li>
+<li class="chapter" data-level="2.1.2" data-path="R-introduction.html"><a href="R-introduction.html#why-should-i-be-interested"><i class="fa fa-check"></i><b>2.1.2</b> Why should I be interested?</a></li>
+<li class="chapter" data-level="2.1.3" data-path="R-introduction.html"><a href="R-introduction.html#whats-the-down-side"><i class="fa fa-check"></i><b>2.1.3</b> What’s the down side?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="R-introduction.html"><a href="R-introduction.html#taste-of-r"><i class="fa fa-check"></i><b>2.2</b> A taste of R</a></li>
+<li class="chapter" data-level="2.3" data-path="R-introduction.html"><a href="R-introduction.html#a-summary-of-key-concepts-in-r"><i class="fa fa-check"></i><b>2.3</b> A summary of key concepts in R</a></li>
+<li class="chapter" data-level="2.4" data-path="R-introduction.html"><a href="R-introduction.html#reading-data"><i class="fa fa-check"></i><b>2.4</b> Reading data into R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="R-introduction.html"><a href="R-introduction.html#accessing-the-data-used-in-this-book"><i class="fa fa-check"></i><b>2.4.1</b> Accessing the data used in this book</a></li>
+<li class="chapter" data-level="2.4.2" data-path="R-introduction.html"><a href="R-introduction.html#functions-for-reading-data"><i class="fa fa-check"></i><b>2.4.2</b> Functions for reading data</a></li>
+<li class="chapter" data-level="2.4.3" data-path="R-introduction.html"><a href="R-introduction.html#reading-data-example"><i class="fa fa-check"></i><b>2.4.3</b> An example: reading an <em>Excel</em> spreadsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="R-introduction.html"><a href="R-introduction.html#a-further-example-the-scottish-independence-referendum"><i class="fa fa-check"></i><b>2.5</b> A further example: the Scottish independence referendum</a></li>
+<li class="chapter" data-level="2.6" data-path="R-introduction.html"><a href="R-introduction.html#further-reading-1"><i class="fa fa-check"></i><b>2.6</b> Further reading</a></li>
+<li class="chapter" data-level="2.7" data-path="R-introduction.html"><a href="R-introduction.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="R-introduction.html"><a href="R-introduction.html#scottish-referendum-data"><i class="fa fa-check"></i><b>2.7.1</b> Scottish Referendum data</a></li>
+<li class="chapter" data-level="2.7.2" data-path="R-introduction.html"><a href="R-introduction.html#aircraft-designs"><i class="fa fa-check"></i><b>2.7.2</b> Aircraft designs</a></li>
+<li class="chapter" data-level="2.7.3" data-path="R-introduction.html"><a href="R-introduction.html#centenarians"><i class="fa fa-check"></i><b>2.7.3</b> Centenarians</a></li>
+<li class="chapter" data-level="2.7.4" data-path="R-introduction.html"><a href="R-introduction.html#justification-of-the-log-transformation-for-the-rodent-data"><i class="fa fa-check"></i><b>2.7.4</b> Justification of the log transformation for the rodent data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#reorganising-data"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#collating-data-from-different-sources"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#tidy-data"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#further-reading-2"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Exploring data</b></span></li>
+<li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#thousand-words"><i class="fa fa-check"></i><b>4.1</b> Graphics: a picture is worth a thousand words</a></li>
+<li class="chapter" data-level="4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot-graphics"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-visualisation.html"><a href="data-visualisation.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-visualisation.html"><a href="data-visualisation.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#what-are-we-looking-for"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#continuous-scales"><i class="fa fa-check"></i><b>4.3.1</b> Continuous scales</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-visualisation.html"><a href="data-visualisation.html#discrete-scales"><i class="fa fa-check"></i><b>4.3.2</b> Discrete scales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-visualisation.html"><a href="data-visualisation.html#categorical-data"><i class="fa fa-check"></i><b>4.3.3</b> Categorical data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#gaining-an-overview-of-datasets"><i class="fa fa-check"></i><b>4.4</b> Gaining an overview of datasets</a></li>
+<li class="chapter" data-level="4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#plots-for-more-complex-data-structures"><i class="fa fa-check"></i><b>4.5</b> Plots for more complex data structures</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="data-visualisation.html"><a href="data-visualisation.html#d-data"><i class="fa fa-check"></i><b>4.5.1</b> 3D data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-visualisation.html"><a href="data-visualisation.html#circular-spherical-and-compositional-data"><i class="fa fa-check"></i><b>4.5.2</b> Circular, spherical and compositional data</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-visualisation.html"><a href="data-visualisation.html#other-data-structures"><i class="fa fa-check"></i><b>4.5.3</b> Other data structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-visualisation.html"><a href="data-visualisation.html#going-further"><i class="fa fa-check"></i><b>4.6</b> Going further</a></li>
+<li class="chapter" data-level="4.7" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="data-visualisation.html"><a href="data-visualisation.html#rodent-mass-and-speed"><i class="fa fa-check"></i><b>4.7.1</b> Rodent mass and speed</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-visualisation.html"><a href="data-visualisation.html#uk-covid-19-deaths"><i class="fa fa-check"></i><b>4.7.2</b> UK covid-19 deaths</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-visualisation.html"><a href="data-visualisation.html#scottish-referendum"><i class="fa fa-check"></i><b>4.7.3</b> Scottish referendum</a></li>
+<li class="chapter" data-level="4.7.4" data-path="data-visualisation.html"><a href="data-visualisation.html#centenarians-in-scotland"><i class="fa fa-check"></i><b>4.7.4</b> Centenarians in Scotland</a></li>
+<li class="chapter" data-level="4.7.5" data-path="data-visualisation.html"><a href="data-visualisation.html#flour-beetles"><i class="fa fa-check"></i><b>4.7.5</b> Flour beetles</a></li>
+<li class="chapter" data-level="4.7.6" data-path="data-visualisation.html"><a href="data-visualisation.html#clyde-estuary-water-quality"><i class="fa fa-check"></i><b>4.7.6</b> Clyde Estuary water quality</a></li>
+<li class="chapter" data-level="4.7.7" data-path="data-visualisation.html"><a href="data-visualisation.html#crabs-multivariate"><i class="fa fa-check"></i><b>4.7.7</b> Crabs (<em>multivariate</em>)</a></li>
+<li class="chapter" data-level="4.7.8" data-path="data-visualisation.html"><a href="data-visualisation.html#topographic-data"><i class="fa fa-check"></i><b>4.7.8</b> Topographic data</a></li>
+<li class="chapter" data-level="4.7.9" data-path="data-visualisation.html"><a href="data-visualisation.html#global-energy-use"><i class="fa fa-check"></i><b>4.7.9</b> Global energy use</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html"><i class="fa fa-check"></i><b>5</b> Trends and patterns</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#density-estimation"><i class="fa fa-check"></i><b>5.1</b> Density estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#flexible-regression"><i class="fa fa-check"></i><b>5.2</b> Flexible regression</a></li>
+<li class="chapter" data-level="5.3" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#further-reading-3"><i class="fa fa-check"></i><b>5.3</b> Further reading</a></li>
+<li class="chapter" data-level="5.4" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#exercises-4"><i class="fa fa-check"></i><b>5.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#exercise-conservation-density-displays"><i class="fa fa-check"></i><b>5.4.1</b> Does conservation work?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#the-spatial-distribution-of-laryngeal-cancer-smoothing"><i class="fa fa-check"></i><b>5.4.2</b> The spatial distribution of laryngeal cancer (<em>smoothing</em>)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#aircraft-data"><i class="fa fa-check"></i><b>5.4.3</b> Aircraft data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#radiocarbon-data"><i class="fa fa-check"></i><b>5.4.4</b> Radiocarbon data</a></li>
+<li class="chapter" data-level="5.4.5" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#follicle-data"><i class="fa fa-check"></i><b>5.4.5</b> Follicle data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Statistical Inference</b></span></li>
+<li class="chapter" data-level="6" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>6</b> Inference: turning data into evidence</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference.html"><a href="inference.html#where-do-data-come-from-samples-and-populations"><i class="fa fa-check"></i><b>6.1</b> Where do data come from? Samples and populations</a></li>
+<li class="chapter" data-level="6.2" data-path="inference.html"><a href="inference.html#quantifying-uncertainty-standard-error"><i class="fa fa-check"></i><b>6.2</b> Quantifying uncertainty: standard error</a></li>
+<li class="chapter" data-level="6.3" data-path="inference.html"><a href="inference.html#quantifying-uncertainty-confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Quantifying uncertainty: confidence intervals</a></li>
+<li class="chapter" data-level="6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>6.4</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="6.5" data-path="inference.html"><a href="inference.html#variability-bands-for-flexible-regression"><i class="fa fa-check"></i><b>6.5</b> Variability bands for flexible regression</a></li>
+<li class="chapter" data-level="6.6" data-path="inference.html"><a href="inference.html#further-reading-4"><i class="fa fa-check"></i><b>6.6</b> Further reading</a></li>
+<li class="chapter" data-level="6.7" data-path="inference.html"><a href="inference.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="inference.html"><a href="inference.html#standard-errors"><i class="fa fa-check"></i><b>6.7.1</b> Standard errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html"><i class="fa fa-check"></i><b>7</b> Other approaches to inference</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#computational-inference"><i class="fa fa-check"></i><b>7.1</b> Computational inference</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#simulation-methods"><i class="fa fa-check"></i><b>7.1.1</b> Simulation methods</a></li>
+<li class="chapter" data-level="7.1.2" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#randomisation-tests"><i class="fa fa-check"></i><b>7.1.2</b> Randomisation tests</a></li>
+<li class="chapter" data-level="7.1.3" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#the-bootstrap"><i class="fa fa-check"></i><b>7.1.3</b> The bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#bayesian-inference"><i class="fa fa-check"></i><b>7.2</b> Bayesian inference</a></li>
+<li class="chapter" data-level="7.3" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#exercises-6"><i class="fa fa-check"></i><b>7.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#coverage-property-of-bootstrap-confidence-intervals"><i class="fa fa-check"></i><b>7.3.1</b> Coverage property of bootstrap confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html"><i class="fa fa-check"></i><b>8</b> Inference with categorical data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#simple-proportions"><i class="fa fa-check"></i><b>8.1</b> Simple proportions</a></li>
+<li class="chapter" data-level="8.2" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#comparing-proportions"><i class="fa fa-check"></i><b>8.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="8.3" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#contingency-tables"><i class="fa fa-check"></i><b>8.3</b> Contingency tables</a></li>
+<li class="chapter" data-level="8.4" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#exercises-7"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#opinion-polls"><i class="fa fa-check"></i><b>8.4.1</b> Opinion polls</a></li>
+<li class="chapter" data-level="8.4.2" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#respiratory-disease-in-infancy"><i class="fa fa-check"></i><b>8.4.2</b> Respiratory disease in infancy</a></li>
+<li class="chapter" data-level="8.4.3" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#smoking-and-lung-cancer"><i class="fa fa-check"></i><b>8.4.3</b> Smoking and lung cancer</a></li>
+<li class="chapter" data-level="8.4.4" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#confidence-intervals-and-p-values"><i class="fa fa-check"></i><b>8.4.4</b> Confidence intervals and p-values</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Statistical Models</b></span></li>
+<li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-models.html"><a href="linear-models.html#simple-regression"><i class="fa fa-check"></i><b>9.1</b> One covariate: linear models in miniature</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models.html"><a href="linear-models.html#formulating-and-fitting-linear-models"><i class="fa fa-check"></i><b>9.2</b> Formulating and fitting linear models</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-models.html"><a href="linear-models.html#model-checking"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-models.html"><a href="linear-models.html#inference-1"><i class="fa fa-check"></i><b>9.4</b> Inference</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="linear-models.html"><a href="linear-models.html#confidence-intervals"><i class="fa fa-check"></i><b>9.4.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.4.2" data-path="linear-models.html"><a href="linear-models.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.4.2</b> Hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="linear-models.html"><a href="linear-models.html#two-covariates-black-cherry-trees"><i class="fa fa-check"></i><b>9.5</b> Two covariates: Black Cherry Trees</a></li>
+<li class="chapter" data-level="9.6" data-path="linear-models.html"><a href="linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.6</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7" data-path="linear-models.html"><a href="linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7</b> Comparing regression lines: analysis of covariance</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="linear-models.html"><a href="linear-models.html#trout"><i class="fa fa-check"></i><b>9.7.1</b> Trout</a></li>
+<li class="chapter" data-level="9.7.2" data-path="linear-models.html"><a href="linear-models.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.7.2</b> Respiratory distress syndrome</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="linear-models.html"><a href="linear-models.html#general-thoughts-on-models"><i class="fa fa-check"></i><b>9.8</b> General thoughts on models</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="linear-models.html"><a href="linear-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.8.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.8.2" data-path="linear-models.html"><a href="linear-models.html#model-selection"><i class="fa fa-check"></i><b>9.8.2</b> Model selection</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="linear-models.html"><a href="linear-models.html#exercises-8"><i class="fa fa-check"></i><b>9.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="linear-models.html"><a href="linear-models.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.9.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9.2" data-path="linear-models.html"><a href="linear-models.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.9.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.9.3" data-path="linear-models.html"><a href="linear-models.html#cats"><i class="fa fa-check"></i><b>9.9.3</b> Cats</a></li>
+<li class="chapter" data-level="9.9.4" data-path="linear-models.html"><a href="linear-models.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.9.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.9.5" data-path="linear-models.html"><a href="linear-models.html#the-clyde-data"><i class="fa fa-check"></i><b>9.9.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.9.6" data-path="linear-models.html"><a href="linear-models.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.9.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.9.7" data-path="linear-models.html"><a href="linear-models.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.9.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.9.8" data-path="linear-models.html"><a href="linear-models.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.9.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.9.9" data-path="linear-models.html"><a href="linear-models.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.9.9</b> The effects of conservation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#logistic-regression"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
+<li class="chapter" data-level="10.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#the-concept-of-likelihood"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.3" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#poisson-regression"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
+<li class="chapter" data-level="10.4" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#general-glms"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
+<li class="chapter" data-level="10.5" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#further-examples"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#two-covariates-vasoconstriction-of-the-digits"><i class="fa fa-check"></i><b>10.5.1</b> Two covariates: vasoconstriction of the digits</a></li>
+<li class="chapter" data-level="10.5.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#doctors-and-smoking"><i class="fa fa-check"></i><b>10.5.2</b> Doctors and smoking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#exercises-9"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
+<li class="chapter" data-level="10.6.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
+<li class="chapter" data-level="10.6.3" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html#a-problem-with-paste"><i class="fa fa-check"></i><b>11.1</b> A problem with paste</a></li>
+<li class="chapter" data-level="11.2" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html#repeated-measurements"><i class="fa fa-check"></i><b>11.2</b> Repeated measurements</a></li>
+<li class="chapter" data-level="11.3" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html#a-case-study-reading-attainment"><i class="fa fa-check"></i><b>11.3</b> A case study: reading attainment</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="flexible-models.html"><a href="flexible-models.html#flexible-methods"><i class="fa fa-check"></i><b>12.1</b> Methods for constructing flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="flexible-models.html"><a href="flexible-models.html#fitting-models-locally"><i class="fa fa-check"></i><b>12.1.1</b> Fitting models locally</a></li>
+<li class="chapter" data-level="12.1.2" data-path="flexible-models.html"><a href="flexible-models.html#splines"><i class="fa fa-check"></i><b>12.1.2</b> Splines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="flexible-models.html"><a href="flexible-models.html#inference-with-simple-flexible-models"><i class="fa fa-check"></i><b>12.2</b> Inference with simple flexible models</a></li>
+<li class="chapter" data-level="12.3" data-path="flexible-models.html"><a href="flexible-models.html#a-simple-additive-model"><i class="fa fa-check"></i><b>12.3</b> A simple additive model</a></li>
+<li class="chapter" data-level="12.4" data-path="flexible-models.html"><a href="flexible-models.html#inference-with-additive-models"><i class="fa fa-check"></i><b>12.4</b> Inference with additive models</a></li>
+<li class="chapter" data-level="12.5" data-path="flexible-models.html"><a href="flexible-models.html#further-reading-5"><i class="fa fa-check"></i><b>12.5</b> Further reading</a></li>
+<li class="chapter" data-level="12.6" data-path="flexible-models.html"><a href="flexible-models.html#exercises-10"><i class="fa fa-check"></i><b>12.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="flexible-models.html"><a href="flexible-models.html#fitting-a-p-spline-model"><i class="fa fa-check"></i><b>12.6.1</b> Fitting a p-spline model</a></li>
+<li class="chapter" data-level="12.6.2" data-path="flexible-models.html"><a href="flexible-models.html#the-backfitting-algorithm"><i class="fa fa-check"></i><b>12.6.2</b> The backfitting algorithm</a></li>
+<li class="chapter" data-level="12.6.3" data-path="flexible-models.html"><a href="flexible-models.html#water-quality-in-the-clyde-estuary"><i class="fa fa-check"></i><b>12.6.3</b> Water quality in the Clyde estuary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>13</b> Models for time</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="models-for-time.html"><a href="models-for-time.html#time-series-data"><i class="fa fa-check"></i><b>13.1</b> Time series data</a></li>
+<li class="chapter" data-level="13.2" data-path="models-for-time.html"><a href="models-for-time.html#visualisation"><i class="fa fa-check"></i><b>13.2</b> Visualisation</a></li>
+<li class="chapter" data-level="13.3" data-path="models-for-time.html"><a href="models-for-time.html#models"><i class="fa fa-check"></i><b>13.3</b> Models</a></li>
+<li class="chapter" data-level="13.4" data-path="models-for-time.html"><a href="models-for-time.html#further-reading-6"><i class="fa fa-check"></i><b>13.4</b> Further reading</a></li>
+<li class="chapter" data-level="13.5" data-path="models-for-time.html"><a href="models-for-time.html#exercises-11"><i class="fa fa-check"></i><b>13.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="models-for-time.html"><a href="models-for-time.html#simulating-time-series"><i class="fa fa-check"></i><b>13.5.1</b> Simulating time series</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="models-for-space.html"><a href="models-for-space.html"><i class="fa fa-check"></i><b>14</b> Models for space</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="models-for-space.html"><a href="models-for-space.html#visualising-spatial-data"><i class="fa fa-check"></i><b>14.1</b> Visualising spatial data</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="models-for-space.html"><a href="models-for-space.html#the-maps-package"><i class="fa fa-check"></i><b>14.1.1</b> The <code>maps</code> package</a></li>
+<li class="chapter" data-level="14.1.2" data-path="models-for-space.html"><a href="models-for-space.html#leaflet-and-mapview-interactive-maps"><i class="fa fa-check"></i><b>14.1.2</b> <code>leaflet</code> and <code>mapview</code>: interactive maps</a></li>
+<li class="chapter" data-level="14.1.3" data-path="models-for-space.html"><a href="models-for-space.html#ggplot-and-ggmap"><i class="fa fa-check"></i><b>14.1.3</b> <code>ggplot</code> and <code>ggmap</code></a></li>
+<li class="chapter" data-level="14.1.4" data-path="models-for-space.html"><a href="models-for-space.html#tmap"><i class="fa fa-check"></i><b>14.1.4</b> <code>tmap</code></a></li>
+<li class="chapter" data-level="14.1.5" data-path="models-for-space.html"><a href="models-for-space.html#spatstat-for-spatial-point-patterns"><i class="fa fa-check"></i><b>14.1.5</b> <code>spatstat</code> for spatial point patterns</a></li>
+<li class="chapter" data-level="14.1.6" data-path="models-for-space.html"><a href="models-for-space.html#areal-data"><i class="fa fa-check"></i><b>14.1.6</b> Areal data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="models-for-space.html"><a href="models-for-space.html#image-data"><i class="fa fa-check"></i><b>14.1.7</b> Image data</a></li>
+<li class="chapter" data-level="14.1.8" data-path="models-for-space.html"><a href="models-for-space.html#spatiotemporal-animation"><i class="fa fa-check"></i><b>14.1.8</b> Spatiotemporal animation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="models-for-space.html"><a href="models-for-space.html#models-for-point-pattern-data"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
+<li class="chapter" data-level="14.3" data-path="models-for-space.html"><a href="models-for-space.html#geostatistical-models"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="models-for-space.html"><a href="models-for-space.html#gaussian-processes"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian processes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="models-for-space.html"><a href="models-for-space.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
+<li class="chapter" data-level="14.3.3" data-path="models-for-space.html"><a href="models-for-space.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="models-for-space.html"><a href="models-for-space.html#models-for-areal-data"><i class="fa fa-check"></i><b>14.4</b> Models for areal data</a></li>
+<li class="chapter" data-level="14.5" data-path="models-for-space.html"><a href="models-for-space.html#further-reading-7"><i class="fa fa-check"></i><b>14.5</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html"><i class="fa fa-check"></i><b>15</b> Experimental design revisited</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#power"><i class="fa fa-check"></i><b>15.1</b> Power</a></li>
+<li class="chapter" data-level="15.2" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#completely-randomised-design-comparing-several-treatments"><i class="fa fa-check"></i><b>15.2</b> Completely randomised design: comparing several treatments</a></li>
+<li class="chapter" data-level="15.3" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#randomised-blocks-the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.3</b> Randomised blocks: the parable of the sower</a></li>
+<li class="chapter" data-level="15.4" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#factorial-designs-poisons-and-treatments"><i class="fa fa-check"></i><b>15.4</b> Factorial designs: poisons and treatments</a></li>
+<li class="chapter" data-level="15.5" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#principles-of-experimental-design"><i class="fa fa-check"></i><b>15.5</b> Principles of experimental design</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#control"><i class="fa fa-check"></i><b>15.5.1</b> Control</a></li>
+<li class="chapter" data-level="15.5.2" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#replicate"><i class="fa fa-check"></i><b>15.5.2</b> Replicate</a></li>
+<li class="chapter" data-level="15.5.3" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#randomise"><i class="fa fa-check"></i><b>15.5.3</b> Randomise</a></li>
+<li class="chapter" data-level="15.5.4" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#replication-and-pseudo-replication"><i class="fa fa-check"></i><b>15.5.4</b> Replication and Pseudo-Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#exercises-12"><i class="fa fa-check"></i><b>15.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#student-cost-of-living"><i class="fa fa-check"></i><b>15.6.1</b> Student cost of living</a></li>
+<li class="chapter" data-level="15.6.2" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#us-presidential-election-1936"><i class="fa fa-check"></i><b>15.6.2</b> US presidential election 1936</a></li>
+<li class="chapter" data-level="15.6.3" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.6.3</b> The parable of the sower</a></li>
+<li class="chapter" data-level="15.6.4" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#mururoa"><i class="fa fa-check"></i><b>15.6.4</b> Mururoa</a></li>
+<li class="chapter" data-level="15.6.5" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#a-scottish-firth"><i class="fa fa-check"></i><b>15.6.5</b> A Scottish firth</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Statistical Models in Practice</b></span></li>
+<li class="chapter" data-level="16" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>16</b> Case studies of statistical modelling</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html#covid-19-initial-surveillance"><i class="fa fa-check"></i><b>16.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="16.2" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html#uk-parliamentary-election-2024"><i class="fa fa-check"></i><b>16.2</b> UK parliamentary election 2024</a></li>
+</ul></li>
+<li class="part"><span><b>VI Other topics</b></span></li>
+<li class="chapter" data-level="17" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>17</b> More on R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="more-on-r.html"><a href="more-on-r.html#repetition"><i class="fa fa-check"></i><b>17.1</b> Repetition</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="more-on-r.html"><a href="more-on-r.html#standard-loops"><i class="fa fa-check"></i><b>17.1.1</b> Standard loops</a></li>
+<li class="chapter" data-level="17.1.2" data-path="more-on-r.html"><a href="more-on-r.html#the-apply-family"><i class="fa fa-check"></i><b>17.1.2</b> The ‘apply’ family</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="more-on-r.html"><a href="more-on-r.html#writing-your-own-functions"><i class="fa fa-check"></i><b>17.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="17.3" data-path="more-on-r.html"><a href="more-on-r.html#conditional-statements-and-while-loops"><i class="fa fa-check"></i><b>17.3</b> Conditional statements and <code>while</code> loops</a></li>
+<li class="chapter" data-level="17.4" data-path="more-on-r.html"><a href="more-on-r.html#further-reading-8"><i class="fa fa-check"></i><b>17.4</b> Further reading</a></li>
+<li class="chapter" data-level="17.5" data-path="more-on-r.html"><a href="more-on-r.html#exercises-13"><i class="fa fa-check"></i><b>17.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="more-on-r.html"><a href="more-on-r.html#a-simple-function"><i class="fa fa-check"></i><b>17.5.1</b> A simple function</a></li>
+<li class="chapter" data-level="17.5.2" data-path="more-on-r.html"><a href="more-on-r.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>17.5.2</b> A simple function: thresholds</a></li>
+<li class="chapter" data-level="17.5.3" data-path="more-on-r.html"><a href="more-on-r.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-wrangling" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Data wrangling<a href="data-wrangling.html#data-wrangling" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The organisation and restructuring of datasets is a very important step in preparing for later analysis. This is sometimes called <em>data wrangling</em> and some powerful tools for this are outlined here.</p>
+<div id="reorganising-data" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Reorganising data<a href="data-wrangling.html#reorganising-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is rarely the case that the form in which data are collected is immediately suitable for analysis. There are often things we need to do to put the data into a more suitable structure. Here is an example.</p>
+<p>Data on the number of deaths related to covid-19 are available from the <em>National Records of Scotland</em>. Background information is available from the <a href="https://statistics.gov.scot/data/deaths-involving-coronavirus-covid-19">detailed notes</a> by selecting the <em>About</em> tab. The data can be conveniently accessed through the <code>rp.datalink</code> function. The function <code>str</code> gives a useful indication of the type of data present.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-wrangling.html#cb25-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;covid19_deaths_scotland&#39;</span>)</span>
+<span id="cb25-2"><a href="data-wrangling.html#cb25-2" tabindex="-1"></a>covid_deaths <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path)</span>
+<span id="cb25-3"><a href="data-wrangling.html#cb25-3" tabindex="-1"></a><span class="fu">str</span>(covid_deaths)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    10510 obs. of  9 variables:
+##  $ FeatureCode    : chr  &quot;S92000003&quot; &quot;S92000003&quot; &quot;S92000003&quot; &quot;S92000003&quot; ...
+##  $ DateCode       : chr  &quot;w/c 2020-08-17&quot; &quot;w/c 2020-11-02&quot; &quot;w/c 2020-09-14&quot; &quot;w/c 2020-08-10&quot; ...
+##  $ Measurement    : chr  &quot;Count&quot; &quot;Count&quot; &quot;Count&quot; &quot;Count&quot; ...
+##  $ Units          : chr  &quot;Deaths&quot; &quot;Deaths&quot; &quot;Deaths&quot; &quot;Deaths&quot; ...
+##  $ Value          : num  0 9 0 1 32359 ...
+##  $ Sex            : chr  &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; &quot;Female&quot; ...
+##  $ Age            : chr  &quot;45-64 years&quot; &quot;45-64 years&quot; &quot;45-64 years&quot; &quot;45-64 years&quot; ...
+##  $ CauseOfDeath   : chr  &quot;COVID-19 related&quot; &quot;COVID-19 related&quot; &quot;COVID-19 related&quot; &quot;COVID-19 related&quot; ...
+##  $ LocationOfDeath: chr  &quot;All&quot; &quot;All&quot; &quot;All&quot; &quot;All&quot; ...</code></pre>
+<p>Like all real datasets, we need to think carefully about the structure of the data, the way it has been coded and many other detailed aspects. As our understanding grows and our thinking develops so too the R script we use will evolve to represent our exploration and analysis. The code below is the product of a lot of experimentation - and many mistakes! For example, it took a while to understand the meaning of the <code>FeatureCode</code> variable. The setting shown below gives the data for the whole of Scotland, but more serious use of the data should confirm and document that.</p>
+<p>As ever, some filtering and recoding of the data may be useful. The code below uses the <code>subset</code> function to pull out the data for Scotland as a whole, for cause of death related to covid 19, for deaths in all settings. Summary numbers for the years 2020 and 2021 are also removed. It is also helpful to indicate that the information in <code>DateCode</code> is a date, as R has special facilities for dates. The <code>sub</code> function removes the “w/c” text at the start of each date code and the uses the <code>as.Date</code> function to tell R that this is a date.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-wrangling.html#cb27-1" tabindex="-1"></a>covid_deaths <span class="ot">&lt;-</span> <span class="fu">subset</span>(covid_deaths, FeatureCode <span class="sc">==</span> <span class="st">&quot;S92000003&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb27-2"><a href="data-wrangling.html#cb27-2" tabindex="-1"></a>                                     CauseOfDeath <span class="sc">==</span> <span class="st">&quot;COVID-19 related&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb27-3"><a href="data-wrangling.html#cb27-3" tabindex="-1"></a>                                     LocationOfDeath <span class="sc">==</span> <span class="st">&quot;All&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb27-4"><a href="data-wrangling.html#cb27-4" tabindex="-1"></a>                                     <span class="sc">!</span>(DateCode <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;2020&quot;</span>, <span class="st">&quot;2021&quot;</span>)))</span>
+<span id="cb27-5"><a href="data-wrangling.html#cb27-5" tabindex="-1"></a>covid_deaths<span class="sc">$</span>DateCode <span class="ot">&lt;-</span> <span class="fu">sub</span>(<span class="st">&quot;w/c &quot;</span>, <span class="st">&quot;&quot;</span>, covid_deaths<span class="sc">$</span>DateCode)</span>
+<span id="cb27-6"><a href="data-wrangling.html#cb27-6" tabindex="-1"></a>covid_deaths<span class="sc">$</span>Date     <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(covid_deaths<span class="sc">$</span>DateCode)</span></code></pre></div>
+<p>In order to plot the deaths over time, we need to ensure that we have the dates in the correct order. The <code>order</code> function returns the set of indices which will do this. We can then use the square bracket notation to put the dates and numbers of deaths into the correct order. The <code>type = 'l'</code> argument in the <code>plot</code> function joins these points by lines.</p>
+<!-- For these data, the default scale for Date has rather sparse annotation. We can alter this through the `xaxt = 'n'` argument which suppresses the ticks on the x-axis. We can then use the `pretty` function to identify better labels and use the `axis` function to plot them. There is a lot going on here - but remember that what you see here is, as usual, the end product of quite a lot of experimentation. -->
+<!-- #, xaxt = 'n') -->
+<!-- #dt <- pretty(sbst$Date) -->
+<!-- #axis(1, dt, format(dt, "%b %Y")) -->
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-wrangling.html#cb28-1" tabindex="-1"></a>sbst <span class="ot">&lt;-</span> <span class="fu">subset</span>(covid_deaths, Age <span class="sc">==</span> <span class="st">&quot;All&quot;</span> <span class="sc">&amp;</span> Sex <span class="sc">==</span> <span class="st">&#39;All&#39;</span>)</span>
+<span id="cb28-2"><a href="data-wrangling.html#cb28-2" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="fu">order</span>(sbst<span class="sc">$</span>Date)</span>
+<span id="cb28-3"><a href="data-wrangling.html#cb28-3" tabindex="-1"></a><span class="fu">plot</span>(sbst<span class="sc">$</span>Date[ind], sbst<span class="sc">$</span>Value[ind], <span class="at">type =</span> <span class="st">&#39;l&#39;</span>,</span>
+<span id="cb28-4"><a href="data-wrangling.html#cb28-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Date&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;Number of deaths&#39;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-273-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>This shows the overall course of the pandemic in the UK. An exercise at the end of Chapter <a href="data-visualisation.html#data-visualisation">4</a> on Data Visualisation chapter will invite you to explore this at more detailed levels of age and sex.</p>
+</div>
+<div id="collating-data-from-different-sources" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Collating data from different sources<a href="data-wrangling.html#collating-data-from-different-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the previous section, standard R functions were used to reorganise data. In principle, most things can be achieved by this route but the code can become complex to handle very detailed manipulations. As often happens, we can take advantage of the careful work of others by using packages which will help. The <code>dplyr</code> package is an excellent example. This provides powerful tools to manipulate data using high-level functions which take care of the details for us. Examples of these tools are described in this section.</p>
+<p>This section also makes use of the <code>readxl</code> package to read Excel spreadsheets. Remember that packages need to be installed on your computer before they can be used, as was done for the <code>rpanel</code> package at the start of the book. The code below illustrates this for the two new packages we need, but it will be assumed for other package use later in the book. Installation needs to be done only once, with packages made available for a particular R session through the <code>library</code> function.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="data-wrangling.html#cb29-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
+<span id="cb29-2"><a href="data-wrangling.html#cb29-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<blockquote>
+<hr />
+<p><strong>Example: Giving in the Church of England</strong><br />
+The <a href="https://www.churchofengland.org">Church of England</a> is a large organisation whose 12,500 parishes, organised into 42 regions called dioceses, cover the whole of England. This gives a good context within which to explore patterns in charitable giving and <span class="citation">Pickering (<a href="#ref-pickering_1985_applecon">1985</a>)</span> examined this using data from the 1980’s. Prosperity (expressed in employment rate) and attachment (the proportion of the population associated with the church) were identified as important covariates associated with the variations in giving per church member across the country. Interestingly, giving per church member went down as attachment increased. Is this relationship still evident?</p>
+<p>The <a href="https://www.churchofengland.org/about/data-services">Data Services</a> unit publishes a large amount of information about the composition and activity of the church so this provides an opportunity to examine whether these effects remain. However, the information required is spread across multiple files covering <a href="https://www.churchofengland.org/sites/default/files/2021-12/2020StatisticsForMission_tables.xlsx">attendance</a>, <a href="https://www.churchofengland.org/sites/default/files/2022-01/Parish_Census_IMD2019_Summary_Jan2022.xlsx">deprivation</a> and <a href="https://www.churchofengland.org/sites/default/files/2023-03/parish-finance-statistics-2021_diocesan-totals-.xlsx">giving</a>. You may like to follow these links to look at the form and content of these spreadsheets.</p>
+<hr />
+</blockquote>
+<p>The first task is to collate the information into a single dataset containing the appropriate data. We will focus on 2019 as this is pre-pandemic. The English Index of Multiple Deprivation (IMD) will be used as a measure of regional prosperity. It is appropriate to exclude Europe, the Channel Islands and the Isle of Man, for which some information is not available. These are also regions with unusual characteristics.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="data-wrangling.html#cb30-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb30-2"><a href="data-wrangling.html#cb30-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb30-3"><a href="data-wrangling.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="data-wrangling.html#cb30-4" tabindex="-1"></a>path.attend <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_attendance_2019&#39;</span>)</span>
+<span id="cb30-5"><a href="data-wrangling.html#cb30-5" tabindex="-1"></a>path.giving <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_giving_2019&#39;</span>)</span>
+<span id="cb30-6"><a href="data-wrangling.html#cb30-6" tabindex="-1"></a>path.depriv <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_deprivation_2019&#39;</span>)</span>
+<span id="cb30-7"><a href="data-wrangling.html#cb30-7" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="data-wrangling.html#cb30-8" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">5</span>, <span class="at">range =</span> <span class="st">&#39;B4:I47&#39;</span>)</span>
+<span id="cb30-9"><a href="data-wrangling.html#cb30-9" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">select</span>(d.elect, <span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Elect =</span> <span class="dv">3</span>, <span class="at">Worship =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p>The instructions above make use of the <code>read_excel</code> function to read an <em>Excel</em> spreadsheet. This includes helpful arguments to specify which sheet and which block of cells we would like to read from. The <code>select</code> function from the <code>dplyr</code> package then allows us to select out three columns of interest while simultaneously renaming them.</p>
+<p>The last two operations can usefully be combined in the expression below. This uses the <em>pipe</em> operator. The results of the instruction preceding the <code>%&gt;%</code> symbol are passed as the first argument of the instruction which follows. The <code>select</code> function expects a dataframe as its first argument. This allows multiple instructions to be combined in a natural order, without the need to use repeated <code>&lt;-</code> assignments.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-wrangling.html#cb31-1" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">5</span>, <span class="at">range =</span> <span class="st">&#39;B4:I47&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="data-wrangling.html#cb31-2" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Elect =</span> <span class="dv">3</span>, <span class="at">Worship =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p>We can apply this idea when reading the spreadsheets about attendance, giving and deprivation. The deprivation information is actually supplied at a finer level (parish) so the <code>group_by</code> and <code>summarise</code> functions allow us to aggregate to the level (diocese) which matches the information from the other spreadsheets.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-wrangling.html#cb32-1" tabindex="-1"></a>d.attend <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">6</span>, <span class="at">range =</span> <span class="st">&#39;B4:D47&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="data-wrangling.html#cb32-2" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Attend =</span> <span class="dv">3</span>)</span>
+<span id="cb32-3"><a href="data-wrangling.html#cb32-3" tabindex="-1"></a>d.giving <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.giving, <span class="at">sheet =</span> <span class="dv">3</span>, <span class="at">range =</span> <span class="st">&#39;B8:BS49&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-4"><a href="data-wrangling.html#cb32-4" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Giving =</span> <span class="dv">19</span>, <span class="at">Givers =</span> <span class="dv">59</span>)</span>
+<span id="cb32-5"><a href="data-wrangling.html#cb32-5" tabindex="-1"></a>d.depriv <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.depriv, <span class="at">sheet =</span> <span class="dv">2</span>, <span class="at">range =</span> <span class="st">&#39;A1:AK12408&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-6"><a href="data-wrangling.html#cb32-6" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">11</span>, <span class="at">population =</span> <span class="dv">13</span>, <span class="at">IMD =</span> <span class="dv">37</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb32-7"><a href="data-wrangling.html#cb32-7" tabindex="-1"></a>   <span class="fu">group_by</span>(Diocese) <span class="sc">%&gt;%</span></span>
+<span id="cb32-8"><a href="data-wrangling.html#cb32-8" tabindex="-1"></a>   <span class="fu">summarise</span>(<span class="at">IMD =</span> <span class="fu">sum</span>(IMD <span class="sc">*</span> population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span></span>
+<span id="cb32-9"><a href="data-wrangling.html#cb32-9" tabindex="-1"></a>                   <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb32-10"><a href="data-wrangling.html#cb32-10" tabindex="-1"></a>             <span class="at">population =</span> <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<p>Before joining these different sets of information togethjer, it would be wise to check that there are no inconsistencies in the way the information has been coded. The <code>anti_join</code> function is very useful for this. Here is identifies some small differences in the names of the dioceses.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-wrangling.html#cb33-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.elect,  d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 0 × 3
+## # ℹ 3 variables: Diocese &lt;chr&gt;, Elect &lt;dbl&gt;, Worship &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-wrangling.html#cb35-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.giving, d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   Diocese                    Giving Givers
+##   &lt;chr&gt;                       &lt;dbl&gt;  &lt;dbl&gt;
+## 1 St.Albans                12579567  15283
+## 2 St.Edmundsbury &amp; Ipswich  4614832   8542
+## 3 Sodor and Man              447514    623</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-wrangling.html#cb37-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.depriv, d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   Diocese                    IMD population
+##   &lt;chr&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
+## 1 St.Albans                 14.7   1927579.
+## 2 St.Edmundsbury &amp; Ipswich  17.1    679678.</code></pre>
+<p>That can be fixed by using the <code>mutate</code> and <code>recode</code> functions.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-wrangling.html#cb39-1" tabindex="-1"></a>d.attend <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.attend, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
+<span id="cb39-2"><a href="data-wrangling.html#cb39-2" tabindex="-1"></a>                   <span class="st">&#39;St. Albans&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Albans&#39;</span>,</span>
+<span id="cb39-3"><a href="data-wrangling.html#cb39-3" tabindex="-1"></a>                   <span class="st">&#39;St. Edms &amp; Ipswich&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Edmundsbury &amp; Ipswich&#39;</span>))</span>
+<span id="cb39-4"><a href="data-wrangling.html#cb39-4" tabindex="-1"></a>d.elect  <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.elect, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
+<span id="cb39-5"><a href="data-wrangling.html#cb39-5" tabindex="-1"></a>                   <span class="st">&#39;St. Albans&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Albans&#39;</span>,</span>
+<span id="cb39-6"><a href="data-wrangling.html#cb39-6" tabindex="-1"></a>                   <span class="st">&#39;St. Edms &amp; Ipswich&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Edmundsbury &amp; Ipswich&#39;</span>))</span>
+<span id="cb39-7"><a href="data-wrangling.html#cb39-7" tabindex="-1"></a>d.giving <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.giving, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
+<span id="cb39-8"><a href="data-wrangling.html#cb39-8" tabindex="-1"></a>                   <span class="st">&#39;Sodor and Man&#39;</span> <span class="ot">=</span> <span class="st">&#39;Sodor &amp; Man&#39;</span>))</span></code></pre></div>
+<p>Now we are in a position to join everything together using the <code>full_join</code> function, with a further adjustment to express attachment on a proportional scale and giving on a ‘per member’ scale.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-wrangling.html#cb40-1" tabindex="-1"></a>cofe_2019 <span class="ot">&lt;-</span> d.attend <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="data-wrangling.html#cb40-2" tabindex="-1"></a>        <span class="fu">full_join</span>(d.elect,  <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="data-wrangling.html#cb40-3" tabindex="-1"></a>        <span class="fu">full_join</span>(d.depriv, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="data-wrangling.html#cb40-4" tabindex="-1"></a>        <span class="fu">full_join</span>(d.giving, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-5"><a href="data-wrangling.html#cb40-5" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">Attachment =</span> Attend <span class="sc">/</span> population,</span>
+<span id="cb40-6"><a href="data-wrangling.html#cb40-6" tabindex="-1"></a>               <span class="at">Giving_per_member =</span> Giving <span class="sc">/</span> Elect)</span></code></pre></div>
+<p>Now that the data have been collated into a single dataframe, we are ready to produce some plots which will address the question we began with. There is a lot of variation here. We will revisit this example in Chapter <a href="linear-models.html#linear-models">9</a> when we discuss the topic of linear models.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-wrangling.html#cb41-1" tabindex="-1"></a><span class="fu">plot</span>(Giving_per_member <span class="sc">~</span> Attachment, <span class="at">data =</span> cofe_2019)</span>
+<span id="cb41-2"><a href="data-wrangling.html#cb41-2" tabindex="-1"></a><span class="fu">plot</span>(Giving_per_member <span class="sc">~</span> IMD, <span class="at">data =</span> cofe_2019)</span></code></pre></div>
+<p><img src="book_files/figure-html/cofe_plots-1.png" width="49%" /><img src="book_files/figure-html/cofe_plots-2.png" width="49%" /></p>
+<p>This example illustrates the power of the tools provided by the <code>dplyr</code> package. These manipulations could be performed through standard R functions but the code is likely to be much longer and more complex. A very useful resource is the summary sheet available from the RStudio menu <code>Help &gt; Cheat Sheets &gt; Data Visualization with dplyr</code> and on the web in html and pdf forms. This summarises the wide range of operations which <code>dplyr</code> supports.</p>
+</div>
+<div id="tidy-data" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Tidy data<a href="data-wrangling.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The idea of <em>tidy</em> data is that we have a dataframe in row/column format where each row corresponds to a ‘case’ and each column corresponds to a unique ‘variable’. Many functions expect this format but datasets are not always organised in this way. For example, sometimes we have data where the same variable is measured at different times. The marriage data introduced in Section <a href="R-introduction.html#reading-data-example">2.4.3</a> is a case in point. (The code to read this dataset is repeated here for convenience.) Each row contains the values for the cohort born in a particular year.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-wrangling.html#cb42-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb42-2"><a href="data-wrangling.html#cb42-2" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;married_men&#39;</span>)</span>
+<span id="cb42-3"><a href="data-wrangling.html#cb42-3" tabindex="-1"></a>married_men <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path, <span class="at">sheet =</span> <span class="st">&quot;Table 2&quot;</span>,</span>
+<span id="cb42-4"><a href="data-wrangling.html#cb42-4" tabindex="-1"></a>                <span class="at">skip =</span> <span class="dv">9</span>, <span class="at">n_max =</span> <span class="dv">96</span>,</span>
+<span id="cb42-5"><a href="data-wrangling.html#cb42-5" tabindex="-1"></a>                <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="fu">as.character</span>(<span class="dv">17</span><span class="sc">:</span><span class="dv">50</span>)))</span>
+<span id="cb42-6"><a href="data-wrangling.html#cb42-6" tabindex="-1"></a><span class="fu">head</span>(married_men)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 35
+##    Year  `17`  `18`  `19`  `20`  `21`  `22`  `23`  `24`  `25`  `26`  `27`  `28`
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  1900     0     1     8    24    61   135   214   302   396   483   558   627
+## 2  1901     0     2     8    25    57   119   191   276   365   446   527   596
+## 3  1902     0     1     6    19    44   101   169   248   330   419   500   573
+## 4  1903     0     1     5    16    38    92   158   231   319   404   488   562
+## 5  1904     0     1     4    14    36    89   151   232   319   409   494   568
+## 6  1905     0     1     3    13    34    82   146   223   311   401   488   561
+## # ℹ 22 more variables: `29` &lt;dbl&gt;, `30` &lt;dbl&gt;, `31` &lt;dbl&gt;, `32` &lt;dbl&gt;,
+## #   `33` &lt;dbl&gt;, `34` &lt;dbl&gt;, `35` &lt;dbl&gt;, `36` &lt;dbl&gt;, `37` &lt;dbl&gt;, `38` &lt;dbl&gt;,
+## #   `39` &lt;dbl&gt;, `40` &lt;dbl&gt;, `41` &lt;dbl&gt;, `42` &lt;dbl&gt;, `43` &lt;dbl&gt;, `44` &lt;dbl&gt;,
+## #   `45` &lt;dbl&gt;, `46` &lt;dbl&gt;, `47` &lt;dbl&gt;, `48` &lt;dbl&gt;, `49` &lt;dbl&gt;, `50` &lt;dbl&gt;</code></pre>
+<p>This was a convenient structure for the three-dimensional surface function <code>persp3d</code> used earlier but many other functions expect the values of interest to be in a single variable, with other variables indexing other relevant information, such as <code>Year</code> and <code>Age</code> in this case.</p>
+<p>It is perfectly possible to use basic <code>R</code> instructions to restructure the data, but the very detailed manipulations required can be messy, increasing the possibility of coding errors. The <code>tidyr</code> package is designed to help with this by providing high-level functions to restructure datasets and take care of the detailed manipulations required. For example, we can use the <code>pivot_longer</code> function to change the format of the marriage data in a single instruction. The <code>cols</code> argument identifies where the values of interest are located. There is some flexibility in how those are defined with, for example, <code>!Year</code> providing an alternative expression as ‘all the columns apart from <code>Year</code>’. The <code>values_to</code> argument gives the name of the long column which will be created for the data in the specified <code>cols</code>. The <code>names_to</code> argument provides a name for the new column which will be created from the existing column names to index the new long column of values.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-wrangling.html#cb44-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb44-2"><a href="data-wrangling.html#cb44-2" tabindex="-1"></a>married_men_tidy <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(married_men, <span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">35</span>,</span>
+<span id="cb44-3"><a href="data-wrangling.html#cb44-3" tabindex="-1"></a>                                 <span class="at">values_to =</span> <span class="st">&quot;Share&quot;</span>, <span class="at">names_to =</span> <span class="st">&quot;Age&quot;</span>)</span>
+<span id="cb44-4"><a href="data-wrangling.html#cb44-4" tabindex="-1"></a><span class="fu">head</span>(married_men_tidy)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##    Year Age   Share
+##   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
+## 1  1900 17        0
+## 2  1900 18        1
+## 3  1900 19        8
+## 4  1900 20       24
+## 5  1900 21       61
+## 6  1900 22      135</code></pre>
+<p>You are invited use the data in this form in an exercise in the Data Visualisation chapter.</p>
+<p>The concept of ‘tidy data’ gives its name to a whole ecosystem of packages known as the <code>tidyverse</code>. This includes the <code>dplyr</code> and <code>tidyr</code> packages referred to in this chapter. It also includes the <code>ggplot2</code> package which forms the basis of the data visualisation methods discussed in Chapter <a href="data-visualisation.html#data-visualisation">4</a>. It is often convenient to load the entire ecosystem through the instruction <code>library(tyidyverse)</code>.</p>
+</div>
+<div id="further-reading-2" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Further reading<a href="data-wrangling.html#further-reading-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A key reference on data wrangling is the <em>R for Data Science</em> book <span class="citation">(<a href="#ref-wickham_2023b_book">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>. This is also available in <a href="https://r4ds.hadley.nz">web form</a>.</p>
+</div>
+<div id="exercises-2" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Exercises<a href="data-wrangling.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-wrangling-exercise-UN-demography" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> UN demography data<a href="data-wrangling.html#data-wrangling-exercise-UN-demography" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The United Nations <a href="https://population.un.org/wpp/">World Population Prospects</a> web page provides a great deal of demographic information on countries in the world. Some more <a href="https://population.un.org/wpp/Download/Files/1_Indicators%20(Standard)/CSV_FILES/WPP2022_Demographic_Indicators_notes.csv">detailed information</a> on the variables recorded are also provided. The locations of the two datafiles of interest are available through the <code>rp.datalink</code> function. The first file is located within a zip file. The code below shows how the files of interest can be extracted.</p>
+<pre><code>path1 &lt;- rp.datalink(&quot;UN_demography&quot;)
+path1 &lt;- unz(path1, &quot;WPP2022_Demographic_Indicators_Medium.csv&quot;)
+path2 &lt;- rp.datalink(&quot;UN_demography_metadata&quot;)</code></pre>
+<p>With the first dataset,</p>
+<ul>
+<li>use the <code>read_csv</code> function from the <code>readr</code> package to read the data;</li>
+<li>filter the data to retain only cases where the <code>LocTypeName</code> variable takes the value “Country/Area”;</li>
+<li>select only the variables <code>LocID</code>, <code>Location</code>, <code>Time</code>, <code>TPopulation1Jan</code>, <code>TFR</code> and <code>LEx</code>, renaming the last four variables as <code>Year</code>, <code>Population</code>, <code>Fertility</code> and <code>Life_Expectancy</code> respectively;</li>
+<li>divide the <code>Population</code> variable by 1000.</li>
+</ul>
+<p>The <code>filter</code>, <code>select</code> and <code>mutate</code> functions from the <code>dplyr</code> package will be useful in doing this.</p>
+<p>With the second dataset,</p>
+<ul>
+<li>use the <code>read_excel</code> function from the <code>readxl</code> package to read the <em>Excel</em> spreadsheet labelled “Overall”, skipping the first 16 lines as these do not contain data;</li>
+<li>select only the variables <code>LocID</code> and <code>GeoregName</code>, renaming the second variable as <code>Continent</code> respectively;</li>
+<li>use the <code>distinct</code> function from the <code>dplyr</code> package to remove any duplicate rows;</li>
+<li>shorten some of the <code>Continent</code> names to allow neater visualisations.</li>
+</ul>
+<p>This last step requires the <code>case_match</code> function from the <code>dplyr</code> package. As this is its first appearance, the instruction is provided below using <code>dfrm</code> as the name of the dataframe.</p>
+<pre><code>mutate(dfrm, Continent = case_match(Continent,
+               &quot;Latin America and the Caribbean&quot; ~ &quot;LA and Car.&quot;,
+               &quot;Northern America&quot; ~ &quot;N. America&quot;,
+               .default = Continent))</code></pre>
+<p>Now use the <code>left_join</code> function from the <code>dplyr</code> package to collate the two datasets together, using the <code>LocID</code> variable to match the cases. (Remember to use the <code>anti_join</code> function first, to ensure that there are no mismatches in the coding of <code>LocID</code> in the two datasets.)</p>
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-pickering_1985_applecon" class="csl-entry">
+Pickering, JF. 1985. <span>“Giving in the Church of England: An Econometric Analysis.”</span> <em>Applied Economics</em> 17 (4): 619–32.
+</div>
+<div id="ref-wickham_2023b_book" class="csl-entry">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science</em>. " O’Reilly Media, Inc.".
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="R-introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

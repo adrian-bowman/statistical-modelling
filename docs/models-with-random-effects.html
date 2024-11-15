@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Models with random effects | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Models with random effects | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Models with random effects | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="generalised-linear-models.html"/>
+<link rel="next" href="flexible-models.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i>Getting started with R</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="where-data.html"><a href="where-data.html"><i class="fa fa-check"></i><b>1</b> Where do data come from?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="where-data.html"><a href="where-data.html#examples-data"><i class="fa fa-check"></i><b>1.1</b> Some examples of data</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="where-data.html"><a href="where-data.html#co2-and-global-warming"><i class="fa fa-check"></i><b>1.1.1</b> CO2 and global warming</a></li>
+<li class="chapter" data-level="1.1.2" data-path="where-data.html"><a href="where-data.html#the-first-tuberculosis-trial"><i class="fa fa-check"></i><b>1.1.2</b> The first tuberculosis trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="where-data.html"><a href="where-data.html#the-birds-and-the-bees-how-to-tell-the-sex-of-a-herring-gull"><i class="fa fa-check"></i><b>1.1.3</b> The birds and the bees: how to tell the sex of a herring gull</a></li>
+<li class="chapter" data-level="1.1.4" data-path="where-data.html"><a href="where-data.html#tracking-the-covid-pandemic"><i class="fa fa-check"></i><b>1.1.4</b> Tracking the covid pandemic</a></li>
+<li class="chapter" data-level="1.1.5" data-path="where-data.html"><a href="where-data.html#more-complex-data-objects"><i class="fa fa-check"></i><b>1.1.5</b> More complex data objects</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="where-data.html"><a href="where-data.html#some-broad-issues"><i class="fa fa-check"></i><b>1.2</b> Some broad issues</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="where-data.html"><a href="where-data.html#whats-the-problem"><i class="fa fa-check"></i><b>1.2.1</b> What’s the problem?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="where-data.html"><a href="where-data.html#whats-the-plan"><i class="fa fa-check"></i><b>1.2.2</b> What’s the plan?</a></li>
+<li class="chapter" data-level="1.2.3" data-path="where-data.html"><a href="where-data.html#where-do-the-data-come-from"><i class="fa fa-check"></i><b>1.2.3</b> Where do the data come from?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="where-data.html"><a href="where-data.html#who-do-you-trust"><i class="fa fa-check"></i><b>1.2.4</b> Who do you trust?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="where-data.html"><a href="where-data.html#what-could-possibly-go-wrong"><i class="fa fa-check"></i><b>1.3</b> What could possibly go wrong?</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="where-data.html"><a href="where-data.html#us-presidential-elections-1936-and-1948"><i class="fa fa-check"></i><b>1.3.1</b> US presidential elections, 1936 and 1948</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="where-data.html"><a href="where-data.html#further-reading"><i class="fa fa-check"></i><b>1.4</b> Further reading</a></li>
+<li class="chapter" data-level="1.5" data-path="where-data.html"><a href="where-data.html#exercises"><i class="fa fa-check"></i><b>1.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="where-data.html"><a href="where-data.html#an-investigation-of-short-term-memory"><i class="fa fa-check"></i><b>1.5.1</b> An investigation of short-term memory</a></li>
+<li class="chapter" data-level="1.5.2" data-path="where-data.html"><a href="where-data.html#a-survey-of-dental-health"><i class="fa fa-check"></i><b>1.5.2</b> A survey of dental health</a></li>
+<li class="chapter" data-level="1.5.3" data-path="where-data.html"><a href="where-data.html#hearings-aid-and-dementia"><i class="fa fa-check"></i><b>1.5.3</b> Hearings aid and dementia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="R-introduction.html"><a href="R-introduction.html"><i class="fa fa-check"></i><b>2</b> A gentle introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="R-introduction.html"><a href="R-introduction.html#r-fuss"><i class="fa fa-check"></i><b>2.1</b> R: what’s all the fuss about?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="R-introduction.html"><a href="R-introduction.html#history"><i class="fa fa-check"></i><b>2.1.1</b> History</a></li>
+<li class="chapter" data-level="2.1.2" data-path="R-introduction.html"><a href="R-introduction.html#why-should-i-be-interested"><i class="fa fa-check"></i><b>2.1.2</b> Why should I be interested?</a></li>
+<li class="chapter" data-level="2.1.3" data-path="R-introduction.html"><a href="R-introduction.html#whats-the-down-side"><i class="fa fa-check"></i><b>2.1.3</b> What’s the down side?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="R-introduction.html"><a href="R-introduction.html#taste-of-r"><i class="fa fa-check"></i><b>2.2</b> A taste of R</a></li>
+<li class="chapter" data-level="2.3" data-path="R-introduction.html"><a href="R-introduction.html#a-summary-of-key-concepts-in-r"><i class="fa fa-check"></i><b>2.3</b> A summary of key concepts in R</a></li>
+<li class="chapter" data-level="2.4" data-path="R-introduction.html"><a href="R-introduction.html#reading-data"><i class="fa fa-check"></i><b>2.4</b> Reading data into R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="R-introduction.html"><a href="R-introduction.html#accessing-the-data-used-in-this-book"><i class="fa fa-check"></i><b>2.4.1</b> Accessing the data used in this book</a></li>
+<li class="chapter" data-level="2.4.2" data-path="R-introduction.html"><a href="R-introduction.html#functions-for-reading-data"><i class="fa fa-check"></i><b>2.4.2</b> Functions for reading data</a></li>
+<li class="chapter" data-level="2.4.3" data-path="R-introduction.html"><a href="R-introduction.html#reading-data-example"><i class="fa fa-check"></i><b>2.4.3</b> An example: reading an <em>Excel</em> spreadsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="R-introduction.html"><a href="R-introduction.html#a-further-example-the-scottish-independence-referendum"><i class="fa fa-check"></i><b>2.5</b> A further example: the Scottish independence referendum</a></li>
+<li class="chapter" data-level="2.6" data-path="R-introduction.html"><a href="R-introduction.html#further-reading-1"><i class="fa fa-check"></i><b>2.6</b> Further reading</a></li>
+<li class="chapter" data-level="2.7" data-path="R-introduction.html"><a href="R-introduction.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="R-introduction.html"><a href="R-introduction.html#scottish-referendum-data"><i class="fa fa-check"></i><b>2.7.1</b> Scottish Referendum data</a></li>
+<li class="chapter" data-level="2.7.2" data-path="R-introduction.html"><a href="R-introduction.html#aircraft-designs"><i class="fa fa-check"></i><b>2.7.2</b> Aircraft designs</a></li>
+<li class="chapter" data-level="2.7.3" data-path="R-introduction.html"><a href="R-introduction.html#centenarians"><i class="fa fa-check"></i><b>2.7.3</b> Centenarians</a></li>
+<li class="chapter" data-level="2.7.4" data-path="R-introduction.html"><a href="R-introduction.html#justification-of-the-log-transformation-for-the-rodent-data"><i class="fa fa-check"></i><b>2.7.4</b> Justification of the log transformation for the rodent data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#reorganising-data"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#collating-data-from-different-sources"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.3" data-path="data-wrangling.html"><a href="data-wrangling.html#tidy-data"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
+<li class="chapter" data-level="3.4" data-path="data-wrangling.html"><a href="data-wrangling.html#further-reading-2"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
+<li class="chapter" data-level="3.5" data-path="data-wrangling.html"><a href="data-wrangling.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="data-wrangling.html"><a href="data-wrangling.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Exploring data</b></span></li>
+<li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-visualisation.html"><a href="data-visualisation.html#thousand-words"><i class="fa fa-check"></i><b>4.1</b> Graphics: a picture is worth a thousand words</a></li>
+<li class="chapter" data-level="4.2" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot-graphics"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-visualisation.html"><a href="data-visualisation.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-visualisation.html"><a href="data-visualisation.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-visualisation.html"><a href="data-visualisation.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-visualisation.html"><a href="data-visualisation.html#what-are-we-looking-for"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="data-visualisation.html"><a href="data-visualisation.html#continuous-scales"><i class="fa fa-check"></i><b>4.3.1</b> Continuous scales</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-visualisation.html"><a href="data-visualisation.html#discrete-scales"><i class="fa fa-check"></i><b>4.3.2</b> Discrete scales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="data-visualisation.html"><a href="data-visualisation.html#categorical-data"><i class="fa fa-check"></i><b>4.3.3</b> Categorical data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="data-visualisation.html"><a href="data-visualisation.html#gaining-an-overview-of-datasets"><i class="fa fa-check"></i><b>4.4</b> Gaining an overview of datasets</a></li>
+<li class="chapter" data-level="4.5" data-path="data-visualisation.html"><a href="data-visualisation.html#plots-for-more-complex-data-structures"><i class="fa fa-check"></i><b>4.5</b> Plots for more complex data structures</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="data-visualisation.html"><a href="data-visualisation.html#d-data"><i class="fa fa-check"></i><b>4.5.1</b> 3D data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="data-visualisation.html"><a href="data-visualisation.html#circular-spherical-and-compositional-data"><i class="fa fa-check"></i><b>4.5.2</b> Circular, spherical and compositional data</a></li>
+<li class="chapter" data-level="4.5.3" data-path="data-visualisation.html"><a href="data-visualisation.html#other-data-structures"><i class="fa fa-check"></i><b>4.5.3</b> Other data structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="data-visualisation.html"><a href="data-visualisation.html#going-further"><i class="fa fa-check"></i><b>4.6</b> Going further</a></li>
+<li class="chapter" data-level="4.7" data-path="data-visualisation.html"><a href="data-visualisation.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="data-visualisation.html"><a href="data-visualisation.html#rodent-mass-and-speed"><i class="fa fa-check"></i><b>4.7.1</b> Rodent mass and speed</a></li>
+<li class="chapter" data-level="4.7.2" data-path="data-visualisation.html"><a href="data-visualisation.html#uk-covid-19-deaths"><i class="fa fa-check"></i><b>4.7.2</b> UK covid-19 deaths</a></li>
+<li class="chapter" data-level="4.7.3" data-path="data-visualisation.html"><a href="data-visualisation.html#scottish-referendum"><i class="fa fa-check"></i><b>4.7.3</b> Scottish referendum</a></li>
+<li class="chapter" data-level="4.7.4" data-path="data-visualisation.html"><a href="data-visualisation.html#centenarians-in-scotland"><i class="fa fa-check"></i><b>4.7.4</b> Centenarians in Scotland</a></li>
+<li class="chapter" data-level="4.7.5" data-path="data-visualisation.html"><a href="data-visualisation.html#flour-beetles"><i class="fa fa-check"></i><b>4.7.5</b> Flour beetles</a></li>
+<li class="chapter" data-level="4.7.6" data-path="data-visualisation.html"><a href="data-visualisation.html#clyde-estuary-water-quality"><i class="fa fa-check"></i><b>4.7.6</b> Clyde Estuary water quality</a></li>
+<li class="chapter" data-level="4.7.7" data-path="data-visualisation.html"><a href="data-visualisation.html#crabs-multivariate"><i class="fa fa-check"></i><b>4.7.7</b> Crabs (<em>multivariate</em>)</a></li>
+<li class="chapter" data-level="4.7.8" data-path="data-visualisation.html"><a href="data-visualisation.html#topographic-data"><i class="fa fa-check"></i><b>4.7.8</b> Topographic data</a></li>
+<li class="chapter" data-level="4.7.9" data-path="data-visualisation.html"><a href="data-visualisation.html#global-energy-use"><i class="fa fa-check"></i><b>4.7.9</b> Global energy use</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html"><i class="fa fa-check"></i><b>5</b> Trends and patterns</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#density-estimation"><i class="fa fa-check"></i><b>5.1</b> Density estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#flexible-regression"><i class="fa fa-check"></i><b>5.2</b> Flexible regression</a></li>
+<li class="chapter" data-level="5.3" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#further-reading-3"><i class="fa fa-check"></i><b>5.3</b> Further reading</a></li>
+<li class="chapter" data-level="5.4" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#exercises-4"><i class="fa fa-check"></i><b>5.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#exercise-conservation-density-displays"><i class="fa fa-check"></i><b>5.4.1</b> Does conservation work?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#the-spatial-distribution-of-laryngeal-cancer-smoothing"><i class="fa fa-check"></i><b>5.4.2</b> The spatial distribution of laryngeal cancer (<em>smoothing</em>)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#aircraft-data"><i class="fa fa-check"></i><b>5.4.3</b> Aircraft data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#radiocarbon-data"><i class="fa fa-check"></i><b>5.4.4</b> Radiocarbon data</a></li>
+<li class="chapter" data-level="5.4.5" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html#follicle-data"><i class="fa fa-check"></i><b>5.4.5</b> Follicle data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Statistical Inference</b></span></li>
+<li class="chapter" data-level="6" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>6</b> Inference: turning data into evidence</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="inference.html"><a href="inference.html#where-do-data-come-from-samples-and-populations"><i class="fa fa-check"></i><b>6.1</b> Where do data come from? Samples and populations</a></li>
+<li class="chapter" data-level="6.2" data-path="inference.html"><a href="inference.html#quantifying-uncertainty-standard-error"><i class="fa fa-check"></i><b>6.2</b> Quantifying uncertainty: standard error</a></li>
+<li class="chapter" data-level="6.3" data-path="inference.html"><a href="inference.html#quantifying-uncertainty-confidence-intervals"><i class="fa fa-check"></i><b>6.3</b> Quantifying uncertainty: confidence intervals</a></li>
+<li class="chapter" data-level="6.4" data-path="inference.html"><a href="inference.html#hypothesis-tests"><i class="fa fa-check"></i><b>6.4</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="6.5" data-path="inference.html"><a href="inference.html#variability-bands-for-flexible-regression"><i class="fa fa-check"></i><b>6.5</b> Variability bands for flexible regression</a></li>
+<li class="chapter" data-level="6.6" data-path="inference.html"><a href="inference.html#further-reading-4"><i class="fa fa-check"></i><b>6.6</b> Further reading</a></li>
+<li class="chapter" data-level="6.7" data-path="inference.html"><a href="inference.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="inference.html"><a href="inference.html#standard-errors"><i class="fa fa-check"></i><b>6.7.1</b> Standard errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html"><i class="fa fa-check"></i><b>7</b> Other approaches to inference</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#computational-inference"><i class="fa fa-check"></i><b>7.1</b> Computational inference</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#simulation-methods"><i class="fa fa-check"></i><b>7.1.1</b> Simulation methods</a></li>
+<li class="chapter" data-level="7.1.2" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#randomisation-tests"><i class="fa fa-check"></i><b>7.1.2</b> Randomisation tests</a></li>
+<li class="chapter" data-level="7.1.3" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#the-bootstrap"><i class="fa fa-check"></i><b>7.1.3</b> The bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#bayesian-inference"><i class="fa fa-check"></i><b>7.2</b> Bayesian inference</a></li>
+<li class="chapter" data-level="7.3" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#exercises-6"><i class="fa fa-check"></i><b>7.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html#coverage-property-of-bootstrap-confidence-intervals"><i class="fa fa-check"></i><b>7.3.1</b> Coverage property of bootstrap confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html"><i class="fa fa-check"></i><b>8</b> Inference with categorical data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#simple-proportions"><i class="fa fa-check"></i><b>8.1</b> Simple proportions</a></li>
+<li class="chapter" data-level="8.2" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#comparing-proportions"><i class="fa fa-check"></i><b>8.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="8.3" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#contingency-tables"><i class="fa fa-check"></i><b>8.3</b> Contingency tables</a></li>
+<li class="chapter" data-level="8.4" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#exercises-7"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#opinion-polls"><i class="fa fa-check"></i><b>8.4.1</b> Opinion polls</a></li>
+<li class="chapter" data-level="8.4.2" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#respiratory-disease-in-infancy"><i class="fa fa-check"></i><b>8.4.2</b> Respiratory disease in infancy</a></li>
+<li class="chapter" data-level="8.4.3" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#smoking-and-lung-cancer"><i class="fa fa-check"></i><b>8.4.3</b> Smoking and lung cancer</a></li>
+<li class="chapter" data-level="8.4.4" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html#confidence-intervals-and-p-values"><i class="fa fa-check"></i><b>8.4.4</b> Confidence intervals and p-values</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Statistical Models</b></span></li>
+<li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="linear-models.html"><a href="linear-models.html#simple-regression"><i class="fa fa-check"></i><b>9.1</b> One covariate: linear models in miniature</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models.html"><a href="linear-models.html#formulating-and-fitting-linear-models"><i class="fa fa-check"></i><b>9.2</b> Formulating and fitting linear models</a></li>
+<li class="chapter" data-level="9.3" data-path="linear-models.html"><a href="linear-models.html#model-checking"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="linear-models.html"><a href="linear-models.html#inference-1"><i class="fa fa-check"></i><b>9.4</b> Inference</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="linear-models.html"><a href="linear-models.html#confidence-intervals"><i class="fa fa-check"></i><b>9.4.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.4.2" data-path="linear-models.html"><a href="linear-models.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.4.2</b> Hypothesis tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="linear-models.html"><a href="linear-models.html#two-covariates-black-cherry-trees"><i class="fa fa-check"></i><b>9.5</b> Two covariates: Black Cherry Trees</a></li>
+<li class="chapter" data-level="9.6" data-path="linear-models.html"><a href="linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.6</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7" data-path="linear-models.html"><a href="linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7</b> Comparing regression lines: analysis of covariance</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="linear-models.html"><a href="linear-models.html#trout"><i class="fa fa-check"></i><b>9.7.1</b> Trout</a></li>
+<li class="chapter" data-level="9.7.2" data-path="linear-models.html"><a href="linear-models.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.7.2</b> Respiratory distress syndrome</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="linear-models.html"><a href="linear-models.html#general-thoughts-on-models"><i class="fa fa-check"></i><b>9.8</b> General thoughts on models</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="linear-models.html"><a href="linear-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.8.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.8.2" data-path="linear-models.html"><a href="linear-models.html#model-selection"><i class="fa fa-check"></i><b>9.8.2</b> Model selection</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="linear-models.html"><a href="linear-models.html#exercises-8"><i class="fa fa-check"></i><b>9.9</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="linear-models.html"><a href="linear-models.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.9.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9.2" data-path="linear-models.html"><a href="linear-models.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.9.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.9.3" data-path="linear-models.html"><a href="linear-models.html#cats"><i class="fa fa-check"></i><b>9.9.3</b> Cats</a></li>
+<li class="chapter" data-level="9.9.4" data-path="linear-models.html"><a href="linear-models.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.9.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.9.5" data-path="linear-models.html"><a href="linear-models.html#the-clyde-data"><i class="fa fa-check"></i><b>9.9.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.9.6" data-path="linear-models.html"><a href="linear-models.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.9.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.9.7" data-path="linear-models.html"><a href="linear-models.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.9.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.9.8" data-path="linear-models.html"><a href="linear-models.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.9.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.9.9" data-path="linear-models.html"><a href="linear-models.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.9.9</b> The effects of conservation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#logistic-regression"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
+<li class="chapter" data-level="10.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#the-concept-of-likelihood"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.3" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#poisson-regression"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
+<li class="chapter" data-level="10.4" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#general-glms"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
+<li class="chapter" data-level="10.5" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#further-examples"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#two-covariates-vasoconstriction-of-the-digits"><i class="fa fa-check"></i><b>10.5.1</b> Two covariates: vasoconstriction of the digits</a></li>
+<li class="chapter" data-level="10.5.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#doctors-and-smoking"><i class="fa fa-check"></i><b>10.5.2</b> Doctors and smoking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#exercises-9"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
+<li class="chapter" data-level="10.6.2" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
+<li class="chapter" data-level="10.6.3" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html#a-problem-with-paste"><i class="fa fa-check"></i><b>11.1</b> A problem with paste</a></li>
+<li class="chapter" data-level="11.2" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html#repeated-measurements"><i class="fa fa-check"></i><b>11.2</b> Repeated measurements</a></li>
+<li class="chapter" data-level="11.3" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html#a-case-study-reading-attainment"><i class="fa fa-check"></i><b>11.3</b> A case study: reading attainment</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="flexible-models.html"><a href="flexible-models.html#flexible-methods"><i class="fa fa-check"></i><b>12.1</b> Methods for constructing flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="flexible-models.html"><a href="flexible-models.html#fitting-models-locally"><i class="fa fa-check"></i><b>12.1.1</b> Fitting models locally</a></li>
+<li class="chapter" data-level="12.1.2" data-path="flexible-models.html"><a href="flexible-models.html#splines"><i class="fa fa-check"></i><b>12.1.2</b> Splines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="flexible-models.html"><a href="flexible-models.html#inference-with-simple-flexible-models"><i class="fa fa-check"></i><b>12.2</b> Inference with simple flexible models</a></li>
+<li class="chapter" data-level="12.3" data-path="flexible-models.html"><a href="flexible-models.html#a-simple-additive-model"><i class="fa fa-check"></i><b>12.3</b> A simple additive model</a></li>
+<li class="chapter" data-level="12.4" data-path="flexible-models.html"><a href="flexible-models.html#inference-with-additive-models"><i class="fa fa-check"></i><b>12.4</b> Inference with additive models</a></li>
+<li class="chapter" data-level="12.5" data-path="flexible-models.html"><a href="flexible-models.html#further-reading-5"><i class="fa fa-check"></i><b>12.5</b> Further reading</a></li>
+<li class="chapter" data-level="12.6" data-path="flexible-models.html"><a href="flexible-models.html#exercises-10"><i class="fa fa-check"></i><b>12.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="flexible-models.html"><a href="flexible-models.html#fitting-a-p-spline-model"><i class="fa fa-check"></i><b>12.6.1</b> Fitting a p-spline model</a></li>
+<li class="chapter" data-level="12.6.2" data-path="flexible-models.html"><a href="flexible-models.html#the-backfitting-algorithm"><i class="fa fa-check"></i><b>12.6.2</b> The backfitting algorithm</a></li>
+<li class="chapter" data-level="12.6.3" data-path="flexible-models.html"><a href="flexible-models.html#water-quality-in-the-clyde-estuary"><i class="fa fa-check"></i><b>12.6.3</b> Water quality in the Clyde estuary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>13</b> Models for time</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="models-for-time.html"><a href="models-for-time.html#time-series-data"><i class="fa fa-check"></i><b>13.1</b> Time series data</a></li>
+<li class="chapter" data-level="13.2" data-path="models-for-time.html"><a href="models-for-time.html#visualisation"><i class="fa fa-check"></i><b>13.2</b> Visualisation</a></li>
+<li class="chapter" data-level="13.3" data-path="models-for-time.html"><a href="models-for-time.html#models"><i class="fa fa-check"></i><b>13.3</b> Models</a></li>
+<li class="chapter" data-level="13.4" data-path="models-for-time.html"><a href="models-for-time.html#further-reading-6"><i class="fa fa-check"></i><b>13.4</b> Further reading</a></li>
+<li class="chapter" data-level="13.5" data-path="models-for-time.html"><a href="models-for-time.html#exercises-11"><i class="fa fa-check"></i><b>13.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="models-for-time.html"><a href="models-for-time.html#simulating-time-series"><i class="fa fa-check"></i><b>13.5.1</b> Simulating time series</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="models-for-space.html"><a href="models-for-space.html"><i class="fa fa-check"></i><b>14</b> Models for space</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="models-for-space.html"><a href="models-for-space.html#visualising-spatial-data"><i class="fa fa-check"></i><b>14.1</b> Visualising spatial data</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="models-for-space.html"><a href="models-for-space.html#the-maps-package"><i class="fa fa-check"></i><b>14.1.1</b> The <code>maps</code> package</a></li>
+<li class="chapter" data-level="14.1.2" data-path="models-for-space.html"><a href="models-for-space.html#leaflet-and-mapview-interactive-maps"><i class="fa fa-check"></i><b>14.1.2</b> <code>leaflet</code> and <code>mapview</code>: interactive maps</a></li>
+<li class="chapter" data-level="14.1.3" data-path="models-for-space.html"><a href="models-for-space.html#ggplot-and-ggmap"><i class="fa fa-check"></i><b>14.1.3</b> <code>ggplot</code> and <code>ggmap</code></a></li>
+<li class="chapter" data-level="14.1.4" data-path="models-for-space.html"><a href="models-for-space.html#tmap"><i class="fa fa-check"></i><b>14.1.4</b> <code>tmap</code></a></li>
+<li class="chapter" data-level="14.1.5" data-path="models-for-space.html"><a href="models-for-space.html#spatstat-for-spatial-point-patterns"><i class="fa fa-check"></i><b>14.1.5</b> <code>spatstat</code> for spatial point patterns</a></li>
+<li class="chapter" data-level="14.1.6" data-path="models-for-space.html"><a href="models-for-space.html#areal-data"><i class="fa fa-check"></i><b>14.1.6</b> Areal data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="models-for-space.html"><a href="models-for-space.html#image-data"><i class="fa fa-check"></i><b>14.1.7</b> Image data</a></li>
+<li class="chapter" data-level="14.1.8" data-path="models-for-space.html"><a href="models-for-space.html#spatiotemporal-animation"><i class="fa fa-check"></i><b>14.1.8</b> Spatiotemporal animation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="models-for-space.html"><a href="models-for-space.html#models-for-point-pattern-data"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
+<li class="chapter" data-level="14.3" data-path="models-for-space.html"><a href="models-for-space.html#geostatistical-models"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="models-for-space.html"><a href="models-for-space.html#gaussian-processes"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian processes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="models-for-space.html"><a href="models-for-space.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
+<li class="chapter" data-level="14.3.3" data-path="models-for-space.html"><a href="models-for-space.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="models-for-space.html"><a href="models-for-space.html#models-for-areal-data"><i class="fa fa-check"></i><b>14.4</b> Models for areal data</a></li>
+<li class="chapter" data-level="14.5" data-path="models-for-space.html"><a href="models-for-space.html#further-reading-7"><i class="fa fa-check"></i><b>14.5</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html"><i class="fa fa-check"></i><b>15</b> Experimental design revisited</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#power"><i class="fa fa-check"></i><b>15.1</b> Power</a></li>
+<li class="chapter" data-level="15.2" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#completely-randomised-design-comparing-several-treatments"><i class="fa fa-check"></i><b>15.2</b> Completely randomised design: comparing several treatments</a></li>
+<li class="chapter" data-level="15.3" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#randomised-blocks-the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.3</b> Randomised blocks: the parable of the sower</a></li>
+<li class="chapter" data-level="15.4" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#factorial-designs-poisons-and-treatments"><i class="fa fa-check"></i><b>15.4</b> Factorial designs: poisons and treatments</a></li>
+<li class="chapter" data-level="15.5" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#principles-of-experimental-design"><i class="fa fa-check"></i><b>15.5</b> Principles of experimental design</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#control"><i class="fa fa-check"></i><b>15.5.1</b> Control</a></li>
+<li class="chapter" data-level="15.5.2" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#replicate"><i class="fa fa-check"></i><b>15.5.2</b> Replicate</a></li>
+<li class="chapter" data-level="15.5.3" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#randomise"><i class="fa fa-check"></i><b>15.5.3</b> Randomise</a></li>
+<li class="chapter" data-level="15.5.4" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#replication-and-pseudo-replication"><i class="fa fa-check"></i><b>15.5.4</b> Replication and Pseudo-Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#exercises-12"><i class="fa fa-check"></i><b>15.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#student-cost-of-living"><i class="fa fa-check"></i><b>15.6.1</b> Student cost of living</a></li>
+<li class="chapter" data-level="15.6.2" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#us-presidential-election-1936"><i class="fa fa-check"></i><b>15.6.2</b> US presidential election 1936</a></li>
+<li class="chapter" data-level="15.6.3" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.6.3</b> The parable of the sower</a></li>
+<li class="chapter" data-level="15.6.4" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#mururoa"><i class="fa fa-check"></i><b>15.6.4</b> Mururoa</a></li>
+<li class="chapter" data-level="15.6.5" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html#a-scottish-firth"><i class="fa fa-check"></i><b>15.6.5</b> A Scottish firth</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Statistical Models in Practice</b></span></li>
+<li class="chapter" data-level="16" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>16</b> Case studies of statistical modelling</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html#covid-19-initial-surveillance"><i class="fa fa-check"></i><b>16.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="16.2" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html#uk-parliamentary-election-2024"><i class="fa fa-check"></i><b>16.2</b> UK parliamentary election 2024</a></li>
+</ul></li>
+<li class="part"><span><b>VI Other topics</b></span></li>
+<li class="chapter" data-level="17" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>17</b> More on R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="more-on-r.html"><a href="more-on-r.html#repetition"><i class="fa fa-check"></i><b>17.1</b> Repetition</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="more-on-r.html"><a href="more-on-r.html#standard-loops"><i class="fa fa-check"></i><b>17.1.1</b> Standard loops</a></li>
+<li class="chapter" data-level="17.1.2" data-path="more-on-r.html"><a href="more-on-r.html#the-apply-family"><i class="fa fa-check"></i><b>17.1.2</b> The ‘apply’ family</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="more-on-r.html"><a href="more-on-r.html#writing-your-own-functions"><i class="fa fa-check"></i><b>17.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="17.3" data-path="more-on-r.html"><a href="more-on-r.html#conditional-statements-and-while-loops"><i class="fa fa-check"></i><b>17.3</b> Conditional statements and <code>while</code> loops</a></li>
+<li class="chapter" data-level="17.4" data-path="more-on-r.html"><a href="more-on-r.html#further-reading-8"><i class="fa fa-check"></i><b>17.4</b> Further reading</a></li>
+<li class="chapter" data-level="17.5" data-path="more-on-r.html"><a href="more-on-r.html#exercises-13"><i class="fa fa-check"></i><b>17.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="more-on-r.html"><a href="more-on-r.html#a-simple-function"><i class="fa fa-check"></i><b>17.5.1</b> A simple function</a></li>
+<li class="chapter" data-level="17.5.2" data-path="more-on-r.html"><a href="more-on-r.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>17.5.2</b> A simple function: thresholds</a></li>
+<li class="chapter" data-level="17.5.3" data-path="more-on-r.html"><a href="more-on-r.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="models-with-random-effects" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">11</span> Models with random effects<a href="models-with-random-effects.html#models-with-random-effects" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Random effects arise when there is variation among the measurements taken from `units’ in an experiment but we wish to regard this variation as representative of the wider population of units. Sometimes we take measurements from constituent parts of the units, giving the variation a hierarchical (or multilevel) structure.</p>
+<div id="a-problem-with-paste" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> A problem with paste<a href="models-with-random-effects.html#a-problem-with-paste" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><strong>____________________________________________</strong><br />
+<strong>Example: Paste manufacture</strong></p>
+</blockquote>
+<blockquote>
+<p>A company uses a chemical paste in one of its production processes and receives deliveries of the paste in batches. The quality control department of the company is concerned about the variability in the strength of paste and decided to investigate. Ten batches of paste were randomly selected for a number of deliveries (one batch is received per delivery). From each of the batches a random sample of three casks was selected and two random determinations were made from random samples from each cask.</p>
+</blockquote>
+<blockquote>
+<p>Where does most of the variability lie – at the batch, cask or individual measurement level?</p>
+</blockquote>
+<blockquote>
+<p>(Data source: Intermediate Statistical Methods by G B Wetherill.<br />
+<strong>____________________________________________</strong></p>
+</blockquote>
+<p>First we read the data.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="models-with-random-effects.html#cb176-1" tabindex="-1"></a>   path   <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;paste&quot;</span>)</span>
+<span id="cb176-2"><a href="models-with-random-effects.html#cb176-2" tabindex="-1"></a>   d      <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)   </span>
+<span id="cb176-3"><a href="models-with-random-effects.html#cb176-3" tabindex="-1"></a>   d<span class="sc">$</span>cask <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">20</span>))</span></code></pre></div>
+<p><code>ggplot</code> graphics give some helpful options on how the data can be plotted.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="models-with-random-effects.html#cb177-1" tabindex="-1"></a>   <span class="fu">library</span>(ggplot2)</span>
+<span id="cb177-2"><a href="models-with-random-effects.html#cb177-2" tabindex="-1"></a>   <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Strength, Batch, <span class="at">col =</span> cask)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb177-3"><a href="models-with-random-effects.html#cb177-3" tabindex="-1"></a>   <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Strength, cask)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb177-4"><a href="models-with-random-effects.html#cb177-4" tabindex="-1"></a>      <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Batch))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-764-1.png" width="49%" style="display: block; margin: auto;" /><img src="book_files/figure-html/unnamed-chunk-764-2.png" width="49%" style="display: block; margin: auto;" /></p>
+<p>A <em>mixed effects</em> model allows different (hierarchical) levels of error to be constructed. Each batch has its own ‘adjustment’ from the overall mean. Within each batch, each cask has its own further ‘adjustment’ from the overall and batch means. Within each cask, the individual within-cask measurements can be viewed as further ‘adjustments’ from the overall, batch and cask means. If we index the batches, casks and within-cask measurements by <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(iw\)</span>, then we can express this in a model as:<br />
+<span class="math display">\[
+      y_{bcw} = \mu + \varepsilon_b + \varepsilon_{bc} + \varepsilon_{bcw}
+\]</span>
+where
+<span class="math display">\[
+\varepsilon_{b} \sim N(0, \sigma^2_b), \hspace{3em}
+\varepsilon_{bc} \sim N(0, \sigma^2_c), \hspace{3em}
+\varepsilon_{bcw} \sim N(0, \sigma^2_w)
+\]</span></p>
+<p>The <code>nlme</code> package gives us the tools to fit such a model. The summary requires a bit of interpretation, but close inspection shows that the estimates of standard deviation at batch, cask, and within-cask levels are 1.287348, 2.904061 and 0.8234125 respectively. That suggests that the cask level is where the variation is strongest.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="models-with-random-effects.html#cb178-1" tabindex="-1"></a>   <span class="fu">library</span>(nlme)</span>
+<span id="cb178-2"><a href="models-with-random-effects.html#cb178-2" tabindex="-1"></a>   model <span class="ot">&lt;-</span> <span class="fu">lme</span>(Strength <span class="sc">~</span> <span class="dv">1</span>, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>Batch<span class="sc">/</span>cask, <span class="at">data =</span> d)</span>
+<span id="cb178-3"><a href="models-with-random-effects.html#cb178-3" tabindex="-1"></a>   <span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## Linear mixed-effects model fit by REML
+##   Data: d 
+##        AIC      BIC    logLik
+##   254.9907 263.3009 -123.4954
+## 
+## Random effects:
+##  Formula: ~1 | Batch
+##         (Intercept)
+## StdDev:    1.287351
+## 
+##  Formula: ~1 | cask %in% Batch
+##         (Intercept)  Residual
+## StdDev:    2.904061 0.8234122
+## 
+## Fixed effects:  Strength ~ 1 
+##                Value Std.Error DF  t-value p-value
+## (Intercept) 60.05333 0.6768652 30 88.72274       0
+## 
+## Standardized Within-Group Residuals:
+##          Min           Q1          Med           Q3          Max 
+## -1.479769640 -0.515579424  0.009496994  0.471991829  1.389687791 
+## 
+## Number of Observations: 60
+## Number of Groups: 
+##           Batch cask %in% Batch 
+##              10              30</code></pre>
+<p>When using any model, we would like to have some reassurance that it describes the data adequately. Plot of residuals provide an informal, but very useful, way of checking this. If the model is adequate then the residuals should simply display random variation, with no obvious patterns or structure. The plot below reassures us that the model is an adequate fit.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="models-with-random-effects.html#cb180-1" tabindex="-1"></a>   <span class="fu">plot</span>(model)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-766-1.png" width="49%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="repeated-measurements" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Repeated measurements<a href="models-with-random-effects.html#repeated-measurements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p><strong>_________________________________________________</strong><br />
+<strong>Example: Leutinizing Hormone Levels in Cows</strong></p>
+</blockquote>
+<blockquote>
+<p>An experiment was carried out to compare the concentrations of leutinizing hormone (LH) in 16 suckled and 16 nonsuckled cows. Measurements were made daily from day 1 through to day 4 postpartum, and twice daily from day 5 through to day 10 postpartum. The cows were ovariectomised on day 5 postpartum.</p>
+</blockquote>
+<blockquote>
+<p>Source: Raz(1989), Biometrics 54, 851-71.<br />
+<strong>_________________________________________________</strong></p>
+</blockquote>
+<p>The data are available in the dataframe <code>luthor</code> in the <code>rpanel</code> package. However, the data are in ‘block’ form so we need to reorganise it into long vectors in order to make use of later modelling functions.</p>
+<!-- ```{r} -->
+<!--   library(rpanel) -->
+<!--   head(luthor) -->
+<!-- ``` -->
+<p>The <code>gather</code> function (in the <code>tidyr</code> package) handles the details for us. First we give the dataframe variables names and then we create an <code>id</code> variable so that we can keep track of which animal each measurement comes from. The <code>key</code> argument gives a name to the variable which will index the long vector of measurements and the <code>value</code> argument names the long vector. The remaining argument specifies the columns from which the long vector is made.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="models-with-random-effects.html#cb181-1" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
+<span id="cb181-2"><a href="models-with-random-effects.html#cb181-2" tabindex="-1"></a>  <span class="fu">names</span>(luthor) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;gp&quot;</span>, <span class="fu">as.character</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, (<span class="dv">5</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">/</span> <span class="dv">2</span>))))</span>
+<span id="cb181-3"><a href="models-with-random-effects.html#cb181-3" tabindex="-1"></a>  luthor<span class="sc">$</span>id     <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(luthor)</span>
+<span id="cb181-4"><a href="models-with-random-effects.html#cb181-4" tabindex="-1"></a>  luthor.tidy   <span class="ot">&lt;-</span> <span class="fu">gather</span>(luthor, <span class="at">key =</span> <span class="st">&quot;times&quot;</span>, <span class="at">value =</span> <span class="st">&quot;luthor&quot;</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">16</span>)</span>
+<span id="cb181-5"><a href="models-with-random-effects.html#cb181-5" tabindex="-1"></a>  <span class="fu">glimpse</span>(luthor.tidy)</span></code></pre></div>
+<pre><code>## Rows: 480
+## Columns: 4
+## $ gp     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, …
+## $ id     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, …
+## $ times  &lt;chr&gt; &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;…
+## $ luthor &lt;dbl&gt; 0.516, 0.367, 0.471, 0.450, 0.709, 0.273, 0.346, 0.261, 0.433, …</code></pre>
+<p>A plot of the ‘repeated measurements’ over time immediately suggests that a transformation to the log scale might be helpful.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="models-with-random-effects.html#cb183-1" tabindex="-1"></a><span class="fu">ggplot</span>(luthor.tidy,</span>
+<span id="cb183-2"><a href="models-with-random-effects.html#cb183-2" tabindex="-1"></a>  <span class="fu">aes</span>(times, luthor, <span class="at">group =</span> id, <span class="at">col =</span> <span class="fu">factor</span>(gp))) <span class="sc">+</span></span>
+<span id="cb183-3"><a href="models-with-random-effects.html#cb183-3" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb183-4"><a href="models-with-random-effects.html#cb183-4" tabindex="-1"></a><span class="fu">ggplot</span>(luthor.tidy,</span>
+<span id="cb183-5"><a href="models-with-random-effects.html#cb183-5" tabindex="-1"></a>  <span class="fu">aes</span>(times, <span class="fu">log</span>(luthor), <span class="at">group =</span> id, <span class="at">col =</span> <span class="fu">factor</span>(gp))) <span class="sc">+</span></span>
+<span id="cb183-6"><a href="models-with-random-effects.html#cb183-6" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-773-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-773-2.png" width="49%" /></p>
+<p>It is also useful to plot summaries such as means and (2) standard errors to see the underlying patterns. We will move to the convenient function <code>rp.rmplot</code> from the <code>rpanel</code> package to do this. In the third plot below the shaded area has width two standard errors of the <em>difference</em> between the means at each time point. This helpfully highlights evidence for differences in the two mean trajectories, in an informal manner.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="models-with-random-effects.html#cb184-1" tabindex="-1"></a>LH    <span class="ot">&lt;-</span> luthor[,<span class="dv">2</span><span class="sc">:</span><span class="dv">16</span>]</span>
+<span id="cb184-2"><a href="models-with-random-effects.html#cb184-2" tabindex="-1"></a>gp    <span class="ot">&lt;-</span> <span class="fu">factor</span>(luthor[,<span class="dv">1</span>])</span>
+<span id="cb184-3"><a href="models-with-random-effects.html#cb184-3" tabindex="-1"></a>times <span class="ot">&lt;-</span> times <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,(<span class="dv">5</span><span class="sc">+</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb184-4"><a href="models-with-random-effects.html#cb184-4" tabindex="-1"></a><span class="fu">rp.rmplot</span>(<span class="fu">log</span>(LH), <span class="at">id =</span> id, <span class="at">fac =</span> gp, <span class="at">timept =</span> times, <span class="at">type =</span> <span class="st">&quot;mean&quot;</span>,</span>
+<span id="cb184-5"><a href="models-with-random-effects.html#cb184-5" tabindex="-1"></a>          <span class="at">panel =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb184-6"><a href="models-with-random-effects.html#cb184-6" tabindex="-1"></a><span class="fu">rp.rmplot</span>(<span class="fu">log</span>(LH), <span class="at">id =</span> id, <span class="at">fac =</span> gp, <span class="at">timept =</span> times, <span class="at">type =</span> <span class="st">&quot;mean+bar&quot;</span>,</span>
+<span id="cb184-7"><a href="models-with-random-effects.html#cb184-7" tabindex="-1"></a>          <span class="at">panel =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb184-8"><a href="models-with-random-effects.html#cb184-8" tabindex="-1"></a><span class="fu">rp.rmplot</span>(<span class="fu">log</span>(LH), <span class="at">id =</span> id, <span class="at">fac =</span> gp, <span class="at">timept =</span> times, <span class="at">type =</span> <span class="st">&quot;band&quot;</span>,</span>
+<span id="cb184-9"><a href="models-with-random-effects.html#cb184-9" tabindex="-1"></a>          <span class="at">panel =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-774-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-774-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-774-3.png" width="32%" /></p>
+<p>For a proper analysis, a model is required. It is clear that we need a time effect and a group effect, and possibly an interaction. This can be written as
+<span class="math display">\[
+      y_{ijk} = \mu + g_i + t_k + (gt)_{ik} + a_{ij} + \varepsilon_{ijk},
+\]</span>
+where <span class="math inline">\(i\)</span> refers to group, <span class="math inline">\(j\)</span> to animal within the group and <span class="math inline">\(k\)</span> to time point. Notice the additional term <span class="math inline">\(a_{ij}\)</span> which represents a `level shift’, above or below the mean, associated with animal <span class="math inline">\(j\)</span> in group <span class="math inline">\(i\)</span>. This level shift appears for all the measurements over time for this animal. It is assumed to be a normal random variable with mean <span class="math inline">\(0\)</span>. The model parameter associated with this term is the standard deviation of this random level shift.</p>
+<p>The advantage of this model is that it gives a more realistic description of how the data have been generated. In particular, it should make a better job of capturing the structure of the random variation present. That means that the standard errors of the group and time effects will be more realistic than a model which assumes all the variation is simply independent added noise.</p>
+<p>Main effects and their interaction from the fitted model are shown in the summary below.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="models-with-random-effects.html#cb185-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb185-2"><a href="models-with-random-effects.html#cb185-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lme</span>(<span class="fu">log</span>(luthor) <span class="sc">~</span> times <span class="sc">*</span> gp, <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">|</span>id, <span class="at">data =</span> luthor.tidy)</span>
+<span id="cb185-3"><a href="models-with-random-effects.html#cb185-3" tabindex="-1"></a><span class="fu">anova</span>(model, <span class="at">type =</span> <span class="st">&quot;marginal&quot;</span>)</span></code></pre></div>
+<pre><code>##             numDF denDF   F-value p-value
+## (Intercept)     1   420 13.164260  0.0003
+## times          14   420  3.484231  &lt;.0001
+## gp              1    30  0.164824  0.6876
+## times:gp       14   420  1.516862  0.1014</code></pre>
+<p>The interaction is not significant, suggesting that the evidence for the shape of the mean trajectories being different is not convincing. However, we have treated <code>time</code> as a factor, assuming no connection between the mean responses at each time point. Perhaps we should investigate a model which describes the evolution over time through a smooth, non-linear curve of some kind.</p>
+</div>
+<div id="a-case-study-reading-attainment" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> A case study: reading attainment<a href="models-with-random-effects.html#a-case-study-reading-attainment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First we read the data.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="models-with-random-effects.html#cb187-1" tabindex="-1"></a>   path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;reading&quot;</span>)</span>
+<span id="cb187-2"><a href="models-with-random-effects.html#cb187-2" tabindex="-1"></a>   d    <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><code>ggplot</code> graphics again provides a simple way of producing some attractive and helpful visualisations.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="models-with-random-effects.html#cb188-1" tabindex="-1"></a>   <span class="fu">library</span>(ggplot2)</span>
+<span id="cb188-2"><a href="models-with-random-effects.html#cb188-2" tabindex="-1"></a>   <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb188-3"><a href="models-with-random-effects.html#cb188-3" tabindex="-1"></a>      <span class="fu">facet_grid</span>(Ethnicity <span class="sc">~</span> Sex)</span>
+<span id="cb188-4"><a href="models-with-random-effects.html#cb188-4" tabindex="-1"></a>   <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb188-5"><a href="models-with-random-effects.html#cb188-5" tabindex="-1"></a>      <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(School))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-783-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-783-2.png" width="49%" /></p>
+<p>We need to think carefully about how the <em>errors</em> should be modelled. For the moment, we will include only <code>Age</code> in the fixed effects, as this is the variable which clearly influences reading ability strongly. A random effect for each pupil, which allows them to display greater or lesser individual ability, is a good starting point. A residual plot helps us to assess the adequacy of this model, in an informal manner. Some non-random patterns suggest that we need to improve the model.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="models-with-random-effects.html#cb189-1" tabindex="-1"></a>   <span class="fu">library</span>(nlme)</span>
+<span id="cb189-2"><a href="models-with-random-effects.html#cb189-2" tabindex="-1"></a>   model1 <span class="ot">&lt;-</span> <span class="fu">lme</span>(Readatt <span class="sc">~</span> Age, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span> <span class="sc">|</span> School<span class="sc">/</span>Pupil, <span class="at">data =</span> d)</span>
+<span id="cb189-3"><a href="models-with-random-effects.html#cb189-3" tabindex="-1"></a>   <span class="fu">plot</span>(model1)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-784-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<p>Another plot may help. This one shsows the trajectory of each individual over time. An interesting feature is a suggestion that these trajectories ‘fan out’ a little over time. This may suggest that pupils who are good readers at an early stage improve their reading ability over time at a greater rate than those who are poorer readers. This sounds plausible.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="models-with-random-effects.html#cb190-1" tabindex="-1"></a>   <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">group =</span> Pupil)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb190-2"><a href="models-with-random-effects.html#cb190-2" tabindex="-1"></a>          <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(School))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-785-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>We can incorporate this into a model by describing these trajectories through straight lines (plus random error) whose slopes are described by random effects. The <code>lme</code> syntax enables this to be specified easily. The residual plot nolonger shows non-random features and a formal test confirms that the simple random effects model is inadequate, in comparison with the model which allows random slopes.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="models-with-random-effects.html#cb191-1" tabindex="-1"></a>   model2 <span class="ot">&lt;-</span> <span class="fu">lme</span>(Readatt <span class="sc">~</span> Age, <span class="at">random =</span> <span class="sc">~</span>Age <span class="sc">|</span> School<span class="sc">/</span>Pupil, <span class="at">data =</span> d)</span>
+<span id="cb191-2"><a href="models-with-random-effects.html#cb191-2" tabindex="-1"></a>   <span class="fu">plot</span>(model2)</span>
+<span id="cb191-3"><a href="models-with-random-effects.html#cb191-3" tabindex="-1"></a>   <span class="fu">anova</span>(model1, model2)</span></code></pre></div>
+<pre><code>##        Model df      AIC      BIC    logLik   Test  L.Ratio p-value
+## model1     1  5 3805.112 3832.466 -1897.556                        
+## model2     2  9 3213.340 3262.577 -1597.670 1 vs 2 599.7717  &lt;.0001</code></pre>
+<p><img src="book_files/figure-html/unnamed-chunk-786-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<p>Now that our model has a good random effects structure, we can examine the fixed effects in greater detail. The summary gives no evidence of an ethnicity effect, but does show a sex effect with girls producing a better average performance, in addition to the age effect which we already know is present.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="models-with-random-effects.html#cb193-1" tabindex="-1"></a>   model3 <span class="ot">&lt;-</span> <span class="fu">lme</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> Sex <span class="sc">+</span> Ethnicity, <span class="at">random =</span> <span class="sc">~</span>Age <span class="sc">|</span> School<span class="sc">/</span>Pupil,</span>
+<span id="cb193-2"><a href="models-with-random-effects.html#cb193-2" tabindex="-1"></a>                 <span class="at">data =</span> d)</span>
+<span id="cb193-3"><a href="models-with-random-effects.html#cb193-3" tabindex="-1"></a>   <span class="fu">summary</span>(model3)<span class="sc">$</span>tTable</span></code></pre></div>
+<pre><code>##                      Value  Std.Error   DF   t-value    p-value
+## (Intercept)     7.11786482 0.08078767 1350 88.105827 0.00000000
+## Age             0.99302507 0.01567781 1350 63.339507 0.00000000
+## Sexgirl         0.13267770 0.06133136  372  2.163293 0.03115494
+## Ethnicitywhite -0.09410687 0.06497269  372 -1.448407 0.14834569</code></pre>
+<p>It would be wise for us to examine whether interactions might be present. That is left as an exercise.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="generalised-linear-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flexible-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
