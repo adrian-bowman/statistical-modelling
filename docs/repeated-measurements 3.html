@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 Repeated measurements | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 Repeated measurements | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Repeated measurements | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-problem-with-paste.html"/>
+<link rel="next" href="case-study-reading-attainment.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="1" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>1</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="a-problem-with-paste.html"><a href="a-problem-with-paste.html"><i class="fa fa-check"></i><b>1.1</b> A problem with paste</a></li>
+<li class="chapter" data-level="1.2" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>1.2</b> Repeated measurements</a></li>
+<li class="chapter" data-level="1.3" data-path="case-study-reading-attainment.html"><a href="case-study-reading-attainment.html"><i class="fa fa-check"></i><b>1.3</b> Case study: reading attainment</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="repeated-measurements" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Repeated measurements<a href="repeated-measurements.html#repeated-measurements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In many experiments there is interest in understanding how things change over time. It is natural that each experimental unit (patient, animal, specimen) is measured repeatedly over time. This leads to a <em>repeated measurements</em> structure. A random effects model can be used to recognise that each individual has their own (random) characteristics which they carry with them throughout the series of repeated measurements.</p>
+<p>The plot below show the Clyde data on <code>DO</code> plotted against <code>Station</code> with each survey of the river on a particular date given a unique identifier. (Recall the <code>Year</code> is on a continuous scale with individual days identified by where they sit on a proportional scale.) Although this does not involve time, it still represents a repeated measurement structure.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="repeated-measurements.html#cb6-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;DO_Clyde&quot;</span>)</span>
+<span id="cb6-2"><a href="repeated-measurements.html#cb6-2" tabindex="-1"></a><span class="fu">load</span>(path)</span>
+<span id="cb6-3"><a href="repeated-measurements.html#cb6-3" tabindex="-1"></a>clyde <span class="ot">&lt;-</span> <span class="fu">mutate</span>(clyde, <span class="at">id =</span> <span class="fu">factor</span>(Year), <span class="at">Station =</span> <span class="fu">factor</span>(Station))</span>
+<span id="cb6-4"><a href="repeated-measurements.html#cb6-4" tabindex="-1"></a><span class="fu">ggplot</span>(clyde, <span class="fu">aes</span>(Station, DO, <span class="at">group =</span> id, <span class="at">col =</span> <span class="fu">factor</span>(id))) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="repeated-measurements.html#cb6-5" tabindex="-1"></a>   <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/clyde_repeated_measurements-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>A simple model uses the covariates identified in our earlier work with <code>Station</code> added as a factor and with a random effect for each survey of the river. Close inspection of the plot may give us some cause for concern as the residuals seem to be systematically low at very low and very high fitted values. We will explore more sophisticated models later. Nonetheless this simple provides a first assessment of the nature and size of the different effects at work.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="repeated-measurements.html#cb7-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb7-2"><a href="repeated-measurements.html#cb7-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lme</span>(DO <span class="sc">~</span> Year <span class="sc">+</span> Temperature <span class="sc">+</span> Salinity <span class="sc">+</span> Station, <span class="at">random =</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">|</span>id, <span class="at">data =</span> clyde)</span>
+<span id="cb7-3"><a href="repeated-measurements.html#cb7-3" tabindex="-1"></a><span class="fu">plot</span>(model)</span></code></pre></div>
+<p><img src="book_files/figure-html/clyde_repeated_measurements_model-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="repeated-measurements.html#cb8-1" tabindex="-1"></a><span class="fu">anova</span>(model, <span class="at">type =</span> <span class="st">&#39;marginal&#39;</span>)</span></code></pre></div>
+<pre><code>##             numDF denDF  F-value p-value
+## (Intercept)     1  1798  33.2119  &lt;.0001
+## Year            1   149  38.2062  &lt;.0001
+## Temperature     1  1798 944.1878  &lt;.0001
+## Salinity        1  1798  41.1751  &lt;.0001
+## Station        12  1798  80.7607  &lt;.0001</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="repeated-measurements.html#cb10-1" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>tTable</span></code></pre></div>
+<pre><code>##                     Value    Std.Error   DF       t-value       p-value
+## (Intercept) -1.984023e+02 34.427073458 1798  -5.762973157  9.703766e-09
+## Year         1.073006e-01  0.017359428  149   6.181112937  5.803099e-09
+## Temperature -6.080902e-01  0.019789680 1798 -30.727639279 5.153414e-167
+## Salinity    -6.403902e-02  0.009979926 1798  -6.416782593  1.775406e-10
+## Station2    -1.162670e-01  0.132708985 1798  -0.876104833  3.810901e-01
+## Station4    -1.005766e+00  0.134251052 1798  -7.491677966  1.060404e-13
+## Station6    -1.246029e+00  0.135887366 1798  -9.169572587  1.260420e-19
+## Station8    -1.634330e+00  0.138578920 1798 -11.793499975  5.653119e-31
+## Station10   -1.808147e+00  0.142454529 1798 -12.692803322  2.041265e-35
+## Station12   -1.917212e+00  0.149310251 1798 -12.840460934  3.586872e-36
+## Station14   -1.206095e+00  0.155097751 1798  -7.776353979  1.247726e-14
+## Station16   -7.994754e-01  0.173955254 1798  -4.595868106  4.609480e-06
+## Station18   -1.967701e-03  0.197033609 1798  -0.009986628  9.920331e-01
+## Station20    6.864268e-01  0.235454384 1798   2.915328004  3.597130e-03
+## Station22    1.465074e+00  0.288116720 1798   5.085000890  4.059286e-07
+## Station24    2.193303e+00  0.307531332 1798   7.131964891  1.428077e-12</code></pre>
+<!-- ```{r child = 'chapters/random_effects/repeated_measures.Rmd'} -->
+<!-- ``` -->
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-problem-with-paste.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="case-study-reading-attainment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

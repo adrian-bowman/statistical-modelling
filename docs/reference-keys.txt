@@ -106,13 +106,13 @@ respiratory-disease-in-infancy
 smoking-and-lung-cancer
 confidence-intervals-and-p-values
 linear-models
-simple-regression
 formulating-and-fitting-linear-models
 model-checking
 inference-1
 confidence-intervals
 hypothesis-tests-1
-two-covariates-black-cherry-trees
+comparing-models
+prediction-black-cherry-trees
 comparing-groups-analysis-of-variance
 comparing-regression-lines-analysis-of-covariance
 trout
@@ -145,7 +145,7 @@ the-framingham-heart-study
 models-with-random-effects
 a-problem-with-paste
 repeated-measurements
-a-case-study-reading-attainment
+case-study-reading-attainment
 flexible-models
 flexible-methods
 fitting-models-locally
@@ -204,7 +204,7 @@ mururoa
 a-scottish-firth
 case-studies-of-statistical-modelling
 covid-19-initial-surveillance
-uk-parliamentary-election-2024
+childrens-services-reform-in-scotland
 more-on-r
 repetition
 standard-loops
