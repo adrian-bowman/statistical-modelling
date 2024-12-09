@@ -143,9 +143,14 @@ bissell-data
 vasoconstriction-data
 the-framingham-heart-study
 models-with-random-effects
-a-problem-with-paste
+examples
+formulating-and-fitting-mixed-effects-models
+inference-with-mixed-models
 repeated-measurements
-case-study-reading-attainment
+case-studies-of-mixed-models
+non-linear-mixed-models
+generalised-linear-mixed-models
+further-reading-5
 flexible-models
 flexible-methods
 fitting-models-locally
@@ -153,7 +158,7 @@ splines
 inference-with-simple-flexible-models
 a-simple-additive-model
 inference-with-additive-models
-further-reading-5
+further-reading-6
 exercises-10
 fitting-a-p-spline-model
 the-backfitting-algorithm
@@ -162,7 +167,7 @@ models-for-time
 time-series-data
 visualisation
 models
-further-reading-6
+further-reading-7
 exercises-11
 simulating-time-series
 models-for-space
@@ -181,7 +186,7 @@ gaussian-processes
 geostatistical-models-1
 so2-a-model-based-on-smoothing
 models-for-areal-data
-further-reading-7
+further-reading-8
 experimental-design-revisited
 power
 completely-randomised-design-comparing-several-treatments
@@ -211,8 +216,12 @@ standard-loops
 the-apply-family
 writing-your-own-functions
 conditional-statements-and-while-loops
-further-reading-8
+further-reading-9
 exercises-13
 a-simple-function
 a-simple-function-thresholds
 improving-the-sim.max-function
+thinking-clearly-with-probability
+asking-awkward-questions
+further-reading-10
+data-in-general
