@@ -465,7 +465,7 @@ div.csl-indent {
 <li class="chapter" data-level="14.2" data-path="models-for-point-pattern-data.html"><a href="models-for-point-pattern-data.html"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
 <li class="chapter" data-level="14.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-processes"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian processes</a></li>
+<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-random-fields"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian random fields</a></li>
 <li class="chapter" data-level="14.3.2" data-path="geostatistical-models.html"><a href="geostatistical-models.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
 <li class="chapter" data-level="14.3.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
 </ul></li>
@@ -550,28 +550,28 @@ div.csl-indent {
 <div id="writing-your-own-functions" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Writing your own functions<a href="writing-your-own-functions.html#writing-your-own-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once we have a useful block of code, which we may wish to use repeatedly and in different circumstances, it can be very useful to turn this into a new function. This is done simply by assigning a name to a function which consists of this block of code. The value of the last instruction in the function is <em>returned</em> as the value of the function. The <code>invisible</code> function is useful to avoid this being printed out.</p>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="writing-your-own-functions.html#cb340-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb340-2"><a href="writing-your-own-functions.html#cb340-2" tabindex="-1"></a>    nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb340-3"><a href="writing-your-own-functions.html#cb340-3" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb340-4"><a href="writing-your-own-functions.html#cb340-4" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
-<span id="cb340-5"><a href="writing-your-own-functions.html#cb340-5" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
-<span id="cb340-6"><a href="writing-your-own-functions.html#cb340-6" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb340-7"><a href="writing-your-own-functions.html#cb340-7" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb340-8"><a href="writing-your-own-functions.html#cb340-8" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="writing-your-own-functions.html#cb335-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb335-2"><a href="writing-your-own-functions.html#cb335-2" tabindex="-1"></a>    nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb335-3"><a href="writing-your-own-functions.html#cb335-3" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb335-4"><a href="writing-your-own-functions.html#cb335-4" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
+<span id="cb335-5"><a href="writing-your-own-functions.html#cb335-5" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
+<span id="cb335-6"><a href="writing-your-own-functions.html#cb335-6" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb335-7"><a href="writing-your-own-functions.html#cb335-7" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb335-8"><a href="writing-your-own-functions.html#cb335-8" tabindex="-1"></a>  }</span></code></pre></div>
 <p>The function can then be activated (or <em>called</em>) simply by typing its name in the usual way.</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="writing-your-own-functions.html#cb341-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1078-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="writing-your-own-functions.html#cb336-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-1082-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>To provide detailed control of the function we can add <em>arguments</em>. These have stated default values but we can override these by specifying (or <em>passing</em>) different values.</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="writing-your-own-functions.html#cb342-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
-<span id="cb342-2"><a href="writing-your-own-functions.html#cb342-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
-<span id="cb342-3"><a href="writing-your-own-functions.html#cb342-3" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> n)</span>
-<span id="cb342-4"><a href="writing-your-own-functions.html#cb342-4" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
-<span id="cb342-5"><a href="writing-your-own-functions.html#cb342-5" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb342-6"><a href="writing-your-own-functions.html#cb342-6" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb342-7"><a href="writing-your-own-functions.html#cb342-7" tabindex="-1"></a>  }</span>
-<span id="cb342-8"><a href="writing-your-own-functions.html#cb342-8" tabindex="-1"></a></span>
-<span id="cb342-9"><a href="writing-your-own-functions.html#cb342-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1079-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="writing-your-own-functions.html#cb337-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
+<span id="cb337-2"><a href="writing-your-own-functions.html#cb337-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
+<span id="cb337-3"><a href="writing-your-own-functions.html#cb337-3" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> n)</span>
+<span id="cb337-4"><a href="writing-your-own-functions.html#cb337-4" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
+<span id="cb337-5"><a href="writing-your-own-functions.html#cb337-5" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb337-6"><a href="writing-your-own-functions.html#cb337-6" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb337-7"><a href="writing-your-own-functions.html#cb337-7" tabindex="-1"></a>  }</span>
+<span id="cb337-8"><a href="writing-your-own-functions.html#cb337-8" tabindex="-1"></a></span>
+<span id="cb337-9"><a href="writing-your-own-functions.html#cb337-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-1083-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 

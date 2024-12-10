@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>15.5 Principles of experimental design | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="15.5 Principles of experimental design | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="15.5 Principles of experimental design | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="factorial-designs-poisons-and-treatments.html"/>
+<link rel="next" href="exercises-12.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i>Getting started with R</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="where-data.html"><a href="where-data.html"><i class="fa fa-check"></i><b>1</b> Where do data come from?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="examples-data.html"><a href="examples-data.html"><i class="fa fa-check"></i><b>1.1</b> Some examples of data</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="examples-data.html"><a href="examples-data.html#co2-and-global-warming"><i class="fa fa-check"></i><b>1.1.1</b> CO2 and global warming</a></li>
+<li class="chapter" data-level="1.1.2" data-path="examples-data.html"><a href="examples-data.html#the-first-tuberculosis-trial"><i class="fa fa-check"></i><b>1.1.2</b> The first tuberculosis trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="examples-data.html"><a href="examples-data.html#the-birds-and-the-bees-how-to-tell-the-sex-of-a-herring-gull"><i class="fa fa-check"></i><b>1.1.3</b> The birds and the bees: how to tell the sex of a herring gull</a></li>
+<li class="chapter" data-level="1.1.4" data-path="examples-data.html"><a href="examples-data.html#tracking-the-covid-pandemic"><i class="fa fa-check"></i><b>1.1.4</b> Tracking the covid pandemic</a></li>
+<li class="chapter" data-level="1.1.5" data-path="examples-data.html"><a href="examples-data.html#more-complex-data-objects"><i class="fa fa-check"></i><b>1.1.5</b> More complex data objects</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="some-broad-issues.html"><a href="some-broad-issues.html"><i class="fa fa-check"></i><b>1.2</b> Some broad issues</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="some-broad-issues.html"><a href="some-broad-issues.html#whats-the-problem"><i class="fa fa-check"></i><b>1.2.1</b> What’s the problem?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="some-broad-issues.html"><a href="some-broad-issues.html#whats-the-plan"><i class="fa fa-check"></i><b>1.2.2</b> What’s the plan?</a></li>
+<li class="chapter" data-level="1.2.3" data-path="some-broad-issues.html"><a href="some-broad-issues.html#where-do-the-data-come-from"><i class="fa fa-check"></i><b>1.2.3</b> Where do the data come from?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="some-broad-issues.html"><a href="some-broad-issues.html#who-do-you-trust"><i class="fa fa-check"></i><b>1.2.4</b> Who do you trust?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-could-possibly-go-wrong.html"><a href="what-could-possibly-go-wrong.html"><i class="fa fa-check"></i><b>1.3</b> What could possibly go wrong?</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="what-could-possibly-go-wrong.html"><a href="what-could-possibly-go-wrong.html#us-presidential-elections-1936-and-1948"><i class="fa fa-check"></i><b>1.3.1</b> US presidential elections, 1936 and 1948</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>1.4</b> Further reading</a></li>
+<li class="chapter" data-level="1.5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>1.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="exercises.html"><a href="exercises.html#an-investigation-of-short-term-memory"><i class="fa fa-check"></i><b>1.5.1</b> An investigation of short-term memory</a></li>
+<li class="chapter" data-level="1.5.2" data-path="exercises.html"><a href="exercises.html#a-survey-of-dental-health"><i class="fa fa-check"></i><b>1.5.2</b> A survey of dental health</a></li>
+<li class="chapter" data-level="1.5.3" data-path="exercises.html"><a href="exercises.html#hearings-aid-and-dementia"><i class="fa fa-check"></i><b>1.5.3</b> Hearings aid and dementia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="R-introduction.html"><a href="R-introduction.html"><i class="fa fa-check"></i><b>2</b> A gentle introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-fuss.html"><a href="r-fuss.html"><i class="fa fa-check"></i><b>2.1</b> R: what’s all the fuss about?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-fuss.html"><a href="r-fuss.html#history"><i class="fa fa-check"></i><b>2.1.1</b> History</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-fuss.html"><a href="r-fuss.html#why-should-i-be-interested"><i class="fa fa-check"></i><b>2.1.2</b> Why should I be interested?</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-fuss.html"><a href="r-fuss.html#whats-the-down-side"><i class="fa fa-check"></i><b>2.1.3</b> What’s the down side?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="taste-of-r.html"><a href="taste-of-r.html"><i class="fa fa-check"></i><b>2.2</b> A taste of R</a></li>
+<li class="chapter" data-level="2.3" data-path="a-summary-of-key-concepts-in-r.html"><a href="a-summary-of-key-concepts-in-r.html"><i class="fa fa-check"></i><b>2.3</b> A summary of key concepts in R</a></li>
+<li class="chapter" data-level="2.4" data-path="reading-data.html"><a href="reading-data.html"><i class="fa fa-check"></i><b>2.4</b> Reading data into R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="reading-data.html"><a href="reading-data.html#accessing-the-data-used-in-this-book"><i class="fa fa-check"></i><b>2.4.1</b> Accessing the data used in this book</a></li>
+<li class="chapter" data-level="2.4.2" data-path="reading-data.html"><a href="reading-data.html#functions-for-reading-data"><i class="fa fa-check"></i><b>2.4.2</b> Functions for reading data</a></li>
+<li class="chapter" data-level="2.4.3" data-path="reading-data.html"><a href="reading-data.html#reading-data-example"><i class="fa fa-check"></i><b>2.4.3</b> An example: reading an <em>Excel</em> spreadsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-further-example-the-scottish-independence-referendum.html"><a href="a-further-example-the-scottish-independence-referendum.html"><i class="fa fa-check"></i><b>2.5</b> A further example: the Scottish independence referendum</a></li>
+<li class="chapter" data-level="2.6" data-path="further-reading-1.html"><a href="further-reading-1.html"><i class="fa fa-check"></i><b>2.6</b> Further reading</a></li>
+<li class="chapter" data-level="2.7" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i><b>2.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="exercises-1.html"><a href="exercises-1.html#scottish-referendum-data"><i class="fa fa-check"></i><b>2.7.1</b> Scottish Referendum data</a></li>
+<li class="chapter" data-level="2.7.2" data-path="exercises-1.html"><a href="exercises-1.html#aircraft-designs"><i class="fa fa-check"></i><b>2.7.2</b> Aircraft designs</a></li>
+<li class="chapter" data-level="2.7.3" data-path="exercises-1.html"><a href="exercises-1.html#centenarians"><i class="fa fa-check"></i><b>2.7.3</b> Centenarians</a></li>
+<li class="chapter" data-level="2.7.4" data-path="exercises-1.html"><a href="exercises-1.html#justification-of-the-log-transformation-for-the-rodent-data"><i class="fa fa-check"></i><b>2.7.4</b> Justification of the log transformation for the rodent data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
+<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
+<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
+<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Exploring data</b></span></li>
+<li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="thousand-words.html"><a href="thousand-words.html"><i class="fa fa-check"></i><b>4.1</b> Graphics: a picture is worth a thousand words</a></li>
+<li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html#continuous-scales"><i class="fa fa-check"></i><b>4.3.1</b> Continuous scales</a></li>
+<li class="chapter" data-level="4.3.2" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html#discrete-scales"><i class="fa fa-check"></i><b>4.3.2</b> Discrete scales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html#categorical-data"><i class="fa fa-check"></i><b>4.3.3</b> Categorical data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="gaining-an-overview-of-datasets.html"><a href="gaining-an-overview-of-datasets.html"><i class="fa fa-check"></i><b>4.4</b> Gaining an overview of datasets</a></li>
+<li class="chapter" data-level="4.5" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html"><i class="fa fa-check"></i><b>4.5</b> Plots for more complex data structures</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html#d-data"><i class="fa fa-check"></i><b>4.5.1</b> 3D data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html#circular-spherical-and-compositional-data"><i class="fa fa-check"></i><b>4.5.2</b> Circular, spherical and compositional data</a></li>
+<li class="chapter" data-level="4.5.3" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html#other-data-structures"><i class="fa fa-check"></i><b>4.5.3</b> Other data structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="going-further.html"><a href="going-further.html"><i class="fa fa-check"></i><b>4.6</b> Going further</a></li>
+<li class="chapter" data-level="4.7" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="exercises-3.html"><a href="exercises-3.html#rodent-mass-and-speed"><i class="fa fa-check"></i><b>4.7.1</b> Rodent mass and speed</a></li>
+<li class="chapter" data-level="4.7.2" data-path="exercises-3.html"><a href="exercises-3.html#uk-covid-19-deaths"><i class="fa fa-check"></i><b>4.7.2</b> UK covid-19 deaths</a></li>
+<li class="chapter" data-level="4.7.3" data-path="exercises-3.html"><a href="exercises-3.html#scottish-referendum"><i class="fa fa-check"></i><b>4.7.3</b> Scottish referendum</a></li>
+<li class="chapter" data-level="4.7.4" data-path="exercises-3.html"><a href="exercises-3.html#centenarians-in-scotland"><i class="fa fa-check"></i><b>4.7.4</b> Centenarians in Scotland</a></li>
+<li class="chapter" data-level="4.7.5" data-path="exercises-3.html"><a href="exercises-3.html#flour-beetles"><i class="fa fa-check"></i><b>4.7.5</b> Flour beetles</a></li>
+<li class="chapter" data-level="4.7.6" data-path="exercises-3.html"><a href="exercises-3.html#clyde-estuary-water-quality"><i class="fa fa-check"></i><b>4.7.6</b> Clyde Estuary water quality</a></li>
+<li class="chapter" data-level="4.7.7" data-path="exercises-3.html"><a href="exercises-3.html#crabs-multivariate"><i class="fa fa-check"></i><b>4.7.7</b> Crabs (<em>multivariate</em>)</a></li>
+<li class="chapter" data-level="4.7.8" data-path="exercises-3.html"><a href="exercises-3.html#topographic-data"><i class="fa fa-check"></i><b>4.7.8</b> Topographic data</a></li>
+<li class="chapter" data-level="4.7.9" data-path="exercises-3.html"><a href="exercises-3.html#global-energy-use"><i class="fa fa-check"></i><b>4.7.9</b> Global energy use</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html"><i class="fa fa-check"></i><b>5</b> Trends and patterns</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="density-estimation.html"><a href="density-estimation.html"><i class="fa fa-check"></i><b>5.1</b> Density estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="flexible-regression.html"><a href="flexible-regression.html"><i class="fa fa-check"></i><b>5.2</b> Flexible regression</a></li>
+<li class="chapter" data-level="5.3" data-path="further-reading-3.html"><a href="further-reading-3.html"><i class="fa fa-check"></i><b>5.3</b> Further reading</a></li>
+<li class="chapter" data-level="5.4" data-path="exercises-4.html"><a href="exercises-4.html"><i class="fa fa-check"></i><b>5.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="exercises-4.html"><a href="exercises-4.html#exercise-conservation-density-displays"><i class="fa fa-check"></i><b>5.4.1</b> Does conservation work?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="exercises-4.html"><a href="exercises-4.html#the-spatial-distribution-of-laryngeal-cancer-smoothing"><i class="fa fa-check"></i><b>5.4.2</b> The spatial distribution of laryngeal cancer (<em>smoothing</em>)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="exercises-4.html"><a href="exercises-4.html#aircraft-data"><i class="fa fa-check"></i><b>5.4.3</b> Aircraft data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="exercises-4.html"><a href="exercises-4.html#radiocarbon-data"><i class="fa fa-check"></i><b>5.4.4</b> Radiocarbon data</a></li>
+<li class="chapter" data-level="5.4.5" data-path="exercises-4.html"><a href="exercises-4.html#follicle-data"><i class="fa fa-check"></i><b>5.4.5</b> Follicle data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Statistical Inference</b></span></li>
+<li class="chapter" data-level="6" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>6</b> Inference: turning data into evidence</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="where-do-data-come-from-samples-and-populations.html"><a href="where-do-data-come-from-samples-and-populations.html"><i class="fa fa-check"></i><b>6.1</b> Where do data come from? Samples and populations</a></li>
+<li class="chapter" data-level="6.2" data-path="quantifying-uncertainty-standard-error.html"><a href="quantifying-uncertainty-standard-error.html"><i class="fa fa-check"></i><b>6.2</b> Quantifying uncertainty: standard error</a></li>
+<li class="chapter" data-level="6.3" data-path="quantifying-uncertainty-confidence-intervals.html"><a href="quantifying-uncertainty-confidence-intervals.html"><i class="fa fa-check"></i><b>6.3</b> Quantifying uncertainty: confidence intervals</a></li>
+<li class="chapter" data-level="6.4" data-path="hypothesis-tests.html"><a href="hypothesis-tests.html"><i class="fa fa-check"></i><b>6.4</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="6.5" data-path="variability-bands-for-flexible-regression.html"><a href="variability-bands-for-flexible-regression.html"><i class="fa fa-check"></i><b>6.5</b> Variability bands for flexible regression</a></li>
+<li class="chapter" data-level="6.6" data-path="further-reading-4.html"><a href="further-reading-4.html"><i class="fa fa-check"></i><b>6.6</b> Further reading</a></li>
+<li class="chapter" data-level="6.7" data-path="exercises-5.html"><a href="exercises-5.html"><i class="fa fa-check"></i><b>6.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="exercises-5.html"><a href="exercises-5.html#standard-errors"><i class="fa fa-check"></i><b>6.7.1</b> Standard errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html"><i class="fa fa-check"></i><b>7</b> Other approaches to inference</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="computational-inference.html"><a href="computational-inference.html"><i class="fa fa-check"></i><b>7.1</b> Computational inference</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="computational-inference.html"><a href="computational-inference.html#simulation-methods"><i class="fa fa-check"></i><b>7.1.1</b> Simulation methods</a></li>
+<li class="chapter" data-level="7.1.2" data-path="computational-inference.html"><a href="computational-inference.html#randomisation-tests"><i class="fa fa-check"></i><b>7.1.2</b> Randomisation tests</a></li>
+<li class="chapter" data-level="7.1.3" data-path="computational-inference.html"><a href="computational-inference.html#the-bootstrap"><i class="fa fa-check"></i><b>7.1.3</b> The bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>7.2</b> Bayesian inference</a></li>
+<li class="chapter" data-level="7.3" data-path="exercises-6.html"><a href="exercises-6.html"><i class="fa fa-check"></i><b>7.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="exercises-6.html"><a href="exercises-6.html#coverage-property-of-bootstrap-confidence-intervals"><i class="fa fa-check"></i><b>7.3.1</b> Coverage property of bootstrap confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html"><i class="fa fa-check"></i><b>8</b> Inference with categorical data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="simple-proportions.html"><a href="simple-proportions.html"><i class="fa fa-check"></i><b>8.1</b> Simple proportions</a></li>
+<li class="chapter" data-level="8.2" data-path="comparing-proportions.html"><a href="comparing-proportions.html"><i class="fa fa-check"></i><b>8.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="8.3" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>8.3</b> Contingency tables</a></li>
+<li class="chapter" data-level="8.4" data-path="exercises-7.html"><a href="exercises-7.html"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="exercises-7.html"><a href="exercises-7.html#opinion-polls"><i class="fa fa-check"></i><b>8.4.1</b> Opinion polls</a></li>
+<li class="chapter" data-level="8.4.2" data-path="exercises-7.html"><a href="exercises-7.html#respiratory-disease-in-infancy"><i class="fa fa-check"></i><b>8.4.2</b> Respiratory disease in infancy</a></li>
+<li class="chapter" data-level="8.4.3" data-path="exercises-7.html"><a href="exercises-7.html#smoking-and-lung-cancer"><i class="fa fa-check"></i><b>8.4.3</b> Smoking and lung cancer</a></li>
+<li class="chapter" data-level="8.4.4" data-path="exercises-7.html"><a href="exercises-7.html#confidence-intervals-and-p-values"><i class="fa fa-check"></i><b>8.4.4</b> Confidence intervals and p-values</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Statistical Models</b></span></li>
+<li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
+<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
+<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
+<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
+<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
+<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
+<li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
+<li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="further-examples.html"><a href="further-examples.html#two-covariates-vasoconstriction-of-the-digits"><i class="fa fa-check"></i><b>10.5.1</b> Two covariates: vasoconstriction of the digits</a></li>
+<li class="chapter" data-level="10.5.2" data-path="further-examples.html"><a href="further-examples.html#doctors-and-smoking"><i class="fa fa-check"></i><b>10.5.2</b> Doctors and smoking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="exercises-9.html"><a href="exercises-9.html"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
+<li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
+<li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
+<li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="flexible-methods.html"><a href="flexible-methods.html"><i class="fa fa-check"></i><b>12.1</b> Methods for constructing flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="flexible-methods.html"><a href="flexible-methods.html#fitting-models-locally"><i class="fa fa-check"></i><b>12.1.1</b> Fitting models locally</a></li>
+<li class="chapter" data-level="12.1.2" data-path="flexible-methods.html"><a href="flexible-methods.html#splines"><i class="fa fa-check"></i><b>12.1.2</b> Splines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="inference-with-simple-flexible-models.html"><a href="inference-with-simple-flexible-models.html"><i class="fa fa-check"></i><b>12.2</b> Inference with simple flexible models</a></li>
+<li class="chapter" data-level="12.3" data-path="a-simple-additive-model.html"><a href="a-simple-additive-model.html"><i class="fa fa-check"></i><b>12.3</b> A simple additive model</a></li>
+<li class="chapter" data-level="12.4" data-path="inference-with-additive-models.html"><a href="inference-with-additive-models.html"><i class="fa fa-check"></i><b>12.4</b> Inference with additive models</a></li>
+<li class="chapter" data-level="12.5" data-path="further-reading-6.html"><a href="further-reading-6.html"><i class="fa fa-check"></i><b>12.5</b> Further reading</a></li>
+<li class="chapter" data-level="12.6" data-path="exercises-10.html"><a href="exercises-10.html"><i class="fa fa-check"></i><b>12.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="exercises-10.html"><a href="exercises-10.html#fitting-a-p-spline-model"><i class="fa fa-check"></i><b>12.6.1</b> Fitting a p-spline model</a></li>
+<li class="chapter" data-level="12.6.2" data-path="exercises-10.html"><a href="exercises-10.html#the-backfitting-algorithm"><i class="fa fa-check"></i><b>12.6.2</b> The backfitting algorithm</a></li>
+<li class="chapter" data-level="12.6.3" data-path="exercises-10.html"><a href="exercises-10.html#water-quality-in-the-clyde-estuary"><i class="fa fa-check"></i><b>12.6.3</b> Water quality in the Clyde estuary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>13</b> Models for time</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="time-series-data.html"><a href="time-series-data.html"><i class="fa fa-check"></i><b>13.1</b> Time series data</a></li>
+<li class="chapter" data-level="13.2" data-path="visualisation.html"><a href="visualisation.html"><i class="fa fa-check"></i><b>13.2</b> Visualisation</a></li>
+<li class="chapter" data-level="13.3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>13.3</b> Models</a></li>
+<li class="chapter" data-level="13.4" data-path="further-reading-7.html"><a href="further-reading-7.html"><i class="fa fa-check"></i><b>13.4</b> Further reading</a></li>
+<li class="chapter" data-level="13.5" data-path="exercises-11.html"><a href="exercises-11.html"><i class="fa fa-check"></i><b>13.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="exercises-11.html"><a href="exercises-11.html#simulating-time-series"><i class="fa fa-check"></i><b>13.5.1</b> Simulating time series</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="models-for-space.html"><a href="models-for-space.html"><i class="fa fa-check"></i><b>14</b> Models for space</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html"><i class="fa fa-check"></i><b>14.1</b> Visualising spatial data</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#the-maps-package"><i class="fa fa-check"></i><b>14.1.1</b> The <code>maps</code> package</a></li>
+<li class="chapter" data-level="14.1.2" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#leaflet-and-mapview-interactive-maps"><i class="fa fa-check"></i><b>14.1.2</b> <code>leaflet</code> and <code>mapview</code>: interactive maps</a></li>
+<li class="chapter" data-level="14.1.3" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#ggplot-and-ggmap"><i class="fa fa-check"></i><b>14.1.3</b> <code>ggplot</code> and <code>ggmap</code></a></li>
+<li class="chapter" data-level="14.1.4" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#tmap"><i class="fa fa-check"></i><b>14.1.4</b> <code>tmap</code></a></li>
+<li class="chapter" data-level="14.1.5" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatstat-for-spatial-point-patterns"><i class="fa fa-check"></i><b>14.1.5</b> <code>spatstat</code> for spatial point patterns</a></li>
+<li class="chapter" data-level="14.1.6" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#areal-data"><i class="fa fa-check"></i><b>14.1.6</b> Areal data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#image-data"><i class="fa fa-check"></i><b>14.1.7</b> Image data</a></li>
+<li class="chapter" data-level="14.1.8" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatiotemporal-animation"><i class="fa fa-check"></i><b>14.1.8</b> Spatiotemporal animation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="models-for-point-pattern-data.html"><a href="models-for-point-pattern-data.html"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
+<li class="chapter" data-level="14.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-processes"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian processes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="geostatistical-models.html"><a href="geostatistical-models.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
+<li class="chapter" data-level="14.3.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="models-for-areal-data.html"><a href="models-for-areal-data.html"><i class="fa fa-check"></i><b>14.4</b> Models for areal data</a></li>
+<li class="chapter" data-level="14.5" data-path="further-reading-8.html"><a href="further-reading-8.html"><i class="fa fa-check"></i><b>14.5</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html"><i class="fa fa-check"></i><b>15</b> Experimental design revisited</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="power.html"><a href="power.html"><i class="fa fa-check"></i><b>15.1</b> Power</a></li>
+<li class="chapter" data-level="15.2" data-path="completely-randomised-design-comparing-several-treatments.html"><a href="completely-randomised-design-comparing-several-treatments.html"><i class="fa fa-check"></i><b>15.2</b> Completely randomised design: comparing several treatments</a></li>
+<li class="chapter" data-level="15.3" data-path="randomised-blocks-the-parable-of-the-sower.html"><a href="randomised-blocks-the-parable-of-the-sower.html"><i class="fa fa-check"></i><b>15.3</b> Randomised blocks: the parable of the sower</a></li>
+<li class="chapter" data-level="15.4" data-path="factorial-designs-poisons-and-treatments.html"><a href="factorial-designs-poisons-and-treatments.html"><i class="fa fa-check"></i><b>15.4</b> Factorial designs: poisons and treatments</a></li>
+<li class="chapter" data-level="15.5" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html"><i class="fa fa-check"></i><b>15.5</b> Principles of experimental design</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#control"><i class="fa fa-check"></i><b>15.5.1</b> Control</a></li>
+<li class="chapter" data-level="15.5.2" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replicate"><i class="fa fa-check"></i><b>15.5.2</b> Replicate</a></li>
+<li class="chapter" data-level="15.5.3" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#randomise"><i class="fa fa-check"></i><b>15.5.3</b> Randomise</a></li>
+<li class="chapter" data-level="15.5.4" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replication-and-pseudo-replication"><i class="fa fa-check"></i><b>15.5.4</b> Replication and Pseudo-Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="exercises-12.html"><a href="exercises-12.html"><i class="fa fa-check"></i><b>15.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="exercises-12.html"><a href="exercises-12.html#student-cost-of-living"><i class="fa fa-check"></i><b>15.6.1</b> Student cost of living</a></li>
+<li class="chapter" data-level="15.6.2" data-path="exercises-12.html"><a href="exercises-12.html#us-presidential-election-1936"><i class="fa fa-check"></i><b>15.6.2</b> US presidential election 1936</a></li>
+<li class="chapter" data-level="15.6.3" data-path="exercises-12.html"><a href="exercises-12.html#the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.6.3</b> The parable of the sower</a></li>
+<li class="chapter" data-level="15.6.4" data-path="exercises-12.html"><a href="exercises-12.html#mururoa"><i class="fa fa-check"></i><b>15.6.4</b> Mururoa</a></li>
+<li class="chapter" data-level="15.6.5" data-path="exercises-12.html"><a href="exercises-12.html#a-scottish-firth"><i class="fa fa-check"></i><b>15.6.5</b> A Scottish firth</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Statistical Models in Practice</b></span></li>
+<li class="chapter" data-level="16" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>16</b> Case studies of statistical modelling</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>16.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="16.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>16.2</b> Children’s services reform in Scotland</a></li>
+</ul></li>
+<li class="part"><span><b>VI Other topics</b></span></li>
+<li class="chapter" data-level="17" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>17</b> More on R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="repetition.html"><a href="repetition.html"><i class="fa fa-check"></i><b>17.1</b> Repetition</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="repetition.html"><a href="repetition.html#standard-loops"><i class="fa fa-check"></i><b>17.1.1</b> Standard loops</a></li>
+<li class="chapter" data-level="17.1.2" data-path="repetition.html"><a href="repetition.html#the-apply-family"><i class="fa fa-check"></i><b>17.1.2</b> The ‘apply’ family</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="writing-your-own-functions.html"><a href="writing-your-own-functions.html"><i class="fa fa-check"></i><b>17.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="17.3" data-path="conditional-statements-and-while-loops.html"><a href="conditional-statements-and-while-loops.html"><i class="fa fa-check"></i><b>17.3</b> Conditional statements and <code>while</code> loops</a></li>
+<li class="chapter" data-level="17.4" data-path="further-reading-9.html"><a href="further-reading-9.html"><i class="fa fa-check"></i><b>17.4</b> Further reading</a></li>
+<li class="chapter" data-level="17.5" data-path="exercises-13.html"><a href="exercises-13.html"><i class="fa fa-check"></i><b>17.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="exercises-13.html"><a href="exercises-13.html#a-simple-function"><i class="fa fa-check"></i><b>17.5.1</b> A simple function</a></li>
+<li class="chapter" data-level="17.5.2" data-path="exercises-13.html"><a href="exercises-13.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>17.5.2</b> A simple function: thresholds</a></li>
+<li class="chapter" data-level="17.5.3" data-path="exercises-13.html"><a href="exercises-13.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="principles-of-experimental-design" class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Principles of experimental design<a href="principles-of-experimental-design.html#principles-of-experimental-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In an ideal world experimental design would be relatively straight forward. Variation would not be a problem and we could just design experiments on the basis that if we did the same thing twice, the results would be identical. We could do the experiment on all the material (or at any rate the result would be the same no matter which individuals/piece of tissue/cell culture was used). We would be in control of all the factors which affect the outcome. But if that were the case, we would already know the answer!</p>
+<p>The main problems are:</p>
+<ul>
+<li>variation;</li>
+<li>not knowing what will affect the outcome;</li>
+<li>variation;</li>
+<li>we can’t do the experiment on the entire population of possible material;</li>
+<li>variation.</li>
+</ul>
+<p>Here are three key concepts that may help in focusing our thinking about designing experiments.</p>
+<ul>
+<li><em>Control</em><br />
+This means more than ensuring we have a relevant control group against which to compare ‘treatment’ groups. It also refers to the careful choice of settings for the factors whose effects we would like to assess. It is also important to recognise those factors we can’t completely control but which we know will have an effect on what we measure. The discussion of <em>blocks</em> below is one example of this.</li>
+<li><em>Replicate</em><br />
+The more data we have, the more precise our estimates will be. However, there also needs to be a realistic balance between the information gained from the experiment against the resource available to collect the data. As noted above, ethical issues can also arise.</li>
+<li><em>Randomise</em><br />
+This is a very good way of avoiding the biases which can arise if we make our own decisions on how to allocate ‘treatments’ to experimental units.</li>
+</ul>
+<div id="control" class="section level3 hasAnchor" number="15.5.1">
+<h3><span class="header-section-number">15.5.1</span> Control<a href="principles-of-experimental-design.html#control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="holding-factors-constant" class="section level4 hasAnchor" number="15.5.1.1">
+<h4><span class="header-section-number">15.5.1.1</span> Holding Factors Constant<a href="principles-of-experimental-design.html#holding-factors-constant" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The classical approach to controlling factors which you know about is to experiment with one factor whilst at the same time holding all the others constant. This is often referred to as ‘One Factor at a Time’ experimentation. It works well for simple experimental situations, but can give a misleading picture in more complex situations, for example when there are interactions between the factors which we are examining. There are many instances in the literature of a number of subjects where one group of researchers have found one result for a particular factor and a second group have found a very different result. This apparent paradox may be explained by the fact that one or more of the factors being held constant by both groups is being held constant at a different level (pH, temperature, Na+, concn, etc.). There are thus inherent dangers in one factor at a time experimentation, which an experimenter must be aware of.</p>
+</div>
+<div id="more-complex-designs" class="section level4 hasAnchor" number="15.5.1.2">
+<h4><span class="header-section-number">15.5.1.2</span> More Complex Designs<a href="principles-of-experimental-design.html#more-complex-designs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Traditionally the approach to dealing with multiple interacting factors has been the Factorial Experiment, but with three or more factors, this can require very large numbers of experimental units. There are alternatives to the factorial experiment, which make quite reasonable assumptions and which can reduce significantly the number of experimental units required. Such techniques can be very powerful, but should be used with care under the guidance of someone who is aware of the assumptions and what they mean in practice.</p>
+</div>
+<div id="blocks" class="section level4 hasAnchor" number="15.5.1.3">
+<h4><span class="header-section-number">15.5.1.3</span> Blocks<a href="principles-of-experimental-design.html#blocks" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The second way to control factors which you know about is to divide the experimental material into sub-parts where each sub-part consists of material which is very similar. Cell material may be divided into sub-parts:- small, medium and large cells; people into:- male and female or underweight, normal and overweight; and so on. These sub-parts are referred to as Blocks. Within blocks, the variation is much reduced over that to be found in the material as a whole and it thus obscures the differences due to treatments rather less than would otherwise be the case. In general terms, the whole experiment is conducted in each block and the results from the different blocks are essentially pooled. Blocking makes for much more efficient experimentation.</p>
+<p>Suppose for example that to do all the assays required within a experiment, you will have to use more than one batch of reagents. There is a possibility that the different batches will be slightly different in some respect. This difference could affect the outcome of the assays conducted using the two batches. It would therefore be better to conduct the whole experiment (perhaps with no replication) using a single batch and to then do it a second time using another batch, to get the replication, rather than doing half the treatments with one batch and the other half with a second (possibly slightly different) batch. Similarly if you can’t fit all your vessels in one water bath, it would be better to have one from each treatment in one water bath rather than all of one treatment in one water bath and all of the other treatment in another water bath, unless of course the temperature of the water bath is the experimental treatment.</p>
+</div>
+<div id="record-covariates" class="section level4 hasAnchor" number="15.5.1.4">
+<h4><span class="header-section-number">15.5.1.4</span> Record covariates<a href="principles-of-experimental-design.html#record-covariates" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In experimental situations, there are sometimes factors which you know about, but which you can’t hold constant and can’t organise into blocks. The last resort in ‘control’ is to record such factors and try to deal with them statistically during analysis.</p>
+</div>
+</div>
+<div id="replicate" class="section level3 hasAnchor" number="15.5.2">
+<h3><span class="header-section-number">15.5.2</span> Replicate<a href="principles-of-experimental-design.html#replicate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given that there is variation in measurements taken under seemingly ‘identical’ conditions, even after taking precautions as outlined in the previous section, then the best that we can do is to measure as accurately as possible how big that variation is. Armed with a reasonable estimate of the variation, you will be able to see if the treatment effects are larger than the ‘background’ variation. Unfortunately the larger the variation, the larger the number of replicates of each treatment you will need to:</p>
+<ul>
+<li>estimate the background variation accurately;</li>
+<li>see the treatment effects distinctly through the background variation.</li>
+</ul>
+<p>You can usually get an estimate of the likely variation for a particular experiment from published work or previous experiments which you or your colleagues have carried out. From that and a knowledge of the approximate size of the expected treatment effects, you can calculate the number of replicates which will be required to give you a reasonable chance of detecting the treatment effects given the background variation. More experiments produce inconclusive results because of inadequate replication than any other cause.</p>
+<p>Again there are statistical techniques which can reduce replication by concentrating it all in one part of the experimental design, but these techniques should be used with caution, under the guidance of someone who is fully aware of the assumptions and what they mean in practice.</p>
+</div>
+<div id="randomise" class="section level3 hasAnchor" number="15.5.3">
+<h3><span class="header-section-number">15.5.3</span> Randomise<a href="principles-of-experimental-design.html#randomise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Having dealt with the causes of variation which we know about, we must ensure that those causes that we don’t know about are evenly distributed over the treatments so as not to introduce bias into the experiment. This sounds like an impossible task since, by definition, we do not know what these causes are. Luckily there is a very powerful statistical technique which comes to our rescue - <em>randomisation</em>.</p>
+<p>The principle is simple - ensure that each piece of experimental material has an equal chance of being assigned to each treatment. That way it is very unlikely that all the healthy material will be assigned to one treatment and all the unhealthy material to another. They should get approximately equal shares of each. In practice you have to use some external mechanism to generate a random sequence, as human attempts to be random are usually very systematic.</p>
+<p>Randomisation should avoid the introduction of any selection bias. Techniques for randomisation include the use of random number tables, but will require that a complete list of the pieces of experimental material can be enumerated. Randomisation should mean that having accounted for the factors you know (which you were able to control), then those that you do not know will be prevented from interfering with the experiment. Circumstances may arise where it is not possible to use randomisation over some factors, under these circumstances, the only solution is to measure and use that variable or factor as a covariate.</p>
+</div>
+<div id="replication-and-pseudo-replication" class="section level3 hasAnchor" number="15.5.4">
+<h3><span class="header-section-number">15.5.4</span> Replication and Pseudo-Replication<a href="principles-of-experimental-design.html#replication-and-pseudo-replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Consider an experiment where each treatment is replicated three times. This provides a means of dealing with the inherent variation in the results obtained, even if we have carried out identical manipulations, using the same batches of materials. The three replicates give us a measure of how variable the process is. However, if the process is very variable it may be difficult to distinguish between the treatments.</p>
+<p>In some settings, when we record the value from each replicate we may be able to do this multiple times. If we can, why not do this three times for each replicate. This will give us a replication of nine rather than three for very little extra effort. Unfortunately this is not true replication.</p>
+<p>Most experimental methods involve a number of steps, illustrated here in the context of an experiment requiring the preparation of cellular suspecsions:</p>
+<ul>
+<li>collect material;</li>
+<li>prepare cellular suspension;</li>
+<li>subject cellular suspension to one of a number of treatments;</li>
+<li>extract an indicator component as a surrogate for treatment success;</li>
+<li>assay indicator component.</li>
+</ul>
+<p>Each of these steps may be replicated a variable number of times. Replication applied early in the process will lead to extra replication of later steps and it is thus tempting to replicate later steps more than earlier ones. In each case however the replication measures something different.</p>
+<ul>
+<li><em>Collect material</em> Here the replication measures the variation in collection or the variation between plants, animals, etc. This helps you to see how well the results will apply to other individuals. This is all about variation in the source material. Increase in the number of individuals to measure obviously increases the cost and it is usual to try to keep this to a minimum. However, if several individuals are not independently subjected to the same ‘treatment’ or environmental influence, there is no true replication in the study and the remainder of the steps are measuring within individual variability, in the absence of any indication of between individual variability.</li>
+<li><em>Prepare cellular suspension</em> Here the replication measures the variability in the preparation of the suspension. This may be due to different people carrying out the preparation, use of different apparatus, different reagent stocks, temperature, etc. This helps you to see how different the results are likely to be for multiple preparations. This is all about variation in technique. This measures the variability within the preparation and there will obviously be a need for more replication at this level if the preparation is very heterogeneous.</li>
+<li><em>Apply treatment</em> This is the replication of the treatment and measures how different applications of the same treatment are and enables us to assess whether the differences due to treatment are larger than the differences that we see between replications of the same treatment. This is what the experiment is all about.</li>
+<li><em>Extract indicator</em> Here the replication measures the variation in the extraction process, and will be due to similar reasons to those outlined under ‘Prepare cellular suspension’ above. This is again all about variation in technique.</li>
+<li><em>Assay indicator</em> Here the replication measures the variation in the assay process, and will be due to similar reasons to those outlined above. This is again all about variation in technique.</li>
+</ul>
+<p>Each of these sources of variation (and others) may be important in the overall conduct of the experiment; but they do measure different things. The importance of these components of variation depends on their relative size. Assessment of the relative size of components of variation is important in assessing the viability of sampling, preparation, extraction or assay procedures. In general terms, the variation due to these procedures should be less than that due to the treatment. If this is not true, it will not be possible to arrive at a justifiable conclusion.</p>
+<p>The replication that we applied was at the ‘Apply treatment’ stage. The addition replication proposed is at the ‘Assay indicator’ stage and it contributes nothing to our estimation of the variation due to treatment and thus our ability to distinguish between the performance of the different types of bead.</p>
+<p>When replication is carried out at an inappropriate stage, this is referred to as <em>pseudo-replication</em>. Pseudo-replication misleads you into attributing the wrong number of degrees of freedom to your treatment comparisons and thus to think that the inherent variation between replicates is smaller than it really is. This in turn can lead you to think that there are real differences between treatments when there are not. Most commonly pseudo-replication occurs by substituting extra replication at the final assay stage for replication at the treatment stage, as it is easier and requires less effort and resources. This phenomenon is to be found quite widely in experimental work and often finds its way into published papers.</p>
+<p>The statistical significance of a particular treatment or phenomenon can only be determined relative to the variation that would be expected if the treatment or phenomenon did not apply. This means that a source of ‘error’ must be identified and measured which provides this comparison. A failure to do this will result in an experiment or study in which it is not possible to determine the statistical significance of what has been observed.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="factorial-designs-poisons-and-treatments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises-12.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -465,7 +465,7 @@ div.csl-indent {
 <li class="chapter" data-level="14.2" data-path="models-for-point-pattern-data.html"><a href="models-for-point-pattern-data.html"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
 <li class="chapter" data-level="14.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-processes"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian processes</a></li>
+<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-random-fields"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian random fields</a></li>
 <li class="chapter" data-level="14.3.2" data-path="geostatistical-models.html"><a href="geostatistical-models.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
 <li class="chapter" data-level="14.3.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
 </ul></li>
@@ -611,12 +611,13 @@ div.csl-indent {
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="computational-inference.html#cb110-1" tabindex="-1"></a>x      <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>)</span>
 <span id="cb110-2"><a href="computational-inference.html#cb110-2" tabindex="-1"></a>tm.obs <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">trim =</span> <span class="fl">0.1</span>)</span>
 <span id="cb110-3"><a href="computational-inference.html#cb110-3" tabindex="-1"></a></span>
-<span id="cb110-4"><a href="computational-inference.html#cb110-4" tabindex="-1"></a>nboot <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb110-5"><a href="computational-inference.html#cb110-5" tabindex="-1"></a>tm    <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nboot)</span>
-<span id="cb110-6"><a href="computational-inference.html#cb110-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot) tm[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sample</span>(x, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">trim =</span> <span class="fl">0.1</span>)</span>
-<span id="cb110-7"><a href="computational-inference.html#cb110-7" tabindex="-1"></a><span class="fu">quantile</span>(tm, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span></code></pre></div>
-<pre><code>##       2.5%      97.5% 
-## -0.5521891  0.3780229</code></pre>
+<span id="cb110-4"><a href="computational-inference.html#cb110-4" tabindex="-1"></a>nboot  <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb110-5"><a href="computational-inference.html#cb110-5" tabindex="-1"></a>tmdiff <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nboot)</span>
+<span id="cb110-6"><a href="computational-inference.html#cb110-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot)</span>
+<span id="cb110-7"><a href="computational-inference.html#cb110-7" tabindex="-1"></a>   tmdiff[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sample</span>(x, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">trim =</span> <span class="fl">0.1</span>) <span class="sc">-</span> tm.obs</span>
+<span id="cb110-8"><a href="computational-inference.html#cb110-8" tabindex="-1"></a>tm.obs <span class="sc">-</span> <span class="fu">quantile</span>(tmdiff, <span class="fu">c</span>(<span class="fl">0.975</span>, <span class="fl">0.025</span>))</span></code></pre></div>
+<pre><code>##      97.5%       2.5% 
+## -0.6396821  0.2905299</code></pre>
 </div>
 </div>
             </section>

@@ -189,7 +189,7 @@ image-data
 spatiotemporal-animation
 models-for-point-pattern-data
 geostatistical-models
-gaussian-processes
+gaussian-random-fields
 geostatistical-models-1
 so2-a-model-based-on-smoothing
 models-for-areal-data
