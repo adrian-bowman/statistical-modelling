@@ -29,7 +29,7 @@
   
   
 <link rel="prev" href="formulating-and-fitting-mixed-effects-models.html"/>
-<link rel="next" href="repeated-measurements.html"/>
+<link rel="next" href="further-examples-of-mixed-models.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -400,14 +400,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
 <li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
-<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
 <ul>
@@ -538,21 +549,44 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="inference-with-mixed-models" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> Inference with mixed models<a href="inference-with-mixed-models.html#inference-with-mixed-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<!-- ```{r sleep_inference} -->
-<!-- summary(sleep_model_2) -->
-<!-- anova(sleep_model_1, sleep_model_2) -->
-<!-- ``` -->
-<!-- ```{r} -->
-<!-- library(lmerTest) -->
-<!-- sleep_model_2 <- lmer(Reaction ~ Days + (Days | Subject), data = sleepstudy) -->
-<!-- summary(sleep_model_2) -->
-<!-- anova(sleep_model_1, sleep_model_2) -->
-<!-- ``` -->
-<!-- Develop the idea of a bootstrap test. -->
-<!-- ```{r} -->
-<!-- library(pbkrtest) -->
-<!-- PBmodcomp(sleep_model_2, sleep_model_1) -->
-<!-- ``` -->
+<p>In addition to its fundamental role in the estimation of parameters, likelihood also has a very general and powerful set of principles which allow us to contruct confidence intervals for parameters and assess the suitability of simpler, or more complex, versions of our current model. However, these methods are based on theory which may not always describe the situation well when we have mixed models. There are two broad approaches we might take to address this.</p>
+<p>The first makes some progress by computing appropriate ‘degrees of freedom’ when comparing models. The <em>Kenward-Rogers</em> approach is popular. However, there may still remain underlying issues that the assumed distribution of the model comparison test statistic is not correct.</p>
+<p>A second, very general, approach is to employ the <em>bootstrap</em>. If we repeatedly simulate new data from a fitted model, for each new dataset we can compute the model comparison statistic ((log-)likelihood ratio) for a more complex model. This builds up a picture of the distribution of our model comparison statistic when the simpler model is correct. This provides a reference distribution against which we can compare the value of the model comparison statistic on the original data.</p>
+<p>The <code>PBmodcomp</code> function from the <code>pbkrtest</code> package can help us with this. Recall that REML should not be used when models with different fixed effects are to be compared, so the function will refit the model using ML if necessary.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="inference-with-mixed-models.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
+<span id="cb186-2"><a href="inference-with-mixed-models.html#cb186-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
+<span id="cb186-3"><a href="inference-with-mixed-models.html#cb186-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
+<pre><code>## Bootstrap test; time: 9.00 sec; samples: 1000; extremes: 371;
+## large : yield ~ treat + (1 | blend)
+## yield ~ (1 | blend)
+##          stat df p.value
+## LRT    4.0474  3  0.2564
+## PBtest 4.0474     0.3716</code></pre>
+<p>We can look at a slightly lower level of detail by displaying the simulated test statistics and comparing these with the one observed on our original data. Conveniently, the observed test statistic is available as one of the <em>attributes</em> of the simulations returned by <code>PBrefdist</code>. The attributes of <code>refdist</code> can be removed by applying the <code>c</code> function, before passing the vector to <code>ggplot</code>.</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="inference-with-mixed-models.html#cb188-1" tabindex="-1"></a>refdist <span class="ot">&lt;-</span> <span class="fu">PBrefdist</span>(model_tr, model_r)</span>
+<span id="cb188-2"><a href="inference-with-mixed-models.html#cb188-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
+<span id="cb188-3"><a href="inference-with-mixed-models.html#cb188-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
+<span id="cb188-4"><a href="inference-with-mixed-models.html#cb188-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-783-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<!-- @halekoh_2014_jstatsoft -->
+<p>Halekoh et a. (2014) provide a <a href="https://www.jstatsoft.org/index.php/jss/article/view/v059i09/771">systematic description</a> of the <code>pbkrtest</code> package, and examples of its use.</p>
+<p>With a little more work, we can produce estimates of the individual random effects.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="inference-with-mixed-models.html#cb189-1" tabindex="-1"></a><span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend</span></code></pre></div>
+<pre><code>##        (Intercept)
+## Blend1   4.2878788
+## Blend2  -2.1439394
+## Blend3  -0.7146465
+## Blend4   1.4292929
+## Blend5  -2.8585859</code></pre>
+<p>How do these compare with the estimates of the blend effects in our earlier simple randomised blocks model? As the result of <code>ranef</code> is a dataframe, and the estimated effects are mean centred, we will first produce differences from Blend 1.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="inference-with-mixed-models.html#cb191-1" tabindex="-1"></a>reff <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend[ , <span class="dv">1</span>]</span>
+<span id="cb191-2"><a href="inference-with-mixed-models.html#cb191-2" tabindex="-1"></a>reff <span class="ot">&lt;-</span> reff <span class="sc">-</span> reff[<span class="dv">1</span>]</span>
+<span id="cb191-3"><a href="inference-with-mixed-models.html#cb191-3" tabindex="-1"></a>reff[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] -6.431818 -5.002525 -2.858586 -7.146465</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="inference-with-mixed-models.html#cb193-1" tabindex="-1"></a><span class="fu">coefficients</span>(model_tb)[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<pre><code>## blendBlend2 blendBlend3 blendBlend4 blendBlend5 
+##          -9          -7          -4         -10</code></pre>
+<p>Notice that the random effects model estimates the sizes of the random effects to be smaller. This effect is known as <em>shrinkage</em>. It is linked to the joint estimation of the random effects through a common distribution.</p>
 </div>
             </section>
 
@@ -560,7 +594,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="formulating-and-fitting-mixed-effects-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="repeated-measurements.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="further-examples-of-mixed-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

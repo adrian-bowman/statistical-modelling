@@ -400,14 +400,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
 <li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
-<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
 <ul>
@@ -542,26 +553,26 @@ div.csl-indent {
 <h3><span class="header-section-number">13.5.1</span> Simulating time series<a href="exercises-11.html#simulating-time-series" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The code below explores what time series structures look like, as well as the effectiveness of fitting models, incluidng smooth trends plus time series errors.</p>
 <p>There could be a useful exercise to explore the effectiveness of <code>gamm</code> in this setting. Plot the estimates of the correlation parameter etc.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="exercises-11.html#cb188-1" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
-<span id="cb188-2"><a href="exercises-11.html#cb188-2" tabindex="-1"></a></span>
-<span id="cb188-3"><a href="exercises-11.html#cb188-3" tabindex="-1"></a>n   <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb188-4"><a href="exercises-11.html#cb188-4" tabindex="-1"></a>fn  <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> x <span class="sc">/</span> n)</span>
-<span id="cb188-5"><a href="exercises-11.html#cb188-5" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb188-6"><a href="exercises-11.html#cb188-6" tabindex="-1"></a>x   <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
-<span id="cb188-7"><a href="exercises-11.html#cb188-7" tabindex="-1"></a></span>
-<span id="cb188-8"><a href="exercises-11.html#cb188-8" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ar =</span> rho), <span class="at">n =</span> n)</span>
-<span id="cb188-9"><a href="exercises-11.html#cb188-9" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">fn</span>(x) <span class="sc">+</span> y</span>
-<span id="cb188-10"><a href="exercises-11.html#cb188-10" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb188-11"><a href="exercises-11.html#cb188-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(y), <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> stats<span class="sc">::</span><span class="fu">lag</span>(y))) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb188-12"><a href="exercises-11.html#cb188-12" tabindex="-1"></a><span class="co"># plot(y)</span></span>
-<span id="cb188-13"><a href="exercises-11.html#cb188-13" tabindex="-1"></a><span class="co"># plot(y, lag(y))</span></span>
-<span id="cb188-14"><a href="exercises-11.html#cb188-14" tabindex="-1"></a></span>
-<span id="cb188-15"><a href="exercises-11.html#cb188-15" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gamm</span>(y <span class="sc">~</span> <span class="fu">s</span>(x), <span class="at">correlation =</span> <span class="fu">corARMA</span>(<span class="at">form =</span> <span class="sc">~</span> x, <span class="at">p =</span> <span class="dv">1</span>))</span>
-<span id="cb188-16"><a href="exercises-11.html#cb188-16" tabindex="-1"></a><span class="fu">plot</span>(model<span class="sc">$</span>gam)</span>
-<span id="cb188-17"><a href="exercises-11.html#cb188-17" tabindex="-1"></a><span class="fu">curve</span>(fn, <span class="dv">1</span>, n, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb188-18"><a href="exercises-11.html#cb188-18" tabindex="-1"></a><span class="fu">coef</span>(model<span class="sc">$</span>lme<span class="sc">$</span>modelStruct<span class="sc">$</span>corStruct, <span class="at">unconstrained =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="exercises-11.html#cb259-1" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb259-2"><a href="exercises-11.html#cb259-2" tabindex="-1"></a></span>
+<span id="cb259-3"><a href="exercises-11.html#cb259-3" tabindex="-1"></a>n   <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb259-4"><a href="exercises-11.html#cb259-4" tabindex="-1"></a>fn  <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> x <span class="sc">/</span> n)</span>
+<span id="cb259-5"><a href="exercises-11.html#cb259-5" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb259-6"><a href="exercises-11.html#cb259-6" tabindex="-1"></a>x   <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb259-7"><a href="exercises-11.html#cb259-7" tabindex="-1"></a></span>
+<span id="cb259-8"><a href="exercises-11.html#cb259-8" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ar =</span> rho), <span class="at">n =</span> n)</span>
+<span id="cb259-9"><a href="exercises-11.html#cb259-9" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">fn</span>(x) <span class="sc">+</span> y</span>
+<span id="cb259-10"><a href="exercises-11.html#cb259-10" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb259-11"><a href="exercises-11.html#cb259-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(y), <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> stats<span class="sc">::</span><span class="fu">lag</span>(y))) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb259-12"><a href="exercises-11.html#cb259-12" tabindex="-1"></a><span class="co"># plot(y)</span></span>
+<span id="cb259-13"><a href="exercises-11.html#cb259-13" tabindex="-1"></a><span class="co"># plot(y, lag(y))</span></span>
+<span id="cb259-14"><a href="exercises-11.html#cb259-14" tabindex="-1"></a></span>
+<span id="cb259-15"><a href="exercises-11.html#cb259-15" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gamm</span>(y <span class="sc">~</span> <span class="fu">s</span>(x), <span class="at">correlation =</span> <span class="fu">corARMA</span>(<span class="at">form =</span> <span class="sc">~</span> x, <span class="at">p =</span> <span class="dv">1</span>))</span>
+<span id="cb259-16"><a href="exercises-11.html#cb259-16" tabindex="-1"></a><span class="fu">plot</span>(model<span class="sc">$</span>gam)</span>
+<span id="cb259-17"><a href="exercises-11.html#cb259-17" tabindex="-1"></a><span class="fu">curve</span>(fn, <span class="dv">1</span>, n, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb259-18"><a href="exercises-11.html#cb259-18" tabindex="-1"></a><span class="fu">coef</span>(model<span class="sc">$</span>lme<span class="sc">$</span>modelStruct<span class="sc">$</span>corStruct, <span class="at">unconstrained =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>##       Phi 
-## 0.4869784</code></pre>
+## 0.5417684</code></pre>
 <p><img src="book_files/figure-html/time_series_simulation-1.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/time_series_simulation-2.png" width="70%" style="display: block; margin: auto;" /></p>
 
 </div>

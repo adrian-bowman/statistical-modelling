@@ -400,14 +400,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
 <li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
-<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
 <ul>
@@ -539,19 +550,19 @@ div.csl-indent {
 <div id="visualisation" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> Visualisation<a href="visualisation.html#visualisation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Many of the usual approaches to visualisation apply to time series data but there are some methods which are particularly suitable when we expect to see a seasonal or periodic effect. The <code>stl</code> function is one example. This decomposes the time series into a trend, a seasonal component and residuals, using a method of flexible regression (<code>loess</code>). This is applied below to the Mauna Loa records of atmospheric CO<span class="math inline">\(_2\)</span>. Notice that the functions expects a special time series structure, created by the <code>ts</code> function.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="visualisation.html#cb184-1" tabindex="-1"></a>path  <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;CO2_Mauna_Loa&quot;</span>)</span>
-<span id="cb184-2"><a href="visualisation.html#cb184-2" tabindex="-1"></a>d.mlo <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path, <span class="at">skip =</span> <span class="dv">60</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb184-3"><a href="visualisation.html#cb184-3" tabindex="-1"></a><span class="fu">names</span>(d.mlo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Mn&quot;</span>, <span class="st">&quot;Date1&quot;</span>, <span class="st">&quot;Date&quot;</span>, <span class="st">&quot;CO2&quot;</span>,</span>
-<span id="cb184-4"><a href="visualisation.html#cb184-4" tabindex="-1"></a>                  <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;Sta&quot;</span>)</span>
-<span id="cb184-5"><a href="visualisation.html#cb184-5" tabindex="-1"></a>d.mlo<span class="sc">$</span>CO2[d.mlo<span class="sc">$</span>CO2 <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb184-6"><a href="visualisation.html#cb184-6" tabindex="-1"></a><span class="fu">ggplot</span>(d.mlo, <span class="fu">aes</span>(Date, CO2)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb184-7"><a href="visualisation.html#cb184-7" tabindex="-1"></a></span>
-<span id="cb184-8"><a href="visualisation.html#cb184-8" tabindex="-1"></a>mlo.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(d.mlo<span class="sc">$</span>CO2[<span class="dv">78</span><span class="sc">:</span><span class="dv">786</span>], <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1883</span>, <span class="dv">6</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
-<span id="cb184-9"><a href="visualisation.html#cb184-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">stl</span>(mlo.ts, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="visualisation.html#cb255-1" tabindex="-1"></a>path  <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;CO2_Mauna_Loa&quot;</span>)</span>
+<span id="cb255-2"><a href="visualisation.html#cb255-2" tabindex="-1"></a>d.mlo <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path, <span class="at">skip =</span> <span class="dv">60</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb255-3"><a href="visualisation.html#cb255-3" tabindex="-1"></a><span class="fu">names</span>(d.mlo) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Mn&quot;</span>, <span class="st">&quot;Date1&quot;</span>, <span class="st">&quot;Date&quot;</span>, <span class="st">&quot;CO2&quot;</span>,</span>
+<span id="cb255-4"><a href="visualisation.html#cb255-4" tabindex="-1"></a>                  <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;e&quot;</span>, <span class="st">&quot;Sta&quot;</span>)</span>
+<span id="cb255-5"><a href="visualisation.html#cb255-5" tabindex="-1"></a>d.mlo<span class="sc">$</span>CO2[d.mlo<span class="sc">$</span>CO2 <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb255-6"><a href="visualisation.html#cb255-6" tabindex="-1"></a><span class="fu">ggplot</span>(d.mlo, <span class="fu">aes</span>(Date, CO2)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb255-7"><a href="visualisation.html#cb255-7" tabindex="-1"></a></span>
+<span id="cb255-8"><a href="visualisation.html#cb255-8" tabindex="-1"></a>mlo.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(d.mlo<span class="sc">$</span>CO2[<span class="dv">78</span><span class="sc">:</span><span class="dv">786</span>], <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1883</span>, <span class="dv">6</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb255-9"><a href="visualisation.html#cb255-9" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">stl</span>(mlo.ts, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>))</span></code></pre></div>
 <p><img src="book_files/figure-html/Mauna_Loa_stl-1.png" width="49%" /><img src="book_files/figure-html/Mauna_Loa_stl-2.png" width="49%" /></p>
 <p><em>Exercise</em>: Try the <code>stl</code> decomposition on the Ben Nevis data.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="visualisation.html#cb185-1" tabindex="-1"></a>Ben_Nevis    <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Ben_Nevis, <span class="at">yday =</span> <span class="fu">yday</span>(Date))</span>
-<span id="cb185-2"><a href="visualisation.html#cb185-2" tabindex="-1"></a>Ben_Nevis.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(Ben_Nevis<span class="sc">$</span>Tmax, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1883</span>, <span class="dv">335</span>), <span class="at">frequency =</span> <span class="dv">365</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="visualisation.html#cb256-1" tabindex="-1"></a>Ben_Nevis    <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Ben_Nevis, <span class="at">yday =</span> <span class="fu">yday</span>(Date))</span>
+<span id="cb256-2"><a href="visualisation.html#cb256-2" tabindex="-1"></a>Ben_Nevis.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(Ben_Nevis<span class="sc">$</span>Tmax, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1883</span>, <span class="dv">335</span>), <span class="at">frequency =</span> <span class="dv">365</span>)</span></code></pre></div>
 </div>
             </section>
 

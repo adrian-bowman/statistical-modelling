@@ -1,0 +1,14 @@
+models-with-random-effects
+examples
+the-manufacture-of-penicillin
+childhood-growth
+the-strength-of-paste
+common-features
+formulating-and-fitting-mixed-effects-models
+inference-with-mixed-models
+further-examples
+repeated-measurements
+case-studies-of-mixed-models
+non-linear-mixed-models
+generalised-linear-mixed-models
+further-reading

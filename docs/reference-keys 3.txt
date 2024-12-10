@@ -1,0 +1,10 @@
+models-with-random-effects
+examples
+the-manufacture-of-penicillin
+formulating-and-fitting-mixed-effects-models
+inference-with-mixed-models
+repeated-measurements
+case-studies-of-mixed-models
+non-linear-mixed-models
+generalised-linear-mixed-models
+further-reading

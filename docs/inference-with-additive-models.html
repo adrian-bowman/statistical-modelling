@@ -400,14 +400,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
 <li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
-<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
 <ul>
@@ -560,15 +571,15 @@ where <span class="math inline">\(S\)</span> denotes the projection matrix discu
 by analogy with the <span class="math inline">\(F\)</span>-statistic used to compare linear models. Unfortunately, this analogy does not extend to distributional calculations and no general expression for the distribution of the F-statistic is available. However, Hastie &amp; Tibshirani (1990; sections 3.9 and 6.8) suggest that at least some approximate guidance can be given by referring the observed nonparametric <span class="math inline">\(F\)</span>-statistic to an F distribution with <span class="math inline">\((\mbox{df}_2-\mbox{df}_1)\)</span> and <span class="math inline">\(\mbox{df}_1\)</span> degrees of freedom.</p>
 <p>A different approach is to examine whether particular groups of coefficients in the regression spline, for example those associated with the building blocks for a particular term in the additive model, might all be zero. The details of this are comprehensively discussed in Wood (2017) and this is the approach implemented in <code>mgcv</code>.</p>
 <p>The reef data provide a simple illustration of how model comparisons may be made. The table below indicates that both Latitude and Longitude show significant effects on the catch score.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="inference-with-additive-models.html#cb176-1" tabindex="-1"></a>  <span class="fu">summary</span>(trawl.model)<span class="sc">$</span>s.table</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="inference-with-additive-models.html#cb241-1" tabindex="-1"></a>  <span class="fu">summary</span>(trawl.model)<span class="sc">$</span>s.table</span></code></pre></div>
 <pre><code>##                   edf   Ref.df         F     p-value
 ## s(Latitude)  1.000000 1.000000  9.648493 0.003879748
 ## s(Longitude) 7.023069 8.064042 26.768506 0.000000000</code></pre>
 <p>Is the additive model sufficient or do we need an interaction term (which would simply create a smooth surface over Latitude and Longitude simultaneously)? We can examine that by adding an interaction term. The evidence for its presence is not convincing.</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="inference-with-additive-models.html#cb178-1" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
-<span id="cb178-2"><a href="inference-with-additive-models.html#cb178-2" tabindex="-1"></a>trawl.model1 <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude) <span class="sc">+</span> <span class="fu">ti</span>(Latitude, Longitude),</span>
-<span id="cb178-3"><a href="inference-with-additive-models.html#cb178-3" tabindex="-1"></a>                    <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
-<span id="cb178-4"><a href="inference-with-additive-models.html#cb178-4" tabindex="-1"></a><span class="fu">summary</span>(trawl.model1)<span class="sc">$</span>s.table</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="inference-with-additive-models.html#cb243-1" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb243-2"><a href="inference-with-additive-models.html#cb243-2" tabindex="-1"></a>trawl.model1 <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude) <span class="sc">+</span> <span class="fu">ti</span>(Latitude, Longitude),</span>
+<span id="cb243-3"><a href="inference-with-additive-models.html#cb243-3" tabindex="-1"></a>                    <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
+<span id="cb243-4"><a href="inference-with-additive-models.html#cb243-4" tabindex="-1"></a><span class="fu">summary</span>(trawl.model1)<span class="sc">$</span>s.table</span></code></pre></div>
 <pre><code>##                             edf   Ref.df         F   p-value
 ## s(Latitude)            1.000000 1.000000  6.213004 0.0196678
 ## s(Longitude)           7.799202 8.444384 23.363779 0.0000000

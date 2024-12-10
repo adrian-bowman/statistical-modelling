@@ -400,14 +400,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
 <li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
-<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
 <ul>
@@ -541,22 +552,25 @@ div.csl-indent {
 <div id="a-simple-function" class="section level3 hasAnchor" number="17.5.1">
 <h3><span class="header-section-number">17.5.1</span> A simple function<a href="exercises-13.html#a-simple-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>With a sample of data on a continuous scale, it can be useful to plot a histogram and then superimpose a normal density function to assess the suitability of the normal model. For the purpose of the exercise, we can simply simulate some random data using the <code>rnorm</code> function.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="exercises-13.html#cb255-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="exercises-13.html#cb344-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span></code></pre></div>
 <p>In plotting the histogram, it will help to use the additional <code>probability</code> argument in the <code>hist</code> function so that the histogram is scaled to have area 1. To superimpose the normal density, we can define a grid of values along the horizontal axis and then compute the values of the normal density function there, using <code>dnorm</code>. The normal density curve can then be drawn simply by connecting these positions with lines, using the <code>lines</code> function. The code below does this.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="exercises-13.html#cb256-1" tabindex="-1"></a>xgrid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length =</span> <span class="dv">100</span>)</span>
-<span id="cb256-2"><a href="exercises-13.html#cb256-2" tabindex="-1"></a>ygrid <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(xgrid)</span>
-<span id="cb256-3"><a href="exercises-13.html#cb256-3" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb256-4"><a href="exercises-13.html#cb256-4" tabindex="-1"></a><span class="fu">lines</span>(xgrid, ygrid, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="exercises-13.html#cb345-1" tabindex="-1"></a>xgrid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length =</span> <span class="dv">100</span>)</span>
+<span id="cb345-2"><a href="exercises-13.html#cb345-2" tabindex="-1"></a>ygrid <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(xgrid)</span>
+<span id="cb345-3"><a href="exercises-13.html#cb345-3" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb345-4"><a href="exercises-13.html#cb345-4" tabindex="-1"></a><span class="fu">lines</span>(xgrid, ygrid, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Turn the code into a function, with a name of your choosing, with a single argument <code>x</code>, the data to be plotted. As the code above assumes the mean and standard deviation of the normal density to be 0 and 1 respectively, amend the code to draw a density function whose mean and standard deviation match the sample mean and sample standard deviation of the data. [<em>The <code>mean</code> and <code>sd</code> functions will be helpful here, as will the <code>mean</code> and <code>sd</code> arguments of the <code>dnorm</code> function.</em>] Test the function out with data of your choice (or simulated data).</li>
 <li>Add arguments to the function to allow the user to control the colour and line width of the plotted normal density function.</li>
 <li>Amend the code of the histogram and normal density example above to ensure that (a) the density curve is never truncated because its peak is higher than the highest histogram bar and (b) that the normal density always stretches out to at least +/-3 sd’s. [*This task is a little trickier. Notice that if you set the argument <code>plot = FALSE</code> in an initial call to <code>hist</code> and store the result then you can get information on the height and spread of the bars, among other things.]</li>
 </ul>
+<p>See Benjamini (1995) paper for FDR.</p>
+<p>See Benjamini (1995) paper for FDR.</p>
 </div>
 <div id="a-simple-function-thresholds" class="section level3 hasAnchor" number="17.5.2">
 <h3><span class="header-section-number">17.5.2</span> A simple function: thresholds<a href="exercises-13.html#a-simple-function-thresholds" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Write a function which accepts a vector and a single numeric value as input and which then calculates how many elements of the vector exceed the threshold set by the given numerical value. Apply this function to demographic data across the world to calculate the number of countries whose population exceeds 50 million. Code to read and collate UN data is available at the end of Section <a href="thousand-words.html#thousand-words">4.1</a>. If you prefer, a simpler option is to use the <code>gapminder</code> data, available in the <code>gapminder</code> package.</p>
 <p>Plot this pattern over time.</p>
+<p>See Benjamini (1995) paper for FDR.</p>
 </div>
 <div id="improving-the-sim.max-function" class="section level3 hasAnchor" number="17.5.3">
 <h3><span class="header-section-number">17.5.3</span> Improving the sim.max function<a href="exercises-13.html#improving-the-sim.max-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -565,6 +579,7 @@ div.csl-indent {
 <li><p>Generate a full set <code>n</code> observations from the lognormal distribution. Now remove those observations which do not lie below the threshold. This can be used as a good starting point for the <code>samp</code> vector, rather than starting from nothing.</p></li>
 <li><p>Amend the code within the while loop to generate as many observations from the lognormal function which are needed, again removing those which do not lie above the threshold. This should greatly reduce the number of loops required.</p></li>
 </ol>
+<p>See Benjamini (1995) paper for FDR.</p>
 
 </div>
 </div>

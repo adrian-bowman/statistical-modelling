@@ -400,14 +400,25 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
+</ul></li>
 <li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
 <li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
-<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
 <ul>
@@ -538,90 +549,76 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="formulating-and-fitting-mixed-effects-models" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Formulating and fitting mixed effects models<a href="formulating-and-fitting-mixed-effects-models.html#formulating-and-fitting-mixed-effects-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<hr />
-<blockquote>
-<p><strong>Example: The sleep deprivation study</strong></p>
-<p><span class="citation">Belenky et al. (<a href="#ref-belenky_2003_jsleepres">2003</a>)</span> describe an experiment where the reaction times of subjects were recorded after different numbers of days of sleep deprivation. How should we model the relationship between reaction time and sleep deprivation while properly including a description of the sources of variation?</p>
-<p>A subset of the data reported by <span class="citation">Belenky et al. (<a href="#ref-belenky_2003_jsleepres">2003</a>)</span> is available in the <code>sleepstudy</code> dataframe of the <code>lme4</code> package.</p>
-</blockquote>
-<hr />
-<!-- ```{r sleep_structure, message = FALSE} -->
-<!-- library(lme4) -->
-<!-- str(sleepstudy) -->
-<!-- ``` -->
-<!-- ```{r sleep_plot, out.width = '49%', fig.align = 'none'} -->
-<!-- ggplot(sleepstudy, aes(Days, Reaction)) + geom_point() -->
-<!-- ggplot(sleepstudy, aes(Days, Reaction, col = Subject)) + geom_line() -->
-<!-- ggplot(sleepstudy, aes(Days, Reaction)) + geom_point() + facet_wrap(~ Subject) -->
-<!-- ``` -->
-<!-- What are the characteristics of the data which we need to reflect in a model? -->
-<!-- $$ -->
-<!--       y_{ij} = \alpha + \beta x_{ij} + \varepsilon_{ij}. -->
-<!-- $$ -->
-<!-- Fit a different regression line to each group of data, with a common slope. -->
-<!-- $$ -->
-<!--       y_{ij} = (\alpha + a_i) + \beta x_{ij} + \varepsilon_{ij}. -->
-<!-- $$ -->
-<!-- Fit a different intercept and slope to each group of data. -->
-<!-- $$ -->
-<!--       y_{ij} = (\alpha + a_i) +  (\beta + b_i)x_{ij} + \varepsilon_{ij}. -->
-<!-- $$ -->
-<!-- ```{r sleep_list} -->
-<!-- # From example in lmList help file -->
-<!-- fm.plm  <- lmList(Reaction ~ Days | Subject, sleepstudy) -->
-<!-- coef(fm.plm) -->
-<!-- fm.2  <- update(fm.plm, pool = FALSE) -->
-<!-- ## coefficients are the same, "pooled or unpooled": -->
-<!-- stopifnot( all.equal(coef(fm.2), coef(fm.plm)) ) -->
-<!-- (ci <- confint(fm.plm)) # print and rather *see* : -->
-<!-- plot(ci)                # how widely they vary for the individuals -->
-<!-- ``` -->
-<!-- Our model is  -->
-<!-- $$ -->
-<!--       y_{ij} = (\alpha + a_i) +  (\beta + b_i) x_{ij} + \varepsilon_{ij}, -->
-<!-- $$ -->
-<!-- where  -->
-<!-- $$ -->
-<!-- a_i \sim N(0, \sigma^2_a), \hspace{3em} -->
-<!-- b_i \sim N(0, \sigma^2_b), \hspace{3em} -->
-<!-- $$ -->
-<!-- ```{r sleep_fit_1} -->
-<!-- sleep_model_1 <- lmer(Reaction ~ Days + (1 | Subject), data = sleepstudy) -->
-<!-- ggplot(sleepstudy, aes(Days, Reaction)) + geom_point() + -->
-<!--    geom_line(aes(y = fitted(sleep_model_1))) + facet_wrap(~ Subject) -->
-<!-- ``` -->
-<!-- ```{r sleep_fit_2} -->
-<!-- sleep_model_2 <- lmer(Reaction ~ Days + (Days | Subject), data = sleepstudy) -->
-<!-- ggplot(sleepstudy, aes(Days, Reaction)) + geom_point() + -->
-<!--    geom_line(aes(y = fitted(sleep_model_2))) + facet_wrap(~ Subject) -->
-<!-- ``` -->
-<!-- ### The strength of paste -->
-<!-- A *mixed effects* model allows different (hierarchical) levels of error to be constructed.  Each batch has its own 'adjustment' from the overall mean.  Within each batch, each cask has its own further 'adjustment' from the overall and batch means.  Within each cask, the individual within-cask measurements can be viewed as further 'adjustments' from the overall, batch and cask means.  If we index the batches, casks and within-cask measurements by $b$, $c$ and $w$, then we can express this in a model as:   -->
-<!-- $$ -->
-<!--       y_{bcw} = \mu + \varepsilon_b + \varepsilon_{bc} + \varepsilon_{bcw} -->
-<!-- $$ -->
-<!-- where  -->
-<!-- $$ -->
-<!-- \varepsilon_{b} \sim N(0, \sigma^2_b), \hspace{3em} -->
-<!-- \varepsilon_{bc} \sim N(0, \sigma^2_c), \hspace{3em} -->
-<!-- \varepsilon_{bcw} \sim N(0, \sigma^2_w) -->
-<!-- $$ -->
-<!-- The `lme4` package gives us the tools to fit such a model.  The summary requires a bit of interpretation, but close inspection shows that the estimates of standard deviation at batch, cask, and within-cask levels are 1.287348, 2.904061 and 0.8234125 respectively.  That suggests that the cask level is where the variation is strongest. -->
-<!-- ```{r message = FALSE} -->
-<!--    library(lme4) -->
-<!--    pastes_model <- lmer(strength ~ 1 + (1|batch/cask), data = Pastes) -->
-<!--    summary(pastes_model)$coefficients -->
-<!-- ``` -->
-<!-- When using any model, we would like to have some reassurance that it describes the data adequately.  Plot of residuals provide an informal, but very useful, way of checking this.  If the model is adequate then the residuals should simply display random variation, with no obvious patterns or structure.  The plot below reassures us that the model is an adequate fit. -->
-<!-- ```{r out.width = '49%', fig.align = 'center'} -->
-<!--    plot(pastes_model) -->
-<!-- ``` -->
-</div>
-<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-belenky_2003_jsleepres" class="csl-entry">
-Belenky, Gregory, Nancy J Wesensten, David R Thorne, Maria L Thomas, Helen C Sing, Daniel P Redmond, Michael B Russo, and Thomas J Balkin. 2003. <span>“Patterns of Performance Degradation and Restoration During Sleep Restriction and Subsequent Recovery: A Sleep Dose-Response Study.”</span> <em>Journal of Sleep Research</em> 12 (1): 1–12.
-</div>
+<p>We will use the <code>penicillin</code> data to consider how to formulate and fit random effects. Some precide notation will help. We begin by denoting the yield on treatment <span class="math inline">\(i\)</span> and blend <span class="math inline">\(j\)</span> by <span class="math inline">\(y_{ij}\)</span>. A model which accounts for differences in both treatments and blends is:
+<span class="math display">\[
+   y_{ij} = \mu + \alpha_i + \beta_j + \varepsilon_{ij}
+\]</span>
+where <span class="math inline">\(\alpha_i\)</span> gives the adjustment from the overall mean <span class="math inline">\(\mu\)</span> for the mean of treatment <span class="math inline">\(i\)</span> and <span class="math inline">\(\beta_j\)</span> gives the adjustment for the mean of blend <span class="math inline">\(j\)</span>. This is a convenient was of expressing the model but there are actually more parameters here than we need. A simple solution is to set <span class="math inline">\(\alpha_1 = 0\)</span> so that the other treatment effects refer to the differences from treatment level 1. Similarly, we can set <span class="math inline">\(\beta_1 = 0\)</span>. The error terms <span class="math inline">\(\varepsilon_{ij}\)</span> are assumed to be independent of one another, with a <span class="math inline">\(N(0, \sigma^2)\)</span> distribution.</p>
+<p>This is a classic <em>randomised blocks</em> design. As it is a simple linear model so the <code>lm</code> function can be used to fit it.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb180-1" tabindex="-1"></a>model_tb <span class="ot">&lt;-</span> <span class="fu">lm</span>(yield <span class="sc">~</span> treat <span class="sc">+</span> blend, <span class="at">data =</span> penicillin)</span>
+<span id="cb180-2"><a href="formulating-and-fitting-mixed-effects-models.html#cb180-2" tabindex="-1"></a><span class="fu">summary</span>(model_tb)<span class="sc">$</span>coefficients</span></code></pre></div>
+<pre><code>##             Estimate Std. Error    t value     Pr(&gt;|t|)
+## (Intercept)       90   2.744692 32.7905663 4.097853e-13
+## treatB             1   2.744692  0.3643396 7.219436e-01
+## treatC             5   2.744692  1.8216981 9.350597e-02
+## treatD             2   2.744692  0.7286793 4.801777e-01
+## blendBlend2       -9   3.068659 -2.9328774 1.253678e-02
+## blendBlend3       -7   3.068659 -2.2811269 4.159348e-02
+## blendBlend4       -4   3.068659 -1.3035011 2.168578e-01
+## blendBlend5      -10   3.068659 -3.2587527 6.844448e-03</code></pre>
+<p>Is this model appropriate? By giving each blend its own mean adjustment we are dealing with the variation in the particular blends we have used. However, these particular blends are really representing <em>all</em> the blends we might have to work with. How can our model reflect this?</p>
+<p>We could amend our model to:
+<span class="math display">\[
+   y_{ij} = \mu + \alpha_i + b_j + \varepsilon_{ij}
+\]</span>
+where <span class="math inline">\(b_j\)</span> now represents the <em>random</em> adjustment which applies when we select a particular blend. This can be expressed as
+<span class="math display">\[
+   b_j \sim N(0, \sigma^2_b)
+\]</span>
+where <span class="math inline">\(\sigma_b\)</span> quantifies the variation across blends for the <em>whole population</em> of blends.</p>
+<p>Our model has</p>
+<ul>
+<li><em>fixed effects</em> which refer to the treatments, which involve application of the same processes every time, with parameters <span class="math inline">\(\beta_i\)</span>;</li>
+<li><em>random effects</em> which describe the effects of particular blends which will change every time the experiment is conducted, with the parameter <span class="math inline">\(\sigma_b\)</span>, the standard deviation of these random effects.</li>
+</ul>
+<p>This combination is referred to as a <em>mixed effects</em> model.</p>
+<p>In order to fit this kind of model, we can bring to bear the powerful principle of <em>likelihood</em>. This assesses the plausibility of a particular set of parameter values in a model by evaluating the probability (or probability density) associated with the observed response data if these parameters were the ‘true’ ones.</p>
+<p>Consider first the randomised blocks model above. In a very general notation, we might write our model in terms of the distribution of the response data as
+<span class="math display">\[
+   f(y | \alpha, \beta, \sigma^2)
+\]</span>
+where</p>
+<ul>
+<li><span class="math inline">\(y\)</span> denotes the vector of observed responses;</li>
+<li><span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> denote the parameters in the model;</li>
+<li><span class="math inline">\(\sigma^2\)</span> denotes the variance of the error term.</li>
+</ul>
+<p>The <em>maximum likelihood estimates</em> (MLEs) of the parameters are those values which maximise the likelihood.</p>
+<p>If we take this approach for the random effects model where the <span class="math inline">\(\beta\)</span> parameters are replaced by a vector random effects <span class="math inline">\(b\)</span>, we now have two random quantities to consider, with distribution
+<span class="math display">\[
+   f(y, b | \alpha, \sigma_b^2, \sigma^2)
+\]</span>
+The trouble is that we don’t actually observe <span class="math inline">\(b\)</span>. One solution is to use the rules of probability to construct the <em>marginal</em> distribution of <span class="math inline">\(y\)</span> as
+<span class="math display">\[
+   f(y | \alpha, , \sigma_b^2, \sigma^2) = \int_b f(y, b | \alpha, \sigma_b^2, \sigma^2) db = \int_b f(y | b, \alpha, \sigma_b^2, \sigma^2) f(b) db
+\]</span></p>
+<p>For a particular set of values, <span class="math inline">\(b\)</span>, we can evaluate <span class="math inline">\(f(y | b, \alpha, \sigma_b^2, \sigma^2)\)</span>. Our model assumes a normal distribution for <span class="math inline">\(f(b)\)</span>. So this approach provides a route to a likelihood.</p>
+<p>One complication is that the maximum likelihood estimators of variances can be biased. The simplest example is the sample variance from a single sample of data, where the MLE is <span class="math inline">\((\sum_i (y_i - \bar{y})^2 / n)\)</span> while the unbiased estimator has the divisor <span class="math inline">\(n-1\)</span>. This problem can be more pronounced in the context of random effects where multiple variances are involved, sometimes estimated from a relatively small number of instances of each random effect.</p>
+<p>A solution is to estimate the variances by integrating out the fixed effect parameters, <span class="math inline">\(\alpha\)</span>, as well as the random effects <span class="math inline">\(b\)</span>. These estimated variances are then used in estimation of the fixed effect parameters. This is known as <em>Restricted Maximum Likelihood</em>, or REML, estimation. One consequence to be aware of is that REML estimation cannot be used when comparing models which have different fixed effect structures, as the likelihoods are then not comparable.</p>
+<p>Maximising likelihoods for mixed models is relatively straightforward in simple cases but much trickier for more complex models. There are efficient methods of numerical maximisation which can help.</p>
+<p>In practice, the <code>lmer</code> function in the <code>lme4</code> package gives us a powerful mechanism for fitting models which include random effects. The code below applies this to the penicillin data. In the model formula, the term <code>(1 | blend)</code> indicates that we wish a random effect which allows a random adjustment to the mean for each blend. (The <code>1</code> is simply a symbol to indicate a mean.) We can now examine the estimates of the fixed parameters. As we suspected, these don’t suggest any strong treatment effects. We can also the estimates of the standard deviation of the blend variation as well as the standard deviation of the error associated with each observation.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb182-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb182-2"><a href="formulating-and-fitting-mixed-effects-models.html#cb182-2" tabindex="-1"></a>model_tr <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
+<span id="cb182-3"><a href="formulating-and-fitting-mixed-effects-models.html#cb182-3" tabindex="-1"></a><span class="fu">summary</span>(model_tr)<span class="sc">$</span>coefficients</span></code></pre></div>
+<pre><code>##             Estimate Std. Error    t value
+## (Intercept)       84   2.474874 33.9411255
+## treatB             1   2.744692  0.3643396
+## treatC             5   2.744692  1.8216981
+## treatD             2   2.744692  0.7286793</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb184-1" tabindex="-1"></a><span class="fu">summary</span>(model_tr)<span class="sc">$</span>varcor</span></code></pre></div>
+<pre><code>##  Groups   Name        Std.Dev.
+##  blend    (Intercept) 3.4339  
+##  Residual             4.3397</code></pre>
 </div>
             </section>
 
