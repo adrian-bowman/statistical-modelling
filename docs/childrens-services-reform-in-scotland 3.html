@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 Children’s services reform in Scotland | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 Children’s services reform in Scotland | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Children’s services reform in Scotland | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="covid-19-initial-surveillance.html"/>
+<link rel="next" href="stat-df-p.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="1" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>1</b> Case studies of statistical modelling</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>1.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="1.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>1.2</b> Children’s services reform in Scotland</a></li>
+<li class="chapter" data-level="1.3" data-path="stat-df-p.html"><a href="stat-df-p.html"><i class="fa fa-check"></i><b>1.3</b> stat df p.value</a></li>
+<li class="chapter" data-level="1.4" data-path="lrt-4.231913-2-0.html"><a href="lrt-4.231913-2-0.html"><i class="fa fa-check"></i><b>1.4</b> LRT 4.231913 2 0.1205180</a></li>
+<li class="chapter" data-level="1.5" data-path="pbtest-4.231913-na-0.html"><a href="pbtest-4.231913-na-0.html"><i class="fa fa-check"></i><b>1.5</b> PBtest 4.231913 NA 0.1474704</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="childrens-services-reform-in-scotland" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Children’s services reform in Scotland<a href="childrens-services-reform-in-scotland.html#childrens-services-reform-in-scotland" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In 2021, the Scottish Government committed to building a National Care Service to be responsible for adults’ social work and social care support, as well as taking responsibility for the planning and commissioning of community health services. This led to the question of whether children’s services should also be included. In 2022, <a href="https://www.celcis.org">CELCIS</a>, a centre for excellence for children’s care and protection in Scotland, was asked by the Scottish Government to carry out a research study with the aim of addressing the question: <em>‘What is needed to ensure that children, young people and families get the help they need, when they need it?’</em>.</p>
+<p>Detailed information on the <a href="https://www.celcis.org/our-work/research/childrens-services-reform-research">background</a> to the project is available. Strand 3 of the research was entitled <em>Mapping Integration and Outcomes Across Scotland: A Statistical Analysis</em> and it aim to address the specific question:</p>
+<blockquote>
+<p>‘Is the level of structural integration of children’s health and social care services associated with changes in outcomes for children, young people, families, and the workforce?’</p>
+</blockquote>
+<p>To help in answering this question, the researchers looked at the approaches taken towards structural integration following the development of Health and Social Care Partnerships over the last decade in Scotland and 25 indicators associated with the welfare and wellbeing of Scotland’s children, support for families, and the workforce who support them. A zip file containing the data is available through <code>rp.datalink('children_services')</code>. This consists of a folder <em>Data and Code CSRR Strand 3 - August 2023 Update</em> cotaining individual files for one of the indicators (<em>Example_Indicator_CSR.csv</em>), mid-year population estimates (<em>Mid-year-pops-0-17.csv</em>) and contextutal factors (<em>contextual_factors.csv</em>).</p>
+<p>How should the data be analysed to address this question?</p>
+<hr />
+<p><em>Analysis</em></p>
+<p>The results were published as a <a href="https://www.celcis.org/knowledge-bank/search-bank/childrens-services-reform-research-study-mapping-integration-and-outcomes-across-scotland-a-statistical-analysis">report on statistical analysis</a> and the <a href="https://www.celcis.org/application/files/9016/9340/8261/Data_and_Code_CSRR_Strand_3_-_August_2023_Update.zip">data and code</a> are also available. This section discusses the analysis which was undertaken. The code used here reformulates some of the code provided with the report above to use the <code>tidyverse</code> form, in order to be consistent with earlier material.</p>
+<p>As ever, the first step is to read and organise the data. This has been retrieved from different sources and made available as three separate files, in a folder which has been compressed into a ‘zip’ file. The <code>unz</code> function enables us to read the individual files.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="childrens-services-reform-in-scotland.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
+<span id="cb1-2"><a href="childrens-services-reform-in-scotland.html#cb1-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="childrens-services-reform-in-scotland.html#cb1-3" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb1-4"><a href="childrens-services-reform-in-scotland.html#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="childrens-services-reform-in-scotland.html#cb1-5" tabindex="-1"></a>zfile   <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;children_services&quot;</span>)</span>
+<span id="cb1-6"><a href="childrens-services-reform-in-scotland.html#cb1-6" tabindex="-1"></a>dirname <span class="ot">&lt;-</span> <span class="st">&quot;Data and Code CSRR Strand 3 - August 2023 Update&quot;</span></span>
+<span id="cb1-7"><a href="childrens-services-reform-in-scotland.html#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="childrens-services-reform-in-scotland.html#cb1-8" tabindex="-1"></a><span class="co"># Read indicator data</span></span>
+<span id="cb1-9"><a href="childrens-services-reform-in-scotland.html#cb1-9" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;Example_Indicator_CSR.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb1-10"><a href="childrens-services-reform-in-scotland.html#cb1-10" tabindex="-1"></a>indicator <span class="ot">&lt;-</span></span>
+<span id="cb1-11"><a href="childrens-services-reform-in-scotland.html#cb1-11" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">6</span>, <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;LA&quot;</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="childrens-services-reform-in-scotland.html#cb1-12" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>LA, <span class="at">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Offenders&quot;</span>)</span>
+<span id="cb1-13"><a href="childrens-services-reform-in-scotland.html#cb1-13" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="childrens-services-reform-in-scotland.html#cb1-14" tabindex="-1"></a><span class="co"># Read mid-year population estimates to convert indicator to rates per 10,000 - using 0-17 population.</span></span>
+<span id="cb1-15"><a href="childrens-services-reform-in-scotland.html#cb1-15" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;Mid-year-pops-0-17.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb1-16"><a href="childrens-services-reform-in-scotland.html#cb1-16" tabindex="-1"></a>mid_year_pops <span class="ot">&lt;-</span></span>
+<span id="cb1-17"><a href="childrens-services-reform-in-scotland.html#cb1-17" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="childrens-services-reform-in-scotland.html#cb1-18" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;LA&#39;</span> <span class="ot">=</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-19"><a href="childrens-services-reform-in-scotland.html#cb1-19" tabindex="-1"></a>  <span class="fu">filter</span>(LA <span class="sc">!=</span> <span class="st">&#39;Scotland&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-20"><a href="childrens-services-reform-in-scotland.html#cb1-20" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(LA, <span class="st">`</span><span class="at">2011</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2021</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a href="childrens-services-reform-in-scotland.html#cb1-21" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>LA, <span class="at">names_to =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;young_pop&#39;</span>)</span>
+<span id="cb1-22"><a href="childrens-services-reform-in-scotland.html#cb1-22" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="childrens-services-reform-in-scotland.html#cb1-23" tabindex="-1"></a><span class="co"># Read data on contextual factors</span></span>
+<span id="cb1-24"><a href="childrens-services-reform-in-scotland.html#cb1-24" tabindex="-1"></a><span class="co"># The pivot_longer instruction took a very long time to puzzle out!</span></span>
+<span id="cb1-25"><a href="childrens-services-reform-in-scotland.html#cb1-25" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;contextual_factors.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb1-26"><a href="childrens-services-reform-in-scotland.html#cb1-26" tabindex="-1"></a>context <span class="ot">&lt;-</span></span>
+<span id="cb1-27"><a href="childrens-services-reform-in-scotland.html#cb1-27" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">3</span>, <span class="at">n_max =</span> <span class="dv">32</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-28"><a href="childrens-services-reform-in-scotland.html#cb1-28" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HSCP_start =</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(<span class="fu">as.Date</span>(HSCP_start, <span class="at">format =</span> <span class="st">&quot;%d-%b-%y&quot;</span>), <span class="st">&quot;%Y&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb1-29"><a href="childrens-services-reform-in-scotland.html#cb1-29" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> SIMD_2011<span class="sc">:</span>PopDens_2021,</span>
+<span id="cb1-30"><a href="childrens-services-reform-in-scotland.html#cb1-30" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;Year&quot;</span>),</span>
+<span id="cb1-31"><a href="childrens-services-reform-in-scotland.html#cb1-31" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-32"><a href="childrens-services-reform-in-scotland.html#cb1-32" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">covid =</span> <span class="fu">as.numeric</span>(Year <span class="sc">==</span> <span class="dv">2021</span>),</span>
+<span id="cb1-33"><a href="childrens-services-reform-in-scotland.html#cb1-33" tabindex="-1"></a>         <span class="at">Int_level =</span> <span class="fu">recode</span>(Int_level, <span class="st">&quot;No structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb1-34"><a href="childrens-services-reform-in-scotland.html#cb1-34" tabindex="-1"></a>                                       <span class="st">&quot;Partial structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;partial&quot;</span>,</span>
+<span id="cb1-35"><a href="childrens-services-reform-in-scotland.html#cb1-35" tabindex="-1"></a>                                       <span class="st">&quot;Full structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;full&quot;</span>))</span></code></pre></div>
+<p>Create one dataset containing all data.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="childrens-services-reform-in-scotland.html#cb2-1" tabindex="-1"></a><span class="fu">anti_join</span>(indicator, context)</span></code></pre></div>
+<pre><code>## # A tibble: 0 × 3
+## # ℹ 3 variables: LA &lt;chr&gt;, Year &lt;chr&gt;, Offenders &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="childrens-services-reform-in-scotland.html#cb4-1" tabindex="-1"></a><span class="fu">anti_join</span>(indicator, mid_year_pops)</span></code></pre></div>
+<pre><code>## # A tibble: 0 × 3
+## # ℹ 3 variables: LA &lt;chr&gt;, Year &lt;chr&gt;, Offenders &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="childrens-services-reform-in-scotland.html#cb6-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">full_join</span>(indicator, context) <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="childrens-services-reform-in-scotland.html#cb6-2" tabindex="-1"></a>  <span class="fu">full_join</span>(mid_year_pops) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="childrens-services-reform-in-scotland.html#cb6-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Int_level   =</span> <span class="fu">fct</span>(Int_level, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;partial&quot;</span>, <span class="st">&quot;full&quot;</span>)),</span>
+<span id="cb6-4"><a href="childrens-services-reform-in-scotland.html#cb6-4" tabindex="-1"></a>         <span class="at">Coterminous =</span> <span class="fu">fct</span>(Coterminous),</span>
+<span id="cb6-5"><a href="childrens-services-reform-in-scotland.html#cb6-5" tabindex="-1"></a>         <span class="at">LA          =</span> <span class="fu">fct</span>(LA),</span>
+<span id="cb6-6"><a href="childrens-services-reform-in-scotland.html#cb6-6" tabindex="-1"></a>         <span class="at">Year        =</span> <span class="fu">as.numeric</span>(Year),</span>
+<span id="cb6-7"><a href="childrens-services-reform-in-scotland.html#cb6-7" tabindex="-1"></a>         <span class="at">Year2       =</span> <span class="fu">c</span>(<span class="fu">scale</span>(Year)),</span>
+<span id="cb6-8"><a href="childrens-services-reform-in-scotland.html#cb6-8" tabindex="-1"></a>         <span class="at">pre_or_post =</span> <span class="fu">fct_recode</span>(<span class="fu">fct</span>(<span class="fu">as.character</span>(Year <span class="sc">-</span> HSCP_start <span class="sc">&gt;</span> <span class="dv">0</span>)),</span>
+<span id="cb6-9"><a href="childrens-services-reform-in-scotland.html#cb6-9" tabindex="-1"></a>                                  <span class="st">&quot;Pre_Int&quot;</span> <span class="ot">=</span> <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;Post_Int&quot;</span> <span class="ot">=</span> <span class="st">&quot;TRUE&quot;</span>),</span>
+<span id="cb6-10"><a href="childrens-services-reform-in-scotland.html#cb6-10" tabindex="-1"></a>         <span class="at">PopDens     =</span> <span class="fu">c</span>(<span class="fu">scale</span>(PopDens)),</span>
+<span id="cb6-11"><a href="childrens-services-reform-in-scotland.html#cb6-11" tabindex="-1"></a>         <span class="at">SIMD        =</span> <span class="fu">c</span>(<span class="fu">scale</span>(SIMD)),</span>
+<span id="cb6-12"><a href="childrens-services-reform-in-scotland.html#cb6-12" tabindex="-1"></a>         <span class="at">rate        =</span> Offenders <span class="sc">*</span> <span class="dv">10000</span> <span class="sc">/</span> young_pop,</span>
+<span id="cb6-13"><a href="childrens-services-reform-in-scotland.html#cb6-13" tabindex="-1"></a>         <span class="at">ln_pops     =</span> <span class="fu">log</span>(young_pop <span class="sc">/</span> <span class="dv">10000</span>))</span>
+<span id="cb6-14"><a href="childrens-services-reform-in-scotland.html#cb6-14" tabindex="-1"></a><span class="fu">str</span>(d)</span></code></pre></div>
+<pre><code>## tibble [352 × 14] (S3: tbl_df/tbl/data.frame)
+##  $ LA         : Factor w/ 32 levels &quot;Aberdeen City&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ Year       : num [1:352] 2011 2012 2013 2014 2015 ...
+##  $ Offenders  : num [1:352] 243 138 111 88 73 73 90 81 96 114 ...
+##  $ Int_level  : Factor w/ 3 levels &quot;none&quot;,&quot;partial&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ HSCP_start : num [1:352] 2016 2016 2016 2016 2016 ...
+##  $ Coterminous: Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ SIMD       : num [1:352] -0.229 -0.229 -0.229 -0.229 -0.229 ...
+##  $ PopDens    : num [1:352] 0.918 0.935 0.95 0.963 0.973 ...
+##  $ covid      : num [1:352] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ young_pop  : num [1:352] 36561 37060 37182 37519 37775 ...
+##  $ Year2      : num [1:352] -1.579 -1.263 -0.947 -0.632 -0.316 ...
+##  $ pre_or_post: Factor w/ 2 levels &quot;Pre_Int&quot;,&quot;Post_Int&quot;: 1 1 1 1 1 1 2 2 2 2 ...
+##  $ rate       : num [1:352] 66.5 37.2 29.9 23.5 19.3 ...
+##  $ ln_pops    : num [1:352] 1.3 1.31 1.31 1.32 1.33 ...</code></pre>
+<p>Plot data by integration level (ignores correlated data structure so not definitive, but provides an idea of trend.)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="childrens-services-reform-in-scotland.html#cb8-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate, <span class="at">colour =</span> LA)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb8-2"><a href="childrens-services-reform-in-scotland.html#cb8-2" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Int_level) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Offender rate per 10,000&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="childrens-services-reform-in-scotland.html#cb8-3" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb8-4"><a href="childrens-services-reform-in-scotland.html#cb8-4" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="fu">aes</span>()) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="childrens-services-reform-in-scotland.html#cb8-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Int_level) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Offender rate per 10,000&quot;</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="childrens-services-reform-in-scotland.html#cb8-6" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">colour =</span> <span class="fu">I</span>(<span class="st">&quot;red&quot;</span>), <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/celcis_plot_data-1.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_plot_data-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Negative binomial models.
+Note - Fit is almost identical with nAGQ=0 but much faster,
+used to decrease computing time for PBmodcomp.</p>
+<p>MODEL A0 - Two slopes model with covariates added and NO integration
+MODEL A1 - Integration as additive effect (same pre- vs post-)
+MODEL A2 - Integration as interaction effect (different pre- vs post-)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="childrens-services-reform-in-scotland.html#cb9-1" tabindex="-1"></a>modelA0 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span> Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
+<span id="cb9-2"><a href="childrens-services-reform-in-scotland.html#cb9-2" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
+<span id="cb9-3"><a href="childrens-services-reform-in-scotland.html#cb9-3" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
+<span id="cb9-4"><a href="childrens-services-reform-in-scotland.html#cb9-4" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action=</span>na.exclude, <span class="at">nAGQ=</span><span class="dv">0</span>)</span>
+<span id="cb9-5"><a href="childrens-services-reform-in-scotland.html#cb9-5" tabindex="-1"></a><span class="co"># summary(modelA0)</span></span>
+<span id="cb9-6"><a href="childrens-services-reform-in-scotland.html#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="childrens-services-reform-in-scotland.html#cb9-7" tabindex="-1"></a>modelA1 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span> Int_level <span class="sc">+</span></span>
+<span id="cb9-8"><a href="childrens-services-reform-in-scotland.html#cb9-8" tabindex="-1"></a>                                Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
+<span id="cb9-9"><a href="childrens-services-reform-in-scotland.html#cb9-9" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
+<span id="cb9-10"><a href="childrens-services-reform-in-scotland.html#cb9-10" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
+<span id="cb9-11"><a href="childrens-services-reform-in-scotland.html#cb9-11" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action =</span> na.exclude, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
+<span id="cb9-12"><a href="childrens-services-reform-in-scotland.html#cb9-12" tabindex="-1"></a><span class="co"># summary(modelA1)</span></span>
+<span id="cb9-13"><a href="childrens-services-reform-in-scotland.html#cb9-13" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="childrens-services-reform-in-scotland.html#cb9-14" tabindex="-1"></a>modelA2 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="childrens-services-reform-in-scotland.html#cb9-15" tabindex="-1"></a>                                Int_level <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
+<span id="cb9-16"><a href="childrens-services-reform-in-scotland.html#cb9-16" tabindex="-1"></a>                                Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span> </span>
+<span id="cb9-17"><a href="childrens-services-reform-in-scotland.html#cb9-17" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
+<span id="cb9-18"><a href="childrens-services-reform-in-scotland.html#cb9-18" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
+<span id="cb9-19"><a href="childrens-services-reform-in-scotland.html#cb9-19" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action =</span> na.exclude, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
+<span id="cb9-20"><a href="childrens-services-reform-in-scotland.html#cb9-20" tabindex="-1"></a><span class="co"># summary(modelA2)</span></span></code></pre></div>
+<p>Set up matrix to plot model estimates for the pre- and post-integration trends, using 2016 as the cutoff.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="childrens-services-reform-in-scotland.html#cb10-1" tabindex="-1"></a>predict_pre <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Int_level =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Int_level),</span>
+<span id="cb10-2"><a href="childrens-services-reform-in-scotland.html#cb10-2" tabindex="-1"></a>                          <span class="at">pre_or_post =</span> <span class="st">&quot;Pre_Int&quot;</span>, </span>
+<span id="cb10-3"><a href="childrens-services-reform-in-scotland.html#cb10-3" tabindex="-1"></a>                          <span class="at">Year2 =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Year2[d<span class="sc">$</span>Year <span class="sc">&lt;=</span> <span class="dv">2016</span>]),</span>
+<span id="cb10-4"><a href="childrens-services-reform-in-scotland.html#cb10-4" tabindex="-1"></a>                          <span class="at">SIMD =</span> <span class="dv">0</span>, <span class="at">covid =</span> <span class="dv">0</span>, <span class="at">PopDens =</span> <span class="dv">0</span>,</span>
+<span id="cb10-5"><a href="childrens-services-reform-in-scotland.html#cb10-5" tabindex="-1"></a>                          <span class="at">Coterminous =</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb10-6"><a href="childrens-services-reform-in-scotland.html#cb10-6" tabindex="-1"></a>                          <span class="at">ln_pops =</span> <span class="fu">mean</span>(d<span class="sc">$</span>ln_pops)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="childrens-services-reform-in-scotland.html#cb10-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">rep</span>(<span class="dv">2011</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">each =</span> <span class="dv">3</span>))</span>
+<span id="cb10-8"><a href="childrens-services-reform-in-scotland.html#cb10-8" tabindex="-1"></a>predict_post <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Int_level =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Int_level),</span>
+<span id="cb10-9"><a href="childrens-services-reform-in-scotland.html#cb10-9" tabindex="-1"></a>                           <span class="at">pre_or_post =</span> <span class="st">&quot;Post_Int&quot;</span>, </span>
+<span id="cb10-10"><a href="childrens-services-reform-in-scotland.html#cb10-10" tabindex="-1"></a>                           <span class="at">Year2 =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Year2[d<span class="sc">$</span>Year <span class="sc">&gt;=</span> <span class="dv">2016</span>]),</span>
+<span id="cb10-11"><a href="childrens-services-reform-in-scotland.html#cb10-11" tabindex="-1"></a>                           <span class="at">SIMD =</span> <span class="dv">0</span>, <span class="at">covid =</span> <span class="dv">0</span>, <span class="at">PopDens =</span> <span class="dv">0</span>,</span>
+<span id="cb10-12"><a href="childrens-services-reform-in-scotland.html#cb10-12" tabindex="-1"></a>                           <span class="at">Coterminous =</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb10-13"><a href="childrens-services-reform-in-scotland.html#cb10-13" tabindex="-1"></a>                           <span class="at">ln_pops =</span> <span class="fu">mean</span>(d<span class="sc">$</span>ln_pops)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-14"><a href="childrens-services-reform-in-scotland.html#cb10-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">rep</span>(<span class="dv">2016</span><span class="sc">:</span><span class="dv">2021</span>, <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb10-15"><a href="childrens-services-reform-in-scotland.html#cb10-15" tabindex="-1"></a>         <span class="at">covid =</span> <span class="fu">case_when</span>(Year <span class="sc">==</span> <span class="dv">2021</span> <span class="sc">~</span> <span class="dv">1</span>, Year <span class="sc">!=</span> <span class="dv">2021</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb10-16"><a href="childrens-services-reform-in-scotland.html#cb10-16" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="childrens-services-reform-in-scotland.html#cb10-17" tabindex="-1"></a>prefits_A0  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA0, <span class="at">newdata =</span> predict_pre,  <span class="at">re.form=</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb10-18"><a href="childrens-services-reform-in-scotland.html#cb10-18" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb10-19"><a href="childrens-services-reform-in-scotland.html#cb10-19" tabindex="-1"></a>postfits_A0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA0, <span class="at">newdata =</span> predict_post, <span class="at">re.form=</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb10-20"><a href="childrens-services-reform-in-scotland.html#cb10-20" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb10-21"><a href="childrens-services-reform-in-scotland.html#cb10-21" tabindex="-1"></a>prefits_A1  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA1, <span class="at">newdata=</span>predict_pre,  <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb10-22"><a href="childrens-services-reform-in-scotland.html#cb10-22" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb10-23"><a href="childrens-services-reform-in-scotland.html#cb10-23" tabindex="-1"></a>postfits_A1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA1, <span class="at">newdata=</span>predict_post, <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb10-24"><a href="childrens-services-reform-in-scotland.html#cb10-24" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb10-25"><a href="childrens-services-reform-in-scotland.html#cb10-25" tabindex="-1"></a>prefits_A2  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA2, <span class="at">newdata =</span> predict_pre,  <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb10-26"><a href="childrens-services-reform-in-scotland.html#cb10-26" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb10-27"><a href="childrens-services-reform-in-scotland.html#cb10-27" tabindex="-1"></a>postfits_A2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA2, <span class="at">newdata =</span> predict_post, <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb10-28"><a href="childrens-services-reform-in-scotland.html#cb10-28" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span></code></pre></div>
+<p>Create the basic plot then add the specifics for each model
+This is much neater than repeating code</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="childrens-services-reform-in-scotland.html#cb11-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate, <span class="at">colour=</span>Int_level)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="childrens-services-reform-in-scotland.html#cb11-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> LA), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span>  </span>
+<span id="cb11-3"><a href="childrens-services-reform-in-scotland.html#cb11-3" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="childrens-services-reform-in-scotland.html#cb11-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Rate per 10,000 children&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;Integration Level&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb11-5"><a href="childrens-services-reform-in-scotland.html#cb11-5" tabindex="-1"></a>  <span class="co"># scale_colour_manual(values=colours_vec[c(1,3,4)]) +</span></span>
+<span id="cb11-6"><a href="childrens-services-reform-in-scotland.html#cb11-6" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>)</span>
+<span id="cb11-7"><a href="childrens-services-reform-in-scotland.html#cb11-7" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A0),</span>
+<span id="cb11-8"><a href="childrens-services-reform-in-scotland.html#cb11-8" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="childrens-services-reform-in-scotland.html#cb11-9" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A0),</span>
+<span id="cb11-10"><a href="childrens-services-reform-in-scotland.html#cb11-10" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb11-11"><a href="childrens-services-reform-in-scotland.html#cb11-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A0: No group effect&quot;</span>)</span>
+<span id="cb11-12"><a href="childrens-services-reform-in-scotland.html#cb11-12" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A1),</span>
+<span id="cb11-13"><a href="childrens-services-reform-in-scotland.html#cb11-13" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="childrens-services-reform-in-scotland.html#cb11-14" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A1),</span>
+<span id="cb11-15"><a href="childrens-services-reform-in-scotland.html#cb11-15" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span> </span>
+<span id="cb11-16"><a href="childrens-services-reform-in-scotland.html#cb11-16" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A1: Group effect constant over time&quot;</span>)</span>
+<span id="cb11-17"><a href="childrens-services-reform-in-scotland.html#cb11-17" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A2),</span>
+<span id="cb11-18"><a href="childrens-services-reform-in-scotland.html#cb11-18" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb11-19"><a href="childrens-services-reform-in-scotland.html#cb11-19" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A2),</span>
+<span id="cb11-20"><a href="childrens-services-reform-in-scotland.html#cb11-20" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span> </span>
+<span id="cb11-21"><a href="childrens-services-reform-in-scotland.html#cb11-21" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A2: Group effect can differ pre- vs post-integration&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/celcis_model_plots-1.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_model_plots-2.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_model_plots-3.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Model comparison: set seed so simulations are reproducible. Note the use of the <code>::</code> syntax to avoid loading the full package.</p>
+<p>Results:<br />
+## stat df p.value<br />
+## LRT 0.06218459 2 0.9693861<br />
+## PBtest 0.06218459 NA 0.9750250</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="covid-19-initial-surveillance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stat-df-p.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

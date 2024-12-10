@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.5 Plots for more complex data structures | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.5 Plots for more complex data structures | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.5 Plots for more complex data structures | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="gaining-an-overview-of-datasets.html"/>
+<link rel="next" href="going-further.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="" data-path="getting-started-with-r.html"><a href="getting-started-with-r.html"><i class="fa fa-check"></i>Getting started with R</a></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="where-data.html"><a href="where-data.html"><i class="fa fa-check"></i><b>1</b> Where do data come from?</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="examples-data.html"><a href="examples-data.html"><i class="fa fa-check"></i><b>1.1</b> Some examples of data</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="examples-data.html"><a href="examples-data.html#co2-and-global-warming"><i class="fa fa-check"></i><b>1.1.1</b> CO2 and global warming</a></li>
+<li class="chapter" data-level="1.1.2" data-path="examples-data.html"><a href="examples-data.html#the-first-tuberculosis-trial"><i class="fa fa-check"></i><b>1.1.2</b> The first tuberculosis trial</a></li>
+<li class="chapter" data-level="1.1.3" data-path="examples-data.html"><a href="examples-data.html#the-birds-and-the-bees-how-to-tell-the-sex-of-a-herring-gull"><i class="fa fa-check"></i><b>1.1.3</b> The birds and the bees: how to tell the sex of a herring gull</a></li>
+<li class="chapter" data-level="1.1.4" data-path="examples-data.html"><a href="examples-data.html#tracking-the-covid-pandemic"><i class="fa fa-check"></i><b>1.1.4</b> Tracking the covid pandemic</a></li>
+<li class="chapter" data-level="1.1.5" data-path="examples-data.html"><a href="examples-data.html#more-complex-data-objects"><i class="fa fa-check"></i><b>1.1.5</b> More complex data objects</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="some-broad-issues.html"><a href="some-broad-issues.html"><i class="fa fa-check"></i><b>1.2</b> Some broad issues</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="some-broad-issues.html"><a href="some-broad-issues.html#whats-the-problem"><i class="fa fa-check"></i><b>1.2.1</b> What’s the problem?</a></li>
+<li class="chapter" data-level="1.2.2" data-path="some-broad-issues.html"><a href="some-broad-issues.html#whats-the-plan"><i class="fa fa-check"></i><b>1.2.2</b> What’s the plan?</a></li>
+<li class="chapter" data-level="1.2.3" data-path="some-broad-issues.html"><a href="some-broad-issues.html#where-do-the-data-come-from"><i class="fa fa-check"></i><b>1.2.3</b> Where do the data come from?</a></li>
+<li class="chapter" data-level="1.2.4" data-path="some-broad-issues.html"><a href="some-broad-issues.html#who-do-you-trust"><i class="fa fa-check"></i><b>1.2.4</b> Who do you trust?</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="what-could-possibly-go-wrong.html"><a href="what-could-possibly-go-wrong.html"><i class="fa fa-check"></i><b>1.3</b> What could possibly go wrong?</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="what-could-possibly-go-wrong.html"><a href="what-could-possibly-go-wrong.html#us-presidential-elections-1936-and-1948"><i class="fa fa-check"></i><b>1.3.1</b> US presidential elections, 1936 and 1948</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>1.4</b> Further reading</a></li>
+<li class="chapter" data-level="1.5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>1.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="exercises.html"><a href="exercises.html#an-investigation-of-short-term-memory"><i class="fa fa-check"></i><b>1.5.1</b> An investigation of short-term memory</a></li>
+<li class="chapter" data-level="1.5.2" data-path="exercises.html"><a href="exercises.html#a-survey-of-dental-health"><i class="fa fa-check"></i><b>1.5.2</b> A survey of dental health</a></li>
+<li class="chapter" data-level="1.5.3" data-path="exercises.html"><a href="exercises.html#hearings-aid-and-dementia"><i class="fa fa-check"></i><b>1.5.3</b> Hearings aid and dementia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="R-introduction.html"><a href="R-introduction.html"><i class="fa fa-check"></i><b>2</b> A gentle introduction to R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-fuss.html"><a href="r-fuss.html"><i class="fa fa-check"></i><b>2.1</b> R: what’s all the fuss about?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="r-fuss.html"><a href="r-fuss.html#history"><i class="fa fa-check"></i><b>2.1.1</b> History</a></li>
+<li class="chapter" data-level="2.1.2" data-path="r-fuss.html"><a href="r-fuss.html#why-should-i-be-interested"><i class="fa fa-check"></i><b>2.1.2</b> Why should I be interested?</a></li>
+<li class="chapter" data-level="2.1.3" data-path="r-fuss.html"><a href="r-fuss.html#whats-the-down-side"><i class="fa fa-check"></i><b>2.1.3</b> What’s the down side?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="taste-of-r.html"><a href="taste-of-r.html"><i class="fa fa-check"></i><b>2.2</b> A taste of R</a></li>
+<li class="chapter" data-level="2.3" data-path="a-summary-of-key-concepts-in-r.html"><a href="a-summary-of-key-concepts-in-r.html"><i class="fa fa-check"></i><b>2.3</b> A summary of key concepts in R</a></li>
+<li class="chapter" data-level="2.4" data-path="reading-data.html"><a href="reading-data.html"><i class="fa fa-check"></i><b>2.4</b> Reading data into R</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="reading-data.html"><a href="reading-data.html#accessing-the-data-used-in-this-book"><i class="fa fa-check"></i><b>2.4.1</b> Accessing the data used in this book</a></li>
+<li class="chapter" data-level="2.4.2" data-path="reading-data.html"><a href="reading-data.html#functions-for-reading-data"><i class="fa fa-check"></i><b>2.4.2</b> Functions for reading data</a></li>
+<li class="chapter" data-level="2.4.3" data-path="reading-data.html"><a href="reading-data.html#reading-data-example"><i class="fa fa-check"></i><b>2.4.3</b> An example: reading an <em>Excel</em> spreadsheet</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-further-example-the-scottish-independence-referendum.html"><a href="a-further-example-the-scottish-independence-referendum.html"><i class="fa fa-check"></i><b>2.5</b> A further example: the Scottish independence referendum</a></li>
+<li class="chapter" data-level="2.6" data-path="further-reading-1.html"><a href="further-reading-1.html"><i class="fa fa-check"></i><b>2.6</b> Further reading</a></li>
+<li class="chapter" data-level="2.7" data-path="exercises-1.html"><a href="exercises-1.html"><i class="fa fa-check"></i><b>2.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="exercises-1.html"><a href="exercises-1.html#scottish-referendum-data"><i class="fa fa-check"></i><b>2.7.1</b> Scottish Referendum data</a></li>
+<li class="chapter" data-level="2.7.2" data-path="exercises-1.html"><a href="exercises-1.html#aircraft-designs"><i class="fa fa-check"></i><b>2.7.2</b> Aircraft designs</a></li>
+<li class="chapter" data-level="2.7.3" data-path="exercises-1.html"><a href="exercises-1.html#centenarians"><i class="fa fa-check"></i><b>2.7.3</b> Centenarians</a></li>
+<li class="chapter" data-level="2.7.4" data-path="exercises-1.html"><a href="exercises-1.html#justification-of-the-log-transformation-for-the-rodent-data"><i class="fa fa-check"></i><b>2.7.4</b> Justification of the log transformation for the rodent data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
+<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
+<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
+<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Exploring data</b></span></li>
+<li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="thousand-words.html"><a href="thousand-words.html"><i class="fa fa-check"></i><b>4.1</b> Graphics: a picture is worth a thousand words</a></li>
+<li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html#continuous-scales"><i class="fa fa-check"></i><b>4.3.1</b> Continuous scales</a></li>
+<li class="chapter" data-level="4.3.2" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html#discrete-scales"><i class="fa fa-check"></i><b>4.3.2</b> Discrete scales</a></li>
+<li class="chapter" data-level="4.3.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html#categorical-data"><i class="fa fa-check"></i><b>4.3.3</b> Categorical data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="gaining-an-overview-of-datasets.html"><a href="gaining-an-overview-of-datasets.html"><i class="fa fa-check"></i><b>4.4</b> Gaining an overview of datasets</a></li>
+<li class="chapter" data-level="4.5" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html"><i class="fa fa-check"></i><b>4.5</b> Plots for more complex data structures</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html#d-data"><i class="fa fa-check"></i><b>4.5.1</b> 3D data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html#circular-spherical-and-compositional-data"><i class="fa fa-check"></i><b>4.5.2</b> Circular, spherical and compositional data</a></li>
+<li class="chapter" data-level="4.5.3" data-path="plots-for-more-complex-data-structures.html"><a href="plots-for-more-complex-data-structures.html#other-data-structures"><i class="fa fa-check"></i><b>4.5.3</b> Other data structures</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="going-further.html"><a href="going-further.html"><i class="fa fa-check"></i><b>4.6</b> Going further</a></li>
+<li class="chapter" data-level="4.7" data-path="exercises-3.html"><a href="exercises-3.html"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="exercises-3.html"><a href="exercises-3.html#rodent-mass-and-speed"><i class="fa fa-check"></i><b>4.7.1</b> Rodent mass and speed</a></li>
+<li class="chapter" data-level="4.7.2" data-path="exercises-3.html"><a href="exercises-3.html#uk-covid-19-deaths"><i class="fa fa-check"></i><b>4.7.2</b> UK covid-19 deaths</a></li>
+<li class="chapter" data-level="4.7.3" data-path="exercises-3.html"><a href="exercises-3.html#scottish-referendum"><i class="fa fa-check"></i><b>4.7.3</b> Scottish referendum</a></li>
+<li class="chapter" data-level="4.7.4" data-path="exercises-3.html"><a href="exercises-3.html#centenarians-in-scotland"><i class="fa fa-check"></i><b>4.7.4</b> Centenarians in Scotland</a></li>
+<li class="chapter" data-level="4.7.5" data-path="exercises-3.html"><a href="exercises-3.html#flour-beetles"><i class="fa fa-check"></i><b>4.7.5</b> Flour beetles</a></li>
+<li class="chapter" data-level="4.7.6" data-path="exercises-3.html"><a href="exercises-3.html#clyde-estuary-water-quality"><i class="fa fa-check"></i><b>4.7.6</b> Clyde Estuary water quality</a></li>
+<li class="chapter" data-level="4.7.7" data-path="exercises-3.html"><a href="exercises-3.html#crabs-multivariate"><i class="fa fa-check"></i><b>4.7.7</b> Crabs (<em>multivariate</em>)</a></li>
+<li class="chapter" data-level="4.7.8" data-path="exercises-3.html"><a href="exercises-3.html#topographic-data"><i class="fa fa-check"></i><b>4.7.8</b> Topographic data</a></li>
+<li class="chapter" data-level="4.7.9" data-path="exercises-3.html"><a href="exercises-3.html#global-energy-use"><i class="fa fa-check"></i><b>4.7.9</b> Global energy use</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="trends-and-patterns.html"><a href="trends-and-patterns.html"><i class="fa fa-check"></i><b>5</b> Trends and patterns</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="density-estimation.html"><a href="density-estimation.html"><i class="fa fa-check"></i><b>5.1</b> Density estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="flexible-regression.html"><a href="flexible-regression.html"><i class="fa fa-check"></i><b>5.2</b> Flexible regression</a></li>
+<li class="chapter" data-level="5.3" data-path="further-reading-3.html"><a href="further-reading-3.html"><i class="fa fa-check"></i><b>5.3</b> Further reading</a></li>
+<li class="chapter" data-level="5.4" data-path="exercises-4.html"><a href="exercises-4.html"><i class="fa fa-check"></i><b>5.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="exercises-4.html"><a href="exercises-4.html#exercise-conservation-density-displays"><i class="fa fa-check"></i><b>5.4.1</b> Does conservation work?</a></li>
+<li class="chapter" data-level="5.4.2" data-path="exercises-4.html"><a href="exercises-4.html#the-spatial-distribution-of-laryngeal-cancer-smoothing"><i class="fa fa-check"></i><b>5.4.2</b> The spatial distribution of laryngeal cancer (<em>smoothing</em>)</a></li>
+<li class="chapter" data-level="5.4.3" data-path="exercises-4.html"><a href="exercises-4.html#aircraft-data"><i class="fa fa-check"></i><b>5.4.3</b> Aircraft data</a></li>
+<li class="chapter" data-level="5.4.4" data-path="exercises-4.html"><a href="exercises-4.html#radiocarbon-data"><i class="fa fa-check"></i><b>5.4.4</b> Radiocarbon data</a></li>
+<li class="chapter" data-level="5.4.5" data-path="exercises-4.html"><a href="exercises-4.html#follicle-data"><i class="fa fa-check"></i><b>5.4.5</b> Follicle data</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Statistical Inference</b></span></li>
+<li class="chapter" data-level="6" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>6</b> Inference: turning data into evidence</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="where-do-data-come-from-samples-and-populations.html"><a href="where-do-data-come-from-samples-and-populations.html"><i class="fa fa-check"></i><b>6.1</b> Where do data come from? Samples and populations</a></li>
+<li class="chapter" data-level="6.2" data-path="quantifying-uncertainty-standard-error.html"><a href="quantifying-uncertainty-standard-error.html"><i class="fa fa-check"></i><b>6.2</b> Quantifying uncertainty: standard error</a></li>
+<li class="chapter" data-level="6.3" data-path="quantifying-uncertainty-confidence-intervals.html"><a href="quantifying-uncertainty-confidence-intervals.html"><i class="fa fa-check"></i><b>6.3</b> Quantifying uncertainty: confidence intervals</a></li>
+<li class="chapter" data-level="6.4" data-path="hypothesis-tests.html"><a href="hypothesis-tests.html"><i class="fa fa-check"></i><b>6.4</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="6.5" data-path="variability-bands-for-flexible-regression.html"><a href="variability-bands-for-flexible-regression.html"><i class="fa fa-check"></i><b>6.5</b> Variability bands for flexible regression</a></li>
+<li class="chapter" data-level="6.6" data-path="further-reading-4.html"><a href="further-reading-4.html"><i class="fa fa-check"></i><b>6.6</b> Further reading</a></li>
+<li class="chapter" data-level="6.7" data-path="exercises-5.html"><a href="exercises-5.html"><i class="fa fa-check"></i><b>6.7</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="exercises-5.html"><a href="exercises-5.html#standard-errors"><i class="fa fa-check"></i><b>6.7.1</b> Standard errors</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html"><i class="fa fa-check"></i><b>7</b> Other approaches to inference</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="computational-inference.html"><a href="computational-inference.html"><i class="fa fa-check"></i><b>7.1</b> Computational inference</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="computational-inference.html"><a href="computational-inference.html#simulation-methods"><i class="fa fa-check"></i><b>7.1.1</b> Simulation methods</a></li>
+<li class="chapter" data-level="7.1.2" data-path="computational-inference.html"><a href="computational-inference.html#randomisation-tests"><i class="fa fa-check"></i><b>7.1.2</b> Randomisation tests</a></li>
+<li class="chapter" data-level="7.1.3" data-path="computational-inference.html"><a href="computational-inference.html#the-bootstrap"><i class="fa fa-check"></i><b>7.1.3</b> The bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>7.2</b> Bayesian inference</a></li>
+<li class="chapter" data-level="7.3" data-path="exercises-6.html"><a href="exercises-6.html"><i class="fa fa-check"></i><b>7.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="exercises-6.html"><a href="exercises-6.html#coverage-property-of-bootstrap-confidence-intervals"><i class="fa fa-check"></i><b>7.3.1</b> Coverage property of bootstrap confidence intervals</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html"><i class="fa fa-check"></i><b>8</b> Inference with categorical data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="simple-proportions.html"><a href="simple-proportions.html"><i class="fa fa-check"></i><b>8.1</b> Simple proportions</a></li>
+<li class="chapter" data-level="8.2" data-path="comparing-proportions.html"><a href="comparing-proportions.html"><i class="fa fa-check"></i><b>8.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="8.3" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>8.3</b> Contingency tables</a></li>
+<li class="chapter" data-level="8.4" data-path="exercises-7.html"><a href="exercises-7.html"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="exercises-7.html"><a href="exercises-7.html#opinion-polls"><i class="fa fa-check"></i><b>8.4.1</b> Opinion polls</a></li>
+<li class="chapter" data-level="8.4.2" data-path="exercises-7.html"><a href="exercises-7.html#respiratory-disease-in-infancy"><i class="fa fa-check"></i><b>8.4.2</b> Respiratory disease in infancy</a></li>
+<li class="chapter" data-level="8.4.3" data-path="exercises-7.html"><a href="exercises-7.html#smoking-and-lung-cancer"><i class="fa fa-check"></i><b>8.4.3</b> Smoking and lung cancer</a></li>
+<li class="chapter" data-level="8.4.4" data-path="exercises-7.html"><a href="exercises-7.html#confidence-intervals-and-p-values"><i class="fa fa-check"></i><b>8.4.4</b> Confidence intervals and p-values</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV Statistical Models</b></span></li>
+<li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
+<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
+<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
+<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
+<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
+<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
+<li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
+<li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="further-examples.html"><a href="further-examples.html#two-covariates-vasoconstriction-of-the-digits"><i class="fa fa-check"></i><b>10.5.1</b> Two covariates: vasoconstriction of the digits</a></li>
+<li class="chapter" data-level="10.5.2" data-path="further-examples.html"><a href="further-examples.html#doctors-and-smoking"><i class="fa fa-check"></i><b>10.5.2</b> Doctors and smoking</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="exercises-9.html"><a href="exercises-9.html"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
+<li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
+<li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a></li>
+<li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
+<li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
+<li class="chapter" data-level="11.4" data-path="repeated-measurements.html"><a href="repeated-measurements.html"><i class="fa fa-check"></i><b>11.4</b> Repeated measurements</a></li>
+<li class="chapter" data-level="11.5" data-path="case-studies-of-mixed-models.html"><a href="case-studies-of-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Case studies of mixed models</a></li>
+<li class="chapter" data-level="11.6" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="11.7" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.7</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="11.8" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.8</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="flexible-methods.html"><a href="flexible-methods.html"><i class="fa fa-check"></i><b>12.1</b> Methods for constructing flexible models</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="flexible-methods.html"><a href="flexible-methods.html#fitting-models-locally"><i class="fa fa-check"></i><b>12.1.1</b> Fitting models locally</a></li>
+<li class="chapter" data-level="12.1.2" data-path="flexible-methods.html"><a href="flexible-methods.html#splines"><i class="fa fa-check"></i><b>12.1.2</b> Splines</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="inference-with-simple-flexible-models.html"><a href="inference-with-simple-flexible-models.html"><i class="fa fa-check"></i><b>12.2</b> Inference with simple flexible models</a></li>
+<li class="chapter" data-level="12.3" data-path="a-simple-additive-model.html"><a href="a-simple-additive-model.html"><i class="fa fa-check"></i><b>12.3</b> A simple additive model</a></li>
+<li class="chapter" data-level="12.4" data-path="inference-with-additive-models.html"><a href="inference-with-additive-models.html"><i class="fa fa-check"></i><b>12.4</b> Inference with additive models</a></li>
+<li class="chapter" data-level="12.5" data-path="further-reading-6.html"><a href="further-reading-6.html"><i class="fa fa-check"></i><b>12.5</b> Further reading</a></li>
+<li class="chapter" data-level="12.6" data-path="exercises-10.html"><a href="exercises-10.html"><i class="fa fa-check"></i><b>12.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="exercises-10.html"><a href="exercises-10.html#fitting-a-p-spline-model"><i class="fa fa-check"></i><b>12.6.1</b> Fitting a p-spline model</a></li>
+<li class="chapter" data-level="12.6.2" data-path="exercises-10.html"><a href="exercises-10.html#the-backfitting-algorithm"><i class="fa fa-check"></i><b>12.6.2</b> The backfitting algorithm</a></li>
+<li class="chapter" data-level="12.6.3" data-path="exercises-10.html"><a href="exercises-10.html#water-quality-in-the-clyde-estuary"><i class="fa fa-check"></i><b>12.6.3</b> Water quality in the Clyde estuary</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>13</b> Models for time</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="time-series-data.html"><a href="time-series-data.html"><i class="fa fa-check"></i><b>13.1</b> Time series data</a></li>
+<li class="chapter" data-level="13.2" data-path="visualisation.html"><a href="visualisation.html"><i class="fa fa-check"></i><b>13.2</b> Visualisation</a></li>
+<li class="chapter" data-level="13.3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>13.3</b> Models</a></li>
+<li class="chapter" data-level="13.4" data-path="further-reading-7.html"><a href="further-reading-7.html"><i class="fa fa-check"></i><b>13.4</b> Further reading</a></li>
+<li class="chapter" data-level="13.5" data-path="exercises-11.html"><a href="exercises-11.html"><i class="fa fa-check"></i><b>13.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="exercises-11.html"><a href="exercises-11.html#simulating-time-series"><i class="fa fa-check"></i><b>13.5.1</b> Simulating time series</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="models-for-space.html"><a href="models-for-space.html"><i class="fa fa-check"></i><b>14</b> Models for space</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html"><i class="fa fa-check"></i><b>14.1</b> Visualising spatial data</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#the-maps-package"><i class="fa fa-check"></i><b>14.1.1</b> The <code>maps</code> package</a></li>
+<li class="chapter" data-level="14.1.2" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#leaflet-and-mapview-interactive-maps"><i class="fa fa-check"></i><b>14.1.2</b> <code>leaflet</code> and <code>mapview</code>: interactive maps</a></li>
+<li class="chapter" data-level="14.1.3" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#ggplot-and-ggmap"><i class="fa fa-check"></i><b>14.1.3</b> <code>ggplot</code> and <code>ggmap</code></a></li>
+<li class="chapter" data-level="14.1.4" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#tmap"><i class="fa fa-check"></i><b>14.1.4</b> <code>tmap</code></a></li>
+<li class="chapter" data-level="14.1.5" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatstat-for-spatial-point-patterns"><i class="fa fa-check"></i><b>14.1.5</b> <code>spatstat</code> for spatial point patterns</a></li>
+<li class="chapter" data-level="14.1.6" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#areal-data"><i class="fa fa-check"></i><b>14.1.6</b> Areal data</a></li>
+<li class="chapter" data-level="14.1.7" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#image-data"><i class="fa fa-check"></i><b>14.1.7</b> Image data</a></li>
+<li class="chapter" data-level="14.1.8" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatiotemporal-animation"><i class="fa fa-check"></i><b>14.1.8</b> Spatiotemporal animation</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="models-for-point-pattern-data.html"><a href="models-for-point-pattern-data.html"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
+<li class="chapter" data-level="14.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-processes"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian processes</a></li>
+<li class="chapter" data-level="14.3.2" data-path="geostatistical-models.html"><a href="geostatistical-models.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
+<li class="chapter" data-level="14.3.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="models-for-areal-data.html"><a href="models-for-areal-data.html"><i class="fa fa-check"></i><b>14.4</b> Models for areal data</a></li>
+<li class="chapter" data-level="14.5" data-path="further-reading-8.html"><a href="further-reading-8.html"><i class="fa fa-check"></i><b>14.5</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html"><i class="fa fa-check"></i><b>15</b> Experimental design revisited</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="power.html"><a href="power.html"><i class="fa fa-check"></i><b>15.1</b> Power</a></li>
+<li class="chapter" data-level="15.2" data-path="completely-randomised-design-comparing-several-treatments.html"><a href="completely-randomised-design-comparing-several-treatments.html"><i class="fa fa-check"></i><b>15.2</b> Completely randomised design: comparing several treatments</a></li>
+<li class="chapter" data-level="15.3" data-path="randomised-blocks-the-parable-of-the-sower.html"><a href="randomised-blocks-the-parable-of-the-sower.html"><i class="fa fa-check"></i><b>15.3</b> Randomised blocks: the parable of the sower</a></li>
+<li class="chapter" data-level="15.4" data-path="factorial-designs-poisons-and-treatments.html"><a href="factorial-designs-poisons-and-treatments.html"><i class="fa fa-check"></i><b>15.4</b> Factorial designs: poisons and treatments</a></li>
+<li class="chapter" data-level="15.5" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html"><i class="fa fa-check"></i><b>15.5</b> Principles of experimental design</a>
+<ul>
+<li class="chapter" data-level="15.5.1" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#control"><i class="fa fa-check"></i><b>15.5.1</b> Control</a></li>
+<li class="chapter" data-level="15.5.2" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replicate"><i class="fa fa-check"></i><b>15.5.2</b> Replicate</a></li>
+<li class="chapter" data-level="15.5.3" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#randomise"><i class="fa fa-check"></i><b>15.5.3</b> Randomise</a></li>
+<li class="chapter" data-level="15.5.4" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replication-and-pseudo-replication"><i class="fa fa-check"></i><b>15.5.4</b> Replication and Pseudo-Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="exercises-12.html"><a href="exercises-12.html"><i class="fa fa-check"></i><b>15.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="exercises-12.html"><a href="exercises-12.html#student-cost-of-living"><i class="fa fa-check"></i><b>15.6.1</b> Student cost of living</a></li>
+<li class="chapter" data-level="15.6.2" data-path="exercises-12.html"><a href="exercises-12.html#us-presidential-election-1936"><i class="fa fa-check"></i><b>15.6.2</b> US presidential election 1936</a></li>
+<li class="chapter" data-level="15.6.3" data-path="exercises-12.html"><a href="exercises-12.html#the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.6.3</b> The parable of the sower</a></li>
+<li class="chapter" data-level="15.6.4" data-path="exercises-12.html"><a href="exercises-12.html#mururoa"><i class="fa fa-check"></i><b>15.6.4</b> Mururoa</a></li>
+<li class="chapter" data-level="15.6.5" data-path="exercises-12.html"><a href="exercises-12.html#a-scottish-firth"><i class="fa fa-check"></i><b>15.6.5</b> A Scottish firth</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V Statistical Models in Practice</b></span></li>
+<li class="chapter" data-level="16" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>16</b> Case studies of statistical modelling</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>16.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="16.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>16.2</b> Children’s services reform in Scotland</a></li>
+</ul></li>
+<li class="part"><span><b>VI Other topics</b></span></li>
+<li class="chapter" data-level="17" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>17</b> More on R</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="repetition.html"><a href="repetition.html"><i class="fa fa-check"></i><b>17.1</b> Repetition</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="repetition.html"><a href="repetition.html#standard-loops"><i class="fa fa-check"></i><b>17.1.1</b> Standard loops</a></li>
+<li class="chapter" data-level="17.1.2" data-path="repetition.html"><a href="repetition.html#the-apply-family"><i class="fa fa-check"></i><b>17.1.2</b> The ‘apply’ family</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="writing-your-own-functions.html"><a href="writing-your-own-functions.html"><i class="fa fa-check"></i><b>17.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="17.3" data-path="conditional-statements-and-while-loops.html"><a href="conditional-statements-and-while-loops.html"><i class="fa fa-check"></i><b>17.3</b> Conditional statements and <code>while</code> loops</a></li>
+<li class="chapter" data-level="17.4" data-path="further-reading-9.html"><a href="further-reading-9.html"><i class="fa fa-check"></i><b>17.4</b> Further reading</a></li>
+<li class="chapter" data-level="17.5" data-path="exercises-13.html"><a href="exercises-13.html"><i class="fa fa-check"></i><b>17.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="exercises-13.html"><a href="exercises-13.html#a-simple-function"><i class="fa fa-check"></i><b>17.5.1</b> A simple function</a></li>
+<li class="chapter" data-level="17.5.2" data-path="exercises-13.html"><a href="exercises-13.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>17.5.2</b> A simple function: thresholds</a></li>
+<li class="chapter" data-level="17.5.3" data-path="exercises-13.html"><a href="exercises-13.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plots-for-more-complex-data-structures" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Plots for more complex data structures<a href="plots-for-more-complex-data-structures.html#plots-for-more-complex-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The types of plots discussed so far are very useful when data lie on standard scales, in one or two dimensions. The structure of data can be more complex, with the need to use graphical methods which adapt to the underlying characteristics. This section gives some examples.</p>
+<div id="d-data" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> 3D data<a href="plots-for-more-complex-data-structures.html#d-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Plots of the <code>gulls</code> data included scatterplots of pairs of measurements, coloured by <code>Sex</code>, which suggested that classification of males and females from these measurements looks feasible. It is possible to explore this further in three dimensions. The <code>rgl</code> package provides a connection to the <em>OpenGL</em>
+system for displaying three-dimensional objects. The <code>rp.plot3d</code> function from the <code>rpanel</code> package provides a means of creating a 3d scatterplot. The mouse can be used to rotate and zoom the display. (A plot of this type is also available from the <code>plot3d</code> function in <code>rgl</code>.)</p>
+<p>Notice that the call to the <code>rp.plot3d</code> function is placed inside a <code>with</code> statement. This is a convenient way of allowing access to the variables inside the <code>gulls</code> dataframe, avoiding the need to use references such as <code>gulls$Weight</code>.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="plots-for-more-complex-data-structures.html#cb76-1" tabindex="-1"></a>gulls <span class="ot">&lt;-</span> <span class="fu">mutate</span>(gulls, <span class="at">clr =</span> <span class="fu">case_match</span>(Sex, <span class="st">&#39;Male&#39;</span> <span class="sc">~</span> <span class="st">&#39;green&#39;</span>, <span class="st">&#39;Female&#39;</span> <span class="sc">~</span> <span class="st">&#39;blue&#39;</span>))</span>
+<span id="cb76-2"><a href="plots-for-more-complex-data-structures.html#cb76-2" tabindex="-1"></a><span class="fu">with</span>(gulls, <span class="fu">rp.plot3d</span>(Weight, Wing.Length, Head.Length, <span class="at">col =</span> clr))</span>
+<span id="cb76-3"><a href="plots-for-more-complex-data-structures.html#cb76-3" tabindex="-1"></a>rgl<span class="sc">::</span><span class="fu">rglwidget</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<div id="rgl79184" style="width:672px;height:480px;" class="rglWebGL html-widget" role="img" aria-labelledby="rgl79184-aria"></div>
+<script type="application/json" data-for="rgl79184">{"x":{"material":{"color":"#000000","alpha":1,"lit":true,"ambient":"#000000","specular":"#FFFFFF","emission":"#000000","shininess":50,"smooth":true,"front":"filled","back":"filled","size":3,"lwd":1,"fog":true,"point_antialias":false,"line_antialias":false,"texture":null,"textype":"rgb","texmode":"modulate","texmipmap":false,"texminfilter":"linear","texmagfilter":"linear","texenvmap":false,"depth_mask":true,"depth_test":"less","isTransparent":false,"polygon_offset":[0,0],"margin":"","floating":false,"tag":"","blend":["src_alpha","one_minus_src_alpha"]},"rootSubscene":18,"objects":{"27":{"id":27,"type":"lines","material":{"lit":false},"vertices":"0","colors":"1","centers":"2","ignoreExtent":false,"flags":32832},"28":{"id":28,"type":"lines","material":{"lit":false},"vertices":"3","colors":"4","centers":"5","ignoreExtent":false,"flags":32832},"29":{"id":29,"type":"lines","material":{"lit":false},"vertices":"6","colors":"7","centers":"8","ignoreExtent":false,"flags":32832},"30":{"id":30,"type":"lines","material":{"lit":false},"vertices":"9","colors":"10","centers":"11","ignoreExtent":false,"flags":32832},"31":{"id":31,"type":"lines","material":{"lit":false},"vertices":"12","colors":"13","centers":"14","ignoreExtent":false,"flags":32832},"32":{"id":32,"type":"lines","material":{"lit":false},"vertices":"15","colors":"16","centers":"17","ignoreExtent":false,"flags":32832},"33":{"id":33,"type":"text","material":{"lit":false},"vertices":"18","colors":"19","texts":[[""]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"20","family":[["sans"]],"font":[[1]],"ignoreExtent":false,"flags":33808},"34":{"id":34,"type":"text","material":{"lit":false},"vertices":"21","colors":"22","texts":[["Weight"],["Wing.Length"],["Head.Length"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"23","family":[["sans"]],"font":[[1]],"ignoreExtent":false,"flags":33808},"35":{"id":35,"type":"text","material":{"lit":false},"vertices":"24","colors":"25","texts":[["700"],["800"],["900"],["1000"],["1100"],["1200"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"26","family":[["sans"]],"font":[[1]],"ignoreExtent":false,"flags":33808},"36":{"id":36,"type":"text","material":{"lit":false},"vertices":"27","colors":"28","texts":[["400"],["410"],["420"],["430"],["440"],["450"],["460"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"29","family":[["sans"]],"font":[[1]],"ignoreExtent":false,"flags":33808},"37":{"id":37,"type":"text","material":{"lit":false},"vertices":"30","colors":"31","texts":[["110"],["120"],["130"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"32","family":[["sans"]],"font":[[1]],"ignoreExtent":false,"flags":33808},"38":{"id":38,"type":"lines","material":{"lit":false},"vertices":"33","colors":"34","centers":"35","ignoreExtent":false,"flags":32832},"39":{"id":39,"type":"lines","material":{"lit":false},"vertices":"36","colors":"37","centers":"38","ignoreExtent":false,"flags":32832},"40":{"id":40,"type":"lines","material":{"lit":false},"vertices":"39","colors":"40","centers":"41","ignoreExtent":false,"flags":32832},"41":{"id":41,"type":"points","material":{"lit":false},"vertices":"42","colors":"43","centers":"44","ignoreExtent":false,"flags":34816},"22":{"id":22,"type":"light","vertices":[[0,0,1]],"colors":[[1,1,1,1],[1,1,1,1],[1,1,1,1]],"viewpoint":true,"finite":false},"21":{"id":21,"type":"background","material":{},"colors":"45","centers":"46","sphere":false,"fogtype":"none","fogscale":1,"flags":32768},"23":{"id":23,"type":"background","material":{"lit":false,"back":"lines"},"colors":"47","centers":"48","sphere":false,"fogtype":"none","fogscale":1,"flags":32768},"24":{"id":24,"type":"background","material":{"lit":false,"back":"lines"},"colors":"49","centers":"50","sphere":false,"fogtype":"none","fogscale":1,"flags":32768},"18":{"id":18,"type":"subscene","par3d":{"antialias":8,"FOV":1,"ignoreExtent":false,"listeners":18,"mouseMode":{"none":"none","left":"trackball","right":"zoom","middle":"fov","wheel":"pull"},"observer":[0,0,225.1395568847656],"modelMatrix":[[0.8660253882408142,0,0.5,0.08660256117582321],[0.25,0.8660253882408142,-0.4330126941204071,0.1116025671362877],[-0.4330126941204071,0.5,0.75,-225.1328582763672],[0,0,0,1]],"projMatrix":[[114.5886535644531,0,0,0],[0,114.5886535644531,0,0],[0,0,-114.5928497314453,-25797.41796875],[0,0,-1,0]],"skipRedraw":false,"userMatrix":[[0.8660253882408142,0,0.5,0],[0.25,0.8660253882408142,-0.4330126941204071,0],[-0.4330126941204071,0.5,0.75,0],[0,0,0,1]],"userProjection":[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]],"scale":[1,1,1],"viewport":{"x":0,"y":0,"width":1,"height":1},"zoom":1,"bbox":[-1.200000047683716,1,-1.200000047683716,1,-1.200000047683716,1.200000047683716],"windowRect":[0,0,256,256],"family":"sans","font":1,"cex":1,"useFreeType":true,"fontname":"NULL","maxClipPlanes":2147483647,"glVersion":"NA","activeSubscene":0},"embeddings":{"viewport":"replace","projection":"replace","model":"replace","mouse":"replace"},"objects":[24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,22],"subscenes":[],"flags":36176}},"crosstalk":{"key":[],"group":[],"id":[],"options":[]},"width":672,"height":480,"buffer":{"accessors":[{"bufferView":0,"componentType":5120,"count":8,"type":"VEC3"},{"bufferView":1,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":2,"componentType":5120,"count":4,"type":"VEC3"},{"bufferView":3,"componentType":5120,"count":8,"type":"VEC3"},{"bufferView":4,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":5,"componentType":5120,"count":4,"type":"VEC3"},{"bufferView":6,"componentType":5120,"count":2,"type":"VEC3"},{"bufferView":7,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":8,"componentType":5120,"count":1,"type":"VEC3"},{"bufferView":9,"componentType":5120,"count":2,"type":"VEC3"},{"bufferView":10,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":11,"componentType":5120,"count":1,"type":"VEC3"},{"bufferView":12,"componentType":5120,"count":2,"type":"VEC3"},{"bufferView":13,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":14,"componentType":5120,"count":1,"type":"VEC3"},{"bufferView":15,"componentType":5120,"count":2,"type":"VEC3"},{"bufferView":16,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":17,"componentType":5121,"count":1,"type":"VEC3"},{"bufferView":18,"componentType":5120,"count":1,"type":"VEC3"},{"bufferView":19,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":20,"componentType":5120,"count":1,"type":"VEC3"},{"bufferView":21,"componentType":5126,"count":3,"type":"VEC3"},{"bufferView":22,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":23,"componentType":5126,"count":3,"type":"VEC3"},{"bufferView":24,"componentType":5126,"count":6,"type":"VEC3"},{"bufferView":25,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":26,"componentType":5126,"count":6,"type":"VEC3"},{"bufferView":27,"componentType":5126,"count":7,"type":"VEC3"},{"bufferView":28,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":29,"componentType":5126,"count":7,"type":"VEC3"},{"bufferView":30,"componentType":5126,"count":3,"type":"VEC3"},{"bufferView":31,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":32,"componentType":5126,"count":3,"type":"VEC3"},{"bufferView":33,"componentType":5126,"count":12,"type":"VEC3"},{"bufferView":34,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":35,"componentType":5126,"count":6,"type":"VEC3"},{"bufferView":36,"componentType":5126,"count":14,"type":"VEC3"},{"bufferView":37,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":38,"componentType":5126,"count":7,"type":"VEC3"},{"bufferView":39,"componentType":5126,"count":6,"type":"VEC3"},{"bufferView":40,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":41,"componentType":5126,"count":3,"type":"VEC3"},{"bufferView":42,"componentType":5126,"count":363,"type":"VEC3"},{"bufferView":43,"componentType":5121,"count":363,"type":"VEC4","normalized":true},{"bufferView":44,"componentType":5126,"count":363,"type":"VEC3"},{"bufferView":45,"componentType":5126,"count":1,"type":"VEC4"},{"bufferView":46,"componentType":5121,"count":1,"type":"VEC3"},{"bufferView":47,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":48,"componentType":5121,"count":1,"type":"VEC3"},{"bufferView":49,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":50,"componentType":5121,"count":1,"type":"VEC3"}],"bufferViews":[{"buffer":0,"byteLength":24,"byteOffset":0},{"buffer":0,"byteLength":4,"byteOffset":24},{"buffer":0,"byteLength":12,"byteOffset":28},{"buffer":0,"byteLength":24,"byteOffset":40},{"buffer":0,"byteLength":4,"byteOffset":64},{"buffer":0,"byteLength":12,"byteOffset":68},{"buffer":0,"byteLength":6,"byteOffset":80},{"buffer":0,"byteLength":4,"byteOffset":86},{"buffer":0,"byteLength":3,"byteOffset":90},{"buffer":0,"byteLength":6,"byteOffset":93},{"buffer":0,"byteLength":4,"byteOffset":99},{"buffer":0,"byteLength":3,"byteOffset":103},{"buffer":0,"byteLength":6,"byteOffset":106},{"buffer":0,"byteLength":4,"byteOffset":112},{"buffer":0,"byteLength":3,"byteOffset":116},{"buffer":0,"byteLength":6,"byteOffset":119},{"buffer":0,"byteLength":4,"byteOffset":125},{"buffer":0,"byteLength":3,"byteOffset":129},{"buffer":0,"byteLength":3,"byteOffset":132},{"buffer":0,"byteLength":4,"byteOffset":135},{"buffer":0,"byteLength":3,"byteOffset":139},{"buffer":0,"byteLength":36,"byteOffset":144},{"buffer":0,"byteLength":4,"byteOffset":180},{"buffer":0,"byteLength":36,"byteOffset":184},{"buffer":0,"byteLength":72,"byteOffset":220},{"buffer":0,"byteLength":4,"byteOffset":292},{"buffer":0,"byteLength":72,"byteOffset":296},{"buffer":0,"byteLength":84,"byteOffset":368},{"buffer":0,"byteLength":4,"byteOffset":452},{"buffer":0,"byteLength":84,"byteOffset":456},{"buffer":0,"byteLength":36,"byteOffset":540},{"buffer":0,"byteLength":4,"byteOffset":576},{"buffer":0,"byteLength":36,"byteOffset":580},{"buffer":0,"byteLength":144,"byteOffset":616},{"buffer":0,"byteLength":4,"byteOffset":760},{"buffer":0,"byteLength":72,"byteOffset":764},{"buffer":0,"byteLength":168,"byteOffset":836},{"buffer":0,"byteLength":4,"byteOffset":1004},{"buffer":0,"byteLength":84,"byteOffset":1008},{"buffer":0,"byteLength":72,"byteOffset":1092},{"buffer":0,"byteLength":4,"byteOffset":1164},{"buffer":0,"byteLength":36,"byteOffset":1168},{"buffer":0,"byteLength":4356,"byteOffset":1204},{"buffer":0,"byteLength":1452,"byteOffset":5560},{"buffer":0,"byteLength":4356,"byteOffset":7012},{"buffer":0,"byteLength":16,"byteOffset":11368},{"buffer":0,"byteLength":3,"byteOffset":11384},{"buffer":0,"byteLength":4,"byteOffset":11387},{"buffer":0,"byteLength":3,"byteOffset":11391},{"buffer":0,"byteLength":4,"byteOffset":11394},{"buffer":0,"byteLength":3,"byteOffset":11398}],"buffers":[{"byteLength":11401,"bytes":"////Af//Af//Af8BAf8B//8B//8B////AAAAAQD//wH/AAD/Af//AP8B/wEB/wEB/wEBAQEB\nAf8BAf8BAf8B/wAAAAEAAf8BAQAAAQH/AQD/////Af8AAAAB/wD///8B/wEBAAAAAf8AAQH/\n/wEB/wAAAAEBAP8B/wEBAQEAAAABAQABAP//AAAAAQD//wAAAAAAAJqZmb+amZk/mpmZv6uq\nKj6amZm/mpmZv5qZmb8AAAAAAAABAQAAAACamZm/mpmZP5qZmb+rqio+mpmZv5qZmb+amZm/\nAAAAAFz/bL/NzIy/zcyMP86XF7/NzIy/zcyMP4JghL7NzIy/zcyMP2W6mT3NzIy/zcyMP7Q9\n0T7NzIy/zcyMP2gGPj/NzIy/zcyMPwAAAAFc/2y/zcyMv83MjD/Olxe/zcyMv83MjD+CYIS+\nzcyMv83MjD9lupk9zcyMv83MjD+0PdE+zcyMv83MjD9oBj4/zcyMv83MjD/NzIy/zDBDv83M\njL/NzIy/Dzzwvs3MjL/NzIy/Cy00vs3MjL/NzIy/DzzwPc3MjL/NzIy/jTTSPs3MjL/NzIy/\nCy00P83MjL/NzIy/0D9/P83MjL8AAAABzcyMv8wwQ7/NzIy/zcyMvw888L7NzIy/zcyMvwst\nNL7NzIy/zcyMvw888D3NzIy/zcyMv4000j7NzIy/zcyMvwstND/NzIy/zcyMv9A/fz/NzIy/\nzcyMv83MjL+X/gW/zcyMv83MjL/IrOE8zcyMv83MjL9jGRQ/AAAAAc3MjL/NzIy/l/4Fv83M\njL/NzIy/yKzhPM3MjL/NzIy/YxkUP1z/bL8AAIC/AACAP1z/bL8zM4O/MzODP86XF78AAIC/\nAACAP86XF78zM4O/MzODP4JghL4AAIC/AACAP4JghL4zM4O/MzODP2W6mT0AAIC/AACAP2W6\nmT0zM4O/MzODP7Q90T4AAIC/AACAP7Q90T4zM4O/MzODP2gGPj8AAIC/AACAP2gGPj8zM4O/\nMzODPwAAAAFc/2y/mpmBv5qZgT/Olxe/mpmBv5qZgT+CYIS+mpmBv5qZgT9lupk9mpmBv5qZ\ngT+0PdE+mpmBv5qZgT9oBj4/mpmBv5qZgT8AAIC/zDBDvwAAgL8zM4O/zDBDvzMzg78AAIC/\nDzzwvgAAgL8zM4O/DzzwvjMzg78AAIC/Cy00vgAAgL8zM4O/Cy00vjMzg78AAIC/DzzwPQAA\n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\nlcfvPqSet76tskq/l/4Fv+6Jpr4PPPA8L3dFvnZZM74PPPC9lkGpvTh1lb7srju/yiabvgD/\nAP8AAP//AP8A/wAA//8AAP//AAD//wAA//8AAP//AP8A/wD/AP8A/wD/AAD//wD/AP8AAP//\nAP8A/wAA//8AAP//AP8A/wAA//8A/wD/AP8A/wD/AP8AAP//AAD//wAA//8A/wD/AP8A/wAA\n//8AAP//AP8A/wD/AP8A/wD/AP8A/wAA//8AAP//AAD//wD/AP8A/wD/AAD//wD/AP8AAP//\nAP8A/wAA//8AAP//AAD//wD/AP8A/wD/AAD//wAA//8A/wD/AAD//wAA//8AAP//AAD//wAA\n//8A/wD/AP8A/wD/AP8AAP//AP8A/wD/AP8A/wD/AP8A/wAA//8AAP//AAD//wAA//8AAP//\nAAD//wAA//8A/wD/AAD//wAA//8A/wD/AAD//wAA//8AAP//AP8A/wD/AP8A/wD/AAD//wAA\n//8AAP//AAD//wD/AP8A/wD/AAD//wD/AP8A/wD/AAD//wD/AP8AAP//AP8A/wD/AP8A/wD/\nAAD//wAA//8AAP//AAD//wAA//8A/wD/AAD//wAA//8AAP//AAD//wAA//8AAP//AP8A/wAA\n//8A/wD/AAD//wAA//8A/wD/AAD//wAA//8AAP//AP8A/wAA//8AAP//AAD//wD/AP8AAP//\nAAD//wAA//8A/wD/AAD//wAA//8A/wD/AAD//wAA//8AAP//AAD//wAA//8A/wD/AP8A/wAA\n//8AAP//AAD//wAA//8AAP//AP8A/wD/AP8A/wD/AAD//wAA//8AAP//AAD//wD/AP8A/wD/\nAP8A/wAA//8A/wD/AP8A/wAA//8AAP//AAD//wD/AP8AAP//AP8A/wAA//8AAP//AP8A/wAA\n//8AAP//AP8A/wAA//8AAP//AAD//wD/AP8A/wD/AP8A/wAA//8AAP//AAD//wAA//8AAP//\nAP8A/wAA//8A/wD/AP8A/wD/AP8AAP//AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/\nAP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/\nAP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8AAP//AAD//wD/AP8AAP//AAD//wD/\nAP8AAP//AP8A/wAA//8AAP//AAD//wD/AP8AAP//AAD//wAA//8A/wD/AAD//wAA//8AAP//\nAP8A/wAA//8AAP//AAD//wD/AP8AAP//AAD//wD/AP8A/wD/AP8A/wD/AP8AAP//AP8A/wAA\n//8A/wD/AAD//wD/AP8AAP//AP8A/wD/AP8A/wD/AP8A/wAA//8A/wD/AP8A/wD/AP8AAP//\nAP8A/wAA//8A/wD/AAD//wAA//8AAP//AP8A/wAA//8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/\nAP8AAP//AP8A/wAA//8A/wD/AP8A/wD/AP8A/wD/AAD//wAA//8A/wD/AP8A/wD/AP8AAP//\nAP8A/wAA//8A/wD/AP8A/wAA//8AAP//AP8A/wAA//8AAP//AAD//wD/AP8AAP//AAD//wAA\n//8A/wD/AAD//wAA//8AAP//AP8A/wAA//8AAP//AAD//wD/AP8AAP//AAD//wAA//8AAP//\nAAD//wD/AP8AAP//AAD//wD/AP8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA\n//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//\nAAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA\n//8AAP//AAD//wAA//8A/wD/AAD//wD/AP8A/wD/AAD//wAA//8AAP//AAD//xvPKr0PPHA+\nyKzhvEkUr77MMEO/yiabvrLxLD8PPPA9YxkUP3QND79qpx2/lcfvvlmzyL6JJZa+lcfvvhmD\nBr9OOOG+l/4FvzrBOb/IIQe/yiabvi+6aL+JJZa+l/4Fv7Q90T5OOOE+yiabPuKCVT4PPHA9\nyKzhPIJghD4PPPA9/QsNPqSet76NNNK+Y1y3vt3qjD6NNFI+YeJ9PqSet77MMMO+yKzhvP8o\nwD6NNFI+/JHTPoJghL4PPPC+yiabvkbICr+pow6//JHTvk6sdz4PPHC+YeJ9PoJghL5OOOG+\nyiabviBn8z7IIQc//JHTPgowET4PPPC8/QsNPmW6mT0PPHA9L3dFPjrBOb9utlm/loRMv8Xc\n6r6NNNK+lcfvvsBEIr5OOOG+yiabvj0N3j0LLbS9yiabPsXc6r4vumi/l/4Fv+6Jpr7IIQe/\n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\nAQEBAQAAAA=="}]},"context":{"shiny":false,"rmarkdown":"bookdown::gitbook"},"vertexShader":"#line 2 1\n// File 1 is the vertex shader\n#ifdef GL_ES\n#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n#endif\n\nattribute vec3 aPos;\nattribute vec4 aCol;\nuniform mat4 mvMatrix;\nuniform mat4 prMatrix;\nvarying vec4 vCol;\nvarying vec4 vPosition;\n\n#ifdef NEEDS_VNORMAL\nattribute vec3 aNorm;\nuniform mat4 normMatrix;\nvarying vec4 vNormal;\n#endif\n\n#if defined(HAS_TEXTURE) || defined (IS_TEXT)\nattribute vec2 aTexcoord;\nvarying vec2 vTexcoord;\n#endif\n\n#ifdef FIXED_SIZE\nuniform vec3 textScale;\n#endif\n\n#ifdef FIXED_QUADS\nattribute vec3 aOfs;\n#endif\n\n#ifdef IS_TWOSIDED\n#ifdef HAS_NORMALS\nvarying float normz;\nuniform mat4 invPrMatrix;\n#else\nattribute vec3 aPos1;\nattribute vec3 aPos2;\nvarying float normz;\n#endif\n#endif // IS_TWOSIDED\n\n#ifdef FAT_LINES\nattribute vec3 aNext;\nattribute vec2 aPoint;\nvarying vec2 vPoint;\nvarying float vLength;\nuniform float uAspect;\nuniform float uLwd;\n#endif\n\n#ifdef USE_ENVMAP\nvarying vec3 vReflection;\n#endif\n\nvoid main(void) {\n  \n#ifndef IS_BRUSH\n#if defined(NCLIPPLANES) || !defined(FIXED_QUADS) || defined(HAS_FOG) || defined(USE_ENVMAP)\n  vPosition = mvMatrix * vec4(aPos, 1.);\n#endif\n  \n#ifndef FIXED_QUADS\n  gl_Position = prMatrix * vPosition;\n#endif\n#endif // !IS_BRUSH\n  \n#ifdef IS_POINTS\n  gl_PointSize = POINTSIZE;\n#endif\n  \n  vCol = aCol;\n  \n// USE_ENVMAP implies NEEDS_VNORMAL\n\n#ifdef NEEDS_VNORMAL\n  vNormal = normMatrix * vec4(-aNorm, dot(aNorm, aPos));\n#endif\n\n#ifdef USE_ENVMAP\n  vReflection = normalize(reflect(vPosition.xyz/vPosition.w, \n                        normalize(vNormal.xyz/vNormal.w)));\n#endif\n  \n#ifdef IS_TWOSIDED\n#ifdef HAS_NORMALS\n  /* normz should be calculated *after* projection */\n  normz = (invPrMatrix*vNormal).z;\n#else\n  vec4 pos1 = prMatrix*(mvMatrix*vec4(aPos1, 1.));\n  pos1 = pos1/pos1.w - gl_Position/gl_Position.w;\n  vec4 pos2 = prMatrix*(mvMatrix*vec4(aPos2, 1.));\n  pos2 = pos2/pos2.w - gl_Position/gl_Position.w;\n  normz = pos1.x*pos2.y - pos1.y*pos2.x;\n#endif\n#endif // IS_TWOSIDED\n  \n#ifdef NEEDS_VNORMAL\n  vNormal = vec4(normalize(vNormal.xyz/vNormal.w), 1);\n#endif\n  \n#if defined(HAS_TEXTURE) || defined(IS_TEXT)\n  vTexcoord = aTexcoord;\n#endif\n  \n#if defined(FIXED_SIZE) && !defined(ROTATING)\n  vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);\n  pos = pos/pos.w;\n  gl_Position = pos + vec4(aOfs*textScale, 0.);\n#endif\n  \n#if defined(IS_SPRITES) && !defined(FIXED_SIZE)\n  vec4 pos = mvMatrix * vec4(aPos, 1.);\n  pos = pos/pos.w + vec4(aOfs,  0.);\n  gl_Position = prMatrix*pos;\n#endif\n  \n#ifdef FAT_LINES\n  /* This code was inspired by Matt Deslauriers' code in \n   https://mattdesl.svbtle.com/drawing-lines-is-hard */\n  vec2 aspectVec = vec2(uAspect, 1.0);\n  mat4 projViewModel = prMatrix * mvMatrix;\n  vec4 currentProjected = projViewModel * vec4(aPos, 1.0);\n  currentProjected = currentProjected/currentProjected.w;\n  vec4 nextProjected = projViewModel * vec4(aNext, 1.0);\n  vec2 currentScreen = currentProjected.xy * aspectVec;\n  vec2 nextScreen = (nextProjected.xy / nextProjected.w) * aspectVec;\n  float len = uLwd;\n  vec2 dir = vec2(1.0, 0.0);\n  vPoint = aPoint;\n  vLength = length(nextScreen - currentScreen)/2.0;\n  vLength = vLength/(vLength + len);\n  if (vLength > 0.0) {\n    dir = normalize(nextScreen - currentScreen);\n  }\n  vec2 normal = vec2(-dir.y, dir.x);\n  dir.x /= uAspect;\n  normal.x /= uAspect;\n  vec4 offset = vec4(len*(normal*aPoint.x*aPoint.y - dir), 0.0, 0.0);\n  gl_Position = currentProjected + offset;\n#endif\n  \n#ifdef IS_BRUSH\n  gl_Position = vec4(aPos, 1.);\n#endif\n}","fragmentShader":"#line 2 2\n// File 2 is the fragment shader\n#ifdef GL_ES\n#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n#endif\nvarying vec4 vCol; // carries alpha\nvarying vec4 vPosition;\n#if defined(HAS_TEXTURE) || defined (IS_TEXT)\nvarying vec2 vTexcoord;\nuniform sampler2D uSampler;\n#endif\n\n#ifdef HAS_FOG\nuniform int uFogMode;\nuniform vec3 uFogColor;\nuniform vec4 uFogParms;\n#endif\n\n#if defined(IS_LIT) && !defined(FIXED_QUADS)\nvarying vec4 vNormal;\n#endif\n\n#if NCLIPPLANES > 0\nuniform vec4 vClipplane[NCLIPPLANES];\n#endif\n\n#if NLIGHTS > 0\nuniform mat4 mvMatrix;\n#endif\n\n#ifdef IS_LIT\nuniform vec3 emission;\nuniform float shininess;\n#if NLIGHTS > 0\nuniform vec3 ambient[NLIGHTS];\nuniform vec3 specular[NLIGHTS]; // light*material\nuniform vec3 diffuse[NLIGHTS];\nuniform vec3 lightDir[NLIGHTS];\nuniform bool viewpoint[NLIGHTS];\nuniform bool finite[NLIGHTS];\n#endif\n#endif // IS_LIT\n\n#ifdef IS_TWOSIDED\nuniform bool front;\nvarying float normz;\n#endif\n\n#ifdef FAT_LINES\nvarying vec2 vPoint;\nvarying float vLength;\n#endif\n\n#ifdef USE_ENVMAP\nvarying vec3 vReflection;\n#endif\n\nvoid main(void) {\n  vec4 fragColor;\n#ifdef FAT_LINES\n  vec2 point = vPoint;\n  bool neg = point.y < 0.0;\n  point.y = neg ? (point.y + vLength)/(1.0 - vLength) :\n                 -(point.y - vLength)/(1.0 - vLength);\n#if defined(IS_TRANSPARENT) && defined(IS_LINESTRIP)\n  if (neg && length(point) <= 1.0) discard;\n#endif\n  point.y = min(point.y, 0.0);\n  if (length(point) > 1.0) discard;\n#endif // FAT_LINES\n  \n#ifdef ROUND_POINTS\n  vec2 coord = gl_PointCoord - vec2(0.5);\n  if (length(coord) > 0.5) discard;\n#endif\n  \n#if NCLIPPLANES > 0\n  for (int i = 0; i < NCLIPPLANES; i++)\n    if (dot(vPosition, vClipplane[i]) < 0.0) discard;\n#endif\n    \n#ifdef FIXED_QUADS\n    vec3 n = vec3(0., 0., 1.);\n#elif defined(IS_LIT)\n    vec3 n = normalize(vNormal.xyz);\n#endif\n    \n#ifdef IS_TWOSIDED\n    if ((normz <= 0.) != front) discard;\n#endif\n\n#ifdef IS_LIT\n    vec3 eye = normalize(-vPosition.xyz/vPosition.w);\n    vec3 lightdir;\n    vec4 colDiff;\n    vec3 halfVec;\n    vec4 lighteffect = vec4(emission, 0.);\n    vec3 col;\n    float nDotL;\n#ifdef FIXED_QUADS\n    n = -faceforward(n, n, eye);\n#endif\n    \n#if NLIGHTS > 0\n    for (int i=0;i<NLIGHTS;i++) {\n      colDiff = vec4(vCol.rgb * diffuse[i], vCol.a);\n      lightdir = lightDir[i];\n      if (!viewpoint[i])\n        lightdir = (mvMatrix * vec4(lightdir, 1.)).xyz;\n      if (!finite[i]) {\n        halfVec = normalize(lightdir + eye);\n      } else {\n        lightdir = normalize(lightdir - vPosition.xyz/vPosition.w);\n        halfVec = normalize(lightdir + eye);\n      }\n      col = ambient[i];\n      nDotL = dot(n, lightdir);\n      col = col + max(nDotL, 0.) * colDiff.rgb;\n      col = col + pow(max(dot(halfVec, n), 0.), shininess) * specular[i];\n      lighteffect = lighteffect + vec4(col, colDiff.a);\n    }\n#endif\n    \n#else // not IS_LIT\n    vec4 colDiff = vCol;\n    vec4 lighteffect = colDiff;\n#endif\n    \n#ifdef IS_TEXT\n    vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);\n#endif\n    \n#ifdef HAS_TEXTURE\n\n// These calculations use the definitions from \n// https://docs.gl/gl3/glTexEnv\n\n#ifdef USE_ENVMAP\n    float m = 2.0 * sqrt(dot(vReflection, vReflection) + 2.0*vReflection.z + 1.0);\n    vec4 textureColor = texture2D(uSampler, vReflection.xy / m + vec2(0.5, 0.5));\n#else\n    vec4 textureColor = texture2D(uSampler, vTexcoord);\n#endif\n\n#ifdef TEXTURE_rgb\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(textureColor.rgb, lighteffect.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = lighteffect*vec4(textureColor.rgb, 1.);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - textureColor.rgb) * lighteffect.rgb, lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(lighteffect.rgb + textureColor.rgb, lighteffect.a);\n#endif\n\n#endif //TEXTURE_rgb\n        \n#ifdef TEXTURE_rgba\n\n#ifdef TEXMODE_replace\n// already done\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = lighteffect*textureColor;\n#endif\n\n#ifdef TEXMODE_decal\n    textureColor = vec4((1. - textureColor.a)*lighteffect.rgb) +\n                     textureColor.a*textureColor.rgb, \n                     lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - textureColor.rgb) * lighteffect.rgb,\n                    lighteffect.a*textureColor.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(lighteffect.rgb + textureColor.rgb,\n                    lighteffect.a*textureColor.a);\n#endif\n    \n#endif //TEXTURE_rgba\n    \n#ifdef TEXTURE_alpha\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(lighteffect.rgb, textureColor.a);\n#endif \n\n#if defined(TEXMODE_modulate) || defined(TEXMODE_blend) || defined(TEXMODE_add)\n    textureColor = vec4(lighteffect.rgb, lighteffect.a*textureColor.a);\n#endif\n \n#endif\n    \n// The TEXTURE_luminance values are not from that reference    \n#ifdef TEXTURE_luminance\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(luminance, luminance, luminance, lighteffect.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = vec4(luminance*lighteffect.rgb, lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - luminance)*lighteffect.rgb,\n                        lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(luminance + lighteffect.rgb, lighteffect.a);\n#endif\n\n#endif // TEXTURE_luminance\n \n    \n#ifdef TEXTURE_luminance_alpha\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(luminance, luminance, luminance, textureColor.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = vec4(luminance*lighteffect.rgb, \n                        textureColor.a*lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - luminance)*lighteffect.rgb,\n                        textureColor.a*lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(luminance + lighteffect.rgb, \n                        textureColor.a*lighteffect.a);\n\n#endif\n\n#endif // TEXTURE_luminance_alpha\n    \n    fragColor = textureColor;\n\n#elif defined(IS_TEXT)\n    if (textureColor.a < 0.1)\n      discard;\n    else\n      fragColor = textureColor;\n#else\n    fragColor = lighteffect;\n#endif // HAS_TEXTURE\n    \n#ifdef HAS_FOG\n    // uFogParms elements: x = near, y = far, z = fogscale, w = (1-sin(FOV/2))/(1+sin(FOV/2))\n    // In Exp and Exp2: use density = density/far\n    // fogF will be the proportion of fog\n    // Initialize it to the linear value\n    float fogF;\n    if (uFogMode > 0) {\n      fogF = (uFogParms.y - vPosition.z/vPosition.w)/(uFogParms.y - uFogParms.x);\n      if (uFogMode > 1)\n        fogF = mix(uFogParms.w, 1.0, fogF);\n      fogF = fogF*uFogParms.z;\n      if (uFogMode == 2)\n        fogF = 1.0 - exp(-fogF);\n      // Docs are wrong: use (density*c)^2, not density*c^2\n      // https://gitlab.freedesktop.org/mesa/mesa/-/blob/master/src/mesa/swrast/s_fog.c#L58\n      else if (uFogMode == 3)\n        fogF = 1.0 - exp(-fogF*fogF);\n      fogF = clamp(fogF, 0.0, 1.0);\n      gl_FragColor = vec4(mix(fragColor.rgb, uFogColor, fogF), fragColor.a);\n    } else gl_FragColor = fragColor;\n#else\n    gl_FragColor = fragColor;\n#endif // HAS_FOG\n    \n}","players":[],"webGLoptions":{"preserveDrawingBuffer":true}},"evals":[],"jsHooks":[]}</script>
+<p id="rgl79184-aria" hidden>
+</p>
+</div>
+<p>This shows almost complete separation between males and females in these three measurements, although if you examine the plot carefully you will see three females with large values and one male with very small values. Perhaps these birds have been wrongly labelled - or perhaps they are simply very large/small for their sex.</p>
+<!-- The world, from the rgl persp3d help file. -->
+<!-- ```{r 3d_world_low} -->
+<!-- library(rgl) -->
+<!-- lat  <- matrix(seq(90, -90, len = 50) * pi / 180, 50, 50, byrow = TRUE) -->
+<!-- long <- matrix(seq(-180, 180, len = 50) * pi / 180, 50, 50) -->
+<!-- r    <- 6378.1 # radius of Earth in km -->
+<!-- x    <- r * cos(lat) * cos(long) -->
+<!-- y    <- r * cos(lat) * sin(long) -->
+<!-- z    <- r * sin(lat) -->
+<!-- ids <- persp3d(x, y, z, col = "white", -->
+<!--                texture = system.file("textures/worldsmall.png", package = "rgl"), -->
+<!--                specular = "black", axes = FALSE, box = FALSE, xlab = "", -->
+<!--                ylab = "", zlab = "", normal_x = x, normal_y = y, normal_z = z) -->
+<!-- rgl::rglwidget() -->
+<!-- ``` -->
+<!-- A higher resolution version is available. -->
+<!-- ```{r 3d_world_high, eval = FALSE} -->
+<!-- persp3d(x, y, z, col = "white",  -->
+<!--         texture = system.file("textures/world.png", package = "rgl"),  -->
+<!--         specular = "black", axes = FALSE, box = FALSE, xlab = "", ylab = "", zlab = "", -->
+<!--         normal_x = x, normal_y = y, normal_z = z) -->
+<!-- ``` -->
+</div>
+<div id="circular-spherical-and-compositional-data" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Circular, spherical and compositional data<a href="plots-for-more-complex-data-structures.html#circular-spherical-and-compositional-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Spherical</em> data sits on the surface of a sphere. Latitude and longitude positions of locations on the surface of the earth are a simple example.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="plots-for-more-complex-data-structures.html#cb77-1" tabindex="-1"></a><span class="fu">library</span>(sm)</span></code></pre></div>
+<pre><code>## Package &#39;sm&#39;, version 2.2-6.0: type help(sm) for summary information</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="plots-for-more-complex-data-structures.html#cb79-1" tabindex="-1"></a>lat  <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="dv">10</span>, <span class="dv">15</span>)</span>
+<span id="cb79-2"><a href="plots-for-more-complex-data-structures.html#cb79-2" tabindex="-1"></a>long <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">300</span>, <span class="dv">15</span>), <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="dv">240</span>, <span class="dv">15</span>))</span>
+<span id="cb79-3"><a href="plots-for-more-complex-data-structures.html#cb79-3" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb79-4"><a href="plots-for-more-complex-data-structures.html#cb79-4" tabindex="-1"></a><span class="fu">sm.sphere</span>(lat, long)</span>
+<span id="cb79-5"><a href="plots-for-more-complex-data-structures.html#cb79-5" tabindex="-1"></a><span class="fu">sm.sphere</span>(lat, long, <span class="at">sphim=</span><span class="cn">TRUE</span>, <span class="at">kappa=</span><span class="dv">15</span>)</span>
+<span id="cb79-6"><a href="plots-for-more-complex-data-structures.html#cb79-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span></code></pre></div>
+<p><img src="book_files/figure-html/spherical_data-1.png" width="49%" /></p>
+<p><em>Compositional data</em> consists of vectors of proportions (or percentages) which sum to 1 (or 100). The special issues in analysing this kind of data are discussed by <span class="citation">Aitchison (<a href="#ref-aitchison_1982_jrssb">1982</a>)</span>. In the special case of three proportions a plot called a <em>ternary diagram</em> can be created, using the special properties of the equilateral triangle. The <code>ggtern</code> package allows this kind of plot to be created in the style of <code>ggplot</code>. Here the percentages of different chemical compositions in lava samples from Skye are displayed, along with the contours of a density estimate.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="plots-for-more-complex-data-structures.html#cb80-1" tabindex="-1"></a><span class="fu">library</span>(ggtern)</span>
+<span id="cb80-2"><a href="plots-for-more-complex-data-structures.html#cb80-2" tabindex="-1"></a><span class="fu">data</span>(SkyeLava)</span>
+<span id="cb80-3"><a href="plots-for-more-complex-data-structures.html#cb80-3" tabindex="-1"></a><span class="fu">ggtern</span>(SkyeLava, <span class="fu">aes</span>(F, A, M)) <span class="sc">+</span> </span>
+<span id="cb80-4"><a href="plots-for-more-complex-data-structures.html#cb80-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb80-5"><a href="plots-for-more-complex-data-structures.html#cb80-5" tabindex="-1"></a>  <span class="fu">geom_density_tern</span>() <span class="sc">+</span> </span>
+<span id="cb80-6"><a href="plots-for-more-complex-data-structures.html#cb80-6" tabindex="-1"></a>  <span class="fu">theme_showarrows</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/compositional-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Other packages include <code>compositions</code> and <code>Compositional</code>.
+See <span class="citation">Van den Boogaart and Tolosana-Delgado (<a href="#ref-vandenboogart_2013_book">2013</a>)</span> for more details of the theory.</p>
+</div>
+<div id="other-data-structures" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Other data structures<a href="plots-for-more-complex-data-structures.html#other-data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<!-- ```{r child = 'chapters/data_visualisation/dimension_reduction.Rmd'} -->
+<!-- ``` -->
+<!-- ### Clustering -->
+<!-- ```{r child = 'chapters/data_visualisation/clustering.Rmd'} -->
+<!-- ``` -->
+<!-- ### Classification -->
+<!-- ```{r child = 'chapters/data_visualisation/discrimination.Rmd'} -->
+<!-- ``` -->
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-aitchison_1982_jrssb" class="csl-entry">
+Aitchison, John. 1982. <span>“The Statistical Analysis of Compositional Data.”</span> <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 44 (2): 139–60.
+</div>
+<div id="ref-vandenboogart_2013_book" class="csl-entry">
+Van den Boogaart, K Gerald, and Raimon Tolosana-Delgado. 2013. <em>Analyzing Compositional Data with r</em>. Vol. 122. Springer.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="gaining-an-overview-of-datasets.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="going-further.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 Time series data | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 Time series data | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 Time series data | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="models-for-time.html"/>
+<link rel="next" href="visualisation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="1" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>1</b> Models for time</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="time-series-data.html"><a href="time-series-data.html"><i class="fa fa-check"></i><b>1.1</b> Time series data</a></li>
+<li class="chapter" data-level="1.2" data-path="visualisation.html"><a href="visualisation.html"><i class="fa fa-check"></i><b>1.2</b> Visualisation</a></li>
+<li class="chapter" data-level="1.3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>1.3</b> Models</a></li>
+<li class="chapter" data-level="1.4" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>1.4</b> Further reading</a></li>
+<li class="chapter" data-level="1.5" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>1.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="exercises.html"><a href="exercises.html#simulating-time-series"><i class="fa fa-check"></i><b>1.5.1</b> Simulating time series</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="time-series-data" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Time series data<a href="time-series-data.html#time-series-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<blockquote>
+<p><strong>The weather on Ben Nevis</strong></p>
+<p>At 1345m above sea level, Ben Nevis is the highest mountain in the UK and the weather at the summit can be very severe. In the 19th century, a remarkable effort was made to document conditions at the summit. Following a public appeal, an observatory was set up on the summit to allow a small group of meteorologists to make recordings. This was done hourly from 1883 to 1904, producing one of the most remarkable weather datasets from the Victorian era. <span class="citation">Hawkins et al. (<a href="#ref-hawkins_2019_geoscience">2019</a>)</span> describe a recent citizen science project which has made the data available in digital form. The data are available from the <a href="https://archive.ceda.ac.uk">CEDA Archive</a> which contains a very large collection of environmental data from atmospheric and earth observation research.</p>
+</blockquote>
+<hr />
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="time-series-data.html#cb1-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;Ben_Nevis&quot;</span>)</span>
+<span id="cb1-2"><a href="time-series-data.html#cb1-2" tabindex="-1"></a>Ben_Nevis <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="time-series-data.html#cb1-3" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">Tmin =</span> <span class="dv">5</span>, <span class="at">Tmax =</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="time-series-data.html#cb1-4" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">paste</span>(Year, Month, Day), <span class="at">format =</span> <span class="st">&quot;%Y %m %d&quot;</span>),</span>
+<span id="cb1-5"><a href="time-series-data.html#cb1-5" tabindex="-1"></a>          <span class="at">yday =</span> <span class="fu">yday</span>(Date),</span>
+<span id="cb1-6"><a href="time-series-data.html#cb1-6" tabindex="-1"></a>          <span class="at">year =</span> <span class="fu">decimal_date</span>(Date))</span>
+<span id="cb1-7"><a href="time-series-data.html#cb1-7" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmax)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb1-8"><a href="time-series-data.html#cb1-8" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmin)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/ben_nevis-1.png" width="49%" /><img src="book_files/figure-html/ben_nevis-2.png" width="49%" /></p>
+<p>In time series data, we are often interested in whether there is trend or seasonal effects and what these look like. We may also be interested in the influence of covariates. These may apply to the whole time series, such as characteristics of the location at which different time series are recorded, or they may themselves be time series running in parallel.</p>
+<p>Here it is clear that there is a strong seasonal effect. How should we model this as its shape is clearly non-linear? We might use a trigonometric expression in the day of the year (<code>yday</code>) such as <span class="math inline">\(\beta cos(2 \pi (yday - \nu) / 366)\)</span>, where the parameter <span class="math inline">\(\nu\)</span> corresponds to the day of the year at which the temperature is largest and <span class="math inline">\(\beta\)</span> fixes the amplitude of tbe seasonal effect. In fact, if we expand the expression by trigonometric identities then it turns out that this can be expressed as <span class="math inline">\(\beta_s sin(2 \pi cos(2 \pi yday / 366)) + \beta_s cos(2 \pi cos(2 \pi yday / 366))\)</span>. This expression is linear in the parameters <span class="math inline">\(\beta_s\)</span> and <span class="math inline">\(\beta_c\)</span>, using the new variables <span class="math inline">\(cos(2 \pi yday / 366)\)</span> and <span class="math inline">\(sin(2 \pi yday / 366)\)</span>. This is a very convenient device for fitting a simple form of seasonal effect. The plot below sugests that we have made a start but that a more complex description of the seasonal effect may be needed. This could be pursued by employing sin and cos functions of higher frequency, but a different appraoch will be described later in this chapter.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="time-series-data.html#cb2-1" tabindex="-1"></a>Ben_Nevis<span class="sc">$</span>cs   <span class="ot">&lt;-</span> <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> Ben_Nevis<span class="sc">$</span>yday <span class="sc">/</span> <span class="dv">366</span>)</span>
+<span id="cb2-2"><a href="time-series-data.html#cb2-2" tabindex="-1"></a>Ben_Nevis<span class="sc">$</span>sn   <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> Ben_Nevis<span class="sc">$</span>yday <span class="sc">/</span> <span class="dv">366</span>)</span>
+<span id="cb2-3"><a href="time-series-data.html#cb2-3" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tmax <span class="sc">~</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis)</span>
+<span id="cb2-4"><a href="time-series-data.html#cb2-4" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Tmax ~ cs + sn, data = Ben_Nevis)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -11.492  -2.512  -0.236   2.372  13.219 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.60724    0.04087   39.33   &lt;2e-16 ***
+## cs          -4.59861    0.05776  -79.61   &lt;2e-16 ***
+## sn          -2.40571    0.05783  -41.60   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.565 on 7606 degrees of freedom
+## Multiple R-squared:  0.5159, Adjusted R-squared:  0.5158 
+## F-statistic:  4053 on 2 and 7606 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="time-series-data.html#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmax)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="time-series-data.html#cb4-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb4-3"><a href="time-series-data.html#cb4-3" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, <span class="fu">residuals</span>(model))) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/Ben-Nevis-seasonal-1.png" width="49%" /><img src="book_files/figure-html/Ben-Nevis-seasonal-2.png" width="49%" /></p>
+<p>A statistical feature which makes time series distinctive is that there is often <em>autocorrelation</em>, meaning that the variation or random component of successive points tend to be linked to the variation at adjacent points. The autocorrelation and partial autocorrelation function, displayed below, quantify this, with horizontal dashed lines to indicate the likely range of variation when the true correlations are zero. The partial autocorrelation function is more useful as it fits simple <em>autoregressive</em> models of different order and in this case there seems to be a strong indication that a model of prder 1 is needed.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="time-series-data.html#cb5-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">residuals</span>(model))</span>
+<span id="cb5-2"><a href="time-series-data.html#cb5-2" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
+<p><img src="book_files/figure-html/acf_Ben_Nevis-1.png" width="49%" /><img src="book_files/figure-html/acf_Ben_Nevis-2.png" width="49%" /></p>
+<p>The <code>nlme</code> package offers an alternative set of tools for constructing mixed model and for dealing with different forms of variation more generally. The <code>gls</code> function allows correlation to be accommodated. Notice that the standard errors for the model terms are larger than in the earlier model. This reflects the fact that the presence of correlation reduced the information available in the observations.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="time-series-data.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb6-2"><a href="time-series-data.html#cb6-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gls</span>(Tmax <span class="sc">~</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis, <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
+<span id="cb6-3"><a href="time-series-data.html#cb6-3" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>tTable</span></code></pre></div>
+<pre><code>##                 Value Std.Error   t-value       p-value
+## (Intercept)  1.607650 0.1057893  15.19672  2.103882e-51
+## cs          -4.598474 0.1492943 -30.80140 1.977174e-196
+## sn          -2.406502 0.1494328 -16.10424  2.104183e-57</code></pre>
+<p>We have assumed that there is no long term trend in the series. This can be chacked by adding a term for year, on a continuous scale. The result does not provide convincing evidence that we need this, so we might revert to the model which has a seasonal effect, with correlated errors. The plot of the fitted values is indistinguishable from the plot of the model without correlation.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="time-series-data.html#cb8-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb8-2"><a href="time-series-data.html#cb8-2" tabindex="-1"></a>model_trend <span class="ot">&lt;-</span> <span class="fu">gls</span>(Tmax <span class="sc">~</span> year <span class="sc">+</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis,</span>
+<span id="cb8-3"><a href="time-series-data.html#cb8-3" tabindex="-1"></a>             <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
+<span id="cb8-4"><a href="time-series-data.html#cb8-4" tabindex="-1"></a><span class="fu">summary</span>(model_trend)<span class="sc">$</span>tTable</span></code></pre></div>
+<pre><code>##                    Value  Std.Error    t-value       p-value
+## (Intercept) -61.66373513 33.2285989  -1.855743  6.352888e-02
+## year          0.03340042  0.0175410   1.904134  5.693044e-02
+## cs           -4.59011863  0.1489906 -30.808103 1.650794e-196
+## sn           -2.40180011  0.1490847 -16.110307  1.914230e-57</code></pre>
+<!-- *Exercise*: Winter NAO is a time series. Is there evidence of autocorrelation? -->
+<!-- ```{r acf_NAO} -->
+<!-- path <- rp.datalink('NAO') -->
+<!-- NAO  <- read.table(path, header = FALSE, skip = 1) %>% -->
+<!--    dplyr::select(Year = 1, NAO = 2) -->
+<!-- ggplot(NAO, aes(Year, NAO)) + geom_point() -->
+<!-- ``` -->
+<!-- ```{r acf_NAO_solution, echo = FALSE, eval = FALSE} -->
+<!-- acf(NAO$NAO) -->
+<!-- pacf(NAO$NAO) -->
+<!-- ``` -->
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-hawkins_2019_geoscience" class="csl-entry">
+Hawkins, Ed, Stephen Burt, Philip Brohan, Michael Lockwood, Harriett Richardson, Marjory Roy, and Simon Thomas. 2019. <span>“Hourly Weather Observations from the Scottish Highlands (1883–1904) Rescued by Volunteer Citizen Scientists.”</span> <em>Geoscience Data Journal</em> 6 (2): 160–73. <a href="https://doi.org/10.1002/gdj3.79">https://doi.org/10.1002/gdj3.79</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="models-for-time.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

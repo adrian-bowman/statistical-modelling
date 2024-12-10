@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.5 PBtest 4.231913 NA 0.1474704 | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.5 PBtest 4.231913 NA 0.1474704 | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.5 PBtest 4.231913 NA 0.1474704 | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lrt-4.231913-2-0.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="1" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>1</b> Case studies of statistical modelling</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>1.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="1.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>1.2</b> Children’s services reform in Scotland</a></li>
+<li class="chapter" data-level="1.3" data-path="stat-df-p.html"><a href="stat-df-p.html"><i class="fa fa-check"></i><b>1.3</b> stat df p.value</a></li>
+<li class="chapter" data-level="1.4" data-path="lrt-4.231913-2-0.html"><a href="lrt-4.231913-2-0.html"><i class="fa fa-check"></i><b>1.4</b> LRT 4.231913 2 0.1205180</a></li>
+<li class="chapter" data-level="1.5" data-path="pbtest-4.231913-na-0.html"><a href="pbtest-4.231913-na-0.html"><i class="fa fa-check"></i><b>1.5</b> PBtest 4.231913 NA 0.1474704</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pbtest-4.231913-na-0.1474704" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> PBtest 4.231913 NA 0.1474704<a href="pbtest-4.231913-na-0.html#pbtest-4.231913-na-0.1474704" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- #### ADJUSTING FOR MULTIPLE COMPARISONS ##### -->
+<!-- ## After p-values had been calculated for the necessary model comparison for all 25 indicators,  -->
+<!-- ## they were stored in a vector named 'p_vals' and -->
+<!-- ## adjusted for multiple comparisons using the function below -->
+<!-- # p.adjust(p_vals, method="BH") -->
+<!-- ### CHECK WHETHER HIGHLAND (WHICH IS SOMEWHAT OF AN OUTLIER) HAS A SUBSTANTIAL EFFECT ### -->
+<!-- ### To obtain a p-value with data from Highland removed from the analysis, execute the two lines  below (after -->
+<!-- ## removing the hash symbols) then -->
+<!-- ## re-run the above code from 'Descriptive Plots of raw data' down ### -->
+<!-- #highland_ind <- which(d$LA=="Highland") -->
+<!-- #d <- d[-highland_ind,] -->
+<p>Plot of predicted values vs observed values - Good.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="pbtest-4.231913-na-0.html#cb12-1" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>Offenders, <span class="fu">predict</span>(modelA2, <span class="at">type=</span><span class="st">&quot;response&quot;</span>))</span>
+<span id="cb12-2"><a href="pbtest-4.231913-na-0.html#cb12-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb12-3"><a href="pbtest-4.231913-na-0.html#cb12-3" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="pbtest-4.231913-na-0.html#cb12-4" tabindex="-1"></a><span class="do">## Check dispersion for best model (or full model) - only applicable to poisson/neg binom</span></span>
+<span id="cb12-5"><a href="pbtest-4.231913-na-0.html#cb12-5" tabindex="-1"></a><span class="co"># overdisp_fun(modelA2) # ratio=0.9, so okay</span></span>
+<span id="cb12-6"><a href="pbtest-4.231913-na-0.html#cb12-6" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="pbtest-4.231913-na-0.html#cb12-7" tabindex="-1"></a><span class="do">### Check for multicollinearity in the explanatory variables</span></span>
+<span id="cb12-8"><a href="pbtest-4.231913-na-0.html#cb12-8" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="pbtest-4.231913-na-0.html#cb12-9" tabindex="-1"></a><span class="do">##Check for correlation of SIMD and POP dens</span></span>
+<span id="cb12-10"><a href="pbtest-4.231913-na-0.html#cb12-10" tabindex="-1"></a><span class="fu">plot</span>(context<span class="sc">$</span>PopDens, context<span class="sc">$</span>SIMD)</span>
+<span id="cb12-11"><a href="pbtest-4.231913-na-0.html#cb12-11" tabindex="-1"></a><span class="fu">cor</span>(context<span class="sc">$</span>PopDens, context<span class="sc">$</span>SIMD) <span class="do">##r=.547 </span></span></code></pre></div>
+<pre><code>## [1] 0.5472664</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="pbtest-4.231913-na-0.html#cb14-1" tabindex="-1"></a><span class="do">## Confirm levels of correlation are not problematic through inspection of VIF (variance inflation factors)</span></span>
+<span id="cb14-2"><a href="pbtest-4.231913-na-0.html#cb14-2" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">vif</span>(modelA2) <span class="do">## All non-interaction terms under 3, indicating levels of correlation are not problematic.</span></span></code></pre></div>
+<pre><code>##                           GVIF Df GVIF^(1/(2*Df))
+## Int_level             1.401894  2        1.088125
+## pre_or_post           5.823416  1        2.413176
+## Year2                 7.261942  1        2.694799
+## covid                 1.910853  1        1.382336
+## Coterminous           1.209348  1        1.099704
+## SIMD                  1.739639  1        1.318954
+## PopDens               1.450657  1        1.204432
+## Int_level:pre_or_post 2.688646  2        1.280511
+## pre_or_post:Year2     6.447831  1        2.539258</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="pbtest-4.231913-na-0.html#cb16-1" tabindex="-1"></a><span class="do">## Check for normality of random effects</span></span>
+<span id="cb16-2"><a href="pbtest-4.231913-na-0.html#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="pbtest-4.231913-na-0.html#cb16-3" tabindex="-1"></a>r_int<span class="ot">&lt;-</span> <span class="fu">ranef</span>(modelA2)<span class="sc">$</span>LA</span>
+<span id="cb16-4"><a href="pbtest-4.231913-na-0.html#cb16-4" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">unlist</span>(r_int))</span>
+<span id="cb16-5"><a href="pbtest-4.231913-na-0.html#cb16-5" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">unlist</span>(r_int))</span>
+<span id="cb16-6"><a href="pbtest-4.231913-na-0.html#cb16-6" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">unlist</span>(r_int))</span>
+<span id="cb16-7"><a href="pbtest-4.231913-na-0.html#cb16-7" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">unlist</span>(r_int)) </span></code></pre></div>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  unlist(r_int)
+## W = 0.95697, p-value = 0.2265</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="pbtest-4.231913-na-0.html#cb18-1" tabindex="-1"></a><span class="do">## Assumption okay. Shapiro test p-value &gt; 0.05 (p=.21), implying that the distribution of the random effects are </span></span>
+<span id="cb18-2"><a href="pbtest-4.231913-na-0.html#cb18-2" tabindex="-1"></a><span class="do">## not significantly different from normal distribution.</span></span>
+<span id="cb18-3"><a href="pbtest-4.231913-na-0.html#cb18-3" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="pbtest-4.231913-na-0.html#cb18-4" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="pbtest-4.231913-na-0.html#cb18-5" tabindex="-1"></a><span class="do">## Check for any residual autocorrelation</span></span>
+<span id="cb18-6"><a href="pbtest-4.231913-na-0.html#cb18-6" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">residuals</span>(modelA2, <span class="at">retype=</span><span class="st">&quot;normalized&quot;</span>)) <span class="co">#Fine</span></span>
+<span id="cb18-7"><a href="pbtest-4.231913-na-0.html#cb18-7" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">residuals</span>(modelA2, <span class="at">retype=</span><span class="st">&quot;normalized&quot;</span>))  <span class="co">#Fine</span></span></code></pre></div>
+<p><img src="book_files/figure-html/celcis_checking-1.png" width="33%" /><img src="book_files/figure-html/celcis_checking-2.png" width="33%" /><img src="book_files/figure-html/celcis_checking-3.png" width="33%" /><img src="book_files/figure-html/celcis_checking-4.png" width="33%" /><img src="book_files/figure-html/celcis_checking-5.png" width="33%" /><img src="book_files/figure-html/celcis_checking-6.png" width="33%" /></p>
+<p>See Benjamini (1995) paper for FDR.</p>
+<!--  -->
+<!-- ## UK parliamentary election 2024 -->
+<!-- ```{r child = 'chapters/case_studies/UK_elections.Rmd'} -->
+<!-- ``` -->
+<!--  -->
+<!-- ## Brexit -->
+<!-- ```{r child = 'chapters/case_studies/Brexit.Rmd'} -->
+<!-- ``` -->
+<!-- ```{r child = 'chapters/case_studies/clyde.Rmd'} -->
+<!-- ``` -->
+<!-- ```{r child = 'chapters/case_studies/SO2.Rmd'} -->
+<!-- ``` -->
+<!-- ```{r child = 'chapters/case_studies/sea_trout.Rmd'} -->
+<!-- ``` -->
+<!-- ```{r child = 'chapters/case_studies/holland_water.Rmd'} -->
+<!-- ``` -->
+<!-- ```{r child = 'chapters/case_studies/societal_changes.Rmd'} -->
+<!-- ``` -->
+
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lrt-4.231913-2-0.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

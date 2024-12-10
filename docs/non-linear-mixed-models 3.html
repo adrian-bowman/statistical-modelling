@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.5 Non-linear mixed models | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.5 Non-linear mixed models | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.5 Non-linear mixed models | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="further-examples-of-mixed-models.html"/>
+<link rel="next" href="generalised-linear-mixed-models.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="1" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>1</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>1.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>1.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="1.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>1.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="1.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>1.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="1.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>1.1.4</b> Common features</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>1.2</b> Formulating and fitting mixed effects models</a></li>
+<li class="chapter" data-level="1.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>1.3</b> Inference with mixed models</a></li>
+<li class="chapter" data-level="1.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>1.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>1.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="1.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>1.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="1.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>1.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="1.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>1.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>1.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="1.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>1.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="1.7" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>1.7</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="non-linear-mixed-models" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Non-linear mixed models<a href="non-linear-mixed-models.html#non-linear-mixed-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<blockquote>
+<p><strong>Indomethacin kinetics</strong></p>
+<p>Pharmacokinetics is an area where non-linear models arise naturally. In this experiment, six human volunteers were injected with identical doses of the drug indomethacin and their plasma concentrations of the drug (in mcg/ml) were subsequently measured at 11 time points until 8 hours post-injection. How should the decay of the drug, and the variation across volunteers, be modelled?</p>
+<p><em>Source</em>: Kwan, Breault, Umbenhauer, McMahon and Duggan (1976).
+Kinetics of Indomethicin absorption, elimination, and enterohepatic circulation in man. <em>Journal of Pharmacokinetics and Biopharmaceutics</em>, 4, 255-280.</p>
+<p>The data are available in the <code>Indometh</code> dataframe in the <code>datasets</code> package (which is usually supplied with R).</p>
+</blockquote>
+<hr />
+<p>Plots of the data is shown below.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="non-linear-mixed-models.html#cb52-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb52-2"><a href="non-linear-mixed-models.html#cb52-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject, <span class="at">col =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb52-3"><a href="non-linear-mixed-models.html#cb52-3" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-70-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-70-2.png" width="49%" /></p>
+<p>Pharmacokinetics often uses <em>compartmental models</em> which result in descriptions of decay over time in the form of sums of exponential terms. For this example, two exponential terms should suffice. If <span class="math inline">\(y_{ij}\)</span> denotes the measurement on individual <span class="math inline">\(i\)</span> at time point <span class="math inline">\(j\)</span>, then
+<span class="math display">\[
+      y_{ij} = \beta_{1i} \exp(-\beta_{2i} t_j) + \beta_{3i} \exp(-\beta_{4i} t_j) + \varepsilon_{ij},  
+                       ~~~~~~ \beta_2&gt;0, \beta_4&gt;0.
+\]</span>
+In order to make the problem identifiable, we can insist that <span class="math inline">\(\beta_{2i} &gt; \beta_{4i}\)</span> for each <span class="math inline">\(i\)</span>.</p>
+<p>The left hand plot below, shows the results of fitting a single regression model to all the data, while the right hand plot fits a separate regression for each subject.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="non-linear-mixed-models.html#cb53-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nls</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
+<span id="cb53-2"><a href="non-linear-mixed-models.html#cb53-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="non-linear-mixed-models.html#cb53-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model)), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb53-4"><a href="non-linear-mixed-models.html#cb53-4" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="non-linear-mixed-models.html#cb53-5" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb53-6"><a href="non-linear-mixed-models.html#cb53-6" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlsList</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
+<span id="cb53-7"><a href="non-linear-mixed-models.html#cb53-7" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb53-8"><a href="non-linear-mixed-models.html#cb53-8" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> Subject))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-71-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-71-2.png" width="49%" /></p>
+<p>A random effects model can be constructed as
+<span class="math display">\[
+      y_{ij} = (\beta_{1} + b_{1i}) \exp(-\exp(\beta_{2} + b_{2i}) \, t_j) +
+                  (\beta_{3} + b_{3i}) \exp(-\exp(\beta_{4} + b_{4i}) \, t_j) + \varepsilon_{ij},  
+\]</span>
+where the additional use of <span class="math inline">\(\exp\)</span> ensures that the coefficients inside the original <span class="math inline">\(\exp\)</span> terms are positive. The code below shows what it is possible to do in <code>nlme</code>. The Pinheiro &amp; Bates book explains this in greater detail and suggests some further amendments to the random effects and variance structure of the model.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="non-linear-mixed-models.html#cb54-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlme</span>(model, <span class="at">random =</span> <span class="fu">pdDiag</span>(A1 <span class="sc">+</span> lrc1 <span class="sc">+</span> A2 <span class="sc">+</span> lrc2 <span class="sc">~</span> <span class="dv">1</span>))</span>
+<span id="cb54-2"><a href="non-linear-mixed-models.html#cb54-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
+##   Model: conc ~ SSbiexp(time, A1, lrc1, A2, lrc2) 
+##   Data: Indometh 
+##         AIC       BIC   logLik
+##   -91.19342 -71.48653 54.59671
+## 
+## Random effects:
+##  Formula: list(A1 ~ 1, lrc1 ~ 1, A2 ~ 1, lrc2 ~ 1)
+##  Level: Subject
+##  Structure: Diagonal
+##                A1      lrc1        A2         lrc2   Residual
+## StdDev: 0.5714106 0.1580778 0.1115978 8.172354e-06 0.08149341
+## 
+## Fixed effects:  list(A1 ~ 1, lrc1 ~ 1, A2 ~ 1, lrc2 ~ 1) 
+##           Value Std.Error DF   t-value p-value
+## A1    2.8275372 0.2640124 57 10.709866   0e+00
+## lrc1  0.7736221 0.1100261 57  7.031262   0e+00
+## A2    0.4614716 0.1128084 57  4.090755   1e-04
+## lrc2 -1.3441022 0.2310754 57 -5.816725   0e+00
+##  Correlation: 
+##      A1     lrc1   A2    
+## lrc1  0.055              
+## A2   -0.102  0.630       
+## lrc2 -0.139  0.577  0.834
+## 
+## Standardized Within-Group Residuals:
+##        Min         Q1        Med         Q3        Max 
+## -3.1733831 -0.3562727 -0.1285253  0.3423165  3.0025096 
+## 
+## Number of Observations: 66
+## Number of Groups: 6</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="non-linear-mixed-models.html#cb56-1" tabindex="-1"></a><span class="fu">plot</span>(model)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-72-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<!-- ### Growth of Soyabean plants -->
+<!-- In this experiment, eight plots were planted with each of two strains of soyabean in each of three years.  The data record the average leaf weight (in gms) of six plants chosen at random from each plot. -->
+<!-- What are the principal sources of variation in the data? -->
+<!-- *Source*: Davidian and Giltinan (1995, 1.1.3, p.7): ``Data from an experiment to compare growth patterns of two genotypes of soybeans: Plant Introduction \#416937 (P), an experimental strain, and Forrest (F), a commercial variety.'' -->
+<!-- ```{r} -->
+<!-- plot(Soybean, outer = ~ Year * Variety) -->
+<!-- ``` -->
+<!-- For a single plant, a suitable model is provided by a logistic growth curve, namely -->
+<!-- $$ -->
+<!--    y = \frac{\phi_1}{1 + \exp[-(t-\phi_2) / \phi_3]} + \varepsilon . -->
+<!-- $$ -->
+<!-- ```{r} -->
+<!-- model <- nlsList(weight ~ SSlogis(Time, Asym, xmid, scal), -->
+<!--             data = Soybean) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- plot(intervals(model), layout = c(3, 1)) -->
+<!-- # dev.off() -->
+<!-- model <- nlme(model) -->
+<!-- summary(model) -->
+<!-- plot(model) -->
+<!-- model1 <- update(model, weights = varPower()) -->
+<!-- anova(model, model1) -->
+<!-- plot(model1) -->
+<!-- plot(ranef(model1, augFrame = TRUE), form = ~ Year * Variety) -->
+<!-- soyFix <- fixef(model1) -->
+<!-- model2 <- update(model1, fixed = Asym + xmid + scal ~ Year, -->
+<!--              start = c(soyFix[1], 0, 0, soyFix[2], 0, 0, soyFix[3], 0, 0)) -->
+<!-- anova(model2) -->
+<!-- ``` -->
+<!-- ### Phenobarbital kinetics -->
+<!-- In this study, 59 preterm infants who had received injections of phenobarbital were monitored at irregular intervals to determined blood concentrations of the drug.  In addition to information on concentration and dose, birth weight and Apgar score were also recorded. -->
+<!-- Again, what are the principal sources of variation in the data? -->
+<!-- ```{r} -->
+<!-- plot(Phenobarb, strip = FALSE) -->
+<!-- ``` -->
+<!-- Pharmacokinetic theory suggests that a suitable model for an individual is -->
+<!-- $$ -->
+<!--    y(t) = \sum_{d:t_d < t} \frac{D_d}{V} \exp \left[ - \frac{Cl}{V} (t - t_d) \right] . -->
+<!-- $$ -->
+<!-- ```{r eval = FALSE} -->
+<!-- model <- nlme(conc ~ phenoModel(Subject, time, dose, lCl, lV), -->
+<!--              data = Phenobarb, -->
+<!--              fixed = lCl + lV ~ 1, random = pdDiag(lCl + lV ~ 1), -->
+<!--              start = c(-5, 0),  -->
+<!--              na.action = na.exclude, naPattern = ~ !is.na(conc)) -->
+<!-- ``` -->
+<!-- Further reading: -->
+<!-- \bibitem{DavidianGiltinan-1995} -->
+<!--    Davidian, M.\ \& Giltinan, D. M. (1995). -->
+<!--    \textit{Nonlinear Models for Repeated Measurement Data} -->
+<!--    Chapman and Hall, London. -->
+<!-- \bibitem{PinheiroBates-2000} -->
+<!--    Pinheiro, J.C.\ \& Bates, D.M. (2000). -->
+<!--    \textit{Mixed-Effects Models in S and S-PLUS.}  -->
+<!--    Springer, New York. -->
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="further-examples-of-mixed-models.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="generalised-linear-mixed-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

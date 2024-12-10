@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 Examples | Statistical Modelling</title>
+  <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 Examples | Statistical Modelling" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 Examples | Statistical Modelling" />
+  
+  <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="models-with-random-effects.html"/>
+<link rel="next" href="formulating-and-fitting-mixed-effects-models.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A visual and conceptual introduction to statistical modelling</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: what’s the problem?</a></li>
+<li class="chapter" data-level="1" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>1</b> Models with random effects</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>1.1</b> Examples</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>1.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="1.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>1.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="1.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>1.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="1.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>1.1.4</b> Common features</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>1.2</b> Formulating and fitting mixed effects models</a></li>
+<li class="chapter" data-level="1.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>1.3</b> Inference with mixed models</a></li>
+<li class="chapter" data-level="1.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>1.4</b> Further examples of mixed models</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>1.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="1.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>1.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="1.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>1.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="1.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>1.4.4</b> Reading attainment in primary school</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>1.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="1.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>1.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="1.7" data-path="further-reading.html"><a href="further-reading.html"><i class="fa fa-check"></i><b>1.7</b> Further reading</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statistical Modelling</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="examples" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Examples<a href="examples.html#examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In order to motivate the ideas and issues to be discussed in this chapter, some illustrative examples are given below. In each case we will begin by thinking carefully about the structure of the data and the sources of variability. As ever, appropriate visualisations will help.</p>
+<div id="the-manufacture-of-penicillin" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> The manufacture of penicillin<a href="examples.html#the-manufacture-of-penicillin" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<blockquote>
+<p><strong>Example: The manufacture of penicillin</strong><br />
+In a historical experiment, four different processes for the manufacture of penicillin were compared. One issue is that an important raw material, corn steep liquor, can be quite variable in its composition. To allow for this, five different batches (blends) of corn liquor were used. Fortunately, there was enough raw material in each blend to allow all four manufacturing processes to be applied and the subsequent yields recorded. Principal interest lies in whether there are any identifiable differences among the manufacturing processes, but the size of the variation in the blends is also of secondary interest.</p>
+<p>The data are reported in Box &amp; Hunter (1978), <em>Statistics for Experimenters</em>. The dataset is available in the <code>penicillin</code> dataframe in the <code>faraway</code> package.</p>
+</blockquote>
+<hr />
+<p>The dataset is available in the <code>penicillin</code> dataframe in the <code>faraway</code> package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="examples.html#cb1-1" tabindex="-1"></a><span class="fu">data</span>(penicillin, <span class="at">package =</span> <span class="st">&#39;faraway&#39;</span>)</span>
+<span id="cb1-2"><a href="examples.html#cb1-2" tabindex="-1"></a><span class="fu">str</span>(penicillin)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    20 obs. of  3 variables:
+##  $ treat: Factor w/ 4 levels &quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;: 1 2 3 4 1 2 3 4 1 2 ...
+##  $ blend: Factor w/ 5 levels &quot;Blend1&quot;,&quot;Blend2&quot;,..: 1 1 1 1 2 2 2 2 3 3 ...
+##  $ yield: num  89 88 97 94 84 77 92 79 81 87 ...</code></pre>
+<p>Here is an initial plot of the which aims to include all the different sources of variation. The effect of treatment on yield is the main focus, but the variability associated with the different blends is also represented by the use of separate lines and colours to connect the observations which arise from the same blend. It looks as though there is substantial blend variability, as the lines are somewhat separated, but it is not clear whether there are any systematic differences among the treatments.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="examples.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="examples.html#cb3-2" tabindex="-1"></a><span class="fu">ggplot</span>(penicillin, <span class="fu">aes</span>(treat, yield, <span class="at">group =</span> blend, <span class="at">col =</span> blend)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="examples.html#cb3-3" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-14-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>A particular issue we need to consider is whether we are building a model which describes the effects associated with the particular blends used in this study or a model which uses the information available to describe the patterns of variation across the wider population of blends.</p>
+</div>
+<div id="childhood-growth" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Childhood growth<a href="examples.html#childhood-growth" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<blockquote>
+<p><strong>Example: Childhood growth</strong><br />
+<span class="citation">Potthoff and Roy (<a href="#ref-potthoff_1964_biometrika">1964</a>)</span> report data from an experiment where the distance between two anatomical points on the head was meaasured for a number of children, both males and females, over several years. How should we model the underlying growth patterns?</p>
+<p>The data are available in the <code>Orthodont</code> dataframe in the <code>nlme</code> package.</p>
+</blockquote>
+<hr />
+<p>Inspection of the data reveals a simple structure, with variables <code>distance</code>, <code>age</code>, <code>Subject</code> and <code>Sex</code>. The plot below confirms growth with age, as we would expect. There is also a suggestion that boys are slightly larger than girls, on average, at all the ages considered. Again, this is not surprising. Connecting the observations from each subject by lines emphasises that these data points are linked. This needs to be suitably reflected in the model we build. As in the previous example, is our model for these particular subjects or for the wider population?</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="examples.html#cb4-1" tabindex="-1"></a><span class="fu">data</span>(Orthodont, <span class="at">package =</span> <span class="st">&#39;nlme&#39;</span>)</span>
+<span id="cb4-2"><a href="examples.html#cb4-2" tabindex="-1"></a><span class="fu">str</span>(Orthodont)</span></code></pre></div>
+<pre><code>## Classes &#39;nfnGroupedData&#39;, &#39;nfGroupedData&#39;, &#39;groupedData&#39; and &#39;data.frame&#39;:   108 obs. of  4 variables:
+##  $ distance: num  26 25 29 31 21.5 22.5 23 26.5 23 22.5 ...
+##  $ age     : num  8 10 12 14 8 10 12 14 8 10 ...
+##  $ Subject : Ord.factor w/ 27 levels &quot;M16&quot;&lt;&quot;M05&quot;&lt;&quot;M02&quot;&lt;..: 15 15 15 15 3 3 3 3 7 7 ...
+##  $ Sex     : Factor w/ 2 levels &quot;Male&quot;,&quot;Female&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  - attr(*, &quot;outer&quot;)=Class &#39;formula&#39;  language ~Sex
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##  - attr(*, &quot;formula&quot;)=Class &#39;formula&#39;  language distance ~ age | Subject
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##  - attr(*, &quot;labels&quot;)=List of 2
+##   ..$ x: chr &quot;Age&quot;
+##   ..$ y: chr &quot;Distance from pituitary to pterygomaxillary fissure&quot;
+##  - attr(*, &quot;units&quot;)=List of 2
+##   ..$ x: chr &quot;(yr)&quot;
+##   ..$ y: chr &quot;(mm)&quot;
+##  - attr(*, &quot;FUN&quot;)=function (x)  
+##   ..- attr(*, &quot;source&quot;)= chr &quot;function (x) max(x, na.rm = TRUE)&quot;
+##  - attr(*, &quot;order.groups&quot;)= logi TRUE</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="examples.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="examples.html#cb6-2" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">group =</span> Subject, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb6-3"><a href="examples.html#cb6-3" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">group =</span> Subject, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="examples.html#cb6-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-15-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-15-2.png" width="49%" /></p>
+</div>
+<div id="the-strength-of-paste" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> The strength of paste<a href="examples.html#the-strength-of-paste" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<blockquote>
+<p><strong>Example: The strength of paste</strong><br />
+A company uses a chemical paste in one of its production processes and receives deliveries of the paste in batches. The quality control department of the company is concerned about the variability in the strength of paste and decided to investigate. Ten batches of paste were randomly selected for a number of deliveries (one batch is received per delivery). From each of the batches a random sample of three casks was selected and two random determinations were made from random samples from each cask.</p>
+<p>Where does most of the variability lie – at the batch, cask or individual measurement level?</p>
+<p>Data source: O.L. Davies and P.L. Goldsmith (eds), Statistical Methods in Research and Production, 4th ed., Oliver and Boyd, (1972), section 6.5.</p>
+<p>The data are available in the <code>Pastes</code> dataframe in the <code>lme4</code> package. The variables of interest are <code>strength</code>, <code>batch</code> and <code>cask</code>.</p>
+</blockquote>
+<hr />
+<p>The data are plotted below in two different forms. We are used to viewing plots to identify systematic effects such as changes in means. It is more difficult to compare the sizes of variations. A further special feature of the data is that the cask variation is <em>nested</em> inside the batch variation. We should be careful to respect the hierarchical nature of the data structure in any model we construct.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="examples.html#cb7-1" tabindex="-1"></a><span class="fu">data</span>(Pastes, <span class="at">package =</span> <span class="st">&#39;lme4&#39;</span>)</span>
+<span id="cb7-2"><a href="examples.html#cb7-2" tabindex="-1"></a><span class="fu">ggplot</span>(Pastes, <span class="fu">aes</span>(strength, batch, <span class="at">col =</span> cask)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb7-3"><a href="examples.html#cb7-3" tabindex="-1"></a><span class="fu">ggplot</span>(Pastes, <span class="fu">aes</span>(strength, cask)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-4"><a href="examples.html#cb7-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> batch)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-16-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-16-2.png" width="49%" /></p>
+</div>
+<div id="common-features" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Common features<a href="examples.html#common-features" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A common feature of all these examples is that the data structure creates links between different observations. In the <code>penicillin</code> data, there are several groups which are formed by the observations made on the same blend. In the <code>Orthodont</code> data, there are groups created by repeated observations over time on the same subject. In the <code>Pastes</code> data, the grouping is created in a hierarchical manner as observation within cask within batch. The links created by these groupings should be respected in our model.</p>
+<p>In addition, we would like to construct models which treat some sources of variation as random samples of the variation present in the wider population. This is what we mean by <em>random effects</em>.</p>
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-potthoff_1964_biometrika" class="csl-entry">
+Potthoff, Richard F, and Samarendra N Roy. 1964. <span>“A Generalized Multivariate Analysis of Variance Model Useful Especially for Growth Curve Problems.”</span> <em>Biometrika</em> 51 (3-4): 313–26.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="models-with-random-effects.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="formulating-and-fitting-mixed-effects-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book.pdf", "book.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+models-for-space
+visualising-spatial-data
+the-maps-package
+leaflet-and-mapview-interactive-maps
+ggplot-and-ggmap
+tmap
+spatstat-for-spatial-point-patterns
+areal-data
+image-data
+spatiotemporal-animation
+models-for-point-pattern-data
+geostatistical-models
+gaussian-processes
+geostatistical-models-1
+so2-a-model-based-on-smoothing
+models-for-areal-data
+further-reading
