@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -553,19 +554,13 @@ div.csl-indent {
 <h3><span class="header-section-number">9.6.1</span> Trout<a href="comparing-regression-lines-analysis-of-covariance.html#trout" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The terminology blocks is used to describe a factor which influences the response variable, but is not a primary interest in the experiment. This can also happen with continuous measurements. Two examples in this section illustrate how the inclusion of an appropriate covariate in an analysis can help to deliver an appropriate comparison of treatment groups, and prevent inappropriate conclusions being drawn.</p>
 <blockquote>
-<p><strong>______________________________________________</strong><br />
-<strong>Example: Rainbow trout</strong></p>
-</blockquote>
-<blockquote>
-<p>When the behaviour of a group of trout is studied, some fish are observed to become dominant and others to become subordinate. Dominant fish have freedom of movement while subordinate fish tend to congregate in the periphery of the waterway and to avoid crossing the path of the dominant fish. Data on energy expenditure and ration of food were collected as part of a laboratory experiment. The data are available in the file <code>data/trout.dat</code>. Both energy expenditure and food ration are measured in units of
+<hr />
+<p><strong>Example: Rainbow trout</strong><br />
+When the behaviour of a group of trout is studied, some fish are observed to become dominant and others to become subordinate. Dominant fish have freedom of movement while subordinate fish tend to congregate in the periphery of the waterway and to avoid crossing the path of the dominant fish. Data on energy expenditure and ration of food were collected as part of a laboratory experiment. The data are available in the file <code>data/trout.dat</code>. Both energy expenditure and food ration are measured in units of
 kilocalories per trout per day.</p>
-</blockquote>
-<blockquote>
 <p>A detailed description of the experiment and an analysis of a more extensive set of data are provided by Metcalfe (1986), <em>Intraspecific variation in competitive ability and food intake in salmonids: consequences for energy budgets and growth rates</em>, Journal of Fish Biology 28, 525–31.</p>
-</blockquote>
-<blockquote>
-<p>Is there evidence of a difference in food ration between dominant and subordinate fish?<br />
-<strong>______________________________________________</strong></p>
+<p>Is there evidence of a difference in food ration between dominant and subordinate fish?</p>
+<hr />
 </blockquote>
 <p>The left hand panel below uses boxplots to give a direct comparison between the rations gained by the two groups of fish. This does suggest there may be a difference in mean values. The middle panel shows a plot of ration against expenditure, with a separate regression line for each group. Now the two groups are almost completely separated. The final plot fits a model which assumes the slopes of the two lines are identical.</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-1" tabindex="-1"></a>  path  <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;trout&quot;</span>)</span>
@@ -577,28 +572,22 @@ kilocalories per trout per day.</p>
 <span id="cb143-7"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group <span class="sc">+</span> energy, <span class="at">data =</span> trout)</span>
 <span id="cb143-8"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-8" tabindex="-1"></a></span>
 <span id="cb143-9"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(group, ration)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb143-10"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span></span>
-<span id="cb143-11"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model2)), <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2
-## 3.4.0.
-## ℹ Please use `linewidth` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where
-## this warning was generated.</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb145-1" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span></span>
-<span id="cb145-2"><a href="comparing-regression-lines-analysis-of-covariance.html#cb145-2" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model3)), <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-624-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-624-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-624-3.png" width="32%" /></p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb146-1" tabindex="-1"></a>  <span class="fu">summary</span>(model1)<span class="sc">$</span>coefficients</span></code></pre></div>
+<span id="cb143-10"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb143-11"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model2)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
+<span id="cb143-12"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb143-13"><a href="comparing-regression-lines-analysis-of-covariance.html#cb143-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model3)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-625-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-625-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-625-3.png" width="32%" /></p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb144-1" tabindex="-1"></a>  <span class="fu">summary</span>(model1)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                  Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept)        79.644   4.422643 18.008235 5.843017e-13
 ## groupsubordinate  -16.815   6.254562 -2.688438 1.501569e-02</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb148-1" tabindex="-1"></a>  <span class="fu">summary</span>(model2)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb146-1" tabindex="-1"></a>  <span class="fu">summary</span>(model2)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                           Estimate Std. Error    t value     Pr(&gt;|t|)
 ## (Intercept)             28.7070826   9.806857  2.9272461 9.866556e-03
 ## groupsubordinate         3.5475060  12.515835  0.2834414 7.804732e-01
 ## energy                   0.9150618   0.170874  5.3551863 6.440794e-05
 ## groupsubordinate:energy -0.3659327   0.216484 -1.6903454 1.103471e-01</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-1" tabindex="-1"></a>  <span class="fu">summary</span>(model3)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb148-1" tabindex="-1"></a>  <span class="fu">summary</span>(model3)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                     Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept)       41.3977252  6.6451243  6.229789 9.149947e-06
 ## groupsubordinate -16.8239320  3.5566779 -4.730238 1.933996e-04
@@ -610,33 +599,27 @@ kilocalories per trout per day.</p>
 <div id="respiratory-distress-syndrome" class="section level3 hasAnchor" number="9.6.2">
 <h3><span class="header-section-number">9.6.2</span> Respiratory distress syndrome<a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
-<p><strong>______________________________________________</strong><br />
-<strong>Example: Respiratory distress syndrome</strong></p>
+<hr />
+<p><strong>Example: Respiratory distress syndrome</strong><br />
+Premature babies often suffer from a variety of problems, of which a major one is respiratory distress syndrome (RDS). It is thought that the occurrence of this syndrome might be related to a property of the blood called red cell deformability. This refers to the ability of red cells to change shape to pass through small pores. The rate (<code>lrate</code>, on a log scale) of blood flow through a set of three micrometre pores was recorded for two groups (<code>group</code>) of babies, some of whom suffered from respiratory distress syndrome and some who did not. The gestational age (<code>GA</code>) in weeks of each baby was also recorded.</p>
+<p>Is there evidence of a difference in <code>lrate</code> between the two groups?</p>
+<p>These data were kindly provided by Dr. Haider, Queen Mother’s Hospital, Glasgow. The data are available through <code>rp.datalink('rds')</code>.</p>
+<hr />
 </blockquote>
-<blockquote>
-<p>Premature babies often suffer from a variety of problems, of which a major one is respiratory distress syndrome (RDS). It is thought that the occurrence of this syndrome might be related to a property of the blood called red cell deformability. This refers to the ability of red cells to change shape to pass through small pores. The rate (<code>lrate</code>, on a log scale) of blood flow through a set of three micrometre pores was recorded for two groups (<code>group</code>) of babies, some of whom suffered from respiratory distress syndrome and some who did not. The gestational age (<code>GA</code>) in weeks of each baby was also recorded. The data are available in the file <code>data/rds.dat</code>.</p>
-</blockquote>
-<blockquote>
-<p>These data were kindly provided by Dr. Haider, Queen Mother’s Hospital, Glasgow.</p>
-</blockquote>
-<blockquote>
-<p>Is there evidence of a difference in <code>lrate</code> between the two groups?<br />
-<strong>______________________________________________</strong></p>
-</blockquote>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-1" tabindex="-1"></a>  path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;rds&quot;</span>)</span>
-<span id="cb152-2"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-2" tabindex="-1"></a>  rds  <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb152-3"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-3" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
-<span id="cb152-4"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-4" tabindex="-1"></a></span>
-<span id="cb152-5"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-5" tabindex="-1"></a>  model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS, <span class="at">data =</span> rds)</span>
-<span id="cb152-6"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-6" tabindex="-1"></a>  model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">*</span> GA, <span class="at">data =</span> rds)</span>
-<span id="cb152-7"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">+</span> GA, <span class="at">data =</span> rds)</span>
-<span id="cb152-8"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-8" tabindex="-1"></a></span>
-<span id="cb152-9"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(RDS, lrate)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb152-10"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(RDS, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span></span>
-<span id="cb152-11"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(GA, <span class="fu">fitted</span>(model2)), <span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb152-12"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(RDS, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span></span>
-<span id="cb152-13"><a href="comparing-regression-lines-analysis-of-covariance.html#cb152-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(GA, <span class="fu">fitted</span>(model3)), <span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-626-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-626-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-626-3.png" width="32%" /></p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-1" tabindex="-1"></a>  path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;rds&#39;</span>)</span>
+<span id="cb150-2"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-2" tabindex="-1"></a>  rds  <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb150-3"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-3" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb150-4"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-4" tabindex="-1"></a></span>
+<span id="cb150-5"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-5" tabindex="-1"></a>  model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS, <span class="at">data =</span> rds)</span>
+<span id="cb150-6"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-6" tabindex="-1"></a>  model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">*</span> GA, <span class="at">data =</span> rds)</span>
+<span id="cb150-7"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">+</span> GA, <span class="at">data =</span> rds)</span>
+<span id="cb150-8"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-8" tabindex="-1"></a></span>
+<span id="cb150-9"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(RDS, lrate)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb150-10"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(GA, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb150-11"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model2)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
+<span id="cb150-12"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(GA, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb150-13"><a href="comparing-regression-lines-analysis-of-covariance.html#cb150-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model3)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-627-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-627-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-627-3.png" width="32%" /></p>
 <p>The three plots above again compare the groups directly, then adjust for the effects of gestational age with separate regression lines, and then lines with common slope. There are strikingly different results. Look at summaries of the three models to see that the direct group comparison (<code>model1</code>) shows a (just) significant result, while <code>model2</code> shows no evidence of interaction between group and gestational age and <code>model3</code> shows no evidence of a difference between the groups. So this is a case where the inclusion of a covariate prevents us from drawing an inappropriate conclusion of a group difference when in fact this is due the dominance of later gestational ages in the babies who do not have RDS.</p>
 </div>
 </div>

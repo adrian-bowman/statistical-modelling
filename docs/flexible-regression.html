@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -597,7 +598,7 @@ This requires the <code>rpanel</code> and <code>tkrplot</code> packages to be in
 <span id="cb93-2"><a href="flexible-regression.html#cb93-2" tabindex="-1"></a>Position <span class="ot">&lt;-</span> <span class="fu">cbind</span>(trawl1<span class="sc">$</span>Latitude, <span class="sc">-</span>trawl1<span class="sc">$</span>Longitude)</span>
 <span id="cb93-3"><a href="flexible-regression.html#cb93-3" tabindex="-1"></a><span class="fu">sm.regression</span>(Position, trawl1<span class="sc">$</span>Score1,</span>
 <span id="cb93-4"><a href="flexible-regression.html#cb93-4" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">&quot;-Latitude&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Longitude&quot;</span>, <span class="at">zlab =</span> <span class="st">&quot;Score&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-486-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-487-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <!-- Notice the use of the same smoothing parameter in each dimension through the `structure.2d="common"` parameter. (This has been removed.) -->
 <p>As a final example, we will revisit the <code>rodent</code> dataset was introduced in Section <a href="taste-of-r.html#taste-of-r">2.2</a>. In fact this is only part of a larger dataset on mammals, available in <code>mammal_speed</code>. Interestingly, the positive connection between mass and speed for rodents does not carry through for all mammals. For the heaviest mammals, speed stabilises and then tails off as mass increases. At what mass is speed heaviest, on average? A smooth curve description of the underlying relationship allows us to quantify this, without making any detailed assumptions on what the shape of this relationship should be. For the moment, we can simply inspect the plot to see that the maximum occurs at a mass around 4.5 on the log scale, and so <code>exp(4.5) = 90</code> on the mass scale.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="flexible-regression.html#cb94-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>

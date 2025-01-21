@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -567,7 +568,7 @@ div.csl-indent {
 <p>This value is meaningful only when we compare it to a reference distribution. The theory for this setting tells us that the relevant comparison is with a <span class="math inline">\(\chi^2\)</span> distribution, which is plotted below. This distribution is indexed by a parameter known as the <em>degrees of freedom</em>. For contingency tables with <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, the degrees of freedom should be set to <span class="math inline">\((r-1)(c-1)\)</span>, which in the current case is <span class="math inline">\(1\)</span>.</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="contingency-tables.html#cb116-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
 <span id="cb116-2"><a href="contingency-tables.html#cb116-2" tabindex="-1"></a><span class="fu">rp.tables</span>(<span class="at">panel =</span> <span class="cn">FALSE</span>, <span class="at">distribution =</span> <span class="st">&quot;chi-squared&quot;</span>, <span class="at">degf1 =</span> <span class="dv">1</span>, <span class="at">observed.value =</span> <span class="fl">5.76</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-569-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-570-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>The observed value of the test statistic, which is also shown in the plot, is much higher than values we expect to see from this reference distribution. The upper 5% point of the distribution is 3.84, which gives us a specific benchmark. We therefore have significant evidence that the proportions of smokers are different in the cases and controls. This formn of analysis has, unsurprisingly, confirmed the conclusions of the comparison of proportions in the previous section.</p>
 <p>The chi-squared test can be easily implemented in <code>R</code> through the <code>chisq.test</code> function. By default this includes a correction for 2x2 tables in order to improve the accuracy of the reference distribution. However, the conclusion is unchanged.</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="contingency-tables.html#cb117-1" tabindex="-1"></a><span class="fu">chisq.test</span>(x)</span></code></pre></div>

@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -568,7 +569,7 @@ div.csl-indent {
 <span id="cb112-3"><a href="simple-proportions.html#cb112-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1000</span>, n, p) </span>
 <span id="cb112-4"><a href="simple-proportions.html#cb112-4" tabindex="-1"></a><span class="fu">hist</span>(x <span class="sc">/</span> n, <span class="at">col =</span> <span class="st">&#39;grey&#39;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&#39;n =&#39;</span>, n, <span class="st">&#39;  p =&#39;</span>, p))</span>
 <span id="cb112-5"><a href="simple-proportions.html#cb112-5" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> p, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-565-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-566-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>There are two simple points to note:</p>
 <ul>
 <li>The sample proportion is subject to error but it is centred

@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -553,7 +554,7 @@ div.csl-indent {
 <p>The curve estimate is simply a linear combination of the data values <span class="math inline">\(y\)</span> and this makes it very easy to produce standard errors which quantify the variability of the curve at any value of <span class="math inline">\(x\)</span>. Unfortunately, we can’t easily produce confidence intervals for the curve because the process of ‘smoothing’ introduces some bias. However, by adding and subtracting two standard errors at each point on the curve we can produce <em>variability bands</em> which express the variation in the curve estimate. This can be implemented in R by adding the argument <code>display  = 'se'</code> to the <code>sm.regression</code> call.</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="variability-bands-for-flexible-regression.html#cb98-1" tabindex="-1"></a><span class="fu">library</span>(sm)</span>
 <span id="cb98-2"><a href="variability-bands-for-flexible-regression.html#cb98-2" tabindex="-1"></a><span class="fu">sm.regression</span>(trawl<span class="sc">$</span>Longitude, trawl<span class="sc">$</span>Score1, <span class="at">display =</span> <span class="st">&quot;se&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-534-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-535-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Sometime we want to compare curves, at least informally, and we can use the standard errors from each curve to do that. At any point <span class="math inline">\(x\)</span>, the standard error of the difference between the curves is <span class="math inline">\(se_d(x) = \sqrt{se_1(x)^2 + se_2(x)^2}\)</span>, where <span class="math inline">\(se_1(x)\)</span> and <span class="math inline">\(se_2(x)\)</span> denote the standard errors of each curve at that point. A neat trick is to plot a band whose width is <span class="math inline">\(2 se_d(x)\)</span>. By centering this band at the average of the two curves we can see where they are more than two standard errors apart. We can see this with the Reef data separated into two groups corresponding to open and closed fishing zones, by running the prepared script <code>sm.script(trwlband)</code>.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="variability-bands-for-flexible-regression.html#cb99-1" tabindex="-1"></a>  <span class="fu">sm.script</span>(trwlcomp)</span></code></pre></div>
 <pre><code>## NULL
@@ -562,7 +563,7 @@ div.csl-indent {
 <pre><code>## Test of equality :  h =  0.1    p-value =  0.5691</code></pre>
 <pre><code>## NULL
 ## NULL</code></pre>
-<p><img src="book_files/figure-html/unnamed-chunk-535-1.png" width="49%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-536-1.png" width="49%" /></p>
 <p>This code actually implements a global test of the hypothesis that the two underlying curves are identical. The p-value shows that there is no evidence that the curves are different.</p>
 </div>
             </section>

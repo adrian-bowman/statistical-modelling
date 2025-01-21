@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -560,7 +561,7 @@ div.csl-indent {
 <span id="cb335-8"><a href="writing-your-own-functions.html#cb335-8" tabindex="-1"></a>  }</span></code></pre></div>
 <p>The function can then be activated (or <em>called</em>) simply by typing its name in the usual way.</p>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="writing-your-own-functions.html#cb336-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1082-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1091-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>To provide detailed control of the function we can add <em>arguments</em>. These have stated default values but we can override these by specifying (or <em>passing</em>) different values.</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="writing-your-own-functions.html#cb337-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
 <span id="cb337-2"><a href="writing-your-own-functions.html#cb337-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
@@ -571,7 +572,7 @@ div.csl-indent {
 <span id="cb337-7"><a href="writing-your-own-functions.html#cb337-7" tabindex="-1"></a>  }</span>
 <span id="cb337-8"><a href="writing-your-own-functions.html#cb337-8" tabindex="-1"></a></span>
 <span id="cb337-9"><a href="writing-your-own-functions.html#cb337-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1083-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1092-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 

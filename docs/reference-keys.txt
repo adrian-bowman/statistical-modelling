@@ -132,7 +132,7 @@ maximal-heart-rate-and-age
 the-effects-of-conservation
 generalised-linear-models
 logistic-regression
-the-concept-of-likelihood
+likelihood
 poisson-regression
 general-glms
 further-examples
@@ -142,6 +142,7 @@ exercises-9
 bissell-data
 vasoconstriction-data
 the-framingham-heart-study
+the-shape-of-a-log-likelihood-function
 models-with-random-effects
 examples
 the-manufacture-of-penicillin

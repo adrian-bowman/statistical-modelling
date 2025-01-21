@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -581,7 +582,7 @@ div.csl-indent {
 <span id="cb28-2"><a href="reorganising-data.html#cb28-2" tabindex="-1"></a>ind <span class="ot">&lt;-</span> <span class="fu">order</span>(sbst<span class="sc">$</span>Date)</span>
 <span id="cb28-3"><a href="reorganising-data.html#cb28-3" tabindex="-1"></a><span class="fu">plot</span>(sbst<span class="sc">$</span>Date[ind], sbst<span class="sc">$</span>Value[ind], <span class="at">type =</span> <span class="st">&#39;l&#39;</span>,</span>
 <span id="cb28-4"><a href="reorganising-data.html#cb28-4" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;Date&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;Number of deaths&#39;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-279-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-280-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>This shows the overall course of the pandemic in the UK. An exercise at the end of Chapter <a href="data-visualisation.html#data-visualisation">4</a> on Data Visualisation chapter will invite you to explore this at more detailed levels of age and sex.</p>
 </div>
             </section>

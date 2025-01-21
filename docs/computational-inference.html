@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -558,7 +559,7 @@ div.csl-indent {
 <span id="cb104-3"><a href="computational-inference.html#cb104-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> longleaf<span class="sc">$</span>y[longleaf<span class="sc">$</span>marks <span class="sc">&gt;=</span><span class="dv">50</span>]</span>
 <span id="cb104-4"><a href="computational-inference.html#cb104-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb104-5"><a href="computational-inference.html#cb104-5" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-544-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-545-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We can generate our own trees patterns in a uniform random manner simply by locating each tree at an x and y position each of which is generated uniformly in the range (0, 200). here are some examples of patterns generated in this way.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="computational-inference.html#cb105-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
 <span id="cb105-2"><a href="computational-inference.html#cb105-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
@@ -566,7 +567,7 @@ div.csl-indent {
 <span id="cb105-4"><a href="computational-inference.html#cb105-4" tabindex="-1"></a>            <span class="fu">geom_point</span>()</span>
 <span id="cb105-5"><a href="computational-inference.html#cb105-5" tabindex="-1"></a>  <span class="fu">print</span>(plt)</span>
 <span id="cb105-6"><a href="computational-inference.html#cb105-6" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-545-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-545-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-545-3.png" width="32%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-546-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-546-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-546-3.png" width="32%" /></p>
 <p>How should we compare the observed pattern with the randomly generated ones? A simple way of doing this is to measure for each tree the distance to its nearest neighbour. If the pattern exhibits clustering, then these distances should be small, while if the pattern is uniform they will tend to be larger. We might then use as our test statistic the average of the distances to each nearest neighbour. We can generate the distribution of this average distance in the case where the locations are uniformly distributed simply by repeatedly simulating locations and retaining the average nearest neighbour distance for each one. The <code>nndist</code> function from the <code>spatstat</code> package can help us with the nearest neighbour distances.</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="computational-inference.html#cb106-1" tabindex="-1"></a>nsim  <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
 <span id="cb106-2"><a href="computational-inference.html#cb106-2" tabindex="-1"></a>tstat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
@@ -579,7 +580,7 @@ div.csl-indent {
 <span id="cb106-9"><a href="computational-inference.html#cb106-9" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tstat.obs, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb106-10"><a href="computational-inference.html#cb106-10" tabindex="-1"></a><span class="fu">length</span>(tstat[tstat <span class="sc">&lt;</span> tstat.obs]) <span class="sc">/</span> nsim</span></code></pre></div>
 <pre><code>## [1] 0.3147</code></pre>
-<p><img src="book_files/figure-html/unnamed-chunk-546-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-547-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The histogram shows the distribution (subject to the variation present through simulation) of the average nearest neighbour distance when of atoms really are uniform. The red line shows the average neighbour distance for the observed data. Informally, but clearly, we can see that from this perspective the observed data is entirely consistent with the assumption of uniformity. An empirical p-value can be computed simply from the proportion of simulated values which fall below the observed one (as we look for evidence against uniformity in small nearest neighbour distances).</p>
 </div>
 <div id="randomisation-tests" class="section level3 hasAnchor" number="7.1.2">
@@ -600,7 +601,7 @@ div.csl-indent {
 <span id="cb109-9"><a href="computational-inference.html#cb109-9" tabindex="-1"></a>tstat.obs <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">tapply</span>(yield, fertiliser, mean))</span>
 <span id="cb109-10"><a href="computational-inference.html#cb109-10" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(tstat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb109-11"><a href="computational-inference.html#cb109-11" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tstat.obs, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-547-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-548-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>There are several new functions used in the <code>R</code> code here (<code>c</code>, <code>diff</code>, <code>tapply</code>). You will hopefully feel ready to explore these through the help system by this stage. The end result is a histogram which represents the distribution, induced by randomisation, of the mean sample difference between A and B when the two treatments have identical effects. When we compare this with the observed mean difference it is clear that the two are compatible. So there is no evidence that A and B have different effects. If required, a p-value could be obtained by the means discussed in the simulation test section above. However, the conclusion is already clear.</p>
 </div>
 <div id="the-bootstrap" class="section level3 hasAnchor" number="7.1.3">

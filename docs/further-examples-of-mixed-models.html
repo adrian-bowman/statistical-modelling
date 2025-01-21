@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -589,7 +590,7 @@ where <span class="math inline">\(a_i \sim N(0, \sigma^2_a)\)</span>. The plot b
 ## age            0.7843750  0.0775011 10.1208235
 ## SexFemale      1.0321023  1.5374208  0.6713206
 ## age:SexFemale -0.3048295  0.1214209 -2.5105197</code></pre>
-<p><img src="book_files/figure-html/unnamed-chunk-792-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-801-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <!-- Intercept and slope random effects -->
 <!-- Allow a different intercept and slope to each group of data. -->
 <!-- $$ -->
@@ -651,7 +652,7 @@ where
 ##  Residual               0.82341</code></pre>
 <p>When using any model, we would like to have some reassurance that it describes the data adequately. Plot of residuals provide an informal, but very useful, way of checking this. If the model is adequate then the residuals should simply display random variation, with no obvious patterns or structure. The plot below reassures us that the model is an adequate fit.</p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="further-examples-of-mixed-models.html#cb206-1" tabindex="-1"></a><span class="fu">plot</span>(pastes_model)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-794-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-803-1.png" width="49%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-sleep-deprivation-study" class="section level3 hasAnchor" number="11.4.3">
 <h3><span class="header-section-number">11.4.3</span> The sleep deprivation study<a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -695,7 +696,7 @@ b_i \sim N(0, \sigma^2_b), \hspace{3em}
 <p>The evidence for the superiority of the model with this form of random effects can be evaluated in a more formal model comparison.</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="further-examples-of-mixed-models.html#cb212-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
 <span id="cb212-2"><a href="further-examples-of-mixed-models.html#cb212-2" tabindex="-1"></a><span class="fu">PBmodcomp</span>(sleep_model_2, sleep_model_1)</span></code></pre></div>
-<pre><code>## Bootstrap test; time: 11.29 sec; samples: 1000; extremes: 0;
+<pre><code>## Bootstrap test; time: 11.05 sec; samples: 1000; extremes: 0;
 ## large : Reaction ~ Days + (Days | Subject)
 ## Reaction ~ Days + (1 | Subject)
 ##          stat df   p.value    
@@ -749,20 +750,20 @@ b_i \sim N(0, \sigma^2_b), \hspace{3em}
 <span id="cb215-3"><a href="further-examples-of-mixed-models.html#cb215-3" tabindex="-1"></a>   <span class="fu">facet_grid</span>(Ethnicity <span class="sc">~</span> Sex)</span>
 <span id="cb215-4"><a href="further-examples-of-mixed-models.html#cb215-4" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb215-5"><a href="further-examples-of-mixed-models.html#cb215-5" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> School)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-807-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-807-2.png" width="49%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-816-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-816-2.png" width="49%" /></p>
 <p>We need to think carefully about how the variability should be modelled. For the moment, we will include only <code>Age</code> in the fixed effects, as this is the variable which clearly influences reading ability strongly. A random effect for each pupil, which allows them to display greater or lesser individual ability, is a good starting point. A residual plot helps us to assess the adequacy of this model, in an informal manner. Some non-random patterns suggest that we need to improve the model.</p>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="further-examples-of-mixed-models.html#cb216-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
 <span id="cb216-2"><a href="further-examples-of-mixed-models.html#cb216-2" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> School<span class="sc">/</span>Pupil), <span class="at">data =</span> d)</span>
 <span id="cb216-3"><a href="further-examples-of-mixed-models.html#cb216-3" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-808-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-817-1.png" width="49%" style="display: block; margin: auto;" /></p>
 <p>Another plot may help. This one shsows the trajectory of each individual over time. An interesting feature is a suggestion that these trajectories ‘fan out’ a little over time. This may suggest that pupils who are good readers at an early stage improve their reading ability over time at a greater rate than those who are poorer readers. This sounds plausible.</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="further-examples-of-mixed-models.html#cb217-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">group =</span> Pupil)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb217-2"><a href="further-examples-of-mixed-models.html#cb217-2" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(School))</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-809-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-818-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We can incorporate this into a model by describing these trajectories through straight lines (plus random error) whose slopes are described by random effects. The <code>lme</code> syntax enables this to be specified easily. The residual plot nolonger shows non-random features and a formal test confirms that the simple random effects model is inadequate, in comparison with the model which allows random slopes.</p>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="further-examples-of-mixed-models.html#cb218-1" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> (Age <span class="sc">|</span> School<span class="sc">/</span>Pupil), <span class="at">data =</span> d)</span>
 <span id="cb218-2"><a href="further-examples-of-mixed-models.html#cb218-2" tabindex="-1"></a><span class="fu">plot</span>(model2)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-810-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-819-1.png" width="49%" style="display: block; margin: auto;" /></p>
 <p>The residual plot has improved. We might also confirm the suitability of the random slopes model by performing a more formal model comparison.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="further-examples-of-mixed-models.html#cb219-1" tabindex="-1"></a><span class="fu">anova</span>(model1, model2)</span></code></pre></div>
 <pre><code>## refitting model(s) with ML (instead of REML)</code></pre>

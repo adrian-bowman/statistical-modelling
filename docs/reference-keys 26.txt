@@ -1,0 +1,13 @@
+generalised-linear-models
+logistic-regression
+likelihood
+poisson-regression
+general-glms
+further-examples
+two-covariates-vasoconstriction-of-the-digits
+doctors-and-smoking
+exercises
+bissell-data
+vasoconstriction-data
+the-framingham-heart-study
+the-shape-of-a-log-likelihood-function

@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -570,6 +571,12 @@ div.csl-indent {
 <!-- Download link for Rdata file: -->
 <!-- https://www.causeweb.org/tshs/datasets/Framingham.Rdata -->
 <!-- But this doesn't handle early dropouts properly. Cornfield paper assumes these are not subject to heart disease. -->
+</div>
+<div id="the-shape-of-a-log-likelihood-function" class="section level3 hasAnchor" number="10.6.4">
+<h3><span class="header-section-number">10.6.4</span> The shape of a log-likelihood function<a href="exercises-9.html#the-shape-of-a-log-likelihood-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The log-likelihood function for logistic regression with the <code>ethylene</code> data, shown in the Section on likelihood in this chapter and viewed through the <code>rp.logistic</code> function, has a long diagonal ridge with very steep sides. That is rather an awkward shape. What happens if we change the parameterisation of the linear predictor in the model from <span class="math inline">\(\alpha + \beta x\)</span> to <span class="math inline">\(\alpha + \beta (x - \bar{x})\)</span>, where <span class="math inline">\(\bar{x}\)</span> denotes the mean of the <span class="math inline">\(x_i\)</span> values?</p>
+<p>Investigate this by creating a new variable which subtracts the mean from the <code>Concentration</code> values, then refit the model with this variable and re-run the code shown earlier in the chapter to produce a contour plot. You will have to experiment with different ranges of <code>alpha</code> and <code>beta</code> to see the peak of the log-likelihood function.</p>
+<p>What does this plot tell you? What are the implications for the parameter estimates and a confidence region?</p>
 
 </div>
 </div>

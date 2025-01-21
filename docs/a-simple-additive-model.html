@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -578,7 +579,7 @@ These smoothing operations are repeated until convergence. This is called the <e
 <span id="cb240-4"><a href="a-simple-additive-model.html#cb240-4" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
 <span id="cb240-5"><a href="a-simple-additive-model.html#cb240-5" tabindex="-1"></a>trawl.model <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude), <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
 <span id="cb240-6"><a href="a-simple-additive-model.html#cb240-6" tabindex="-1"></a><span class="fu">draw</span>(trawl.model, <span class="at">residuals =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-846-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-855-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The non-linear effect of Longitude is apparent, as we saw in earlier examples. Here the model selection methods included in <code>mgcv</code> have led to a proposed linear relationship with Latitude.</p>
 </div>
             </section>

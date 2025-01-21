@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -556,7 +557,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="inference-with-mixed-models.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
 <span id="cb186-2"><a href="inference-with-mixed-models.html#cb186-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
 <span id="cb186-3"><a href="inference-with-mixed-models.html#cb186-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
-<pre><code>## Bootstrap test; time: 9.00 sec; samples: 1000; extremes: 371;
+<pre><code>## Bootstrap test; time: 9.06 sec; samples: 1000; extremes: 371;
 ## large : yield ~ treat + (1 | blend)
 ## yield ~ (1 | blend)
 ##          stat df p.value
@@ -567,7 +568,7 @@ div.csl-indent {
 <span id="cb188-2"><a href="inference-with-mixed-models.html#cb188-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
 <span id="cb188-3"><a href="inference-with-mixed-models.html#cb188-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
 <span id="cb188-4"><a href="inference-with-mixed-models.html#cb188-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-783-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-792-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <!-- @halekoh_2014_jstatsoft -->
 <p>Halekoh et a. (2014) provide a <a href="https://www.jstatsoft.org/index.php/jss/article/view/v059i09/771">systematic description</a> of the <code>pbkrtest</code> package, and examples of its use.</p>
 <p>With a little more work, we can produce estimates of the individual random effects.</p>

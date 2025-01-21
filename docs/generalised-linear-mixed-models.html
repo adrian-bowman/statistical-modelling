@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -587,7 +588,7 @@ div.csl-indent {
 <span id="cb233-4"><a href="generalised-linear-mixed-models.html#cb233-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
 <span id="cb233-5"><a href="generalised-linear-mixed-models.html#cb233-5" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Weight, stable)) <span class="sc">+</span></span>
 <span id="cb233-6"><a href="generalised-linear-mixed-models.html#cb233-6" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-832-1.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-832-2.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-832-3.png" width="33%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-841-1.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-841-2.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-841-3.png" width="33%" /></p>
 <p>The <code>glmer</code> function in the <code>lme4</code> package allows us to fit a model which includes random effects. The information on the model coefficients suggests that there are indeed effects of <code>Surface</code> and <code>Vision</code> but that there is little evidence that the other variables are linked to the patterns of stability.</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="generalised-linear-mixed-models.html#cb234-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
 <span id="cb234-2"><a href="generalised-linear-mixed-models.html#cb234-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(stable <span class="sc">~</span> Surface <span class="sc">+</span> Vision <span class="sc">+</span> Sex <span class="sc">+</span> Age <span class="sc">+</span> Height <span class="sc">+</span> Weight <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>

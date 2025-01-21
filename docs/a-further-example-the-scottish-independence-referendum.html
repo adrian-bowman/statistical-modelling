@@ -383,7 +383,7 @@ div.csl-indent {
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="the-concept-of-likelihood.html"><a href="the-concept-of-likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
 <li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
 <li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
 <li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
@@ -396,6 +396,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.6.1" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
 <li class="chapter" data-level="10.6.2" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
 <li class="chapter" data-level="10.6.3" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="10.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
@@ -665,11 +666,11 @@ the percentage who are over 65 years of age
 <p>The first instruction multiplies each population by the corresponding turnout proportion to find the number of people who voted in each region. Notice that the operation is performed for each element of <code>ref$Population</code> and the corresponding element of <code>ref$Turnout</code>. The resulting vector of numbers is stored in a new component of the <code>ref</code> dataframe, with the variable name <code>Vote</code>. The second instruction calculates a weighted average of the percentages voting ‘no’, using the number of people voting in each region as the weights. This creates the overall percentage who voted ‘no’.</p>
 <p>It would be interesting to produce a scatterplot to explore the relationship between the percentage of people who voted ‘no’ and the unemployment rate of the Council regions. The <code>plot</code> function can do this for us. There seems to be quite a strong relationship here.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb23-1" tabindex="-1"></a><span class="fu">plot</span>(ref<span class="sc">$</span>Unemployment.rate, ref<span class="sc">$</span>Voted.no)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-213-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-214-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>It might be more helpful to plot the Council names instead of simple points. Here we add the argument <code>type = "n"</code> to the <code>plot</code> function to stop any points being plotted and then use the <code>text</code> function to plot the Council names instead.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-1" tabindex="-1"></a><span class="fu">plot</span>(ref<span class="sc">$</span>Unemployment.rate, ref<span class="sc">$</span>Voted.no, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
 <span id="cb24-2"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-2" tabindex="-1"></a><span class="fu">text</span>(ref<span class="sc">$</span>Unemployment.rate, ref<span class="sc">$</span>Voted.no, ref<span class="sc">$</span>Scottish.Council)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-214-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-215-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <!-- ## Packages: extending the range of what we can do {#packages} -->
 <!-- ```{r child = 'chapters/R_introduction/packages.Rmd'} -->
 <!-- ``` -->
