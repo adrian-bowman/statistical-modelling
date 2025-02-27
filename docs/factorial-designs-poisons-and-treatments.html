@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>15.4 Factorial designs: poisons and treatments | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="15.4 Factorial designs: poisons and treatments | Statistical Modelling" />
   <meta property="og:type" content="book" />
@@ -51,10 +51,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -66,9 +66,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -244,13 +244,11 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
-<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
-<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
-<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
-<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3.2</b> Making life easier: the <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
+<li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -259,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
@@ -347,37 +345,35 @@ div.csl-indent {
 <li class="part"><span><b>IV Statistical Models</b></span></li>
 <li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
-<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
-<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
+<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
+<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
-<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
-<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<li class="chapter" data-level="9.11" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
-<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="9.11.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.11.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.11.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
+<li class="chapter" data-level="9.11.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.11.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.11.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.11.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.11.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.11.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
@@ -559,47 +555,47 @@ A famous dataset on poisons and antidotes records the survival times (in units o
 <hr />
 </blockquote>
 <p>Code to read the data is shown below. The dataset is available in <code>rpanel</code>.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="factorial-designs-poisons-and-treatments.html#cb302-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)  </span>
-<span id="cb302-2"><a href="factorial-designs-poisons-and-treatments.html#cb302-2" tabindex="-1"></a>poisons<span class="sc">$</span>poison    <span class="ot">&lt;-</span> <span class="fu">factor</span>(poisons<span class="sc">$</span>poison)</span>
-<span id="cb302-3"><a href="factorial-designs-poisons-and-treatments.html#cb302-3" tabindex="-1"></a>poisons<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">factor</span>(poisons<span class="sc">$</span>treatment)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="factorial-designs-poisons-and-treatments.html#cb320-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)  </span>
+<span id="cb320-2"><a href="factorial-designs-poisons-and-treatments.html#cb320-2" tabindex="-1"></a>poisons<span class="sc">$</span>poison    <span class="ot">&lt;-</span> <span class="fu">factor</span>(poisons<span class="sc">$</span>poison)</span>
+<span id="cb320-3"><a href="factorial-designs-poisons-and-treatments.html#cb320-3" tabindex="-1"></a>poisons<span class="sc">$</span>treatment <span class="ot">&lt;-</span> <span class="fu">factor</span>(poisons<span class="sc">$</span>treatment)</span></code></pre></div>
 <p>Some simple boxplots provide a good initial visualisation. An immediate troubling issue os that the standard deviations of the groups are rather different. A linear model seeks to make the assumption that the standard deviation of the errors is the same everywhere. Is there a transformation which might make this assumption more reasonable?</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="factorial-designs-poisons-and-treatments.html#cb303-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb303-2"><a href="factorial-designs-poisons-and-treatments.html#cb303-2" tabindex="-1"></a><span class="fu">ggplot</span>(poisons, <span class="fu">aes</span>(treatment, stime)) <span class="sc">+</span></span>
-<span id="cb303-3"><a href="factorial-designs-poisons-and-treatments.html#cb303-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb303-4"><a href="factorial-designs-poisons-and-treatments.html#cb303-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(poison)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;original scale&quot;</span>)</span>
-<span id="cb303-5"><a href="factorial-designs-poisons-and-treatments.html#cb303-5" tabindex="-1"></a></span>
-<span id="cb303-6"><a href="factorial-designs-poisons-and-treatments.html#cb303-6" tabindex="-1"></a>mns <span class="ot">&lt;-</span> poisons <span class="sc">%&gt;%</span> </span>
-<span id="cb303-7"><a href="factorial-designs-poisons-and-treatments.html#cb303-7" tabindex="-1"></a>  <span class="fu">group_by</span>(poison, treatment) <span class="sc">%&gt;%</span> </span>
-<span id="cb303-8"><a href="factorial-designs-poisons-and-treatments.html#cb303-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mn =</span> <span class="fu">mean</span>(stime),</span>
-<span id="cb303-9"><a href="factorial-designs-poisons-and-treatments.html#cb303-9" tabindex="-1"></a>            <span class="at">se =</span> (<span class="fu">sd</span>(stime) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(stime))))</span>
-<span id="cb303-10"><a href="factorial-designs-poisons-and-treatments.html#cb303-10" tabindex="-1"></a><span class="fu">ggplot</span>(poisons, <span class="fu">aes</span>(treatment, stime)) <span class="sc">+</span></span>
-<span id="cb303-11"><a href="factorial-designs-poisons-and-treatments.html#cb303-11" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb303-12"><a href="factorial-designs-poisons-and-treatments.html#cb303-12" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn, <span class="at">group =</span> poison), <span class="at">data =</span> mns) <span class="sc">+</span></span>
-<span id="cb303-13"><a href="factorial-designs-poisons-and-treatments.html#cb303-13" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn,</span>
-<span id="cb303-14"><a href="factorial-designs-poisons-and-treatments.html#cb303-14" tabindex="-1"></a>                     <span class="at">ymin =</span> mn <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> se,</span>
-<span id="cb303-15"><a href="factorial-designs-poisons-and-treatments.html#cb303-15" tabindex="-1"></a>                     <span class="at">ymax =</span> mn <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> se),</span>
-<span id="cb303-16"><a href="factorial-designs-poisons-and-treatments.html#cb303-16" tabindex="-1"></a>                 <span class="at">linewidth =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">data =</span> mns) <span class="sc">+</span></span>
-<span id="cb303-17"><a href="factorial-designs-poisons-and-treatments.html#cb303-17" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(poison)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;original scale&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="factorial-designs-poisons-and-treatments.html#cb321-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb321-2"><a href="factorial-designs-poisons-and-treatments.html#cb321-2" tabindex="-1"></a><span class="fu">ggplot</span>(poisons, <span class="fu">aes</span>(treatment, stime)) <span class="sc">+</span></span>
+<span id="cb321-3"><a href="factorial-designs-poisons-and-treatments.html#cb321-3" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb321-4"><a href="factorial-designs-poisons-and-treatments.html#cb321-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(poison)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;original scale&quot;</span>)</span>
+<span id="cb321-5"><a href="factorial-designs-poisons-and-treatments.html#cb321-5" tabindex="-1"></a></span>
+<span id="cb321-6"><a href="factorial-designs-poisons-and-treatments.html#cb321-6" tabindex="-1"></a>mns <span class="ot">&lt;-</span> poisons <span class="sc">%&gt;%</span> </span>
+<span id="cb321-7"><a href="factorial-designs-poisons-and-treatments.html#cb321-7" tabindex="-1"></a>  <span class="fu">group_by</span>(poison, treatment) <span class="sc">%&gt;%</span> </span>
+<span id="cb321-8"><a href="factorial-designs-poisons-and-treatments.html#cb321-8" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mn =</span> <span class="fu">mean</span>(stime),</span>
+<span id="cb321-9"><a href="factorial-designs-poisons-and-treatments.html#cb321-9" tabindex="-1"></a>            <span class="at">se =</span> (<span class="fu">sd</span>(stime) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(stime))))</span>
+<span id="cb321-10"><a href="factorial-designs-poisons-and-treatments.html#cb321-10" tabindex="-1"></a><span class="fu">ggplot</span>(poisons, <span class="fu">aes</span>(treatment, stime)) <span class="sc">+</span></span>
+<span id="cb321-11"><a href="factorial-designs-poisons-and-treatments.html#cb321-11" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb321-12"><a href="factorial-designs-poisons-and-treatments.html#cb321-12" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn, <span class="at">group =</span> poison), <span class="at">data =</span> mns) <span class="sc">+</span></span>
+<span id="cb321-13"><a href="factorial-designs-poisons-and-treatments.html#cb321-13" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn,</span>
+<span id="cb321-14"><a href="factorial-designs-poisons-and-treatments.html#cb321-14" tabindex="-1"></a>                     <span class="at">ymin =</span> mn <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> se,</span>
+<span id="cb321-15"><a href="factorial-designs-poisons-and-treatments.html#cb321-15" tabindex="-1"></a>                     <span class="at">ymax =</span> mn <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> se),</span>
+<span id="cb321-16"><a href="factorial-designs-poisons-and-treatments.html#cb321-16" tabindex="-1"></a>                 <span class="at">linewidth =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">data =</span> mns) <span class="sc">+</span></span>
+<span id="cb321-17"><a href="factorial-designs-poisons-and-treatments.html#cb321-17" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(poison)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;original scale&quot;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/poisons_interaction_plot-1.png" width="49%" /><img src="book_files/figure-html/poisons_interaction_plot-2.png" width="49%" /></p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="factorial-designs-poisons-and-treatments.html#cb304-1" tabindex="-1"></a>model0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(stime <span class="sc">~</span> treatment <span class="sc">*</span> poison, <span class="at">data =</span> poisons)</span>
-<span id="cb304-2"><a href="factorial-designs-poisons-and-treatments.html#cb304-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb304-3"><a href="factorial-designs-poisons-and-treatments.html#cb304-3" tabindex="-1"></a><span class="fu">boxcox</span>(model0, <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>))</span>
-<span id="cb304-4"><a href="factorial-designs-poisons-and-treatments.html#cb304-4" tabindex="-1"></a></span>
-<span id="cb304-5"><a href="factorial-designs-poisons-and-treatments.html#cb304-5" tabindex="-1"></a>mns <span class="ot">&lt;-</span> poisons <span class="sc">%&gt;%</span> </span>
-<span id="cb304-6"><a href="factorial-designs-poisons-and-treatments.html#cb304-6" tabindex="-1"></a>  <span class="fu">group_by</span>(poison, treatment) <span class="sc">%&gt;%</span> </span>
-<span id="cb304-7"><a href="factorial-designs-poisons-and-treatments.html#cb304-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mn =</span> <span class="fu">mean</span>(<span class="dv">1</span><span class="sc">/</span>stime),</span>
-<span id="cb304-8"><a href="factorial-designs-poisons-and-treatments.html#cb304-8" tabindex="-1"></a>            <span class="at">se =</span> (<span class="fu">sd</span>(<span class="dv">1</span><span class="sc">/</span>stime) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(<span class="dv">1</span><span class="sc">/</span>stime))))</span>
-<span id="cb304-9"><a href="factorial-designs-poisons-and-treatments.html#cb304-9" tabindex="-1"></a><span class="fu">ggplot</span>(poisons, <span class="fu">aes</span>(treatment, <span class="dv">1</span><span class="sc">/</span>stime)) <span class="sc">+</span></span>
-<span id="cb304-10"><a href="factorial-designs-poisons-and-treatments.html#cb304-10" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb304-11"><a href="factorial-designs-poisons-and-treatments.html#cb304-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn, <span class="at">group =</span> poison), <span class="at">data =</span> mns) <span class="sc">+</span></span>
-<span id="cb304-12"><a href="factorial-designs-poisons-and-treatments.html#cb304-12" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn, <span class="at">ymin =</span> mn <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> se, <span class="at">ymax =</span> mn <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> se),</span>
-<span id="cb304-13"><a href="factorial-designs-poisons-and-treatments.html#cb304-13" tabindex="-1"></a>                 <span class="at">linewidth =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">data =</span> mns) <span class="sc">+</span></span>
-<span id="cb304-14"><a href="factorial-designs-poisons-and-treatments.html#cb304-14" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(poison)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;reciprocal scale&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="factorial-designs-poisons-and-treatments.html#cb322-1" tabindex="-1"></a>model0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(stime <span class="sc">~</span> treatment <span class="sc">*</span> poison, <span class="at">data =</span> poisons)</span>
+<span id="cb322-2"><a href="factorial-designs-poisons-and-treatments.html#cb322-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb322-3"><a href="factorial-designs-poisons-and-treatments.html#cb322-3" tabindex="-1"></a><span class="fu">boxcox</span>(model0, <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="fl">0.5</span>, <span class="fl">0.1</span>))</span>
+<span id="cb322-4"><a href="factorial-designs-poisons-and-treatments.html#cb322-4" tabindex="-1"></a></span>
+<span id="cb322-5"><a href="factorial-designs-poisons-and-treatments.html#cb322-5" tabindex="-1"></a>mns <span class="ot">&lt;-</span> poisons <span class="sc">%&gt;%</span> </span>
+<span id="cb322-6"><a href="factorial-designs-poisons-and-treatments.html#cb322-6" tabindex="-1"></a>  <span class="fu">group_by</span>(poison, treatment) <span class="sc">%&gt;%</span> </span>
+<span id="cb322-7"><a href="factorial-designs-poisons-and-treatments.html#cb322-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mn =</span> <span class="fu">mean</span>(<span class="dv">1</span><span class="sc">/</span>stime),</span>
+<span id="cb322-8"><a href="factorial-designs-poisons-and-treatments.html#cb322-8" tabindex="-1"></a>            <span class="at">se =</span> (<span class="fu">sd</span>(<span class="dv">1</span><span class="sc">/</span>stime) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(<span class="dv">1</span><span class="sc">/</span>stime))))</span>
+<span id="cb322-9"><a href="factorial-designs-poisons-and-treatments.html#cb322-9" tabindex="-1"></a><span class="fu">ggplot</span>(poisons, <span class="fu">aes</span>(treatment, <span class="dv">1</span><span class="sc">/</span>stime)) <span class="sc">+</span></span>
+<span id="cb322-10"><a href="factorial-designs-poisons-and-treatments.html#cb322-10" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb322-11"><a href="factorial-designs-poisons-and-treatments.html#cb322-11" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn, <span class="at">group =</span> poison), <span class="at">data =</span> mns) <span class="sc">+</span></span>
+<span id="cb322-12"><a href="factorial-designs-poisons-and-treatments.html#cb322-12" tabindex="-1"></a>  <span class="fu">geom_linerange</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">y =</span> mn, <span class="at">ymin =</span> mn <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> se, <span class="at">ymax =</span> mn <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> se),</span>
+<span id="cb322-13"><a href="factorial-designs-poisons-and-treatments.html#cb322-13" tabindex="-1"></a>                 <span class="at">linewidth =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">data =</span> mns) <span class="sc">+</span></span>
+<span id="cb322-14"><a href="factorial-designs-poisons-and-treatments.html#cb322-14" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(poison)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;reciprocal scale&quot;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/poisons_boxcox-1.png" width="49%" /><img src="book_files/figure-html/poisons_boxcox-2.png" width="49%" /></p>
 <p>There are ways of identifying suitable transformation more systematically. One is the Box-Cox transformation which considers power transformations (which, when suitably normalised, contain the log transformation as a special case). The statistical principle of likelihood can be used to evaluate different powers. The example below uses the <code>boxcox</code> function in the <code>MASS</code> package to show that the reciprocal (lambda = -1) transformation is a good choice for the poisons data. Why should this be? As the response variable `stime’ is a survival time, its reciprocal could be considered ‘speed of death’. It is always helpful to have an interpretation of a transformation.</p>
 <p>A linear model can now be fitted. It is wise to include and examine possible interactions. An anlysis of variance table is a good way of assessing the evidence and this suggests that a model without interaction is justifiable. If evidence of interaction is present then the <em>main effects</em> of the factors do not have a simple interpretation. As the results below show, there is no evidence of interaction in this example, so we have a clear interpretation of the effects of the two factors. These are quantified in the model without an interaction term present, where the terms refer to the effect of each factor level compared to the first factor level.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="factorial-designs-poisons-and-treatments.html#cb305-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="dv">1</span><span class="sc">/</span>stime <span class="sc">~</span> treatment <span class="sc">*</span> poison, <span class="at">data =</span> poisons)</span>
-<span id="cb305-2"><a href="factorial-designs-poisons-and-treatments.html#cb305-2" tabindex="-1"></a><span class="fu">anova</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="factorial-designs-poisons-and-treatments.html#cb323-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="dv">1</span><span class="sc">/</span>stime <span class="sc">~</span> treatment <span class="sc">*</span> poison, <span class="at">data =</span> poisons)</span>
+<span id="cb323-2"><a href="factorial-designs-poisons-and-treatments.html#cb323-2" tabindex="-1"></a><span class="fu">anova</span>(model)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: 1/stime
@@ -610,8 +606,8 @@ A famous dataset on poisons and antidotes records the survival times (in units o
 ## Residuals        36  8.643  0.2401                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="factorial-designs-poisons-and-treatments.html#cb307-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="dv">1</span><span class="sc">/</span>stime <span class="sc">~</span> treatment <span class="sc">+</span> poison, <span class="at">data =</span> poisons)</span>
-<span id="cb307-2"><a href="factorial-designs-poisons-and-treatments.html#cb307-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="factorial-designs-poisons-and-treatments.html#cb325-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="dv">1</span><span class="sc">/</span>stime <span class="sc">~</span> treatment <span class="sc">+</span> poison, <span class="at">data =</span> poisons)</span>
+<span id="cb325-2"><a href="factorial-designs-poisons-and-treatments.html#cb325-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##               Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept)  2.6976566  0.1743513 15.472534 5.936991e-19
 ## treatment2  -1.6574024  0.2013236 -8.232531 2.655965e-10

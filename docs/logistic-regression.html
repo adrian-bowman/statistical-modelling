@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>10.1 Binomial data: logistic regression | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="10.1 Binomial data: logistic regression | Statistical Modelling" />
   <meta property="og:type" content="book" />
@@ -51,10 +51,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -66,9 +66,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -244,13 +244,11 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
-<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
-<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
-<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
-<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3.2</b> Making life easier: the <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
+<li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -259,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
@@ -347,37 +345,35 @@ div.csl-indent {
 <li class="part"><span><b>IV Statistical Models</b></span></li>
 <li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
-<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
-<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
+<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
+<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
-<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
-<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<li class="chapter" data-level="9.11" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
-<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="9.11.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.11.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.11.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
+<li class="chapter" data-level="9.11.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.11.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.11.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.11.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.11.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.11.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
@@ -557,16 +553,16 @@ Flour beetles (<em>Tribolium confusum</em>) are common pests which can infest st
 <hr />
 </blockquote>
 <p>A plot of the flour beetle dataset is shown below. (These data were used in an earlier exercise in visualisation.) The use of <code>scales = 'free_x'</code> in <code>facet_wrap</code> allows the x-axis of each facet to adapt to the range of concentrations used in each particular toxin.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="logistic-regression.html#cb153-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
-<span id="cb153-2"><a href="logistic-regression.html#cb153-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb153-3"><a href="logistic-regression.html#cb153-3" tabindex="-1"></a>flour_beetles <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flour_beetles, <span class="at">Proportion_killed =</span> Dead <span class="sc">/</span> (Living <span class="sc">+</span> Dead))</span>
-<span id="cb153-4"><a href="logistic-regression.html#cb153-4" tabindex="-1"></a><span class="fu">ggplot</span>(flour_beetles, <span class="fu">aes</span>(Concentration, Proportion_killed, <span class="at">col =</span> Replicate)) <span class="sc">+</span></span>
-<span id="cb153-5"><a href="logistic-regression.html#cb153-5" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb153-6"><a href="logistic-regression.html#cb153-6" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Toxin), <span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="logistic-regression.html#cb169-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
+<span id="cb169-2"><a href="logistic-regression.html#cb169-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb169-3"><a href="logistic-regression.html#cb169-3" tabindex="-1"></a>flour_beetles <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flour_beetles, <span class="at">Proportion_killed =</span> Dead <span class="sc">/</span> (Living <span class="sc">+</span> Dead))</span>
+<span id="cb169-4"><a href="logistic-regression.html#cb169-4" tabindex="-1"></a><span class="fu">ggplot</span>(flour_beetles, <span class="fu">aes</span>(Concentration, Proportion_killed, <span class="at">col =</span> Replicate)) <span class="sc">+</span></span>
+<span id="cb169-5"><a href="logistic-regression.html#cb169-5" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb169-6"><a href="logistic-regression.html#cb169-6" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Toxin), <span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/flour_beetles_logistic-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>What model should we adopt to assist in the estimation of LD50 values? We will consider the case of <em>ethylene dichloride</em>, where there is a single replicate, to help in thinking this through. The plot below might suggest a simple linear model but would be uncomfortable for a variety of reasons. These include the fact that proportions must lie between 0 and 1, a constraint which a linear model would not respect. In addition, we know that each observed proportion arises from the number of ‘successes’ (deaths) in each group of beetles and so this has a binomial distribution, not a normal distribution.</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="logistic-regression.html#cb154-1" tabindex="-1"></a>ethylene <span class="ot">&lt;-</span> <span class="fu">filter</span>(flour_beetles, Toxin <span class="sc">==</span> <span class="st">&#39;Ethylene_dichloride&#39;</span>)</span>
-<span id="cb154-2"><a href="logistic-regression.html#cb154-2" tabindex="-1"></a><span class="fu">ggplot</span>(ethylene, <span class="fu">aes</span>(Concentration, Proportion_killed)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="logistic-regression.html#cb170-1" tabindex="-1"></a>ethylene <span class="ot">&lt;-</span> <span class="fu">filter</span>(flour_beetles, Toxin <span class="sc">==</span> <span class="st">&#39;Ethylene_dichloride&#39;</span>)</span>
+<span id="cb170-2"><a href="logistic-regression.html#cb170-2" tabindex="-1"></a><span class="fu">ggplot</span>(ethylene, <span class="fu">aes</span>(Concentration, Proportion_killed)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="book_files/figure-html/ethylene-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Because the response variable is a proportion, it is necessary to define a model which keeps the true proportion within the range <span class="math inline">\([0,1]\)</span>. One approach is to consider that each beetle has its own tolerance to the toxin, with death occurring when that tolerance is passed. If the distribution of tolerances across the beetle population has a normal distribution then the increase in proportion killed as dosage rises can be given a specific shape, know as the <em>probit</em> curve. As this is not a particularly convenient object to work with, the <em>logistic</em> curve has become the standard shape for the dose/proportion relationship. The formula for this curve is:
 <span class="math display">\[
@@ -579,20 +575,20 @@ where <span class="math inline">\(x\)</span> denotes concentration and <span cla
 \]</span>
 This emphasises that the ‘engine’ of the model is a linear expression, referred to as the <em>linear predictor</em>, but that the effect of this has been transformed to match the [0, 1] proportion scale inherent in the observed data. As a result of the logit transformation, this model is referred to as a <em>logistic regression</em>.</p>
 <p>The <code>rp.logistic</code> function in the <code>rpanel</code> package allows an interactive exploration of the logistic curve and how its shape changed with the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. This can be launched with the <code>ethylene</code> data as shown below. (Notice the use of <code>with</code> as a convenient wrapper so that we can refer directly to the names of variables inside the <code>ethylene</code> dataframe.) You may like to experiment with this.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="logistic-regression.html#cb155-1" tabindex="-1"></a><span class="fu">with</span>(ethylene, <span class="fu">rp.logistic</span>(Concentration, <span class="fu">cbind</span>(Dead, Living))</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="logistic-regression.html#cb171-1" tabindex="-1"></a><span class="fu">with</span>(ethylene, <span class="fu">rp.logistic</span>(Concentration, <span class="fu">cbind</span>(Dead, Living))</span></code></pre></div>
 <p>How should we fit this model to the observed data? The idea of finding the parameter values which place the model as close as possible to the observed data is an appealing one but it is not so obvious that the linear model approach of minimising a sum-of-squares is a suitable strategy in this binomial context. The very powerful concept of <em>likelihood</em> will be introduced in the next section. For the moment we can implement the model in practice in R through the <code>glm</code> function, whose name is an acronym of <em>generalised linear models</em> and which uses likelhood to fit the model to the data. Notice that the response variable is defined here as a two-column matrix, created using <code>cbind</code>, which gives both the number of <code>Dead</code> and <code>Living</code>. Both are needed to give a full description of the data. The <code>family</code> argument also specifies that the response variable has a binomial distribution.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="logistic-regression.html#cb156-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(Dead, Living) <span class="sc">~</span> Concentration, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="at">data =</span> ethylene)</span>
-<span id="cb156-2"><a href="logistic-regression.html#cb156-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="logistic-regression.html#cb172-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(Dead, Living) <span class="sc">~</span> Concentration, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="at">data =</span> ethylene)</span>
+<span id="cb172-2"><a href="logistic-regression.html#cb172-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                  Estimate Std. Error   z value     Pr(&gt;|z|)
 ## (Intercept)   -12.0982883 1.43633497 -8.423027 3.668796e-17
 ## Concentration   0.3547108 0.04084555  8.684196 3.814301e-18</code></pre>
 <p>The fitted curve can now be superimposed on the plot of the data. The code below uses the <code>predict</code> function, with a new set of <code>Concentration</code> values along a regular grid, to calculate values along the fitted curve. This uses <code>type = "response"</code> to ensure that these predicted values sit on the proportion scale and not on the linear predictor scale. As the plot contains both data points and predicted values, which are of different lengths, the <code>aes</code> and <code>data</code> information is not passed to <code>ggplot</code> as global definitions but is instead passed separately to the different geometries as required.</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="logistic-regression.html#cb158-1" tabindex="-1"></a>rng   <span class="ot">&lt;-</span> <span class="fu">range</span>(ethylene<span class="sc">$</span>Concentration)</span>
-<span id="cb158-2"><a href="logistic-regression.html#cb158-2" tabindex="-1"></a>xgrid <span class="ot">&lt;-</span> <span class="fu">seq</span>(rng[<span class="dv">1</span>], rng[<span class="dv">2</span>], <span class="at">length =</span> <span class="dv">50</span>)</span>
-<span id="cb158-3"><a href="logistic-regression.html#cb158-3" tabindex="-1"></a>pgrid <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Concentration =</span> xgrid), <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb158-4"><a href="logistic-regression.html#cb158-4" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(Concentration, Proportion_killed), <span class="at">data =</span> ethylene) <span class="sc">+</span></span>
-<span id="cb158-5"><a href="logistic-regression.html#cb158-5" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(xgrid, pgrid, <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-727-1.png" width="50%" /><img src="book_files/figure-html/unnamed-chunk-727-2.png" width="50%" /></p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="logistic-regression.html#cb174-1" tabindex="-1"></a>rng   <span class="ot">&lt;-</span> <span class="fu">range</span>(ethylene<span class="sc">$</span>Concentration)</span>
+<span id="cb174-2"><a href="logistic-regression.html#cb174-2" tabindex="-1"></a>xgrid <span class="ot">&lt;-</span> <span class="fu">seq</span>(rng[<span class="dv">1</span>], rng[<span class="dv">2</span>], <span class="at">length =</span> <span class="dv">50</span>)</span>
+<span id="cb174-3"><a href="logistic-regression.html#cb174-3" tabindex="-1"></a>pgrid <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Concentration =</span> xgrid), <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb174-4"><a href="logistic-regression.html#cb174-4" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(Concentration, Proportion_killed), <span class="at">data =</span> ethylene) <span class="sc">+</span></span>
+<span id="cb174-5"><a href="logistic-regression.html#cb174-5" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(xgrid, pgrid, <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-751-1.png" width="50%" /><img src="book_files/figure-html/unnamed-chunk-751-2.png" width="50%" /></p>
 <p>The right hand plot above uses some additional code (not shown) to locate the estimated LD50 as the concentration value at which the fitted logistic curve reaches 0.5.</p>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>

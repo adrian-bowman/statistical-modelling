@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Collating data from different sources | Statistical Modelling</title>
+  <title>3.3 Collating data from different sources | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Collating data from different sources | Statistical Modelling" />
+  <meta property="og:title" content="3.3 Collating data from different sources | Statistical Modelling" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Collating data from different sources | Statistical Modelling" />
+  <meta name="twitter:title" content="3.3 Collating data from different sources | Statistical Modelling" />
   
   <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
   
@@ -28,7 +28,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reorganising-data.html"/>
+<link rel="prev" href="dplyr.html"/>
 <link rel="next" href="tidy-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -51,10 +51,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -66,9 +66,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -244,13 +244,11 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
-<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
-<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
-<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
-<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3.2</b> Making life easier: the <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
+<li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -259,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
@@ -347,37 +345,35 @@ div.csl-indent {
 <li class="part"><span><b>IV Statistical Models</b></span></li>
 <li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
-<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
-<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
+<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
+<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
-<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
-<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<li class="chapter" data-level="9.11" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
-<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="9.11.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.11.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.11.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
+<li class="chapter" data-level="9.11.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.11.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.11.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.11.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.11.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.11.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
@@ -548,12 +544,9 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="collating-data-from-different-sources" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Collating data from different sources<a href="collating-data-from-different-sources.html#collating-data-from-different-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In the previous section, standard R functions were used to reorganise data. In principle, most things can be achieved by this route but the code can become complex to handle very detailed manipulations. As often happens, we can take advantage of the careful work of others by using packages which will help. The <code>dplyr</code> package is an excellent example. This provides powerful tools to manipulate data using high-level functions which take care of the details for us. Examples of these tools are described in this section.</p>
-<p>This section also makes use of the <code>readxl</code> package to read Excel spreadsheets. Remember that packages need to be installed on your computer before they can be used, as was done for the <code>rpanel</code> package at the start of the book. The code below illustrates this for the two new packages we need, but it will be assumed for other package use later in the book. Installation needs to be done only once, with packages made available for a particular R session through the <code>library</code> function.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="collating-data-from-different-sources.html#cb29-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb29-2"><a href="collating-data-from-different-sources.html#cb29-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div id="collating-data-from-different-sources" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Collating data from different sources<a href="collating-data-from-different-sources.html#collating-data-from-different-sources" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When the data we need are spread across different sources, collation into a single dataset can be rather messy. The tools of the <code>dplyr</code> package are particularly helpful here. This section also makes use of the <code>readxl</code> package to read Excel spreadsheets.</p>
 <blockquote>
 <hr />
 <p><strong>Example: Giving in the Church of England</strong><br />
@@ -562,68 +555,64 @@ The <a href="https://www.churchofengland.org">Church of England</a> is a large o
 <hr />
 </blockquote>
 <p>The first task is to collate the information into a single dataset containing the appropriate data. We will focus on 2019 as this is pre-pandemic. The English Index of Multiple Deprivation (IMD) will be used as a measure of regional prosperity. It is appropriate to exclude Europe, the Channel Islands and the Isle of Man, for which some information is not available. These are also regions with unusual characteristics.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="collating-data-from-different-sources.html#cb30-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb30-2"><a href="collating-data-from-different-sources.html#cb30-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb30-3"><a href="collating-data-from-different-sources.html#cb30-3" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="collating-data-from-different-sources.html#cb30-4" tabindex="-1"></a>path.attend <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_attendance_2019&#39;</span>)</span>
-<span id="cb30-5"><a href="collating-data-from-different-sources.html#cb30-5" tabindex="-1"></a>path.giving <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_giving_2019&#39;</span>)</span>
-<span id="cb30-6"><a href="collating-data-from-different-sources.html#cb30-6" tabindex="-1"></a>path.depriv <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_deprivation_2019&#39;</span>)</span>
-<span id="cb30-7"><a href="collating-data-from-different-sources.html#cb30-7" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="collating-data-from-different-sources.html#cb30-8" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">5</span>, <span class="at">range =</span> <span class="st">&#39;B4:I47&#39;</span>)</span>
-<span id="cb30-9"><a href="collating-data-from-different-sources.html#cb30-9" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">select</span>(d.elect, <span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Elect =</span> <span class="dv">3</span>, <span class="at">Worship =</span> <span class="dv">6</span>)</span></code></pre></div>
-<p>The instructions above make use of the <code>read_excel</code> function to read an <em>Excel</em> spreadsheet. This includes helpful arguments to specify which sheet and which block of cells we would like to read from. The <code>select</code> function from the <code>dplyr</code> package then allows us to select out three columns of interest while simultaneously renaming them.</p>
-<p>The last two operations can usefully be combined in the expression below. This uses the <em>pipe</em> operator. The results of the instruction preceding the <code>%&gt;%</code> symbol are passed as the first argument of the instruction which follows. The <code>select</code> function expects a dataframe as its first argument. This allows multiple instructions to be combined in a natural order, without the need to use repeated <code>&lt;-</code> assignments.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="collating-data-from-different-sources.html#cb31-1" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">5</span>, <span class="at">range =</span> <span class="st">&#39;B4:I47&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href="collating-data-from-different-sources.html#cb31-2" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Elect =</span> <span class="dv">3</span>, <span class="at">Worship =</span> <span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="collating-data-from-different-sources.html#cb33-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb33-2"><a href="collating-data-from-different-sources.html#cb33-2" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="collating-data-from-different-sources.html#cb33-3" tabindex="-1"></a>path.attend <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_attendance_2019&#39;</span>)</span>
+<span id="cb33-4"><a href="collating-data-from-different-sources.html#cb33-4" tabindex="-1"></a>path.giving <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_giving_2019&#39;</span>)</span>
+<span id="cb33-5"><a href="collating-data-from-different-sources.html#cb33-5" tabindex="-1"></a>path.depriv <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;cofe_deprivation_2019&#39;</span>)</span>
+<span id="cb33-6"><a href="collating-data-from-different-sources.html#cb33-6" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="collating-data-from-different-sources.html#cb33-7" tabindex="-1"></a>d.elect <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">5</span>, <span class="at">range =</span> <span class="st">&#39;B4:I47&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb33-8"><a href="collating-data-from-different-sources.html#cb33-8" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Elect =</span> <span class="dv">3</span>, <span class="at">Worship =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p>The instructions above make use of the <code>read_excel</code> function to read an <em>Excel</em> spreadsheet. This includes helpful arguments to specify which sheet and which block of cells we would like to read from. The <code>select</code> function from the <code>dplyr</code> package then allows us to select out three columns of interest while simultaneously renaming them. The <em>pipe</em> operator discussed in the previous section allows these operation to be combined neatly. Notice that <code>dplyr</code> functions create <em>tibbles</em>. These are dataframes with some extra features.</p>
 <p>We can apply this idea when reading the spreadsheets about attendance, giving and deprivation. The deprivation information is actually supplied at a finer level (parish) so the <code>group_by</code> and <code>summarise</code> functions allow us to aggregate to the level (diocese) which matches the information from the other spreadsheets.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="collating-data-from-different-sources.html#cb32-1" tabindex="-1"></a>d.attend <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">6</span>, <span class="at">range =</span> <span class="st">&#39;B4:D47&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href="collating-data-from-different-sources.html#cb32-2" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Attend =</span> <span class="dv">3</span>)</span>
-<span id="cb32-3"><a href="collating-data-from-different-sources.html#cb32-3" tabindex="-1"></a>d.giving <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.giving, <span class="at">sheet =</span> <span class="dv">3</span>, <span class="at">range =</span> <span class="st">&#39;B8:BS49&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-4"><a href="collating-data-from-different-sources.html#cb32-4" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Giving =</span> <span class="dv">19</span>, <span class="at">Givers =</span> <span class="dv">59</span>)</span>
-<span id="cb32-5"><a href="collating-data-from-different-sources.html#cb32-5" tabindex="-1"></a>d.depriv <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.depriv, <span class="at">sheet =</span> <span class="dv">2</span>, <span class="at">range =</span> <span class="st">&#39;A1:AK12408&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-6"><a href="collating-data-from-different-sources.html#cb32-6" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">11</span>, <span class="at">population =</span> <span class="dv">13</span>, <span class="at">IMD =</span> <span class="dv">37</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb32-7"><a href="collating-data-from-different-sources.html#cb32-7" tabindex="-1"></a>   <span class="fu">group_by</span>(Diocese) <span class="sc">%&gt;%</span></span>
-<span id="cb32-8"><a href="collating-data-from-different-sources.html#cb32-8" tabindex="-1"></a>   <span class="fu">summarise</span>(<span class="at">IMD =</span> <span class="fu">sum</span>(IMD <span class="sc">*</span> population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span></span>
-<span id="cb32-9"><a href="collating-data-from-different-sources.html#cb32-9" tabindex="-1"></a>                   <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb32-10"><a href="collating-data-from-different-sources.html#cb32-10" tabindex="-1"></a>             <span class="at">population =</span> <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="collating-data-from-different-sources.html#cb34-1" tabindex="-1"></a>d.attend <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.attend, <span class="at">sheet =</span> <span class="dv">6</span>, <span class="at">range =</span> <span class="st">&#39;B4:D47&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="collating-data-from-different-sources.html#cb34-2" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Attend =</span> <span class="dv">3</span>)</span>
+<span id="cb34-3"><a href="collating-data-from-different-sources.html#cb34-3" tabindex="-1"></a>d.giving <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.giving, <span class="at">sheet =</span> <span class="dv">3</span>, <span class="at">range =</span> <span class="st">&#39;B8:BS49&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a href="collating-data-from-different-sources.html#cb34-4" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">1</span>, <span class="at">Giving =</span> <span class="dv">19</span>, <span class="at">Givers =</span> <span class="dv">59</span>)</span>
+<span id="cb34-5"><a href="collating-data-from-different-sources.html#cb34-5" tabindex="-1"></a>d.depriv <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(path.depriv, <span class="at">sheet =</span> <span class="dv">2</span>, <span class="at">range =</span> <span class="st">&#39;A1:AK12408&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-6"><a href="collating-data-from-different-sources.html#cb34-6" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Diocese =</span> <span class="dv">11</span>, <span class="at">population =</span> <span class="dv">13</span>, <span class="at">IMD =</span> <span class="dv">37</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-7"><a href="collating-data-from-different-sources.html#cb34-7" tabindex="-1"></a>   <span class="fu">group_by</span>(Diocese) <span class="sc">%&gt;%</span></span>
+<span id="cb34-8"><a href="collating-data-from-different-sources.html#cb34-8" tabindex="-1"></a>   <span class="fu">summarise</span>(<span class="at">IMD =</span> <span class="fu">sum</span>(IMD <span class="sc">*</span> population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">/</span></span>
+<span id="cb34-9"><a href="collating-data-from-different-sources.html#cb34-9" tabindex="-1"></a>                   <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb34-10"><a href="collating-data-from-different-sources.html#cb34-10" tabindex="-1"></a>             <span class="at">population =</span> <span class="fu">sum</span>(population, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <p>Before joining these different sets of information togethjer, it would be wise to check that there are no inconsistencies in the way the information has been coded. The <code>anti_join</code> function is very useful for this. Here is identifies some small differences in the names of the dioceses.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="collating-data-from-different-sources.html#cb33-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.elect,  d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="collating-data-from-different-sources.html#cb35-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.elect,  d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 3
 ## # ℹ 3 variables: Diocese &lt;chr&gt;, Elect &lt;dbl&gt;, Worship &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="collating-data-from-different-sources.html#cb35-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.giving, d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="collating-data-from-different-sources.html#cb37-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.giving, d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   Diocese                    Giving Givers
 ##   &lt;chr&gt;                       &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 St.Albans                12579567  15283
 ## 2 St.Edmundsbury &amp; Ipswich  4614832   8542
 ## 3 Sodor and Man              447514    623</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="collating-data-from-different-sources.html#cb37-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.depriv, d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="collating-data-from-different-sources.html#cb39-1" tabindex="-1"></a><span class="fu">anti_join</span>(d.depriv, d.attend, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   Diocese                    IMD population
 ##   &lt;chr&gt;                    &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 St.Albans                 14.7   1927579.
 ## 2 St.Edmundsbury &amp; Ipswich  17.1    679678.</code></pre>
 <p>That can be fixed by using the <code>mutate</code> and <code>recode</code> functions.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="collating-data-from-different-sources.html#cb39-1" tabindex="-1"></a>d.attend <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.attend, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
-<span id="cb39-2"><a href="collating-data-from-different-sources.html#cb39-2" tabindex="-1"></a>                   <span class="st">&#39;St. Albans&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Albans&#39;</span>,</span>
-<span id="cb39-3"><a href="collating-data-from-different-sources.html#cb39-3" tabindex="-1"></a>                   <span class="st">&#39;St. Edms &amp; Ipswich&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Edmundsbury &amp; Ipswich&#39;</span>))</span>
-<span id="cb39-4"><a href="collating-data-from-different-sources.html#cb39-4" tabindex="-1"></a>d.elect  <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.elect, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
-<span id="cb39-5"><a href="collating-data-from-different-sources.html#cb39-5" tabindex="-1"></a>                   <span class="st">&#39;St. Albans&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Albans&#39;</span>,</span>
-<span id="cb39-6"><a href="collating-data-from-different-sources.html#cb39-6" tabindex="-1"></a>                   <span class="st">&#39;St. Edms &amp; Ipswich&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Edmundsbury &amp; Ipswich&#39;</span>))</span>
-<span id="cb39-7"><a href="collating-data-from-different-sources.html#cb39-7" tabindex="-1"></a>d.giving <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.giving, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
-<span id="cb39-8"><a href="collating-data-from-different-sources.html#cb39-8" tabindex="-1"></a>                   <span class="st">&#39;Sodor and Man&#39;</span> <span class="ot">=</span> <span class="st">&#39;Sodor &amp; Man&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="collating-data-from-different-sources.html#cb41-1" tabindex="-1"></a>d.attend <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.attend, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
+<span id="cb41-2"><a href="collating-data-from-different-sources.html#cb41-2" tabindex="-1"></a>                   <span class="st">&#39;St. Albans&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Albans&#39;</span>,</span>
+<span id="cb41-3"><a href="collating-data-from-different-sources.html#cb41-3" tabindex="-1"></a>                   <span class="st">&#39;St. Edms &amp; Ipswich&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Edmundsbury &amp; Ipswich&#39;</span>))</span>
+<span id="cb41-4"><a href="collating-data-from-different-sources.html#cb41-4" tabindex="-1"></a>d.elect  <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.elect, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
+<span id="cb41-5"><a href="collating-data-from-different-sources.html#cb41-5" tabindex="-1"></a>                   <span class="st">&#39;St. Albans&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Albans&#39;</span>,</span>
+<span id="cb41-6"><a href="collating-data-from-different-sources.html#cb41-6" tabindex="-1"></a>                   <span class="st">&#39;St. Edms &amp; Ipswich&#39;</span> <span class="ot">=</span> <span class="st">&#39;St.Edmundsbury &amp; Ipswich&#39;</span>))</span>
+<span id="cb41-7"><a href="collating-data-from-different-sources.html#cb41-7" tabindex="-1"></a>d.giving <span class="ot">&lt;-</span> <span class="fu">mutate</span>(d.giving, <span class="at">Diocese =</span> <span class="fu">recode</span>(Diocese,</span>
+<span id="cb41-8"><a href="collating-data-from-different-sources.html#cb41-8" tabindex="-1"></a>                   <span class="st">&#39;Sodor and Man&#39;</span> <span class="ot">=</span> <span class="st">&#39;Sodor &amp; Man&#39;</span>))</span></code></pre></div>
 <p>Now we are in a position to join everything together using the <code>full_join</code> function, with a further adjustment to express attachment on a proportional scale and giving on a ‘per member’ scale.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="collating-data-from-different-sources.html#cb40-1" tabindex="-1"></a>cofe_2019 <span class="ot">&lt;-</span> d.attend <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a href="collating-data-from-different-sources.html#cb40-2" tabindex="-1"></a>        <span class="fu">full_join</span>(d.elect,  <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a href="collating-data-from-different-sources.html#cb40-3" tabindex="-1"></a>        <span class="fu">full_join</span>(d.depriv, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb40-4"><a href="collating-data-from-different-sources.html#cb40-4" tabindex="-1"></a>        <span class="fu">full_join</span>(d.giving, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb40-5"><a href="collating-data-from-different-sources.html#cb40-5" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">Attachment =</span> Attend <span class="sc">/</span> population,</span>
-<span id="cb40-6"><a href="collating-data-from-different-sources.html#cb40-6" tabindex="-1"></a>               <span class="at">Giving_per_member =</span> Giving <span class="sc">/</span> Elect)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="collating-data-from-different-sources.html#cb42-1" tabindex="-1"></a>cofe_2019 <span class="ot">&lt;-</span> d.attend <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="collating-data-from-different-sources.html#cb42-2" tabindex="-1"></a>        <span class="fu">full_join</span>(d.elect,  <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="collating-data-from-different-sources.html#cb42-3" tabindex="-1"></a>        <span class="fu">full_join</span>(d.depriv, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="collating-data-from-different-sources.html#cb42-4" tabindex="-1"></a>        <span class="fu">full_join</span>(d.giving, <span class="at">by =</span> <span class="st">&#39;Diocese&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb42-5"><a href="collating-data-from-different-sources.html#cb42-5" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">Attachment =</span> Attend <span class="sc">/</span> population,</span>
+<span id="cb42-6"><a href="collating-data-from-different-sources.html#cb42-6" tabindex="-1"></a>               <span class="at">Giving_per_member =</span> Giving <span class="sc">/</span> Elect)</span></code></pre></div>
 <p>Now that the data have been collated into a single dataframe, we are ready to produce some plots which will address the question we began with. There is a lot of variation here. We will revisit this example in Chapter <a href="linear-models.html#linear-models">9</a> when we discuss the topic of linear models.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="collating-data-from-different-sources.html#cb41-1" tabindex="-1"></a><span class="fu">plot</span>(Giving_per_member <span class="sc">~</span> Attachment, <span class="at">data =</span> cofe_2019)</span>
-<span id="cb41-2"><a href="collating-data-from-different-sources.html#cb41-2" tabindex="-1"></a><span class="fu">plot</span>(Giving_per_member <span class="sc">~</span> IMD, <span class="at">data =</span> cofe_2019)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="collating-data-from-different-sources.html#cb43-1" tabindex="-1"></a><span class="fu">plot</span>(Giving_per_member <span class="sc">~</span> Attachment, <span class="at">data =</span> cofe_2019)</span>
+<span id="cb43-2"><a href="collating-data-from-different-sources.html#cb43-2" tabindex="-1"></a><span class="fu">plot</span>(Giving_per_member <span class="sc">~</span> IMD, <span class="at">data =</span> cofe_2019)</span></code></pre></div>
 <p><img src="book_files/figure-html/cofe_plots-1.png" width="49%" /><img src="book_files/figure-html/cofe_plots-2.png" width="49%" /></p>
-<p>This example illustrates the power of the tools provided by the <code>dplyr</code> package. These manipulations could be performed through standard R functions but the code is likely to be much longer and more complex. A very useful resource is the summary sheet available from the RStudio menu <code>Help &gt; Cheat Sheets &gt; Data Visualization with dplyr</code> and on the web in html and pdf forms. This summarises the wide range of operations which <code>dplyr</code> supports.</p>
+<p>This example further illustrates the power of the tools provided by the <code>dplyr</code> package. These manipulations could be performed through standard R functions but the code is likely to be much longer and more complex.</p>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
@@ -636,7 +625,7 @@ Pickering, JF. 1985. <span>“Giving in the Church of England: An Econometric An
           </div>
         </div>
       </div>
-<a href="reorganising-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

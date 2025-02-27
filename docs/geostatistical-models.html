@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>14.3 Geostatistical models | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="14.3 Geostatistical models | Statistical Modelling" />
   <meta property="og:type" content="book" />
@@ -51,10 +51,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -66,9 +66,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -244,13 +244,11 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
-<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
-<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
-<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
-<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3.2</b> Making life easier: the <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
+<li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -259,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
@@ -347,37 +345,35 @@ div.csl-indent {
 <li class="part"><span><b>IV Statistical Models</b></span></li>
 <li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
-<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
-<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
+<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
+<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
-<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
-<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<li class="chapter" data-level="9.11" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
-<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="9.11.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.11.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.11.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
+<li class="chapter" data-level="9.11.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.11.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.11.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.11.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.11.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.11.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
@@ -553,7 +549,7 @@ div.csl-indent {
 <div id="gaussian-random-fields" class="section level3 hasAnchor" number="14.3.1">
 <h3><span class="header-section-number">14.3.1</span> Gaussian random fields<a href="geostatistical-models.html#gaussian-random-fields" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The concept of a <em>Gaussian random field</em> is an important one in spatial modelling. To gain some intuition on this, an interactive exploration of Gaussian fields can be launched by calling the function <code>rp.geosim</code> in the <code>rpanel</code> package. The <code>smgrid</code> argument controls the resolution of the images. If your computer does not have enough computational power for <code>smgrid</code> to be set to <code>100</code>, try reducing this or accepting the default value of <code>40</code>.</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="geostatistical-models.html#cb274-1" tabindex="-1"></a><span class="fu">rp.geosim</span>(<span class="at">smgrid =</span> <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="geostatistical-models.html#cb290-1" tabindex="-1"></a><span class="fu">rp.geosim</span>(<span class="at">smgrid =</span> <span class="dv">100</span>)</span></code></pre></div>
 <p>The plots below illustrate three simulations of a Gaussian random field, using the same parameters settings. There are common features features such as the smoothness of the surface and the size of the variations but the detailed patterns change randomly.</p>
 <p><img src="book_files/figure-html/geosim-1.png" width="33%" /><img src="book_files/figure-html/geosim-2.png" width="33%" /><img src="book_files/figure-html/geosim-3.png" width="33%" /></p>
 <p>At any location in the field, the value observed as a normal random variable with mean 0 and variance controlled by the <em>partial sill</em> parameter (<code>pSill</code>). The correlation between the values at difference locations diminishes with their distance apart. Values at locations which are close look similar while values which are far apart tend to look different. This is controlled by the <code>Range</code> parameter. Values of the field distance at pairs of locations which are this distance apart are virtually independent of one another.</p>
@@ -561,19 +557,19 @@ div.csl-indent {
 </div>
 <div id="geostatistical-models-1" class="section level3 hasAnchor" number="14.3.2">
 <h3><span class="header-section-number">14.3.2</span> Geostatistical models<a href="geostatistical-models.html#geostatistical-models-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="geostatistical-models.html#cb275-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb275-2"><a href="geostatistical-models.html#cb275-2" tabindex="-1"></a><span class="fu">library</span>(dsm)</span>
-<span id="cb275-3"><a href="geostatistical-models.html#cb275-3" tabindex="-1"></a><span class="fu">data</span>(mackerel, <span class="at">package =</span> <span class="st">&#39;sm&#39;</span>)</span>
-<span id="cb275-4"><a href="geostatistical-models.html#cb275-4" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">latlong2km</span>(mackerel<span class="sc">$</span>mack.long, mackerel<span class="sc">$</span>mack.lat)</span>
-<span id="cb275-5"><a href="geostatistical-models.html#cb275-5" tabindex="-1"></a>mackerel<span class="sc">$</span>mack.long <span class="ot">&lt;-</span> km<span class="sc">$</span>km.e</span>
-<span id="cb275-6"><a href="geostatistical-models.html#cb275-6" tabindex="-1"></a>mackerel<span class="sc">$</span>mack.lat  <span class="ot">&lt;-</span> km<span class="sc">$</span>km.n</span>
-<span id="cb275-7"><a href="geostatistical-models.html#cb275-7" tabindex="-1"></a>mackerel <span class="ot">&lt;-</span> mackerel <span class="sc">%&gt;%</span></span>
-<span id="cb275-8"><a href="geostatistical-models.html#cb275-8" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">long =</span> <span class="sc">-</span>mack.long, <span class="at">log.depth =</span> <span class="fu">log</span>(mack.depth)) <span class="sc">%&gt;%</span></span>
-<span id="cb275-9"><a href="geostatistical-models.html#cb275-9" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">lat =</span> mack.lat)</span></code></pre></div>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="geostatistical-models.html#cb276-1" tabindex="-1"></a><span class="fu">library</span>(spaMM)</span>
-<span id="cb276-2"><a href="geostatistical-models.html#cb276-2" tabindex="-1"></a>model.spamm <span class="ot">&lt;-</span> <span class="fu">fitme</span>(<span class="fu">log</span>(Density) <span class="sc">~</span> <span class="fu">poly</span>(log.depth, <span class="dv">2</span>) <span class="sc">+</span> Temperature <span class="sc">+</span> <span class="fu">Matern</span>(<span class="dv">1</span> <span class="sc">|</span> long <span class="sc">+</span> lat),</span>
-<span id="cb276-3"><a href="geostatistical-models.html#cb276-3" tabindex="-1"></a>                    <span class="at">data =</span> mackerel)</span>
-<span id="cb276-4"><a href="geostatistical-models.html#cb276-4" tabindex="-1"></a><span class="fu">summary</span>(model.spamm)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="geostatistical-models.html#cb291-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb291-2"><a href="geostatistical-models.html#cb291-2" tabindex="-1"></a><span class="fu">library</span>(dsm)</span>
+<span id="cb291-3"><a href="geostatistical-models.html#cb291-3" tabindex="-1"></a><span class="fu">data</span>(mackerel, <span class="at">package =</span> <span class="st">&#39;sm&#39;</span>)</span>
+<span id="cb291-4"><a href="geostatistical-models.html#cb291-4" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">latlong2km</span>(mackerel<span class="sc">$</span>mack.long, mackerel<span class="sc">$</span>mack.lat)</span>
+<span id="cb291-5"><a href="geostatistical-models.html#cb291-5" tabindex="-1"></a>mackerel<span class="sc">$</span>mack.long <span class="ot">&lt;-</span> km<span class="sc">$</span>km.e</span>
+<span id="cb291-6"><a href="geostatistical-models.html#cb291-6" tabindex="-1"></a>mackerel<span class="sc">$</span>mack.lat  <span class="ot">&lt;-</span> km<span class="sc">$</span>km.n</span>
+<span id="cb291-7"><a href="geostatistical-models.html#cb291-7" tabindex="-1"></a>mackerel <span class="ot">&lt;-</span> mackerel <span class="sc">%&gt;%</span></span>
+<span id="cb291-8"><a href="geostatistical-models.html#cb291-8" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">long =</span> <span class="sc">-</span>mack.long, <span class="at">log.depth =</span> <span class="fu">log</span>(mack.depth)) <span class="sc">%&gt;%</span></span>
+<span id="cb291-9"><a href="geostatistical-models.html#cb291-9" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">lat =</span> mack.lat)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="geostatistical-models.html#cb292-1" tabindex="-1"></a><span class="fu">library</span>(spaMM)</span>
+<span id="cb292-2"><a href="geostatistical-models.html#cb292-2" tabindex="-1"></a>model.spamm <span class="ot">&lt;-</span> <span class="fu">fitme</span>(<span class="fu">log</span>(Density) <span class="sc">~</span> <span class="fu">poly</span>(log.depth, <span class="dv">2</span>) <span class="sc">+</span> Temperature <span class="sc">+</span> <span class="fu">Matern</span>(<span class="dv">1</span> <span class="sc">|</span> long <span class="sc">+</span> lat),</span>
+<span id="cb292-3"><a href="geostatistical-models.html#cb292-3" tabindex="-1"></a>                    <span class="at">data =</span> mackerel)</span>
+<span id="cb292-4"><a href="geostatistical-models.html#cb292-4" tabindex="-1"></a><span class="fu">summary</span>(model.spamm)</span></code></pre></div>
 <pre><code>## formula: log(Density) ~ poly(log.depth, 2) + Temperature + Matern(1 | 
 ##     long + lat)
 ## ML: Estimation of corrPars, lambda and phi by ML.
@@ -583,14 +579,14 @@ div.csl-indent {
 ##  ------------ Fixed effects (beta) ------------
 ##                     Estimate Cond. SE t-value
 ## (Intercept)          2.59146 0.234630  11.045
-## poly(log.depth, 2)1 11.89888 1.852050   6.425
+## poly(log.depth, 2)1 11.89888 1.852051   6.425
 ## poly(log.depth, 2)2 -9.91492 1.422122  -6.972
 ## Temperature          0.02202 0.008943   2.462
 ##  --------------- Random effects ---------------
 ## Family: gaussian( link = identity ) 
 ##                    --- Correlation parameters:
 ##       1.nu      1.rho 
-## 1.10634702 0.01976482 
+## 1.10634733 0.01976482 
 ##            --- Variance parameters (&#39;lambda&#39;):
 ## lambda = var(u) for u ~ Gaussian; 
 ##    long + lat  :  0.7714  
@@ -600,29 +596,29 @@ div.csl-indent {
 ##  ------------- Likelihood values  -------------
 ##                         logLik
 ## logL       (p_v(h)): -383.7337</code></pre>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="geostatistical-models.html#cb278-1" tabindex="-1"></a><span class="fu">plot_effects</span>(model.spamm, <span class="st">&quot;log.depth&quot;</span>)</span>
-<span id="cb278-2"><a href="geostatistical-models.html#cb278-2" tabindex="-1"></a><span class="fu">plot_effects</span>(model.spamm, <span class="st">&quot;Temperature&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-952-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-952-2.png" width="49%" /></p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="geostatistical-models.html#cb294-1" tabindex="-1"></a><span class="fu">plot_effects</span>(model.spamm, <span class="st">&quot;log.depth&quot;</span>)</span>
+<span id="cb294-2"><a href="geostatistical-models.html#cb294-2" tabindex="-1"></a><span class="fu">plot_effects</span>(model.spamm, <span class="st">&quot;Temperature&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-976-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-976-2.png" width="49%" /></p>
 <p>Set up a spatial area over which to predict.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="geostatistical-models.html#cb279-1" tabindex="-1"></a>newdat.space <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">log.depth   =</span> <span class="fu">mean</span>(mackerel<span class="sc">$</span>log.depth),</span>
-<span id="cb279-2"><a href="geostatistical-models.html#cb279-2" tabindex="-1"></a>                            <span class="at">Temperature =</span> <span class="fu">mean</span>(mackerel<span class="sc">$</span>Temperature),</span>
-<span id="cb279-3"><a href="geostatistical-models.html#cb279-3" tabindex="-1"></a>   <span class="at">long =</span> <span class="fu">seq</span>(<span class="fu">min</span>(mackerel<span class="sc">$</span>long), <span class="fu">max</span>(mackerel<span class="sc">$</span>long), <span class="at">length =</span> <span class="dv">50</span>),</span>
-<span id="cb279-4"><a href="geostatistical-models.html#cb279-4" tabindex="-1"></a>   <span class="at">lat  =</span> <span class="fu">seq</span>(<span class="fu">min</span>(mackerel<span class="sc">$</span>lat),  <span class="fu">max</span>(mackerel<span class="sc">$</span>lat),  <span class="at">length =</span> <span class="dv">50</span>))</span>
-<span id="cb279-5"><a href="geostatistical-models.html#cb279-5" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span>
-<span id="cb279-6"><a href="geostatistical-models.html#cb279-6" tabindex="-1"></a>dst <span class="ot">&lt;-</span> <span class="fu">crossdist</span>(newdat.space<span class="sc">$</span>long, newdat.space<span class="sc">$</span>lat, mackerel<span class="sc">$</span>long, mackerel<span class="sc">$</span>lat)</span>
-<span id="cb279-7"><a href="geostatistical-models.html#cb279-7" tabindex="-1"></a>dst <span class="ot">&lt;-</span> <span class="fu">apply</span>(dst, <span class="dv">1</span>, min)</span>
-<span id="cb279-8"><a href="geostatistical-models.html#cb279-8" tabindex="-1"></a>newdat.space <span class="ot">&lt;-</span> newdat.space[dst <span class="sc">&lt;</span> <span class="dv">50</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="geostatistical-models.html#cb295-1" tabindex="-1"></a>newdat.space <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">log.depth   =</span> <span class="fu">mean</span>(mackerel<span class="sc">$</span>log.depth),</span>
+<span id="cb295-2"><a href="geostatistical-models.html#cb295-2" tabindex="-1"></a>                            <span class="at">Temperature =</span> <span class="fu">mean</span>(mackerel<span class="sc">$</span>Temperature),</span>
+<span id="cb295-3"><a href="geostatistical-models.html#cb295-3" tabindex="-1"></a>   <span class="at">long =</span> <span class="fu">seq</span>(<span class="fu">min</span>(mackerel<span class="sc">$</span>long), <span class="fu">max</span>(mackerel<span class="sc">$</span>long), <span class="at">length =</span> <span class="dv">50</span>),</span>
+<span id="cb295-4"><a href="geostatistical-models.html#cb295-4" tabindex="-1"></a>   <span class="at">lat  =</span> <span class="fu">seq</span>(<span class="fu">min</span>(mackerel<span class="sc">$</span>lat),  <span class="fu">max</span>(mackerel<span class="sc">$</span>lat),  <span class="at">length =</span> <span class="dv">50</span>))</span>
+<span id="cb295-5"><a href="geostatistical-models.html#cb295-5" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span>
+<span id="cb295-6"><a href="geostatistical-models.html#cb295-6" tabindex="-1"></a>dst <span class="ot">&lt;-</span> <span class="fu">crossdist</span>(newdat.space<span class="sc">$</span>long, newdat.space<span class="sc">$</span>lat, mackerel<span class="sc">$</span>long, mackerel<span class="sc">$</span>lat)</span>
+<span id="cb295-7"><a href="geostatistical-models.html#cb295-7" tabindex="-1"></a>dst <span class="ot">&lt;-</span> <span class="fu">apply</span>(dst, <span class="dv">1</span>, min)</span>
+<span id="cb295-8"><a href="geostatistical-models.html#cb295-8" tabindex="-1"></a>newdat.space <span class="ot">&lt;-</span> newdat.space[dst <span class="sc">&lt;</span> <span class="dv">50</span>, ]</span></code></pre></div>
 <p>The fitted spatial effect.</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="geostatistical-models.html#cb280-1" tabindex="-1"></a>pred.spamm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">predict</span>(model.spamm, newdat.space))</span>
-<span id="cb280-2"><a href="geostatistical-models.html#cb280-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb280-3"><a href="geostatistical-models.html#cb280-3" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(long, lat, <span class="at">fill =</span> pred.spamm), <span class="at">data =</span> newdat.space) <span class="sc">+</span></span>
-<span id="cb280-4"><a href="geostatistical-models.html#cb280-4" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb280-5"><a href="geostatistical-models.html#cb280-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(long, lat), <span class="at">data =</span> mackerel)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-955-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="geostatistical-models.html#cb296-1" tabindex="-1"></a>pred.spamm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">predict</span>(model.spamm, newdat.space))</span>
+<span id="cb296-2"><a href="geostatistical-models.html#cb296-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb296-3"><a href="geostatistical-models.html#cb296-3" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(long, lat, <span class="at">fill =</span> pred.spamm), <span class="at">data =</span> newdat.space) <span class="sc">+</span></span>
+<span id="cb296-4"><a href="geostatistical-models.html#cb296-4" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb296-5"><a href="geostatistical-models.html#cb296-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(long, lat), <span class="at">data =</span> mackerel)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-979-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>A <em>generalised additive model</em> is an alternative approach. This kind of model is discussed in an earlier chapter.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="geostatistical-models.html#cb281-1" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
-<span id="cb281-2"><a href="geostatistical-models.html#cb281-2" tabindex="-1"></a>model.gam <span class="ot">&lt;-</span> <span class="fu">gam</span>(<span class="fu">log</span>(Density) <span class="sc">~</span> <span class="fu">s</span>(log.depth) <span class="sc">+</span> <span class="fu">s</span>(Temperature) <span class="sc">+</span> <span class="fu">s</span>(long, lat), <span class="at">data =</span> mackerel)</span>
-<span id="cb281-3"><a href="geostatistical-models.html#cb281-3" tabindex="-1"></a><span class="fu">summary</span>(model.gam)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="geostatistical-models.html#cb297-1" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb297-2"><a href="geostatistical-models.html#cb297-2" tabindex="-1"></a>model.gam <span class="ot">&lt;-</span> <span class="fu">gam</span>(<span class="fu">log</span>(Density) <span class="sc">~</span> <span class="fu">s</span>(log.depth) <span class="sc">+</span> <span class="fu">s</span>(Temperature) <span class="sc">+</span> <span class="fu">s</span>(long, lat), <span class="at">data =</span> mackerel)</span>
+<span id="cb297-3"><a href="geostatistical-models.html#cb297-3" tabindex="-1"></a><span class="fu">summary</span>(model.gam)</span></code></pre></div>
 <pre><code>## 
 ## Family: gaussian 
 ## Link function: identity 
@@ -646,19 +642,19 @@ div.csl-indent {
 ## 
 ## R-sq.(adj) =  0.698   Deviance explained = 73.1%
 ## GCV = 0.90515  Scale est. = 0.8027    n = 279</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="geostatistical-models.html#cb283-1" tabindex="-1"></a><span class="fu">plot</span>(model.gam)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-956-1.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-956-2.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-956-3.png" width="33%" /></p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="geostatistical-models.html#cb299-1" tabindex="-1"></a><span class="fu">plot</span>(model.gam)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-980-1.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-980-2.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-980-3.png" width="33%" /></p>
 <p>The estimated effects are very similar, despite the different perspectives of the modelling approaches. The spatial effects in particular are compared below.</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="geostatistical-models.html#cb284-1" tabindex="-1"></a>pred.gam <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">predict</span>(model.gam, newdat.space))</span>
-<span id="cb284-2"><a href="geostatistical-models.html#cb284-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb284-3"><a href="geostatistical-models.html#cb284-3" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(long, lat, <span class="at">fill =</span> pred.gam), <span class="at">data =</span> newdat.space) <span class="sc">+</span></span>
-<span id="cb284-4"><a href="geostatistical-models.html#cb284-4" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span>
-<span id="cb284-5"><a href="geostatistical-models.html#cb284-5" tabindex="-1"></a>  <span class="co"># geom_point(aes(long, lat), data = mackerel)</span></span>
-<span id="cb284-6"><a href="geostatistical-models.html#cb284-6" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb284-7"><a href="geostatistical-models.html#cb284-7" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(long, lat, <span class="at">fill =</span> pred.spamm), <span class="at">data =</span> newdat.space) <span class="sc">+</span></span>
-<span id="cb284-8"><a href="geostatistical-models.html#cb284-8" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span>
-<span id="cb284-9"><a href="geostatistical-models.html#cb284-9" tabindex="-1"></a>  <span class="co"># geom_point(aes(long, lat), data = mackerel)</span></span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-957-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-957-2.png" width="49%" /></p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="geostatistical-models.html#cb300-1" tabindex="-1"></a>pred.gam <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">predict</span>(model.gam, newdat.space))</span>
+<span id="cb300-2"><a href="geostatistical-models.html#cb300-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb300-3"><a href="geostatistical-models.html#cb300-3" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(long, lat, <span class="at">fill =</span> pred.gam), <span class="at">data =</span> newdat.space) <span class="sc">+</span></span>
+<span id="cb300-4"><a href="geostatistical-models.html#cb300-4" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span>
+<span id="cb300-5"><a href="geostatistical-models.html#cb300-5" tabindex="-1"></a>  <span class="co"># geom_point(aes(long, lat), data = mackerel)</span></span>
+<span id="cb300-6"><a href="geostatistical-models.html#cb300-6" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb300-7"><a href="geostatistical-models.html#cb300-7" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(long, lat, <span class="at">fill =</span> pred.spamm), <span class="at">data =</span> newdat.space) <span class="sc">+</span></span>
+<span id="cb300-8"><a href="geostatistical-models.html#cb300-8" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span>
+<span id="cb300-9"><a href="geostatistical-models.html#cb300-9" tabindex="-1"></a>  <span class="co"># geom_point(aes(long, lat), data = mackerel)</span></span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-981-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-981-2.png" width="49%" /></p>
 <p>There are an increasing number of options for the modelling of spatial data, including:</p>
 <ul>
 <li><code>geoR</code> when the focus is primarily on the spatial effects, without additional covariates;</li>
@@ -679,28 +675,28 @@ and
 <div id="so2-a-model-based-on-smoothing" class="section level3 hasAnchor" number="14.3.3">
 <h3><span class="header-section-number">14.3.3</span> SO2: a model based on smoothing<a href="geostatistical-models.html#so2-a-model-based-on-smoothing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>An interactive display of this spatiotemporal dataset can be launched by executing the code below.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="geostatistical-models.html#cb285-1" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(SO2, <span class="at">year =</span> year <span class="sc">+</span> (month <span class="sc">-</span> <span class="fl">0.5</span>) <span class="sc">/</span> <span class="dv">12</span>)</span>
-<span id="cb285-2"><a href="geostatistical-models.html#cb285-2" tabindex="-1"></a>mapxy <span class="ot">&lt;-</span> maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">&#39;world&#39;</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb285-3"><a href="geostatistical-models.html#cb285-3" tabindex="-1"></a>              <span class="at">xlim =</span> <span class="fu">range</span>(SO2<span class="sc">$</span>longitude), <span class="at">ylim =</span> <span class="fu">range</span>(SO2<span class="sc">$</span>latitude))</span>
-<span id="cb285-4"><a href="geostatistical-models.html#cb285-4" tabindex="-1"></a>back  <span class="ot">&lt;-</span> <span class="cf">function</span>() maps<span class="sc">::</span><span class="fu">map</span>(mapxy, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb285-5"><a href="geostatistical-models.html#cb285-5" tabindex="-1"></a><span class="fu">with</span>(SO2, <span class="fu">rp.plot4d</span>(<span class="fu">cbind</span>(longitude, latitude), year, logSO2,</span>
-<span id="cb285-6"><a href="geostatistical-models.html#cb285-6" tabindex="-1"></a>            <span class="at">col.palette =</span> <span class="fu">rev</span>(<span class="fu">heat.colors</span>(<span class="dv">12</span>)), <span class="at">background.plot =</span> back))</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="geostatistical-models.html#cb301-1" tabindex="-1"></a>SO2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(SO2, <span class="at">year =</span> year <span class="sc">+</span> (month <span class="sc">-</span> <span class="fl">0.5</span>) <span class="sc">/</span> <span class="dv">12</span>)</span>
+<span id="cb301-2"><a href="geostatistical-models.html#cb301-2" tabindex="-1"></a>mapxy <span class="ot">&lt;-</span> maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">&#39;world&#39;</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb301-3"><a href="geostatistical-models.html#cb301-3" tabindex="-1"></a>              <span class="at">xlim =</span> <span class="fu">range</span>(SO2<span class="sc">$</span>longitude), <span class="at">ylim =</span> <span class="fu">range</span>(SO2<span class="sc">$</span>latitude))</span>
+<span id="cb301-4"><a href="geostatistical-models.html#cb301-4" tabindex="-1"></a>back  <span class="ot">&lt;-</span> <span class="cf">function</span>() maps<span class="sc">::</span><span class="fu">map</span>(mapxy, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb301-5"><a href="geostatistical-models.html#cb301-5" tabindex="-1"></a><span class="fu">with</span>(SO2, <span class="fu">rp.plot4d</span>(<span class="fu">cbind</span>(longitude, latitude), year, logSO2,</span>
+<span id="cb301-6"><a href="geostatistical-models.html#cb301-6" tabindex="-1"></a>            <span class="at">col.palette =</span> <span class="fu">rev</span>(<span class="fu">heat.colors</span>(<span class="dv">12</span>)), <span class="at">background.plot =</span> back))</span></code></pre></div>
 <p>A <code>gam</code> model for these data was considered earlier. This can be built and viewed by executing the code below.</p>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="geostatistical-models.html#cb286-1" tabindex="-1"></a><span class="fu">with</span>(SO2, {</span>
-<span id="cb286-2"><a href="geostatistical-models.html#cb286-2" tabindex="-1"></a>     location  <span class="ot">&lt;-</span> <span class="fu">cbind</span>(longitude, latitude)</span>
-<span id="cb286-3"><a href="geostatistical-models.html#cb286-3" tabindex="-1"></a>     model <span class="ot">&lt;-</span> mgcv<span class="sc">::</span><span class="fu">gam</span>(logSO2 <span class="sc">~</span> <span class="fu">s</span>(longitude, latitude, year))</span>
-<span id="cb286-4"><a href="geostatistical-models.html#cb286-4" tabindex="-1"></a>     loc1  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(longitude), <span class="fu">max</span>(longitude), <span class="at">length =</span> <span class="dv">30</span>)</span>
-<span id="cb286-5"><a href="geostatistical-models.html#cb286-5" tabindex="-1"></a>     loc2  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(latitude), <span class="fu">max</span>(latitude), <span class="at">length =</span> <span class="dv">30</span>)</span>
-<span id="cb286-6"><a href="geostatistical-models.html#cb286-6" tabindex="-1"></a>     yr    <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(year), <span class="fu">max</span>(year), <span class="at">length =</span> <span class="dv">30</span>)</span>
-<span id="cb286-7"><a href="geostatistical-models.html#cb286-7" tabindex="-1"></a>     newdata <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(loc1, loc2, yr)</span>
-<span id="cb286-8"><a href="geostatistical-models.html#cb286-8" tabindex="-1"></a>     <span class="fu">names</span>(newdata) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;year&quot;</span>)</span>
-<span id="cb286-9"><a href="geostatistical-models.html#cb286-9" tabindex="-1"></a>     model <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, newdata)</span>
-<span id="cb286-10"><a href="geostatistical-models.html#cb286-10" tabindex="-1"></a>     model <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">cbind</span>(loc1, loc2), <span class="at">z =</span> yr,</span>
-<span id="cb286-11"><a href="geostatistical-models.html#cb286-11" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">array</span>(model, <span class="at">dim =</span> <span class="fu">rep</span>(<span class="dv">30</span>, <span class="dv">3</span>)))</span>
-<span id="cb286-12"><a href="geostatistical-models.html#cb286-12" tabindex="-1"></a>     <span class="fu">rp.plot4d</span>(location, year, logSO2, model,</span>
-<span id="cb286-13"><a href="geostatistical-models.html#cb286-13" tabindex="-1"></a>                 <span class="at">col.palette =</span> <span class="fu">rev</span>(<span class="fu">heat.colors</span>(<span class="dv">20</span>)),</span>
-<span id="cb286-14"><a href="geostatistical-models.html#cb286-14" tabindex="-1"></a>                 <span class="at">foreground.plot =</span> back)</span>
-<span id="cb286-15"><a href="geostatistical-models.html#cb286-15" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="geostatistical-models.html#cb302-1" tabindex="-1"></a><span class="fu">with</span>(SO2, {</span>
+<span id="cb302-2"><a href="geostatistical-models.html#cb302-2" tabindex="-1"></a>     location  <span class="ot">&lt;-</span> <span class="fu">cbind</span>(longitude, latitude)</span>
+<span id="cb302-3"><a href="geostatistical-models.html#cb302-3" tabindex="-1"></a>     model <span class="ot">&lt;-</span> mgcv<span class="sc">::</span><span class="fu">gam</span>(logSO2 <span class="sc">~</span> <span class="fu">s</span>(longitude, latitude, year))</span>
+<span id="cb302-4"><a href="geostatistical-models.html#cb302-4" tabindex="-1"></a>     loc1  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(longitude), <span class="fu">max</span>(longitude), <span class="at">length =</span> <span class="dv">30</span>)</span>
+<span id="cb302-5"><a href="geostatistical-models.html#cb302-5" tabindex="-1"></a>     loc2  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(latitude), <span class="fu">max</span>(latitude), <span class="at">length =</span> <span class="dv">30</span>)</span>
+<span id="cb302-6"><a href="geostatistical-models.html#cb302-6" tabindex="-1"></a>     yr    <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(year), <span class="fu">max</span>(year), <span class="at">length =</span> <span class="dv">30</span>)</span>
+<span id="cb302-7"><a href="geostatistical-models.html#cb302-7" tabindex="-1"></a>     newdata <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(loc1, loc2, yr)</span>
+<span id="cb302-8"><a href="geostatistical-models.html#cb302-8" tabindex="-1"></a>     <span class="fu">names</span>(newdata) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;longitude&quot;</span>, <span class="st">&quot;latitude&quot;</span>, <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb302-9"><a href="geostatistical-models.html#cb302-9" tabindex="-1"></a>     model <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, newdata)</span>
+<span id="cb302-10"><a href="geostatistical-models.html#cb302-10" tabindex="-1"></a>     model <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="fu">cbind</span>(loc1, loc2), <span class="at">z =</span> yr,</span>
+<span id="cb302-11"><a href="geostatistical-models.html#cb302-11" tabindex="-1"></a>                   <span class="at">y =</span> <span class="fu">array</span>(model, <span class="at">dim =</span> <span class="fu">rep</span>(<span class="dv">30</span>, <span class="dv">3</span>)))</span>
+<span id="cb302-12"><a href="geostatistical-models.html#cb302-12" tabindex="-1"></a>     <span class="fu">rp.plot4d</span>(location, year, logSO2, model,</span>
+<span id="cb302-13"><a href="geostatistical-models.html#cb302-13" tabindex="-1"></a>                 <span class="at">col.palette =</span> <span class="fu">rev</span>(<span class="fu">heat.colors</span>(<span class="dv">20</span>)),</span>
+<span id="cb302-14"><a href="geostatistical-models.html#cb302-14" tabindex="-1"></a>                 <span class="at">foreground.plot =</span> back)</span>
+<span id="cb302-15"><a href="geostatistical-models.html#cb302-15" tabindex="-1"></a>})</span></code></pre></div>
 </div>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>

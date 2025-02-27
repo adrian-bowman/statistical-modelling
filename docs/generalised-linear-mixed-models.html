@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>11.6 Generalised linear mixed models | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="11.6 Generalised linear mixed models | Statistical Modelling" />
   <meta property="og:type" content="book" />
@@ -51,10 +51,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -66,9 +66,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -244,13 +244,11 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
-<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
-<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
-<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
-<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3.2</b> Making life easier: the <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
+<li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -259,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
@@ -347,37 +345,35 @@ div.csl-indent {
 <li class="part"><span><b>IV Statistical Models</b></span></li>
 <li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
-<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
-<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
+<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
+<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
-<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
-<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<li class="chapter" data-level="9.11" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
-<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="9.11.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.11.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.11.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
+<li class="chapter" data-level="9.11.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.11.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.11.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.11.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.11.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.11.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
@@ -552,9 +548,9 @@ div.csl-indent {
 <h2><span class="header-section-number">11.6</span> Generalised linear mixed models<a href="generalised-linear-mixed-models.html#generalised-linear-mixed-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A GLMM aims to combine the structures of a GLM and a mixed model. The idea os that the <em>linear predictor</em> of a GLM is extended to include random effecs. This sounds easy but the presence of the link function makes it computationally rather challenging.</p>
 <p>The <code>ctsib</code> in the <code>faraway</code> package provides data on the ability of subjects to maintain stability under different surface and vision conditions. We will follow Faraway (2016) by creating a variable which simply indicates whether the subject was stable (1) or not (0).</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="generalised-linear-mixed-models.html#cb229-1" tabindex="-1"></a><span class="fu">data</span>(ctsib, <span class="at">package =</span> <span class="st">&#39;faraway&#39;</span>)</span>
-<span id="cb229-2"><a href="generalised-linear-mixed-models.html#cb229-2" tabindex="-1"></a>ctsib<span class="sc">$</span>stable <span class="ot">&lt;-</span> <span class="fu">ifelse</span> (ctsib<span class="sc">$</span>CTSIB <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb229-3"><a href="generalised-linear-mixed-models.html#cb229-3" tabindex="-1"></a><span class="fu">str</span>(ctsib)</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="generalised-linear-mixed-models.html#cb245-1" tabindex="-1"></a><span class="fu">data</span>(ctsib, <span class="at">package =</span> <span class="st">&#39;faraway&#39;</span>)</span>
+<span id="cb245-2"><a href="generalised-linear-mixed-models.html#cb245-2" tabindex="-1"></a>ctsib<span class="sc">$</span>stable <span class="ot">&lt;-</span> <span class="fu">ifelse</span> (ctsib<span class="sc">$</span>CTSIB <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb245-3"><a href="generalised-linear-mixed-models.html#cb245-3" tabindex="-1"></a><span class="fu">str</span>(ctsib)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    480 obs. of  9 variables:
 ##  $ Subject: int  1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Sex    : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 2 2 2 2 2 2 2 2 ...
@@ -566,9 +562,9 @@ div.csl-indent {
 ##  $ CTSIB  : int  1 1 2 2 1 2 2 2 2 2 ...
 ##  $ stable : num  1 1 0 0 1 0 0 0 0 0 ...</code></pre>
 <p>For explanatory variables which are factors we can simply calculate the proportions of cases which are stable at each level.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="generalised-linear-mixed-models.html#cb231-1" tabindex="-1"></a><span class="fu">with</span>(ctsib, <span class="fu">proportions</span>(<span class="fu">table</span>(stable, Vision),  <span class="at">margin =</span> <span class="dv">2</span>))</span>
-<span id="cb231-2"><a href="generalised-linear-mixed-models.html#cb231-2" tabindex="-1"></a><span class="fu">with</span>(ctsib, <span class="fu">proportions</span>(<span class="fu">table</span>(stable, Surface), <span class="at">margin =</span> <span class="dv">2</span>))</span>
-<span id="cb231-3"><a href="generalised-linear-mixed-models.html#cb231-3" tabindex="-1"></a><span class="fu">with</span>(ctsib, <span class="fu">proportions</span>(<span class="fu">table</span>(stable, Sex),     <span class="at">margin =</span> <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="generalised-linear-mixed-models.html#cb247-1" tabindex="-1"></a><span class="fu">with</span>(ctsib, <span class="fu">proportions</span>(<span class="fu">table</span>(stable, Vision),  <span class="at">margin =</span> <span class="dv">2</span>))</span>
+<span id="cb247-2"><a href="generalised-linear-mixed-models.html#cb247-2" tabindex="-1"></a><span class="fu">with</span>(ctsib, <span class="fu">proportions</span>(<span class="fu">table</span>(stable, Surface), <span class="at">margin =</span> <span class="dv">2</span>))</span>
+<span id="cb247-3"><a href="generalised-linear-mixed-models.html#cb247-3" tabindex="-1"></a><span class="fu">with</span>(ctsib, <span class="fu">proportions</span>(<span class="fu">table</span>(stable, Sex),     <span class="at">margin =</span> <span class="dv">2</span>))</span></code></pre></div>
 <pre><code>##       Vision
 ## stable  closed    dome    open
 ##      0 0.89375 0.86250 0.53125
@@ -582,31 +578,31 @@ div.csl-indent {
 ##      0 0.8041667 0.7208333
 ##      1 0.1958333 0.2791667</code></pre>
 <p>For explanatory variables which are continuous, it helps to use <code>geom_jitter</code> to add some random noise as a visial device to counteract overplotting of points. A smooth trend line can also help to highlight any underlying patterns. There don’t seem to strong effects of the covariates.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="generalised-linear-mixed-models.html#cb233-1" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Age, stable)) <span class="sc">+</span></span>
-<span id="cb233-2"><a href="generalised-linear-mixed-models.html#cb233-2" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
-<span id="cb233-3"><a href="generalised-linear-mixed-models.html#cb233-3" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Height, stable)) <span class="sc">+</span></span>
-<span id="cb233-4"><a href="generalised-linear-mixed-models.html#cb233-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
-<span id="cb233-5"><a href="generalised-linear-mixed-models.html#cb233-5" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Weight, stable)) <span class="sc">+</span></span>
-<span id="cb233-6"><a href="generalised-linear-mixed-models.html#cb233-6" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-841-1.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-841-2.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-841-3.png" width="33%" /></p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="generalised-linear-mixed-models.html#cb249-1" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Age, stable)) <span class="sc">+</span></span>
+<span id="cb249-2"><a href="generalised-linear-mixed-models.html#cb249-2" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
+<span id="cb249-3"><a href="generalised-linear-mixed-models.html#cb249-3" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Height, stable)) <span class="sc">+</span></span>
+<span id="cb249-4"><a href="generalised-linear-mixed-models.html#cb249-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
+<span id="cb249-5"><a href="generalised-linear-mixed-models.html#cb249-5" tabindex="-1"></a><span class="fu">ggplot</span>(ctsib, <span class="fu">aes</span>(Weight, stable)) <span class="sc">+</span></span>
+<span id="cb249-6"><a href="generalised-linear-mixed-models.html#cb249-6" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="fl">0.03</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-865-1.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-865-2.png" width="33%" /><img src="book_files/figure-html/unnamed-chunk-865-3.png" width="33%" /></p>
 <p>The <code>glmer</code> function in the <code>lme4</code> package allows us to fit a model which includes random effects. The information on the model coefficients suggests that there are indeed effects of <code>Surface</code> and <code>Vision</code> but that there is little evidence that the other variables are linked to the patterns of stability.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="generalised-linear-mixed-models.html#cb234-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb234-2"><a href="generalised-linear-mixed-models.html#cb234-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(stable <span class="sc">~</span> Surface <span class="sc">+</span> Vision <span class="sc">+</span> Sex <span class="sc">+</span> Age <span class="sc">+</span> Height <span class="sc">+</span> Weight <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>
-<span id="cb234-3"><a href="generalised-linear-mixed-models.html#cb234-3" tabindex="-1"></a>               <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">25</span>, <span class="at">data =</span> ctsib)</span>
-<span id="cb234-4"><a href="generalised-linear-mixed-models.html#cb234-4" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="generalised-linear-mixed-models.html#cb250-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb250-2"><a href="generalised-linear-mixed-models.html#cb250-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glmer</span>(stable <span class="sc">~</span> Surface <span class="sc">+</span> Vision <span class="sc">+</span> Sex <span class="sc">+</span> Age <span class="sc">+</span> Height <span class="sc">+</span> Weight <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>
+<span id="cb250-3"><a href="generalised-linear-mixed-models.html#cb250-3" tabindex="-1"></a>               <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">25</span>, <span class="at">data =</span> ctsib)</span>
+<span id="cb250-4"><a href="generalised-linear-mixed-models.html#cb250-4" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                 Estimate  Std. Error     z value     Pr(&gt;|z|)
-## (Intercept) 16.168968694 12.70816472  1.27232917 2.032562e-01
-## Surfacenorm  7.285353789  1.05508807  6.90497223 5.021325e-12
-## Visiondome   0.675906070  0.52736178  1.28167435 1.999569e-01
-## Visionopen   6.088819892  0.97233598  6.26205345 3.799407e-10
-## Sexmale      3.096710202  1.69559373  1.82632794 6.780088e-02
-## Age         -0.006669382  0.07645338 -0.08723463 9.304850e-01
-## Height      -0.192248263  0.08886480 -2.16337927 3.051202e-02
-## Weight       0.075155868  0.05909271  1.27182970 2.034336e-01</code></pre>
+## (Intercept) 16.171235032 12.71484655  1.27183879 2.034304e-01
+## Surfacenorm  7.285383873  1.05513456  6.90469646 5.031089e-12
+## Visiondome   0.675898619  0.52736470  1.28165313 1.999644e-01
+## Visionopen   6.088910523  0.97238518  6.26182986 3.804860e-10
+## Sexmale      3.096645064  1.69586478  1.82599763 6.785062e-02
+## Age         -0.006672407  0.07645616 -0.08727102 9.304561e-01
+## Height      -0.192262599  0.08890865 -2.16247349 3.058170e-02
+## Weight       0.075159408  0.05909849  1.27176521 2.034566e-01</code></pre>
 <p>We can confirm that there is little additional explanatory power in these variables by fitting a simpler model which omits them and carryong ourt a model comparison.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="generalised-linear-mixed-models.html#cb236-1" tabindex="-1"></a>model_sv <span class="ot">&lt;-</span> <span class="fu">glmer</span>(stable <span class="sc">~</span> Surface <span class="sc">+</span> Vision <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>
-<span id="cb236-2"><a href="generalised-linear-mixed-models.html#cb236-2" tabindex="-1"></a>               <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">25</span>, <span class="at">data =</span> ctsib)</span>
-<span id="cb236-3"><a href="generalised-linear-mixed-models.html#cb236-3" tabindex="-1"></a><span class="fu">anova</span>(model, model_sv)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="generalised-linear-mixed-models.html#cb252-1" tabindex="-1"></a>model_sv <span class="ot">&lt;-</span> <span class="fu">glmer</span>(stable <span class="sc">~</span> Surface <span class="sc">+</span> Vision <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject),</span>
+<span id="cb252-2"><a href="generalised-linear-mixed-models.html#cb252-2" tabindex="-1"></a>               <span class="at">family =</span> binomial, <span class="at">nAGQ =</span> <span class="dv">25</span>, <span class="at">data =</span> ctsib)</span>
+<span id="cb252-3"><a href="generalised-linear-mixed-models.html#cb252-3" tabindex="-1"></a><span class="fu">anova</span>(model, model_sv)</span></code></pre></div>
 <pre><code>## Data: ctsib
 ## Models:
 ## model_sv: stable ~ Surface + Vision + (1 | Subject)

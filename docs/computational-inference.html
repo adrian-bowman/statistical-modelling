@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.1 Computational inference | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.1 Computational inference | Statistical Modelling" />
   <meta property="og:type" content="book" />
@@ -51,10 +51,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.2.8/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.2.8/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.2.8/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.2.8/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
@@ -66,9 +66,9 @@
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.1/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.1/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -244,13 +244,11 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data wrangling</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="reorganising-data.html"><a href="reorganising-data.html"><i class="fa fa-check"></i><b>3.1</b> Reorganising data</a></li>
-<li class="chapter" data-level="3.2" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.2</b> Collating data from different sources</a></li>
-<li class="chapter" data-level="3.3" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.3</b> Tidy data</a></li>
-<li class="chapter" data-level="3.4" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.4</b> Further reading</a></li>
-<li class="chapter" data-level="3.5" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.5.1</b> UN demography data</a></li>
-</ul></li>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3.2</b> Making life easier: the <code>dplyr</code> package</a></li>
+<li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
+<li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
+<li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -259,7 +257,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html"><i class="fa fa-check"></i><b>4.2</b> <code>ggplot</code> graphics</a>
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-graphics-basics"><i class="fa fa-check"></i><b>4.2.1</b> The basics</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#ggplot-facets"><i class="fa fa-check"></i><b>4.2.2</b> Facets</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot-graphics.html"><a href="ggplot-graphics.html#going-deeper"><i class="fa fa-check"></i><b>4.2.3</b> Going deeper</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="what-are-we-looking-for.html"><a href="what-are-we-looking-for.html"><i class="fa fa-check"></i><b>4.3</b> What are we looking for?</a>
@@ -347,37 +345,35 @@ div.csl-indent {
 <li class="part"><span><b>IV Statistical Models</b></span></li>
 <li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="formulating-and-fitting-linear-models.html"><a href="formulating-and-fitting-linear-models.html"><i class="fa fa-check"></i><b>9.1</b> Formulating and fitting linear models</a></li>
-<li class="chapter" data-level="9.2" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.2</b> Model checking</a></li>
-<li class="chapter" data-level="9.3" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>9.3</b> Inference</a>
+<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
+<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
+<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
+<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
 <ul>
-<li class="chapter" data-level="9.3.1" data-path="inference-1.html"><a href="inference-1.html#confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Confidence intervals</a></li>
-<li class="chapter" data-level="9.3.2" data-path="inference-1.html"><a href="inference-1.html#hypothesis-tests-1"><i class="fa fa-check"></i><b>9.3.2</b> Hypothesis tests</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inference-1.html"><a href="inference-1.html#comparing-models"><i class="fa fa-check"></i><b>9.3.3</b> Comparing models</a></li>
+<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
+<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.4</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-groups-analysis-of-variance.html"><a href="comparing-groups-analysis-of-variance.html"><i class="fa fa-check"></i><b>9.5</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.6" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html"><i class="fa fa-check"></i><b>9.6</b> Comparing regression lines: analysis of covariance</a>
+<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#trout"><i class="fa fa-check"></i><b>9.6.1</b> Trout</a></li>
-<li class="chapter" data-level="9.6.2" data-path="comparing-regression-lines-analysis-of-covariance.html"><a href="comparing-regression-lines-analysis-of-covariance.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.6.2</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
+<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.7</b> General thoughts on models</a>
+<li class="chapter" data-level="9.11" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.7.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.7.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.7.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.8" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>9.8</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.8.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.8.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.8.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.8.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.8.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.8.3</b> Cats</a></li>
-<li class="chapter" data-level="9.8.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome-1"><i class="fa fa-check"></i><b>9.8.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.8.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.8.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.8.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.8.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.8.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.8.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.8.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.8.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.8.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.8.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="9.11.1" data-path="exercises-8.html"><a href="exercises-8.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="9.11.2" data-path="exercises-8.html"><a href="exercises-8.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="9.11.3" data-path="exercises-8.html"><a href="exercises-8.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
+<li class="chapter" data-level="9.11.4" data-path="exercises-8.html"><a href="exercises-8.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="9.11.5" data-path="exercises-8.html"><a href="exercises-8.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
+<li class="chapter" data-level="9.11.6" data-path="exercises-8.html"><a href="exercises-8.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="9.11.7" data-path="exercises-8.html"><a href="exercises-8.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="9.11.8" data-path="exercises-8.html"><a href="exercises-8.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="9.11.9" data-path="exercises-8.html"><a href="exercises-8.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
@@ -554,33 +550,33 @@ div.csl-indent {
 <div id="simulation-methods" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Simulation methods<a href="computational-inference.html#simulation-methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are some circumstances where the model whose suitability we wish to assess is completely known, without any dependence on unknown parameters. A simple example arises from spatial point patterns where we may wish to assess the evidence that the point pattern is generated by a process which is not simply uniform. The plot below shows data on large (breast height diameter &gt;= 50cm) longleaf pine trees in a 200m x 200m sqaure of forest.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="computational-inference.html#cb104-1" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span>
-<span id="cb104-2"><a href="computational-inference.html#cb104-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> longleaf<span class="sc">$</span>x[longleaf<span class="sc">$</span>marks <span class="sc">&gt;=</span><span class="dv">50</span>]</span>
-<span id="cb104-3"><a href="computational-inference.html#cb104-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> longleaf<span class="sc">$</span>y[longleaf<span class="sc">$</span>marks <span class="sc">&gt;=</span><span class="dv">50</span>]</span>
-<span id="cb104-4"><a href="computational-inference.html#cb104-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb104-5"><a href="computational-inference.html#cb104-5" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-545-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="computational-inference.html#cb101-1" tabindex="-1"></a><span class="fu">library</span>(spatstat)</span>
+<span id="cb101-2"><a href="computational-inference.html#cb101-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> longleaf<span class="sc">$</span>x[longleaf<span class="sc">$</span>marks <span class="sc">&gt;=</span><span class="dv">50</span>]</span>
+<span id="cb101-3"><a href="computational-inference.html#cb101-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> longleaf<span class="sc">$</span>y[longleaf<span class="sc">$</span>marks <span class="sc">&gt;=</span><span class="dv">50</span>]</span>
+<span id="cb101-4"><a href="computational-inference.html#cb101-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb101-5"><a href="computational-inference.html#cb101-5" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-551-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We can generate our own trees patterns in a uniform random manner simply by locating each tree at an x and y position each of which is generated uniformly in the range (0, 200). here are some examples of patterns generated in this way.</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="computational-inference.html#cb105-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb105-2"><a href="computational-inference.html#cb105-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
-<span id="cb105-3"><a href="computational-inference.html#cb105-3" tabindex="-1"></a>   plt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>), <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>))) <span class="sc">+</span></span>
-<span id="cb105-4"><a href="computational-inference.html#cb105-4" tabindex="-1"></a>            <span class="fu">geom_point</span>()</span>
-<span id="cb105-5"><a href="computational-inference.html#cb105-5" tabindex="-1"></a>  <span class="fu">print</span>(plt)</span>
-<span id="cb105-6"><a href="computational-inference.html#cb105-6" tabindex="-1"></a>}</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-546-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-546-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-546-3.png" width="32%" /></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="computational-inference.html#cb102-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb102-2"><a href="computational-inference.html#cb102-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb102-3"><a href="computational-inference.html#cb102-3" tabindex="-1"></a>   plt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>), <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>))) <span class="sc">+</span></span>
+<span id="cb102-4"><a href="computational-inference.html#cb102-4" tabindex="-1"></a>            <span class="fu">geom_point</span>()</span>
+<span id="cb102-5"><a href="computational-inference.html#cb102-5" tabindex="-1"></a>  <span class="fu">print</span>(plt)</span>
+<span id="cb102-6"><a href="computational-inference.html#cb102-6" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-552-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-552-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-552-3.png" width="32%" /></p>
 <p>How should we compare the observed pattern with the randomly generated ones? A simple way of doing this is to measure for each tree the distance to its nearest neighbour. If the pattern exhibits clustering, then these distances should be small, while if the pattern is uniform they will tend to be larger. We might then use as our test statistic the average of the distances to each nearest neighbour. We can generate the distribution of this average distance in the case where the locations are uniformly distributed simply by repeatedly simulating locations and retaining the average nearest neighbour distance for each one. The <code>nndist</code> function from the <code>spatstat</code> package can help us with the nearest neighbour distances.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="computational-inference.html#cb106-1" tabindex="-1"></a>nsim  <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb106-2"><a href="computational-inference.html#cb106-2" tabindex="-1"></a>tstat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
-<span id="cb106-3"><a href="computational-inference.html#cb106-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) {</span>
-<span id="cb106-4"><a href="computational-inference.html#cb106-4" tabindex="-1"></a>  pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>), <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>))</span>
-<span id="cb106-5"><a href="computational-inference.html#cb106-5" tabindex="-1"></a>  tstat[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">nndist</span>(pp[ , <span class="dv">1</span>], pp[ , <span class="dv">2</span>]))</span>
-<span id="cb106-6"><a href="computational-inference.html#cb106-6" tabindex="-1"></a>}</span>
-<span id="cb106-7"><a href="computational-inference.html#cb106-7" tabindex="-1"></a>tstat.obs <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">nndist</span>(x, y))</span>
-<span id="cb106-8"><a href="computational-inference.html#cb106-8" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(tstat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb106-9"><a href="computational-inference.html#cb106-9" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tstat.obs, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb106-10"><a href="computational-inference.html#cb106-10" tabindex="-1"></a><span class="fu">length</span>(tstat[tstat <span class="sc">&lt;</span> tstat.obs]) <span class="sc">/</span> nsim</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="computational-inference.html#cb103-1" tabindex="-1"></a>nsim  <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb103-2"><a href="computational-inference.html#cb103-2" tabindex="-1"></a>tstat <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
+<span id="cb103-3"><a href="computational-inference.html#cb103-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) {</span>
+<span id="cb103-4"><a href="computational-inference.html#cb103-4" tabindex="-1"></a>  pp <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>), <span class="fu">runif</span>(n, <span class="dv">0</span>, <span class="dv">200</span>))</span>
+<span id="cb103-5"><a href="computational-inference.html#cb103-5" tabindex="-1"></a>  tstat[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">nndist</span>(pp[ , <span class="dv">1</span>], pp[ , <span class="dv">2</span>]))</span>
+<span id="cb103-6"><a href="computational-inference.html#cb103-6" tabindex="-1"></a>}</span>
+<span id="cb103-7"><a href="computational-inference.html#cb103-7" tabindex="-1"></a>tstat.obs <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">nndist</span>(x, y))</span>
+<span id="cb103-8"><a href="computational-inference.html#cb103-8" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(tstat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb103-9"><a href="computational-inference.html#cb103-9" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tstat.obs, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb103-10"><a href="computational-inference.html#cb103-10" tabindex="-1"></a><span class="fu">length</span>(tstat[tstat <span class="sc">&lt;</span> tstat.obs]) <span class="sc">/</span> nsim</span></code></pre></div>
 <pre><code>## [1] 0.3147</code></pre>
-<p><img src="book_files/figure-html/unnamed-chunk-547-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-553-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The histogram shows the distribution (subject to the variation present through simulation) of the average nearest neighbour distance when of atoms really are uniform. The red line shows the average neighbour distance for the observed data. Informally, but clearly, we can see that from this perspective the observed data is entirely consistent with the assumption of uniformity. An empirical p-value can be computed simply from the proportion of simulated values which fall below the observed one (as we look for evidence against uniformity in small nearest neighbour distances).</p>
 </div>
 <div id="randomisation-tests" class="section level3 hasAnchor" number="7.1.2">
@@ -590,18 +586,18 @@ div.csl-indent {
       Fertiliser       A     A     B     B     A     B     B     B     A     A     B
       Yield (pounds) 29.9  11.4  26.6  23.7  25.3  28.5  14.2  17.9  16.5  21.1  24.3</code></pre>
 <p>If the positions the fertilisers in the row have been randomised, and if the two fertilisers A and B are in fact equivalent in the effects, then the labels attached to the observations are immaterial. There is no connection between the labels and the outcomes. This allows us to calculate the distribution of the difference between the mean yields of A and B which is generated by the randomisation procedure. The histogram below shows this. For convenience (indeed, laziness!) it has been constructed from random permutations rather than the systematic list of all possible randomisations.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="computational-inference.html#cb109-1" tabindex="-1"></a>fertiliser <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>)</span>
-<span id="cb109-2"><a href="computational-inference.html#cb109-2" tabindex="-1"></a>yield      <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">29.9</span>, <span class="fl">11.4</span>, <span class="fl">26.6</span>, <span class="fl">23.7</span>, <span class="fl">25.3</span>, <span class="fl">28.5</span>, <span class="fl">14.2</span>, <span class="fl">17.9</span>, <span class="fl">16.5</span>, <span class="fl">21.1</span>, <span class="fl">24.3</span>)</span>
-<span id="cb109-3"><a href="computational-inference.html#cb109-3" tabindex="-1"></a>nperm      <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb109-4"><a href="computational-inference.html#cb109-4" tabindex="-1"></a>tstat      <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nperm)</span>
-<span id="cb109-5"><a href="computational-inference.html#cb109-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nperm) {</span>
-<span id="cb109-6"><a href="computational-inference.html#cb109-6" tabindex="-1"></a>  smp      <span class="ot">&lt;-</span> <span class="fu">sample</span>(fertiliser)</span>
-<span id="cb109-7"><a href="computational-inference.html#cb109-7" tabindex="-1"></a>  tstat[i] <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">tapply</span>(yield, smp, mean))</span>
-<span id="cb109-8"><a href="computational-inference.html#cb109-8" tabindex="-1"></a>}</span>
-<span id="cb109-9"><a href="computational-inference.html#cb109-9" tabindex="-1"></a>tstat.obs <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">tapply</span>(yield, fertiliser, mean))</span>
-<span id="cb109-10"><a href="computational-inference.html#cb109-10" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(tstat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb109-11"><a href="computational-inference.html#cb109-11" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tstat.obs, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-548-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="computational-inference.html#cb106-1" tabindex="-1"></a>fertiliser <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>)</span>
+<span id="cb106-2"><a href="computational-inference.html#cb106-2" tabindex="-1"></a>yield      <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">29.9</span>, <span class="fl">11.4</span>, <span class="fl">26.6</span>, <span class="fl">23.7</span>, <span class="fl">25.3</span>, <span class="fl">28.5</span>, <span class="fl">14.2</span>, <span class="fl">17.9</span>, <span class="fl">16.5</span>, <span class="fl">21.1</span>, <span class="fl">24.3</span>)</span>
+<span id="cb106-3"><a href="computational-inference.html#cb106-3" tabindex="-1"></a>nperm      <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb106-4"><a href="computational-inference.html#cb106-4" tabindex="-1"></a>tstat      <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nperm)</span>
+<span id="cb106-5"><a href="computational-inference.html#cb106-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nperm) {</span>
+<span id="cb106-6"><a href="computational-inference.html#cb106-6" tabindex="-1"></a>  smp      <span class="ot">&lt;-</span> <span class="fu">sample</span>(fertiliser)</span>
+<span id="cb106-7"><a href="computational-inference.html#cb106-7" tabindex="-1"></a>  tstat[i] <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">tapply</span>(yield, smp, mean))</span>
+<span id="cb106-8"><a href="computational-inference.html#cb106-8" tabindex="-1"></a>}</span>
+<span id="cb106-9"><a href="computational-inference.html#cb106-9" tabindex="-1"></a>tstat.obs <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">tapply</span>(yield, fertiliser, mean))</span>
+<span id="cb106-10"><a href="computational-inference.html#cb106-10" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(tstat)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb106-11"><a href="computational-inference.html#cb106-11" tabindex="-1"></a>   <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> tstat.obs, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-554-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>There are several new functions used in the <code>R</code> code here (<code>c</code>, <code>diff</code>, <code>tapply</code>). You will hopefully feel ready to explore these through the help system by this stage. The end result is a histogram which represents the distribution, induced by randomisation, of the mean sample difference between A and B when the two treatments have identical effects. When we compare this with the observed mean difference it is clear that the two are compatible. So there is no evidence that A and B have different effects. If required, a p-value could be obtained by the means discussed in the simulation test section above. However, the conclusion is already clear.</p>
 </div>
 <div id="the-bootstrap" class="section level3 hasAnchor" number="7.1.3">
@@ -609,14 +605,14 @@ div.csl-indent {
 <p>We generally regard observed data as having been generated by some underlying distribution. If we construct an estimator of some quantity of interest, such as a population mean, then we need to know how accurate estimate is as a guide to the true value. The simple but surprising idea behind the bootstrap is that we mimic the variation of the sample around the distribution by the variation of resampled datasets around our original sample. When the bootstrap was first proposed in the 1970s, it took people by surprise but in fact it can be shown to be well founded theoretically.</p>
 <p>Suppose we are dealing with a distribution which has long tails. In other words, we may find that outliers (unusually large or small observations) are often present in sample datasets. Methods based on the assumption of a normal distribution will be strongly affected by this. A simple device is to compute a <em>trimmed mean</em>. This simply computes the main of the remaining data after a proportion of the highest and lowest observations has been removed. This is an attractive way of defending against the effect of long tails, but how do we quantify the uncertainty of our sample estimator as a guide to the true trimmed mean of the underlying distribution?</p>
 <p>The bootstrap takes the observed sample and resamples the data with replacement. A trimmed mean is calculated on each resample. In the simplest approach to construction of a confidence interval, this is generated simply through percentiles of the trimmed means generated by resampling. The example below shows the mechanics of this, using a simple normal random sample to represent the observed data.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="computational-inference.html#cb110-1" tabindex="-1"></a>x      <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>)</span>
-<span id="cb110-2"><a href="computational-inference.html#cb110-2" tabindex="-1"></a>tm.obs <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">trim =</span> <span class="fl">0.1</span>)</span>
-<span id="cb110-3"><a href="computational-inference.html#cb110-3" tabindex="-1"></a></span>
-<span id="cb110-4"><a href="computational-inference.html#cb110-4" tabindex="-1"></a>nboot  <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb110-5"><a href="computational-inference.html#cb110-5" tabindex="-1"></a>tmdiff <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nboot)</span>
-<span id="cb110-6"><a href="computational-inference.html#cb110-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot)</span>
-<span id="cb110-7"><a href="computational-inference.html#cb110-7" tabindex="-1"></a>   tmdiff[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sample</span>(x, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">trim =</span> <span class="fl">0.1</span>) <span class="sc">-</span> tm.obs</span>
-<span id="cb110-8"><a href="computational-inference.html#cb110-8" tabindex="-1"></a>tm.obs <span class="sc">-</span> <span class="fu">quantile</span>(tmdiff, <span class="fu">c</span>(<span class="fl">0.975</span>, <span class="fl">0.025</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="computational-inference.html#cb107-1" tabindex="-1"></a>x      <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>)</span>
+<span id="cb107-2"><a href="computational-inference.html#cb107-2" tabindex="-1"></a>tm.obs <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">trim =</span> <span class="fl">0.1</span>)</span>
+<span id="cb107-3"><a href="computational-inference.html#cb107-3" tabindex="-1"></a></span>
+<span id="cb107-4"><a href="computational-inference.html#cb107-4" tabindex="-1"></a>nboot  <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb107-5"><a href="computational-inference.html#cb107-5" tabindex="-1"></a>tmdiff <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nboot)</span>
+<span id="cb107-6"><a href="computational-inference.html#cb107-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nboot)</span>
+<span id="cb107-7"><a href="computational-inference.html#cb107-7" tabindex="-1"></a>   tmdiff[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">sample</span>(x, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">trim =</span> <span class="fl">0.1</span>) <span class="sc">-</span> tm.obs</span>
+<span id="cb107-8"><a href="computational-inference.html#cb107-8" tabindex="-1"></a>tm.obs <span class="sc">-</span> <span class="fu">quantile</span>(tmdiff, <span class="fu">c</span>(<span class="fl">0.975</span>, <span class="fl">0.025</span>))</span></code></pre></div>
 <pre><code>##      97.5%       2.5% 
 ## -0.6396821  0.2905299</code></pre>
 </div>
