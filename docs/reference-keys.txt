@@ -9,7 +9,7 @@ more-complex-data-objects
 some-broad-issues
 whats-the-problem
 whats-the-plan
-where-do-the-data-come-from
+where-data-subsection
 who-do-you-trust
 what-could-possibly-go-wrong
 us-presidential-elections-1936-and-1948
@@ -80,13 +80,13 @@ aircraft-data
 radiocarbon-data
 follicle-data
 inference
-where-do-data-come-from-samples-and-populations
+samples-and-populations
 quantifying-uncertainty-standard-error
-quantifying-uncertainty-confidence-intervals
+confidence-intervals
 hypothesis-tests
-variability-bands-for-flexible-regression
+comparing-two-means
 further-reading-4
-exercises-5
+quantifying-uncertainty-exercises
 standard-errors
 other-approaches-to-inference
 computational-inference
@@ -94,13 +94,13 @@ simulation-methods
 randomisation-tests
 the-bootstrap
 bayesian-inference
-exercises-6
+exercises-5
 coverage-property-of-bootstrap-confidence-intervals
 inference-with-categorical-data
 simple-proportions
 comparing-proportions
 contingency-tables
-exercises-7
+exercises-6
 opinion-polls
 respiratory-disease-in-infancy
 smoking-and-lung-cancer
@@ -120,7 +120,7 @@ simple-seasonal-terms
 general-thoughts-on-models
 what-are-models-for
 model-selection
-exercises-8
+exercises-7
 giving-in-the-church-of-england
 black-cherry-trees
 cats
@@ -138,7 +138,7 @@ general-glms
 further-examples
 two-covariates-vasoconstriction-of-the-digits
 doctors-and-smoking
-exercises-9
+exercises-8
 bissell-data
 vasoconstriction-data
 the-framingham-heart-study
@@ -167,7 +167,7 @@ inference-with-simple-flexible-models
 a-simple-additive-model
 inference-with-additive-models
 further-reading-6
-exercises-10
+exercises-9
 fitting-a-p-spline-model
 the-backfitting-algorithm
 water-quality-in-the-clyde-estuary
@@ -176,7 +176,7 @@ time-series-data
 visualisation
 models
 further-reading-7
-exercises-11
+exercises-10
 simulating-time-series
 models-for-space
 visualising-spatial-data
@@ -209,7 +209,7 @@ record-covariates
 replicate
 randomise
 replication-and-pseudo-replication
-exercises-12
+exercises-11
 student-cost-of-living
 us-presidential-election-1936
 the-parable-of-the-sower
@@ -225,7 +225,7 @@ the-apply-family
 writing-your-own-functions
 conditional-statements-and-while-loops
 further-reading-9
-exercises-13
+exercises-12
 a-simple-function
 a-simple-function-thresholds
 improving-the-sim.max-function
