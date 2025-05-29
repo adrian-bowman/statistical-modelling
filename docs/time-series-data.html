@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -552,21 +547,21 @@ div.csl-indent {
 <p>At 1345m above sea level, Ben Nevis is the highest mountain in the UK and the weather at the summit can be very severe. In the 19th century, a remarkable effort was made to document conditions at the summit. Following a public appeal, an observatory was set up on the summit to allow a small group of meteorologists to make recordings. This was done hourly from 1883 to 1904, producing one of the most remarkable weather datasets from the Victorian era. <span class="citation">Hawkins et al. (<a href="#ref-hawkins_2019_geoscience">2019</a>)</span> describe a recent citizen science project which has made the data available in digital form. The data are available from the <a href="https://archive.ceda.ac.uk">CEDA Archive</a> which contains a very large collection of environmental data from atmospheric and earth observation research.</p>
 </blockquote>
 <hr />
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="time-series-data.html#cb259-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;Ben_Nevis&quot;</span>)</span>
-<span id="cb259-2"><a href="time-series-data.html#cb259-2" tabindex="-1"></a>Ben_Nevis <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path) <span class="sc">%&gt;%</span></span>
-<span id="cb259-3"><a href="time-series-data.html#cb259-3" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">Tmin =</span> <span class="dv">5</span>, <span class="at">Tmax =</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb259-4"><a href="time-series-data.html#cb259-4" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">paste</span>(Year, Month, Day), <span class="at">format =</span> <span class="st">&quot;%Y %m %d&quot;</span>),</span>
-<span id="cb259-5"><a href="time-series-data.html#cb259-5" tabindex="-1"></a>          <span class="at">yday =</span> <span class="fu">yday</span>(Date),</span>
-<span id="cb259-6"><a href="time-series-data.html#cb259-6" tabindex="-1"></a>          <span class="at">year =</span> <span class="fu">decimal_date</span>(Date))</span>
-<span id="cb259-7"><a href="time-series-data.html#cb259-7" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmax)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span>
-<span id="cb259-8"><a href="time-series-data.html#cb259-8" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmin)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="time-series-data.html#cb260-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;Ben_Nevis&quot;</span>)</span>
+<span id="cb260-2"><a href="time-series-data.html#cb260-2" tabindex="-1"></a>Ben_Nevis <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path) <span class="sc">%&gt;%</span></span>
+<span id="cb260-3"><a href="time-series-data.html#cb260-3" tabindex="-1"></a>   <span class="fu">rename</span>(<span class="at">Tmin =</span> <span class="dv">5</span>, <span class="at">Tmax =</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb260-4"><a href="time-series-data.html#cb260-4" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">Date =</span> <span class="fu">as.Date</span>(<span class="fu">paste</span>(Year, Month, Day), <span class="at">format =</span> <span class="st">&quot;%Y %m %d&quot;</span>),</span>
+<span id="cb260-5"><a href="time-series-data.html#cb260-5" tabindex="-1"></a>          <span class="at">yday =</span> <span class="fu">yday</span>(Date),</span>
+<span id="cb260-6"><a href="time-series-data.html#cb260-6" tabindex="-1"></a>          <span class="at">year =</span> <span class="fu">decimal_date</span>(Date))</span>
+<span id="cb260-7"><a href="time-series-data.html#cb260-7" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmax)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb260-8"><a href="time-series-data.html#cb260-8" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmin)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/ben_nevis-1.png" width="49%" /><img src="book_files/figure-html/ben_nevis-2.png" width="49%" /></p>
 <p>In time series data, we are often interested in whether there is trend or seasonal effects and what these look like. We may also be interested in the influence of covariates. These may apply to the whole time series, such as characteristics of the location at which different time series are recorded, or they may themselves be time series running in parallel.</p>
 <p>Here it is clear that there is a strong seasonal effect. How should we model this as its shape is clearly non-linear? We might use a trigonometric expression in the day of the year (<code>yday</code>) such as <span class="math inline">\(\beta cos(2 \pi (yday - \nu) / 366)\)</span>, where the parameter <span class="math inline">\(\nu\)</span> corresponds to the day of the year at which the temperature is largest and <span class="math inline">\(\beta\)</span> fixes the amplitude of tbe seasonal effect. In fact, if we expand the expression by trigonometric identities then it turns out that this can be expressed as <span class="math inline">\(\beta_s sin(2 \pi \, yday / 366) + \beta_s cos(2 \pi \, yday / 366)\)</span>. This expression is linear in the parameters <span class="math inline">\(\beta_s\)</span> and <span class="math inline">\(\beta_c\)</span>, using the new variables <span class="math inline">\(cos(2 \pi \, yday / 366)\)</span> and <span class="math inline">\(sin(2 \pi \, yday / 366)\)</span>. This is a very convenient device for fitting a simple form of seasonal effect. The plot below sugests that we have made a start but that a more complex description of the seasonal effect may be needed. This could be pursued by employing sin and cos functions of higher frequency, but a different appraoch will be described later in this chapter.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="time-series-data.html#cb260-1" tabindex="-1"></a>Ben_Nevis<span class="sc">$</span>cs   <span class="ot">&lt;-</span> <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> Ben_Nevis<span class="sc">$</span>yday <span class="sc">/</span> <span class="dv">366</span>)</span>
-<span id="cb260-2"><a href="time-series-data.html#cb260-2" tabindex="-1"></a>Ben_Nevis<span class="sc">$</span>sn   <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> Ben_Nevis<span class="sc">$</span>yday <span class="sc">/</span> <span class="dv">366</span>)</span>
-<span id="cb260-3"><a href="time-series-data.html#cb260-3" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tmax <span class="sc">~</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis)</span>
-<span id="cb260-4"><a href="time-series-data.html#cb260-4" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="time-series-data.html#cb261-1" tabindex="-1"></a>Ben_Nevis<span class="sc">$</span>cs   <span class="ot">&lt;-</span> <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> Ben_Nevis<span class="sc">$</span>yday <span class="sc">/</span> <span class="dv">366</span>)</span>
+<span id="cb261-2"><a href="time-series-data.html#cb261-2" tabindex="-1"></a>Ben_Nevis<span class="sc">$</span>sn   <span class="ot">&lt;-</span> <span class="fu">sin</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> Ben_Nevis<span class="sc">$</span>yday <span class="sc">/</span> <span class="dv">366</span>)</span>
+<span id="cb261-3"><a href="time-series-data.html#cb261-3" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Tmax <span class="sc">~</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis)</span>
+<span id="cb261-4"><a href="time-series-data.html#cb261-4" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Tmax ~ cs + sn, data = Ben_Nevis)
@@ -586,27 +581,27 @@ div.csl-indent {
 ## Residual standard error: 3.565 on 7606 degrees of freedom
 ## Multiple R-squared:  0.5159, Adjusted R-squared:  0.5158 
 ## F-statistic:  4053 on 2 and 7606 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="time-series-data.html#cb262-1" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmax)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb262-2"><a href="time-series-data.html#cb262-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
-<span id="cb262-3"><a href="time-series-data.html#cb262-3" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, <span class="fu">residuals</span>(model))) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="time-series-data.html#cb263-1" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, Tmax)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb263-2"><a href="time-series-data.html#cb263-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb263-3"><a href="time-series-data.html#cb263-3" tabindex="-1"></a><span class="fu">ggplot</span>(Ben_Nevis, <span class="fu">aes</span>(Date, <span class="fu">residuals</span>(model))) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="book_files/figure-html/Ben-Nevis-seasonal-1.png" width="49%" /><img src="book_files/figure-html/Ben-Nevis-seasonal-2.png" width="49%" /></p>
 <p>A statistical feature which makes time series distinctive is that there is often <em>autocorrelation</em>, meaning that the variation or random component of successive points tend to be linked to the variation at adjacent points. The autocorrelation and partial autocorrelation function, displayed below, quantify this, with horizontal dashed lines to indicate the likely range of variation when the true correlations are zero. The partial autocorrelation function is more useful as it fits simple <em>autoregressive</em> models of different order and in this case there seems to be a strong indication that a model of prder 1 is needed.</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="time-series-data.html#cb263-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">residuals</span>(model))</span>
-<span id="cb263-2"><a href="time-series-data.html#cb263-2" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="time-series-data.html#cb264-1" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">residuals</span>(model))</span>
+<span id="cb264-2"><a href="time-series-data.html#cb264-2" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">residuals</span>(model))</span></code></pre></div>
 <p><img src="book_files/figure-html/acf_Ben_Nevis-1.png" width="49%" /><img src="book_files/figure-html/acf_Ben_Nevis-2.png" width="49%" /></p>
 <p>The <code>nlme</code> package offers an alternative set of tools for constructing mixed model and for dealing with different forms of variation more generally. The <code>gls</code> function allows correlation to be accommodated. Notice that the standard errors for the model terms are larger than in the earlier model. This reflects the fact that the presence of correlation reduced the information available in the observations.</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="time-series-data.html#cb264-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
-<span id="cb264-2"><a href="time-series-data.html#cb264-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gls</span>(Tmax <span class="sc">~</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis, <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
-<span id="cb264-3"><a href="time-series-data.html#cb264-3" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>tTable</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="time-series-data.html#cb265-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb265-2"><a href="time-series-data.html#cb265-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gls</span>(Tmax <span class="sc">~</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis, <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
+<span id="cb265-3"><a href="time-series-data.html#cb265-3" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>tTable</span></code></pre></div>
 <pre><code>##                 Value Std.Error   t-value       p-value
 ## (Intercept)  1.607650 0.1057893  15.19672  2.103882e-51
 ## cs          -4.598474 0.1492943 -30.80140 1.977174e-196
 ## sn          -2.406502 0.1494328 -16.10424  2.104183e-57</code></pre>
 <p>We have assumed that there is no long term trend in the series. This can be chacked by adding a term for year, on a continuous scale. The result does not provide convincing evidence that we need this, so we might revert to the model which has a seasonal effect, with correlated errors. The plot of the fitted values is indistinguishable from the plot of the model without correlation.</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="time-series-data.html#cb266-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
-<span id="cb266-2"><a href="time-series-data.html#cb266-2" tabindex="-1"></a>model_trend <span class="ot">&lt;-</span> <span class="fu">gls</span>(Tmax <span class="sc">~</span> year <span class="sc">+</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis,</span>
-<span id="cb266-3"><a href="time-series-data.html#cb266-3" tabindex="-1"></a>             <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
-<span id="cb266-4"><a href="time-series-data.html#cb266-4" tabindex="-1"></a><span class="fu">summary</span>(model_trend)<span class="sc">$</span>tTable</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="time-series-data.html#cb267-1" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb267-2"><a href="time-series-data.html#cb267-2" tabindex="-1"></a>model_trend <span class="ot">&lt;-</span> <span class="fu">gls</span>(Tmax <span class="sc">~</span> year <span class="sc">+</span> cs <span class="sc">+</span> sn, <span class="at">data =</span> Ben_Nevis,</span>
+<span id="cb267-3"><a href="time-series-data.html#cb267-3" tabindex="-1"></a>             <span class="at">correlation =</span> <span class="fu">corAR1</span>())</span>
+<span id="cb267-4"><a href="time-series-data.html#cb267-4" tabindex="-1"></a><span class="fu">summary</span>(model_trend)<span class="sc">$</span>tTable</span></code></pre></div>
 <pre><code>##                    Value  Std.Error    t-value       p-value
 ## (Intercept) -61.66373513 33.2285989  -1.855743  6.352888e-02
 ## year          0.03340042  0.0175410   1.904134  5.693044e-02
@@ -650,42 +645,42 @@ Hawkins, Ed, Stephen Burt, Philip Brohan, Michael Lockwood, Harriett Richardson,
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -550,25 +545,25 @@ div.csl-indent {
 <p>The first makes some progress by computing appropriate ‘degrees of freedom’ when comparing models. The <em>Kenward-Rogers</em> approach is popular. However, there may still remain underlying issues that the assumed distribution of the model comparison test statistic is not correct.</p>
 <p>A second, very general, approach is to employ the <em>bootstrap</em>. If we repeatedly simulate new data from a fitted model, for each new dataset we can compute the model comparison statistic ((log-)likelihood ratio) for a more complex model. This builds up a picture of the distribution of our model comparison statistic when the simpler model is correct. This provides a reference distribution against which we can compare the value of the model comparison statistic on the original data.</p>
 <p>The <code>PBmodcomp</code> function from the <code>pbkrtest</code> package can help us with this. Recall that REML should not be used when models with different fixed effects are to be compared, so the function will refit the model using ML if necessary.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="inference-with-mixed-models.html#cb199-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
-<span id="cb199-2"><a href="inference-with-mixed-models.html#cb199-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
-<span id="cb199-3"><a href="inference-with-mixed-models.html#cb199-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
-<pre><code>## Bootstrap test; time: 12.54 sec; samples: 1000; extremes: 352;
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="inference-with-mixed-models.html#cb200-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
+<span id="cb200-2"><a href="inference-with-mixed-models.html#cb200-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
+<span id="cb200-3"><a href="inference-with-mixed-models.html#cb200-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
+<pre><code>## Bootstrap test; time: 12.99 sec; samples: 1000; extremes: 352;
 ## large : yield ~ treat + (1 | blend)
 ## yield ~ (1 | blend)
 ##          stat df p.value
 ## LRT    4.0474  3  0.2564
 ## PBtest 4.0474     0.3526</code></pre>
 <p>We can look at a slightly lower level of detail by displaying the simulated test statistics and comparing these with the one observed on our original data. Conveniently, the observed test statistic is available as one of the <em>attributes</em> of the simulations returned by <code>PBrefdist</code>. The attributes of <code>refdist</code> can be removed by applying the <code>c</code> function, before passing the vector to <code>ggplot</code>.</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="inference-with-mixed-models.html#cb201-1" tabindex="-1"></a>refdist <span class="ot">&lt;-</span> <span class="fu">PBrefdist</span>(model_tr, model_r)</span>
-<span id="cb201-2"><a href="inference-with-mixed-models.html#cb201-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
-<span id="cb201-3"><a href="inference-with-mixed-models.html#cb201-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
-<span id="cb201-4"><a href="inference-with-mixed-models.html#cb201-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-822-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="inference-with-mixed-models.html#cb202-1" tabindex="-1"></a>refdist <span class="ot">&lt;-</span> <span class="fu">PBrefdist</span>(model_tr, model_r)</span>
+<span id="cb202-2"><a href="inference-with-mixed-models.html#cb202-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
+<span id="cb202-3"><a href="inference-with-mixed-models.html#cb202-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
+<span id="cb202-4"><a href="inference-with-mixed-models.html#cb202-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-826-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <!-- @halekoh_2014_jstatsoft -->
 <p>Halekoh et a. (2014) provide a <a href="https://www.jstatsoft.org/index.php/jss/article/view/v059i09/771">systematic description</a> of the <code>pbkrtest</code> package, and examples of its use.</p>
 <p>With a little more work, we can produce estimates of the individual random effects.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="inference-with-mixed-models.html#cb202-1" tabindex="-1"></a><span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="inference-with-mixed-models.html#cb203-1" tabindex="-1"></a><span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend</span></code></pre></div>
 <pre><code>##        (Intercept)
 ## Blend1   4.2878788
 ## Blend2  -2.1439394
@@ -576,11 +571,11 @@ div.csl-indent {
 ## Blend4   1.4292929
 ## Blend5  -2.8585859</code></pre>
 <p>How do these compare with the estimates of the blend effects in our earlier simple randomised blocks model? As the result of <code>ranef</code> is a dataframe, and the estimated effects are mean centred, we will first produce differences from Blend 1.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="inference-with-mixed-models.html#cb204-1" tabindex="-1"></a>reff <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend[ , <span class="dv">1</span>]</span>
-<span id="cb204-2"><a href="inference-with-mixed-models.html#cb204-2" tabindex="-1"></a>reff <span class="ot">&lt;-</span> reff <span class="sc">-</span> reff[<span class="dv">1</span>]</span>
-<span id="cb204-3"><a href="inference-with-mixed-models.html#cb204-3" tabindex="-1"></a>reff[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="inference-with-mixed-models.html#cb205-1" tabindex="-1"></a>reff <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend[ , <span class="dv">1</span>]</span>
+<span id="cb205-2"><a href="inference-with-mixed-models.html#cb205-2" tabindex="-1"></a>reff <span class="ot">&lt;-</span> reff <span class="sc">-</span> reff[<span class="dv">1</span>]</span>
+<span id="cb205-3"><a href="inference-with-mixed-models.html#cb205-3" tabindex="-1"></a>reff[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] -6.431818 -5.002525 -2.858586 -7.146465</code></pre>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="inference-with-mixed-models.html#cb206-1" tabindex="-1"></a><span class="fu">coefficients</span>(model_tb)[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="inference-with-mixed-models.html#cb207-1" tabindex="-1"></a><span class="fu">coefficients</span>(model_tb)[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## blendBlend2 blendBlend3 blendBlend4 blendBlend5 
 ##          -9          -7          -4         -10</code></pre>
 <p>Notice that the random effects model estimates the sizes of the random effects to be smaller. This effect is known as <em>shrinkage</em>. It is linked to the joint estimation of the random effects through a common distribution.</p>
@@ -605,42 +600,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

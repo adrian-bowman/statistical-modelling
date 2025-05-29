@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -555,12 +550,12 @@ div.csl-indent {
 <div id="model-selection" class="section level3 hasAnchor" number="9.10.2">
 <h3><span class="header-section-number">9.10.2</span> Model selection<a href="general-thoughts-on-models.html#model-selection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose we have a model which aims to relate a response variable to m potential covariates. Suppose m = 100. Even if none of these covariates have any association with the response, it is likely that some will show up as ‘significant’.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="general-thoughts-on-models.html#cb164-1" tabindex="-1"></a>m   <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb164-2"><a href="general-thoughts-on-models.html#cb164-2" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
-<span id="cb164-3"><a href="general-thoughts-on-models.html#cb164-3" tabindex="-1"></a>X   <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(m <span class="sc">*</span> <span class="dv">1000</span>), <span class="at">ncol =</span> m)</span>
-<span id="cb164-4"><a href="general-thoughts-on-models.html#cb164-4" tabindex="-1"></a>mdl <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> X)</span>
-<span id="cb164-5"><a href="general-thoughts-on-models.html#cb164-5" tabindex="-1"></a>p   <span class="ot">&lt;-</span> <span class="fu">summary</span>(mdl)<span class="sc">$</span>coefficients[ , <span class="dv">4</span>]</span>
-<span id="cb164-6"><a href="general-thoughts-on-models.html#cb164-6" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(p <span class="sc">&lt;</span> <span class="fl">0.05</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="general-thoughts-on-models.html#cb165-1" tabindex="-1"></a>m   <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb165-2"><a href="general-thoughts-on-models.html#cb165-2" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb165-3"><a href="general-thoughts-on-models.html#cb165-3" tabindex="-1"></a>X   <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(m <span class="sc">*</span> <span class="dv">1000</span>), <span class="at">ncol =</span> m)</span>
+<span id="cb165-4"><a href="general-thoughts-on-models.html#cb165-4" tabindex="-1"></a>mdl <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> X)</span>
+<span id="cb165-5"><a href="general-thoughts-on-models.html#cb165-5" tabindex="-1"></a>p   <span class="ot">&lt;-</span> <span class="fu">summary</span>(mdl)<span class="sc">$</span>coefficients[ , <span class="dv">4</span>]</span>
+<span id="cb165-6"><a href="general-thoughts-on-models.html#cb165-6" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(p <span class="sc">&lt;</span> <span class="fl">0.05</span>))</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <p>We can adjust the threshold for p-values to be ‘significant’.</p>
 <p><strong>Bonferroni</strong>: 0.05 -&gt; 0.05 / m</p>
@@ -620,42 +615,42 @@ Hand, David. 2019. <span>“What Is the Purpose of Statistical Modelling.”</sp
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

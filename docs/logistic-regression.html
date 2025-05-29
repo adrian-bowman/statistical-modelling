@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -553,16 +548,16 @@ Flour beetles (<em>Tribolium confusum</em>) are common pests which can infest st
 <hr />
 </blockquote>
 <p>A plot of the flour beetle dataset is shown below. (These data were used in an earlier exercise in visualisation.) The use of <code>scales = 'free_x'</code> in <code>facet_wrap</code> allows the x-axis of each facet to adapt to the range of concentrations used in each particular toxin.</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="logistic-regression.html#cb166-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
-<span id="cb166-2"><a href="logistic-regression.html#cb166-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb166-3"><a href="logistic-regression.html#cb166-3" tabindex="-1"></a>flour_beetles <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flour_beetles, <span class="at">Proportion_killed =</span> Dead <span class="sc">/</span> (Living <span class="sc">+</span> Dead))</span>
-<span id="cb166-4"><a href="logistic-regression.html#cb166-4" tabindex="-1"></a><span class="fu">ggplot</span>(flour_beetles, <span class="fu">aes</span>(Concentration, Proportion_killed, <span class="at">col =</span> Replicate)) <span class="sc">+</span></span>
-<span id="cb166-5"><a href="logistic-regression.html#cb166-5" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb166-6"><a href="logistic-regression.html#cb166-6" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Toxin), <span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="logistic-regression.html#cb167-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
+<span id="cb167-2"><a href="logistic-regression.html#cb167-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb167-3"><a href="logistic-regression.html#cb167-3" tabindex="-1"></a>flour_beetles <span class="ot">&lt;-</span> <span class="fu">mutate</span>(flour_beetles, <span class="at">Proportion_killed =</span> Dead <span class="sc">/</span> (Living <span class="sc">+</span> Dead))</span>
+<span id="cb167-4"><a href="logistic-regression.html#cb167-4" tabindex="-1"></a><span class="fu">ggplot</span>(flour_beetles, <span class="fu">aes</span>(Concentration, Proportion_killed, <span class="at">col =</span> Replicate)) <span class="sc">+</span></span>
+<span id="cb167-5"><a href="logistic-regression.html#cb167-5" tabindex="-1"></a>   <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb167-6"><a href="logistic-regression.html#cb167-6" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Toxin), <span class="at">scales =</span> <span class="st">&quot;free_x&quot;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/flour_beetles_logistic-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>What model should we adopt to assist in the estimation of LD50 values? We will consider the case of <em>ethylene dichloride</em>, where there is a single replicate, to help in thinking this through. The plot below might suggest a simple linear model but would be uncomfortable for a variety of reasons. These include the fact that proportions must lie between 0 and 1, a constraint which a linear model would not respect. In addition, we know that each observed proportion arises from the number of ‘successes’ (deaths) in each group of beetles and so this has a binomial distribution, not a normal distribution.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="logistic-regression.html#cb167-1" tabindex="-1"></a>ethylene <span class="ot">&lt;-</span> <span class="fu">filter</span>(flour_beetles, Toxin <span class="sc">==</span> <span class="st">&#39;Ethylene_dichloride&#39;</span>)</span>
-<span id="cb167-2"><a href="logistic-regression.html#cb167-2" tabindex="-1"></a><span class="fu">ggplot</span>(ethylene, <span class="fu">aes</span>(Concentration, Proportion_killed)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="logistic-regression.html#cb168-1" tabindex="-1"></a>ethylene <span class="ot">&lt;-</span> <span class="fu">filter</span>(flour_beetles, Toxin <span class="sc">==</span> <span class="st">&#39;Ethylene_dichloride&#39;</span>)</span>
+<span id="cb168-2"><a href="logistic-regression.html#cb168-2" tabindex="-1"></a><span class="fu">ggplot</span>(ethylene, <span class="fu">aes</span>(Concentration, Proportion_killed)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="book_files/figure-html/ethylene-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Because the response variable is a proportion, it is necessary to define a model which keeps the true proportion within the range <span class="math inline">\([0,1]\)</span>. One approach is to consider that each beetle has its own tolerance to the toxin, with death occurring when that tolerance is passed. If the distribution of tolerances across the beetle population has a normal distribution then the increase in proportion killed as dosage rises can be given a specific shape, know as the <em>probit</em> curve. As this is not a particularly convenient object to work with, the <em>logistic</em> curve has become the standard shape for the dose/proportion relationship. The formula for this curve is:
 <span class="math display">\[
@@ -575,20 +570,20 @@ where <span class="math inline">\(x\)</span> denotes concentration and <span cla
 \]</span>
 This emphasises that the ‘engine’ of the model is a linear expression, referred to as the <em>linear predictor</em>, but that the effect of this has been transformed to match the [0, 1] proportion scale inherent in the observed data. As a result of the logit transformation, this model is referred to as a <em>logistic regression</em>.</p>
 <p>The <code>rp.logistic</code> function in the <code>rpanel</code> package allows an interactive exploration of the logistic curve and how its shape changed with the parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. This can be launched with the <code>ethylene</code> data as shown below. (Notice the use of <code>with</code> as a convenient wrapper so that we can refer directly to the names of variables inside the <code>ethylene</code> dataframe.) You may like to experiment with this.</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="logistic-regression.html#cb168-1" tabindex="-1"></a><span class="fu">with</span>(ethylene, <span class="fu">rp.logistic</span>(Concentration, <span class="fu">cbind</span>(Dead, Living))</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="logistic-regression.html#cb169-1" tabindex="-1"></a><span class="fu">with</span>(ethylene, <span class="fu">rp.logistic</span>(Concentration, <span class="fu">cbind</span>(Dead, Living))</span></code></pre></div>
 <p>How should we fit this model to the observed data? The idea of finding the parameter values which place the model as close as possible to the observed data is an appealing one but it is not so obvious that the linear model approach of minimising a sum-of-squares is a suitable strategy in this binomial context. The very powerful concept of <em>likelihood</em> will be introduced in the next section. For the moment we can implement the model in practice in R through the <code>glm</code> function, whose name is an acronym of <em>generalised linear models</em> and which uses likelhood to fit the model to the data. Notice that the response variable is defined here as a two-column matrix, created using <code>cbind</code>, which gives both the number of <code>Dead</code> and <code>Living</code>. Both are needed to give a full description of the data. The <code>family</code> argument also specifies that the response variable has a binomial distribution.</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="logistic-regression.html#cb169-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(Dead, Living) <span class="sc">~</span> Concentration, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="at">data =</span> ethylene)</span>
-<span id="cb169-2"><a href="logistic-regression.html#cb169-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="logistic-regression.html#cb170-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">cbind</span>(Dead, Living) <span class="sc">~</span> Concentration, <span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>, <span class="at">data =</span> ethylene)</span>
+<span id="cb170-2"><a href="logistic-regression.html#cb170-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                  Estimate Std. Error   z value     Pr(&gt;|z|)
 ## (Intercept)   -12.0982883 1.43633497 -8.423027 3.668796e-17
 ## Concentration   0.3547108 0.04084555  8.684196 3.814301e-18</code></pre>
 <p>The fitted curve can now be superimposed on the plot of the data. The code below uses the <code>predict</code> function, with a new set of <code>Concentration</code> values along a regular grid, to calculate values along the fitted curve. This uses <code>type = "response"</code> to ensure that these predicted values sit on the proportion scale and not on the linear predictor scale. As the plot contains both data points and predicted values, which are of different lengths, the <code>aes</code> and <code>data</code> information is not passed to <code>ggplot</code> as global definitions but is instead passed separately to the different geometries as required.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="logistic-regression.html#cb171-1" tabindex="-1"></a>rng   <span class="ot">&lt;-</span> <span class="fu">range</span>(ethylene<span class="sc">$</span>Concentration)</span>
-<span id="cb171-2"><a href="logistic-regression.html#cb171-2" tabindex="-1"></a>xgrid <span class="ot">&lt;-</span> <span class="fu">seq</span>(rng[<span class="dv">1</span>], rng[<span class="dv">2</span>], <span class="at">length =</span> <span class="dv">50</span>)</span>
-<span id="cb171-3"><a href="logistic-regression.html#cb171-3" tabindex="-1"></a>pgrid <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Concentration =</span> xgrid), <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb171-4"><a href="logistic-regression.html#cb171-4" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(Concentration, Proportion_killed), <span class="at">data =</span> ethylene) <span class="sc">+</span></span>
-<span id="cb171-5"><a href="logistic-regression.html#cb171-5" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(xgrid, pgrid, <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-757-1.png" width="50%" /><img src="book_files/figure-html/unnamed-chunk-757-2.png" width="50%" /></p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="logistic-regression.html#cb172-1" tabindex="-1"></a>rng   <span class="ot">&lt;-</span> <span class="fu">range</span>(ethylene<span class="sc">$</span>Concentration)</span>
+<span id="cb172-2"><a href="logistic-regression.html#cb172-2" tabindex="-1"></a>xgrid <span class="ot">&lt;-</span> <span class="fu">seq</span>(rng[<span class="dv">1</span>], rng[<span class="dv">2</span>], <span class="at">length =</span> <span class="dv">50</span>)</span>
+<span id="cb172-3"><a href="logistic-regression.html#cb172-3" tabindex="-1"></a>pgrid <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Concentration =</span> xgrid), <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb172-4"><a href="logistic-regression.html#cb172-4" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(Concentration, Proportion_killed), <span class="at">data =</span> ethylene) <span class="sc">+</span></span>
+<span id="cb172-5"><a href="logistic-regression.html#cb172-5" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(xgrid, pgrid, <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-761-1.png" width="50%" /><img src="book_files/figure-html/unnamed-chunk-761-2.png" width="50%" /></p>
 <p>The right hand plot above uses some additional code (not shown) to locate the estimated LD50 as the concentration value at which the fitted logistic curve reaches 0.5.</p>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -617,42 +612,42 @@ Strand, August Leroy. 1930. <span>“Measuring the Toxicity of Insect Fumigants.
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

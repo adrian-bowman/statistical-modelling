@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -565,12 +560,12 @@ div.csl-indent {
 <li>A well chosen graph can also be the best way to communicate our results and conclusions.</li>
 </ul>
 <p>A map is a very sophisticated graphical device. We have simply become used to seeing and interpreting them. The code below uses the <code>leaflet</code> package to create an interactive map. (You will also need to issue the <code>library(tidyverse)</code> instruction, if you have not already done that in the current session, in order to use the ‘pipes’.) There are multiple layers of information here, with points, symbols, text, lines, filled areas, colours and other features. That helpfully prepares the ground for the system to be introduced in the next section.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="thousand-words.html#cb48-1" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb48-2"><a href="thousand-words.html#cb48-2" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb48-3"><a href="thousand-words.html#cb48-3" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb48-4"><a href="thousand-words.html#cb48-4" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">4.29</span>, <span class="at">lat =</span> <span class="fl">55.872</span>, <span class="at">popup =</span> <span class="st">&quot;The University of Glasgow&quot;</span>)</span></code></pre></div>
-<div class="leaflet html-widget html-fill-item" id="htmlwidget-3f079baa89f746d5e316" style="width:70%;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-3f079baa89f746d5e316">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[55.872,-4.29,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The University of Glasgow",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[55.872,55.872],"lng":[-4.29,-4.29]}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="thousand-words.html#cb49-1" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb49-2"><a href="thousand-words.html#cb49-2" tabindex="-1"></a><span class="fu">leaflet</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="thousand-words.html#cb49-3" tabindex="-1"></a>  <span class="fu">addTiles</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="thousand-words.html#cb49-4" tabindex="-1"></a>  <span class="fu">addMarkers</span>(<span class="at">lng =</span> <span class="sc">-</span><span class="fl">4.29</span>, <span class="at">lat =</span> <span class="fl">55.872</span>, <span class="at">popup =</span> <span class="st">&quot;The University of Glasgow&quot;</span>)</span></code></pre></div>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-7151aa60912aa4053d85" style="width:70%;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-7151aa60912aa4053d85">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org/copyright/\">OpenStreetMap<\/a>,  <a href=\"https://opendatacommons.org/licenses/odbl/\">ODbL<\/a>"}]},{"method":"addMarkers","args":[55.872,-4.29,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"The University of Glasgow",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[55.872,55.872],"lng":[-4.29,-4.29]}},"evals":[],"jsHooks":[]}</script>
 <!-- ## A simple example: world health -->
 <!-- ```{r child = 'chapters/data_visualisation/gapminder.Rmd'} -->
 <!-- ``` -->
@@ -595,42 +590,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

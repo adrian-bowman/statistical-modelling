@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -549,13 +544,13 @@ div.csl-indent {
 <p>Before starting serious analysis of any dataset, it is helpful to ‘screen’ the data by checking some basic features. For example, we might check the scales of measurement used, view the broad patterns of variation exhibited by individual variables, look out for unusual observations and so on. This is a kind of ‘sanity check’ which can highlight issues we may need to consider.</p>
 <p>As an example, we will use data on herring gulls, as discussed in Section <a href="examples-data.html#examples-data">1.1</a>. (If you haven’t yet tried the data collection activity there, do go back and have a go.) Several measurements are available on each gull and the aim is to investigate whether these measurements can be used to classify birds as male or femal, as sex cannot easily be determined by inspection of the bird’s anatomy.</p>
 <p>The dataset is hidden in the <code>rpanel</code> package, but we can retrieve it through the <code>system.file</code> command. Note the use of the <code>stringsAsFactors</code> argument of <code>read.table</code> which will ensure that any character variables are interpreted as factors. To improve the layout of results, a rather long variable name has also been slightly shortened.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="gaining-an-overview-of-datasets.html#cb68-1" tabindex="-1"></a>path  <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/gulls.txt&quot;</span>, <span class="at">package =</span> <span class="st">&quot;rpanel&quot;</span>)</span>
-<span id="cb68-2"><a href="gaining-an-overview-of-datasets.html#cb68-2" tabindex="-1"></a>gulls <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb68-3"><a href="gaining-an-overview-of-datasets.html#cb68-3" tabindex="-1"></a></span>
-<span id="cb68-4"><a href="gaining-an-overview-of-datasets.html#cb68-4" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb68-5"><a href="gaining-an-overview-of-datasets.html#cb68-5" tabindex="-1"></a>gulls <span class="ot">&lt;-</span> <span class="fu">rename</span>(gulls, <span class="at">Head.Length =</span> Head.and.Bill.Length)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="gaining-an-overview-of-datasets.html#cb69-1" tabindex="-1"></a>path  <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata/gulls.txt&quot;</span>, <span class="at">package =</span> <span class="st">&quot;rpanel&quot;</span>)</span>
+<span id="cb69-2"><a href="gaining-an-overview-of-datasets.html#cb69-2" tabindex="-1"></a>gulls <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb69-3"><a href="gaining-an-overview-of-datasets.html#cb69-3" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="gaining-an-overview-of-datasets.html#cb69-4" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb69-5"><a href="gaining-an-overview-of-datasets.html#cb69-5" tabindex="-1"></a>gulls <span class="ot">&lt;-</span> <span class="fu">rename</span>(gulls, <span class="at">Head.Length =</span> Head.and.Bill.Length)</span></code></pre></div>
 <p>How should we inspect this dataset? A first step might be to produce helpful summaries of each individual variable. The function <code>summary</code> is very useful as it adapts its output to the type of object it is passed, in this case a dataframe.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="gaining-an-overview-of-datasets.html#cb69-1" tabindex="-1"></a><span class="fu">summary</span>(gulls)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="gaining-an-overview-of-datasets.html#cb70-1" tabindex="-1"></a><span class="fu">summary</span>(gulls)</span></code></pre></div>
 <pre><code>##      Weight        Wing.Length      Bill.Depth     Head.Length        Sex     
 ##  Min.   : 705.0   Min.   :395.0   Min.   :15.70   Min.   :103.0   Female:210  
 ##  1st Qu.: 860.0   1st Qu.:408.0   1st Qu.:17.50   1st Qu.:115.0   Male  :153  
@@ -564,8 +559,8 @@ div.csl-indent {
 ##  3rd Qu.:1042.5   3rd Qu.:429.0   3rd Qu.:19.30   3rd Qu.:125.0               
 ##  Max.   :1250.0   Max.   :457.0   Max.   :22.50   Max.   :136.0</code></pre>
 <p>This provides a useful description of each variable, with quantiles for those on continuous scales and tabulations for factors. An alternative is the <code>skim</code> function from the <code>skimr</code> package which gives a little more information, provides some flexibility and fits neatly with the <code>tidyverse</code>. Here we improve the layout by omitting the <code>complete_rate</code>, as there are no missing data. The small histograms provide a neat graphical summary of the shape of the variability in each variable.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="gaining-an-overview-of-datasets.html#cb71-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
-<span id="cb71-2"><a href="gaining-an-overview-of-datasets.html#cb71-2" tabindex="-1"></a><span class="fu">skim</span>(gulls) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>complete_rate)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="gaining-an-overview-of-datasets.html#cb72-1" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb72-2"><a href="gaining-an-overview-of-datasets.html#cb72-2" tabindex="-1"></a><span class="fu">skim</span>(gulls) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>complete_rate)</span></code></pre></div>
 <pre><code>## ── Data Summary ────────────────────────
 ##                            Values
 ## Name                       gulls 
@@ -589,10 +584,10 @@ div.csl-indent {
 ## 3 Bill.Depth            0  18.4   1.19  15.7  17.5  18.2   19.3   22.5 ▂▇▆▂▁
 ## 4 Head.Length           0 120.    6.50 103   115   119    125    136   ▁▇▅▆▁</code></pre>
 <p>Even at this stage, we should be guided by the aim of the analysis, which in this case is to assess the possibility of identifying the sex of a bird from its measurements. We could adapt the call to <code>skim</code> by inserting the <code>dplyr</code> function <code>group_by(Sex)</code> before it in a pipeline to create separate summaries for males and females. However, we are also interested in maximising the use of graphical exploration. Boxplots for each variable, separated by <code>Sex</code>, provide a good overall visual summary.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="gaining-an-overview-of-datasets.html#cb73-1" tabindex="-1"></a>gulls <span class="sc">%&gt;%</span></span>
-<span id="cb73-2"><a href="gaining-an-overview-of-datasets.html#cb73-2" tabindex="-1"></a>   <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>Sex, <span class="at">names_to =</span> <span class="st">&quot;variable&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb73-3"><a href="gaining-an-overview-of-datasets.html#cb73-3" tabindex="-1"></a>   <span class="fu">ggplot</span>(<span class="fu">aes</span>(value, Sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb73-4"><a href="gaining-an-overview-of-datasets.html#cb73-4" tabindex="-1"></a>      <span class="fu">facet_grid</span>(. <span class="sc">~</span> variable, <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="gaining-an-overview-of-datasets.html#cb74-1" tabindex="-1"></a>gulls <span class="sc">%&gt;%</span></span>
+<span id="cb74-2"><a href="gaining-an-overview-of-datasets.html#cb74-2" tabindex="-1"></a>   <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>Sex, <span class="at">names_to =</span> <span class="st">&quot;variable&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb74-3"><a href="gaining-an-overview-of-datasets.html#cb74-3" tabindex="-1"></a>   <span class="fu">ggplot</span>(<span class="fu">aes</span>(value, Sex)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb74-4"><a href="gaining-an-overview-of-datasets.html#cb74-4" tabindex="-1"></a>      <span class="fu">facet_grid</span>(. <span class="sc">~</span> variable, <span class="at">scales =</span> <span class="st">&#39;free&#39;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/gulls_boxplot-1.png" width="100%" style="display: block; margin: auto;" /></p>
 <p>It is also helpful to gain an overview of the relationships between the variables. The <code>ggpairs</code> function in the <code>GGally</code> package can help with this. It provides a set of plots which incorporate a great deal of information in graphical form. As ever, there are various arguments we can use to control the details. Here colour is used to identify males and females. The <code>stars</code> argument is also used to suppress some information which is not relevant to us at this stage.</p>
 <!-- ```{r gulls_skim_groups, message = FALSE, render = knitr::normal_print} -->
@@ -602,9 +597,9 @@ div.csl-indent {
 <!--    select(-c(n_missing, complete_rate)) %>% -->
 <!--    yank('numeric') -->
 <!-- ``` -->
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="gaining-an-overview-of-datasets.html#cb74-1" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
-<span id="cb74-2"><a href="gaining-an-overview-of-datasets.html#cb74-2" tabindex="-1"></a><span class="fu">ggpairs</span>(gulls, <span class="fu">aes</span>(<span class="at">col =</span> Sex, <span class="at">alpha =</span> <span class="fl">0.7</span>),</span>
-<span id="cb74-3"><a href="gaining-an-overview-of-datasets.html#cb74-3" tabindex="-1"></a>        <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(ggally_cor, <span class="at">stars =</span> <span class="cn">FALSE</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="gaining-an-overview-of-datasets.html#cb75-1" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
+<span id="cb75-2"><a href="gaining-an-overview-of-datasets.html#cb75-2" tabindex="-1"></a><span class="fu">ggpairs</span>(gulls, <span class="fu">aes</span>(<span class="at">col =</span> Sex, <span class="at">alpha =</span> <span class="fl">0.7</span>),</span>
+<span id="cb75-3"><a href="gaining-an-overview-of-datasets.html#cb75-3" tabindex="-1"></a>        <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(ggally_cor, <span class="at">stars =</span> <span class="cn">FALSE</span>)))</span></code></pre></div>
 <p><img src="book_files/figure-html/gulls_ggpairs-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>The idea is to create a set of panels which plot each variable against every other one. The type of plot in each panel adapts to the nature of the variables involved. When both variables are on continuous scales, the relationship is summarised by correlation coefficients in the upper part of the matrix. The boxplots and histograms in the margins indicate that the separation of males and females on each individual variable is strong, which offers encouragement that effective classification may be possible.</p>
 <p>These methods work well when the number of variables is small or modest. Large numbers of variables could be handled in appropriately chosen groups of variables, or by employing methods of dimension reduction, for example principal components.</p>
@@ -629,42 +624,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -569,13 +564,13 @@ and that, similarly, subsequent estimates of <span class="math inline">\(s_2\)</
 These smoothing operations are repeated until convergence. This is called the <em>backfitting algorithm</em>.</p>
 <p>However, the regression and p-spline approaches described above allow models to be fitted directly. Each term <span class="math inline">\(s_1, s_2, \ldots\)</span> can be represented by its own set of basis functions to create the usual linear model form <span class="math inline">\(y = B \beta\)</span>, where <span class="math inline">\(\beta\)</span> now denotes a collections of several sets of coefficients, one for each term, and the columns of <span class="math inline">\(B\)</span> similarly cover the basis functions for all terms in the model. Combined with a set of penalty matrices and associated penalty parameters, the direct solution <span class="math inline">\(\hat\beta = (B^TB + P)^{-1}B^Ty\)</span> still applies, where <span class="math inline">\(P\)</span> now denotes the sum of the individual penalty matrices weighted by their associated penalty parameters.</p>
 <p>Here is an example of an additive model fitted to the trawl data. This uses the <code>gam</code> function in the <code>mgcv</code> package in <code>R</code>, which is a very powerful set of tools comprehensively described by Wood (2017). There are many options for how the model is fitted but here we will simply accept the defaults.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="a-simple-additive-model.html#cb253-1" tabindex="-1"></a><span class="fu">library</span>(sm)</span>
-<span id="cb253-2"><a href="a-simple-additive-model.html#cb253-2" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
-<span id="cb253-3"><a href="a-simple-additive-model.html#cb253-3" tabindex="-1"></a><span class="fu">library</span>(gratia)</span>
-<span id="cb253-4"><a href="a-simple-additive-model.html#cb253-4" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
-<span id="cb253-5"><a href="a-simple-additive-model.html#cb253-5" tabindex="-1"></a>trawl.model <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude), <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
-<span id="cb253-6"><a href="a-simple-additive-model.html#cb253-6" tabindex="-1"></a><span class="fu">draw</span>(trawl.model, <span class="at">residuals =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-885-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="a-simple-additive-model.html#cb254-1" tabindex="-1"></a><span class="fu">library</span>(sm)</span>
+<span id="cb254-2"><a href="a-simple-additive-model.html#cb254-2" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb254-3"><a href="a-simple-additive-model.html#cb254-3" tabindex="-1"></a><span class="fu">library</span>(gratia)</span>
+<span id="cb254-4"><a href="a-simple-additive-model.html#cb254-4" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb254-5"><a href="a-simple-additive-model.html#cb254-5" tabindex="-1"></a>trawl.model <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude), <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
+<span id="cb254-6"><a href="a-simple-additive-model.html#cb254-6" tabindex="-1"></a><span class="fu">draw</span>(trawl.model, <span class="at">residuals =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-889-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The non-linear effect of Longitude is apparent, as we saw in earlier examples. Here the model selection methods included in <code>mgcv</code> have led to a proposed linear relationship with Latitude.</p>
 </div>
             </section>
@@ -598,42 +593,42 @@ These smoothing operations are repeated until convergence. This is called the <e
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

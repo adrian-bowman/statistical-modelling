@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -568,15 +563,15 @@ where <span class="math inline">\(S\)</span> denotes the projection matrix discu
 by analogy with the <span class="math inline">\(F\)</span>-statistic used to compare linear models. Unfortunately, this analogy does not extend to distributional calculations and no general expression for the distribution of the F-statistic is available. However, Hastie &amp; Tibshirani (1990; sections 3.9 and 6.8) suggest that at least some approximate guidance can be given by referring the observed nonparametric <span class="math inline">\(F\)</span>-statistic to an F distribution with <span class="math inline">\((\mbox{df}_2-\mbox{df}_1)\)</span> and <span class="math inline">\(\mbox{df}_1\)</span> degrees of freedom.</p>
 <p>A different approach is to examine whether particular groups of coefficients in the regression spline, for example those associated with the building blocks for a particular term in the additive model, might all be zero. The details of this are comprehensively discussed in Wood (2017) and this is the approach implemented in <code>mgcv</code>.</p>
 <p>The reef data provide a simple illustration of how model comparisons may be made. The table below indicates that both Latitude and Longitude show significant effects on the catch score.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="inference-with-additive-models.html#cb254-1" tabindex="-1"></a>  <span class="fu">summary</span>(trawl.model)<span class="sc">$</span>s.table</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="inference-with-additive-models.html#cb255-1" tabindex="-1"></a>  <span class="fu">summary</span>(trawl.model)<span class="sc">$</span>s.table</span></code></pre></div>
 <pre><code>##                   edf   Ref.df         F     p-value
 ## s(Latitude)  1.000000 1.000000  9.648493 0.003879748
 ## s(Longitude) 7.023069 8.064042 26.768506 0.000000000</code></pre>
 <p>Is the additive model sufficient or do we need an interaction term (which would simply create a smooth surface over Latitude and Longitude simultaneously)? We can examine that by adding an interaction term. The evidence for its presence is not convincing.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="inference-with-additive-models.html#cb256-1" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
-<span id="cb256-2"><a href="inference-with-additive-models.html#cb256-2" tabindex="-1"></a>trawl.model1 <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude) <span class="sc">+</span> <span class="fu">ti</span>(Latitude, Longitude),</span>
-<span id="cb256-3"><a href="inference-with-additive-models.html#cb256-3" tabindex="-1"></a>                    <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
-<span id="cb256-4"><a href="inference-with-additive-models.html#cb256-4" tabindex="-1"></a><span class="fu">summary</span>(trawl.model1)<span class="sc">$</span>s.table</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="inference-with-additive-models.html#cb257-1" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb257-2"><a href="inference-with-additive-models.html#cb257-2" tabindex="-1"></a>trawl.model1 <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude) <span class="sc">+</span> <span class="fu">ti</span>(Latitude, Longitude),</span>
+<span id="cb257-3"><a href="inference-with-additive-models.html#cb257-3" tabindex="-1"></a>                    <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
+<span id="cb257-4"><a href="inference-with-additive-models.html#cb257-4" tabindex="-1"></a><span class="fu">summary</span>(trawl.model1)<span class="sc">$</span>s.table</span></code></pre></div>
 <pre><code>##                             edf   Ref.df         F   p-value
 ## s(Latitude)            1.000000 1.000000  6.213004 0.0196678
 ## s(Longitude)           7.799202 8.444384 23.363779 0.0000000
@@ -608,42 +603,42 @@ by analogy with the <span class="math inline">\(F\)</span>-statistic used to com
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

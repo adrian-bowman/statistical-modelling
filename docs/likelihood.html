@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -547,15 +542,15 @@ div.csl-indent {
 <div id="likelihood" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> The concept of likelihood<a href="likelihood.html#likelihood" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The idea of likelihood is a very powerful one. To start gently, consider the single observation at ethylene chloride concentration 35.55 which killed 15 beetles out of a group of 29, giving the proportion 0.517. The binomial distribution describes all the possible values that we might observe, and the probabilities of observing them, for a particular <code>size</code> of group and with a particular probability (<code>prob</code>) of success (death in the present case) for each beetle. A formula for the binomial distribution can be derived by the rules of probability but we can use R to compute these conveniently, using the <code>dbinom(x, size, prob)</code> function. The plots below show all the outcomes (0 to 29) and their probabilities when <code>size = 29</code> and with <code>prob</code> set to 0.35, 0.50 and 0.65. The code is shown only for the case when <code>prob</code> is 0.35.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="likelihood.html#cb172-1" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">29</span>, <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">29</span>, <span class="dv">29</span>, <span class="fl">0.35</span>))) <span class="sc">+</span></span>
-<span id="cb172-2"><a href="likelihood.html#cb172-2" tabindex="-1"></a>   <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="dv">15</span>, <span class="fu">dbinom</span>(<span class="dv">15</span>, <span class="dv">29</span>, <span class="fl">0.35</span>)), <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>) <span class="sc">+</span></span>
-<span id="cb172-3"><a href="likelihood.html#cb172-3" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;x&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Probability&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="likelihood.html#cb173-1" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">29</span>, <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">29</span>, <span class="dv">29</span>, <span class="fl">0.35</span>))) <span class="sc">+</span></span>
+<span id="cb173-2"><a href="likelihood.html#cb173-2" tabindex="-1"></a>   <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="dv">15</span>, <span class="fu">dbinom</span>(<span class="dv">15</span>, <span class="dv">29</span>, <span class="fl">0.35</span>)), <span class="at">fill =</span> <span class="st">&#39;red&#39;</span>) <span class="sc">+</span></span>
+<span id="cb173-3"><a href="likelihood.html#cb173-3" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;x&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Probability&#39;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/likelihood_single-1.png" width="33%" /><img src="book_files/figure-html/likelihood_single-2.png" width="33%" /><img src="book_files/figure-html/likelihood_single-3.png" width="33%" /></p>
 <p>The idea of likelihood turns this perspective around. Instead of specifying the parameter of the model, namely the probability of success, and then considering the consequences in terms of the observations we may see, likelihood starts with the observed data and considers what parameter values might be consistent with that. In the plots above, the probability associated with the observed value of 15 is highlighted in red. If we assume that the true parameter is 0.35 then the probability of observing an outcome of 15 is very low and the same is true if we assume the true parameter is 0.65. The probability of observing 15 is much higher when we assume the true parameter to be 0.5. This gives a means of quantifying the relative plausibility of different parameter values.</p>
 <p>To use more scientific notation, the binomial probability for any outcome <span class="math inline">\(k\)</span> for the number killed can be written as <span class="math inline">\(pr(k; m, p)\)</span>, where <span class="math inline">\(pr\)</span> is a (mathematical) function which gives the probability of outcome <span class="math inline">\(k\)</span> when the group size is <span class="math inline">\(m\)</span> and the probability of success for an individual beetle is <span class="math inline">\(p\)</span>. So <span class="math inline">\(pr\)</span> is a function of <span class="math inline">\(k\)</span> for fixed values of <span class="math inline">\(m\)</span> and <span class="math inline">\(p\)</span>. The likelihood function is simply <span class="math inline">\(pr(k; m, p)\)</span> viewed as a function of <span class="math inline">\(p\)</span>, with <span class="math inline">\(k\)</span> fixed at the observed value. (The parameter <span class="math inline">\(m\)</span> is fixed by the design of the experiment.) To emphasise this change in perspective, the likelihood function is written as <span class="math inline">\(L(p; k, m)\)</span> to indicate that <span class="math inline">\(k\)</span> is fixed and the likelihood is a function of <span class="math inline">\(p\)</span>.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="likelihood.html#cb173-1" tabindex="-1"></a>p    <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
-<span id="cb173-2"><a href="likelihood.html#cb173-2" tabindex="-1"></a>dfrm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(p, <span class="at">likelihood =</span> <span class="fu">dbinom</span>(<span class="dv">15</span>, <span class="dv">29</span>, p))</span>
-<span id="cb173-3"><a href="likelihood.html#cb173-3" tabindex="-1"></a><span class="fu">ggplot</span>(dfrm, <span class="fu">aes</span>(p, likelihood)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="likelihood.html#cb174-1" tabindex="-1"></a>p    <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
+<span id="cb174-2"><a href="likelihood.html#cb174-2" tabindex="-1"></a>dfrm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(p, <span class="at">likelihood =</span> <span class="fu">dbinom</span>(<span class="dv">15</span>, <span class="dv">29</span>, p))</span>
+<span id="cb174-3"><a href="likelihood.html#cb174-3" tabindex="-1"></a><span class="fu">ggplot</span>(dfrm, <span class="fu">aes</span>(p, likelihood)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="book_files/figure-html/likelihood_binomial-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The plot above shows the likelihood function. The <em>maximum likelihood estimate</em> of <span class="math inline">\(p\)</span> is, as the name suggests, the value of <span class="math inline">\(p\)</span> which maximises the likelihood function. Inspection of the plot shows this to be just above 0.5. In fact it is 0.517, the sample proportion of beetles killed. It is not a surprise that a good estimate of the proportion of beetles killed in the population at this concentration is the proportion of beetles killed in the sample. However, it is impressive that this has resulted simply by employing the concept of the likelihood function, without building in any further information. This strategy has supplied an obvious estimate in this simple case but it can also provide estimates in much more complex cases where it is not at all clear what might constitute a good estimate.</p>
 <p>The model for all the flour beetle data from the ethylene dichloride toxin is more complex. Each group of beetles exposed to ethylene dichloride at a particular concentration has its own particular group size <span class="math inline">\(m_i\)</span>, outcome <span class="math inline">\(k_i\)</span> and underlying probability of success <span class="math inline">\(p_i\)</span>, where <span class="math inline">\(i\)</span> takes the values <span class="math inline">\(1, \ldots, n\)</span> to identify the different groups. Here <span class="math inline">\(n=9\)</span>. When there are multiple observations then, under some assumptions, the elementary rules of probability tell us that the probability associated with the set of all observations is the product of the probability of each. The key assumption is that the observations are <em>independent</em>, meaning that knowledge of the particular variation associated with one tells us nothing about the variation at another. That seems a reasonable assumption in the present case. So, following our earlier notation, the likelihood function based on the observations <span class="math inline">\(k_1, \ldots, k_n\)</span>, the group sizes <span class="math inline">\(m_1, \ldots, m_n\)</span> and the underlying probabilities <span class="math inline">\(p_1, \ldots, p_n\)</span> is <span class="math display">\[
@@ -566,19 +561,19 @@ div.csl-indent {
       l(\alpha, \beta; k_1, \ldots, k_n, m_1, \ldots, m_n) = log(L_1(p_1; k_1, m_1)) +  \ldots + log(L_n(p_n; k_1, m_n))
 \]</span> The <code>rp.logistic</code> function mentioned above has an option (as a checkbox on the side panel) to display the log-likelihood function. Try this. You can add the maximum likelihood estimate. There are other options which we will explore later.</p>
 <p>As a more static illustration, the code below uses the <code>expand.grid</code> function to create a grid of possible values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> in the matrix <code>pars</code> and defines a function <code>ll.fn</code> which evaluates the log-likelihood at any particular choice of parameters. The <code>apply</code> function, described in Section <a href="repetition.html#repetition">17.1</a>, then applies this function repeatedly to the rows of <code>pars</code>. The <code>ggplot</code> geometry <code>geom_contour_filled</code> then displays the likelihood surface as a function of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. The maximum likelihood estimates, <span class="math inline">\(\hat\alpha\)</span> and <span class="math inline">\(\hat\beta\)</span>, where the ‘hat’ notation indicates that these are estimates of the unknown parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, are marked on the plot. This confirms the results of the <code>glm</code> function which fitted the model to these data in the previous section.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="likelihood.html#cb174-1" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">25</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
-<span id="cb174-2"><a href="likelihood.html#cb174-2" tabindex="-1"></a>beta  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.8</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
-<span id="cb174-3"><a href="likelihood.html#cb174-3" tabindex="-1"></a>pars  <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">alpha =</span> alpha, <span class="at">beta =</span> beta)</span>
-<span id="cb174-4"><a href="likelihood.html#cb174-4" tabindex="-1"></a>ll.fn  <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, data) {</span>
-<span id="cb174-5"><a href="likelihood.html#cb174-5" tabindex="-1"></a>   lp    <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> data<span class="sc">$</span>Concentration</span>
-<span id="cb174-6"><a href="likelihood.html#cb174-6" tabindex="-1"></a>   probs <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(lp))</span>
-<span id="cb174-7"><a href="likelihood.html#cb174-7" tabindex="-1"></a>   likes <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(data<span class="sc">$</span>Dead, data<span class="sc">$</span>Living <span class="sc">+</span> data<span class="sc">$</span>Dead, probs)</span>
-<span id="cb174-8"><a href="likelihood.html#cb174-8" tabindex="-1"></a>   <span class="fu">sum</span>(<span class="fu">log</span>(likes))</span>
-<span id="cb174-9"><a href="likelihood.html#cb174-9" tabindex="-1"></a>}</span>
-<span id="cb174-10"><a href="likelihood.html#cb174-10" tabindex="-1"></a>pars<span class="sc">$</span>log_likelihood <span class="ot">&lt;-</span> <span class="fu">apply</span>(pars, <span class="dv">1</span>, ll.fn, <span class="at">data =</span> ethylene)</span>
-<span id="cb174-11"><a href="likelihood.html#cb174-11" tabindex="-1"></a><span class="fu">ggplot</span>(pars, <span class="fu">aes</span>(alpha, beta, <span class="at">z =</span> log_likelihood)) <span class="sc">+</span></span>
-<span id="cb174-12"><a href="likelihood.html#cb174-12" tabindex="-1"></a>   <span class="fu">geom_contour_filled</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10000</span>, <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">400</span>, <span class="dv">0</span>, <span class="at">length =</span> <span class="dv">15</span>))) <span class="sc">+</span></span>
-<span id="cb174-13"><a href="likelihood.html#cb174-13" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="fu">aes</span>(model<span class="sc">$</span>coefficients[<span class="dv">1</span>], model<span class="sc">$</span>coefficients[<span class="dv">2</span>]), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="likelihood.html#cb175-1" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">25</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
+<span id="cb175-2"><a href="likelihood.html#cb175-2" tabindex="-1"></a>beta  <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="fl">0.8</span>, <span class="at">length =</span> <span class="dv">50</span>)</span>
+<span id="cb175-3"><a href="likelihood.html#cb175-3" tabindex="-1"></a>pars  <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">alpha =</span> alpha, <span class="at">beta =</span> beta)</span>
+<span id="cb175-4"><a href="likelihood.html#cb175-4" tabindex="-1"></a>ll.fn  <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, data) {</span>
+<span id="cb175-5"><a href="likelihood.html#cb175-5" tabindex="-1"></a>   lp    <span class="ot">&lt;-</span> theta[<span class="dv">1</span>] <span class="sc">+</span> theta[<span class="dv">2</span>] <span class="sc">*</span> data<span class="sc">$</span>Concentration</span>
+<span id="cb175-6"><a href="likelihood.html#cb175-6" tabindex="-1"></a>   probs <span class="ot">&lt;-</span> <span class="fu">exp</span>(lp) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(lp))</span>
+<span id="cb175-7"><a href="likelihood.html#cb175-7" tabindex="-1"></a>   likes <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(data<span class="sc">$</span>Dead, data<span class="sc">$</span>Living <span class="sc">+</span> data<span class="sc">$</span>Dead, probs)</span>
+<span id="cb175-8"><a href="likelihood.html#cb175-8" tabindex="-1"></a>   <span class="fu">sum</span>(<span class="fu">log</span>(likes))</span>
+<span id="cb175-9"><a href="likelihood.html#cb175-9" tabindex="-1"></a>}</span>
+<span id="cb175-10"><a href="likelihood.html#cb175-10" tabindex="-1"></a>pars<span class="sc">$</span>log_likelihood <span class="ot">&lt;-</span> <span class="fu">apply</span>(pars, <span class="dv">1</span>, ll.fn, <span class="at">data =</span> ethylene)</span>
+<span id="cb175-11"><a href="likelihood.html#cb175-11" tabindex="-1"></a><span class="fu">ggplot</span>(pars, <span class="fu">aes</span>(alpha, beta, <span class="at">z =</span> log_likelihood)) <span class="sc">+</span></span>
+<span id="cb175-12"><a href="likelihood.html#cb175-12" tabindex="-1"></a>   <span class="fu">geom_contour_filled</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10000</span>, <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">400</span>, <span class="dv">0</span>, <span class="at">length =</span> <span class="dv">15</span>))) <span class="sc">+</span></span>
+<span id="cb175-13"><a href="likelihood.html#cb175-13" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="fu">aes</span>(model<span class="sc">$</span>coefficients[<span class="dv">1</span>], model<span class="sc">$</span>coefficients[<span class="dv">2</span>]), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/likelihood_logistic-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The concept of likelihood provides a very powerful mechanism for fitting models to data but it can deliver much more insight than parameter estimates. There are also very general and powerful mechanisms for carrying out inference.</p>
 </div>
@@ -602,42 +597,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

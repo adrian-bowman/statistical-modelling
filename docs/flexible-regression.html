@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -552,14 +547,14 @@ div.csl-indent {
 The North Atlantic Oscillation is an important atmospheric indicator which is linked to weather patterns. It is based on the difference in atmospheric pressure at sea level between Iceland and Portugal. Historical data on Winter NAO are available from the Natioanl Center for Atmospheric Research in the USA. A <a href="https://climatedataguide.ucar.edu/climate-data/hurrell-north-atlantic-oscillation-nao-index-station-based">description</a> of the dataset is available.</p>
 <hr />
 </blockquote>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="flexible-regression.html#cb88-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb88-2"><a href="flexible-regression.html#cb88-2" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;NAO&quot;</span>)</span>
-<span id="cb88-3"><a href="flexible-regression.html#cb88-3" tabindex="-1"></a>NAO  <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb88-4"><a href="flexible-regression.html#cb88-4" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Year =</span> <span class="dv">1</span>, <span class="at">NAO =</span> <span class="dv">2</span>)</span>
-<span id="cb88-5"><a href="flexible-regression.html#cb88-5" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(NAO, <span class="fu">aes</span>(Year, NAO)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb88-6"><a href="flexible-regression.html#cb88-6" tabindex="-1"></a>p</span>
-<span id="cb88-7"><a href="flexible-regression.html#cb88-7" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb88-8"><a href="flexible-regression.html#cb88-8" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="flexible-regression.html#cb89-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb89-2"><a href="flexible-regression.html#cb89-2" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;NAO&quot;</span>)</span>
+<span id="cb89-3"><a href="flexible-regression.html#cb89-3" tabindex="-1"></a>NAO  <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">skip =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb89-4"><a href="flexible-regression.html#cb89-4" tabindex="-1"></a>   <span class="fu">select</span>(<span class="at">Year =</span> <span class="dv">1</span>, <span class="at">NAO =</span> <span class="dv">2</span>)</span>
+<span id="cb89-5"><a href="flexible-regression.html#cb89-5" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(NAO, <span class="fu">aes</span>(Year, NAO)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb89-6"><a href="flexible-regression.html#cb89-6" tabindex="-1"></a>p</span>
+<span id="cb89-7"><a href="flexible-regression.html#cb89-7" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb89-8"><a href="flexible-regression.html#cb89-8" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/NAO_flexible-1.png" width="33%" /><img src="book_files/figure-html/NAO_flexible-2.png" width="33%" /><img src="book_files/figure-html/NAO_flexible-3.png" width="33%" /></p>
 <p>The plots above show the data and then a simple linear regression line as a means of summarising trend. The third plot shows a curve which seeks to track the trend in the data over time in a more flexible manner. This is donw through kernel functions of the type used in density estimation. At any time point of interest, these are used to construct a weighted mean, where the weights diminish with the distance of each observation from the point of interest. (In fact, it turns out to be more effective to fit a straight line model with these weights and to report where this line sits at the point of interest.) The plot above was constructed by using a <code>geom_smooth</code> layer. This uses a locally weighted linear method known as <code>loess</code> whose smoothness is controlled by a <code>span</code> argument.</p>
 <p>The flexible curve suggests more movement in the Winter NAO over time. However, we need to investigate whether this might be simply due to random variation or whether there is real evidence of decline. Discussion of this important issue will begin in Chapter <a href="inference.html#inference">6</a>. (This is the reason for setting <code>se = FALSE</code> above, for the moment.)</p>
@@ -581,28 +576,28 @@ Data are available from a survey of the fauna on the sea bed lying between the c
 <hr />
 </blockquote>
 <p>A plot of <code>Score1</code> against <code>Longitude</code> suggests a linear relationship, as a first approximation. However, there is no compelling reason that the trend should be linear anda more flexible curve highlights a different pattern. The <code>Longitude</code> variable is essentially a proxy for ‘distance offshore’ in this region and it may be that the mean score remains high for some distance offshore and then decreases rapidly. That has biological plausibility.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="flexible-regression.html#cb89-1" tabindex="-1"></a><span class="fu">library</span>(sm)</span>
-<span id="cb89-2"><a href="flexible-regression.html#cb89-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(trawl, <span class="fu">aes</span>(Longitude, Score1)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb89-3"><a href="flexible-regression.html#cb89-3" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb89-4"><a href="flexible-regression.html#cb89-4" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="flexible-regression.html#cb90-1" tabindex="-1"></a><span class="fu">library</span>(sm)</span>
+<span id="cb90-2"><a href="flexible-regression.html#cb90-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(trawl, <span class="fu">aes</span>(Longitude, Score1)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb90-3"><a href="flexible-regression.html#cb90-3" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb90-4"><a href="flexible-regression.html#cb90-4" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/flex_reg_longitude-1.png" width="49%" /><img src="book_files/figure-html/flex_reg_longitude-2.png" width="49%" /></p>
 <p>You can experiment with this kind of model interactively by issing the instruction
 <code>sm.regression((trawl$Longitude, trawl$Score1, panel = TRUE)</code>
 This requires the <code>rpanel</code> and <code>tkrplot</code> packages to be installed.</p>
 <p>The idea of creating flexible patterns by considering the data locally extends to other settings. In particular, this can be done with two covariates simultaneously. The code below uses the <code>sm.regression</code> function from the <code>sm</code> package to create a flexible surface which gives a description of how the mean catch score change across longitude and latitude simultaneously.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="flexible-regression.html#cb90-1" tabindex="-1"></a>trawl1   <span class="ot">&lt;-</span> <span class="fu">filter</span>(trawl, Year <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> Zone <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb90-2"><a href="flexible-regression.html#cb90-2" tabindex="-1"></a>Position <span class="ot">&lt;-</span> <span class="fu">cbind</span>(trawl1<span class="sc">$</span>Latitude, <span class="sc">-</span>trawl1<span class="sc">$</span>Longitude)</span>
-<span id="cb90-3"><a href="flexible-regression.html#cb90-3" tabindex="-1"></a><span class="fu">sm.regression</span>(Position, trawl1<span class="sc">$</span>Score1,</span>
-<span id="cb90-4"><a href="flexible-regression.html#cb90-4" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">&quot;-Latitude&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Longitude&quot;</span>, <span class="at">zlab =</span> <span class="st">&quot;Score&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-496-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="flexible-regression.html#cb91-1" tabindex="-1"></a>trawl1   <span class="ot">&lt;-</span> <span class="fu">filter</span>(trawl, Year <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> Zone <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb91-2"><a href="flexible-regression.html#cb91-2" tabindex="-1"></a>Position <span class="ot">&lt;-</span> <span class="fu">cbind</span>(trawl1<span class="sc">$</span>Latitude, <span class="sc">-</span>trawl1<span class="sc">$</span>Longitude)</span>
+<span id="cb91-3"><a href="flexible-regression.html#cb91-3" tabindex="-1"></a><span class="fu">sm.regression</span>(Position, trawl1<span class="sc">$</span>Score1,</span>
+<span id="cb91-4"><a href="flexible-regression.html#cb91-4" tabindex="-1"></a>              <span class="at">xlab =</span> <span class="st">&quot;-Latitude&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Longitude&quot;</span>, <span class="at">zlab =</span> <span class="st">&quot;Score&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-500-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <!-- Notice the use of the same smoothing parameter in each dimension through the `structure.2d="common"` parameter. (This has been removed.) -->
 <p>As a final example, we will revisit the <code>rodent</code> dataset was introduced in Section <a href="taste-of-r.html#taste-of-r">2.2</a>. In fact this is only part of a larger dataset on mammals, available in <code>mammal_speed</code>. Interestingly, the positive connection between mass and speed for rodents does not carry through for all mammals. For the heaviest mammals, speed stabilises and then tails off as mass increases. At what mass is speed heaviest, on average? A smooth curve description of the underlying relationship allows us to quantify this, without making any detailed assumptions on what the shape of this relationship should be. For the moment, we can simply inspect the plot to see that the maximum occurs at a mass around 4.5 on the log scale, and so <code>exp(4.5) = 90</code> on the mass scale.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="flexible-regression.html#cb91-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb91-2"><a href="flexible-regression.html#cb91-2" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;mammal_speed&quot;</span>)</span>
-<span id="cb91-3"><a href="flexible-regression.html#cb91-3" tabindex="-1"></a><span class="fu">load</span>(path)</span>
-<span id="cb91-4"><a href="flexible-regression.html#cb91-4" tabindex="-1"></a></span>
-<span id="cb91-5"><a href="flexible-regression.html#cb91-5" tabindex="-1"></a><span class="fu">ggplot</span>(mammalSpeed, <span class="fu">aes</span>(<span class="fu">log</span>(Mass), <span class="fu">log</span>(Speed))) <span class="sc">+</span></span>
-<span id="cb91-6"><a href="flexible-regression.html#cb91-6" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Family)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="flexible-regression.html#cb92-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb92-2"><a href="flexible-regression.html#cb92-2" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;mammal_speed&quot;</span>)</span>
+<span id="cb92-3"><a href="flexible-regression.html#cb92-3" tabindex="-1"></a><span class="fu">load</span>(path)</span>
+<span id="cb92-4"><a href="flexible-regression.html#cb92-4" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="flexible-regression.html#cb92-5" tabindex="-1"></a><span class="fu">ggplot</span>(mammalSpeed, <span class="fu">aes</span>(<span class="fu">log</span>(Mass), <span class="fu">log</span>(Speed))) <span class="sc">+</span></span>
+<span id="cb92-6"><a href="flexible-regression.html#cb92-6" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Family)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/mammalSpeed-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <!-- When the data sometimes have a shape which is not easily described by a simple parametric functional form, a *nonparametric* model is required.  This can be written as -->
 <!-- $$ -->
@@ -735,42 +730,42 @@ This requires the <code>rpanel</code> and <code>tkrplot</code> packages to be in
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

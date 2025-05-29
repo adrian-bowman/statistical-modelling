@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -553,40 +548,40 @@ div.csl-indent {
       y_{ijk} = \alpha + \beta x_{ij} + \gamma_k + \varepsilon_{ij} ,
 \]</span>
 where <span class="math inline">\(y_{ijk}\)</span> denotes the <span class="math inline">\(j\)</span>th measurement for subject <span class="math inline">\(i\)</span>, with the sex groups identified through the subscript <span class="math inline">\(k\)</span>. In addition to the regression effect on <span class="math inline">\(x\)</span>, the <span class="math inline">\(\gamma_k\)</span> capture the mean adjustment due to sex. The plot below superimposes the fitted model on the data. As expected, this model is too simple as it does not capture the variation across subjects. Some lie consistently above the regression line and other consistently below.</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="further-examples-of-mixed-models.html#cb208-1" tabindex="-1"></a>ortho_model_0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(distance <span class="sc">~</span> age <span class="sc">+</span> Sex, <span class="at">data =</span> Orthodont)</span>
-<span id="cb208-2"><a href="further-examples-of-mixed-models.html#cb208-2" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb208-3"><a href="further-examples-of-mixed-models.html#cb208-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(ortho_model_0))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="further-examples-of-mixed-models.html#cb209-1" tabindex="-1"></a>ortho_model_0 <span class="ot">&lt;-</span> <span class="fu">lm</span>(distance <span class="sc">~</span> age <span class="sc">+</span> Sex, <span class="at">data =</span> Orthodont)</span>
+<span id="cb209-2"><a href="further-examples-of-mixed-models.html#cb209-2" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb209-3"><a href="further-examples-of-mixed-models.html#cb209-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(ortho_model_0))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
 <p><img src="book_files/figure-html/ortho_fit_0-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>This can be addressed by introducing a random effect which allows an adjustment to the intercept for each subject:</p>
 <p><span class="math display">\[
       y_{ij} = (\alpha + a_i) + \beta x_{ij} + \varepsilon_{ij}.
 \]</span>
 where <span class="math inline">\(a_i \sim N(0, \sigma^2_a)\)</span>. The plot below shows this to be a much better description of the data. The estimates of the parameters, with their standard errors, suggest that there is indeed a small sex effect, with a t-value around <span class="math inline">\(3\)</span>. We can also quantify the subject variation, which is estaimted to be larger than the residual variation.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="further-examples-of-mixed-models.html#cb209-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb209-2"><a href="further-examples-of-mixed-models.html#cb209-2" tabindex="-1"></a>ortho_model_1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(distance <span class="sc">~</span> age <span class="sc">+</span> Sex <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> Orthodont)</span>
-<span id="cb209-3"><a href="further-examples-of-mixed-models.html#cb209-3" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb209-4"><a href="further-examples-of-mixed-models.html#cb209-4" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(ortho_model_1))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span>
-<span id="cb209-5"><a href="further-examples-of-mixed-models.html#cb209-5" tabindex="-1"></a><span class="fu">summary</span>(ortho_model_1)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="further-examples-of-mixed-models.html#cb210-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb210-2"><a href="further-examples-of-mixed-models.html#cb210-2" tabindex="-1"></a>ortho_model_1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(distance <span class="sc">~</span> age <span class="sc">+</span> Sex <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> Orthodont)</span>
+<span id="cb210-3"><a href="further-examples-of-mixed-models.html#cb210-3" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb210-4"><a href="further-examples-of-mixed-models.html#cb210-4" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(ortho_model_1))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span>
+<span id="cb210-5"><a href="further-examples-of-mixed-models.html#cb210-5" tabindex="-1"></a><span class="fu">summary</span>(ortho_model_1)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##               Estimate Std. Error   t value
 ## (Intercept) 17.7067130 0.83392247 21.233044
 ## age          0.6601852 0.06160592 10.716263
 ## SexFemale   -2.3210227 0.76141685 -3.048294</code></pre>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="further-examples-of-mixed-models.html#cb211-1" tabindex="-1"></a><span class="fu">summary</span>(ortho_model_1)<span class="sc">$</span>varcor</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="further-examples-of-mixed-models.html#cb212-1" tabindex="-1"></a><span class="fu">summary</span>(ortho_model_1)<span class="sc">$</span>varcor</span></code></pre></div>
 <pre><code>##  Groups   Name        Std.Dev.
 ##  Subject  (Intercept) 1.8074  
 ##  Residual             1.4316</code></pre>
 <p><img src="book_files/figure-html/ortho_fit_1-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We should also pay attention to whether the fixed effects may be more complex. In particular, is there interaction between age and sex? The analysis below does indicate eome evidence for this.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="further-examples-of-mixed-models.html#cb213-1" tabindex="-1"></a>ortho_model_2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(distance <span class="sc">~</span> age <span class="sc">*</span> Sex <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> Orthodont)</span>
-<span id="cb213-2"><a href="further-examples-of-mixed-models.html#cb213-2" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb213-3"><a href="further-examples-of-mixed-models.html#cb213-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(ortho_model_2))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span>
-<span id="cb213-4"><a href="further-examples-of-mixed-models.html#cb213-4" tabindex="-1"></a><span class="fu">summary</span>(ortho_model_2)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="further-examples-of-mixed-models.html#cb214-1" tabindex="-1"></a>ortho_model_2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(distance <span class="sc">~</span> age <span class="sc">*</span> Sex <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> Orthodont)</span>
+<span id="cb214-2"><a href="further-examples-of-mixed-models.html#cb214-2" tabindex="-1"></a><span class="fu">ggplot</span>(Orthodont, <span class="fu">aes</span>(age, distance, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb214-3"><a href="further-examples-of-mixed-models.html#cb214-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(ortho_model_2))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span>
+<span id="cb214-4"><a href="further-examples-of-mixed-models.html#cb214-4" tabindex="-1"></a><span class="fu">summary</span>(ortho_model_2)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                 Estimate Std. Error    t value
 ## (Intercept)   16.3406250  0.9813122 16.6518101
 ## age            0.7843750  0.0775011 10.1208235
 ## SexFemale      1.0321023  1.5374208  0.6713206
 ## age:SexFemale -0.3048295  0.1214209 -2.5105197</code></pre>
-<p><img src="book_files/figure-html/unnamed-chunk-831-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-835-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <!-- Intercept and slope random effects -->
 <!-- Allow a different intercept and slope to each group of data. -->
 <!-- $$ -->
@@ -636,19 +631,19 @@ where
 \varepsilon_{bcw} \sim N(0, \sigma^2_w)
 \]</span></p>
 <p>The <code>lme4</code> package gives us the tools to fit such a model. The estimates of standard deviation at batch, cask, and within-cask levels suggests that the cask level is where the variation is strongest. Another look at the plot shown earlier in this chapter does suggest that this is indeed the case.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="further-examples-of-mixed-models.html#cb215-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb215-2"><a href="further-examples-of-mixed-models.html#cb215-2" tabindex="-1"></a>pastes_model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(strength <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>batch<span class="sc">/</span>cask), <span class="at">data =</span> Pastes)</span>
-<span id="cb215-3"><a href="further-examples-of-mixed-models.html#cb215-3" tabindex="-1"></a><span class="fu">summary</span>(pastes_model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="further-examples-of-mixed-models.html#cb216-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb216-2"><a href="further-examples-of-mixed-models.html#cb216-2" tabindex="-1"></a>pastes_model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(strength <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>batch<span class="sc">/</span>cask), <span class="at">data =</span> Pastes)</span>
+<span id="cb216-3"><a href="further-examples-of-mixed-models.html#cb216-3" tabindex="-1"></a><span class="fu">summary</span>(pastes_model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##             Estimate Std. Error t value
 ## (Intercept) 60.05333  0.6768701 88.7221</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="further-examples-of-mixed-models.html#cb217-1" tabindex="-1"></a><span class="fu">summary</span>(pastes_model)<span class="sc">$</span>varcor</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="further-examples-of-mixed-models.html#cb218-1" tabindex="-1"></a><span class="fu">summary</span>(pastes_model)<span class="sc">$</span>varcor</span></code></pre></div>
 <pre><code>##  Groups     Name        Std.Dev.
 ##  cask:batch (Intercept) 2.90408 
 ##  batch      (Intercept) 1.28737 
 ##  Residual               0.82341</code></pre>
 <p>When using any model, we would like to have some reassurance that it describes the data adequately. Plot of residuals provide an informal, but very useful, way of checking this. If the model is adequate then the residuals should simply display random variation, with no obvious patterns or structure. The plot below reassures us that the model is an adequate fit.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="further-examples-of-mixed-models.html#cb219-1" tabindex="-1"></a><span class="fu">plot</span>(pastes_model)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-833-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="further-examples-of-mixed-models.html#cb220-1" tabindex="-1"></a><span class="fu">plot</span>(pastes_model)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-837-1.png" width="49%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="the-sleep-deprivation-study" class="section level3 hasAnchor" number="11.4.3">
 <h3><span class="header-section-number">11.4.3</span> The sleep deprivation study<a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -660,21 +655,21 @@ where
 </blockquote>
 <hr />
 <p>Initial plots shows an upward trend in mean reaction time as the number of days os sleep deprivation increases. That is entirely expected. There is also considerable variability across subjects.</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="further-examples-of-mixed-models.html#cb220-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb220-2"><a href="further-examples-of-mixed-models.html#cb220-2" tabindex="-1"></a><span class="fu">str</span>(sleepstudy)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="further-examples-of-mixed-models.html#cb221-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb221-2"><a href="further-examples-of-mixed-models.html#cb221-2" tabindex="-1"></a><span class="fu">str</span>(sleepstudy)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    180 obs. of  3 variables:
 ##  $ Reaction: num  250 259 251 321 357 ...
 ##  $ Days    : num  0 1 2 3 4 5 6 7 8 9 ...
 ##  $ Subject : Factor w/ 18 levels &quot;308&quot;,&quot;309&quot;,&quot;310&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="further-examples-of-mixed-models.html#cb222-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb222-2"><a href="further-examples-of-mixed-models.html#cb222-2" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction, <span class="at">col =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb222-3"><a href="further-examples-of-mixed-models.html#cb222-3" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb222-4"><a href="further-examples-of-mixed-models.html#cb222-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="further-examples-of-mixed-models.html#cb223-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb223-2"><a href="further-examples-of-mixed-models.html#cb223-2" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction, <span class="at">col =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb223-3"><a href="further-examples-of-mixed-models.html#cb223-3" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb223-4"><a href="further-examples-of-mixed-models.html#cb223-4" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
 <p><img src="book_files/figure-html/sleep_structure-1.png" width="49%" /><img src="book_files/figure-html/sleep_structure-2.png" width="49%" /></p>
 <p>A model which includes a fixed effect for <code>Days</code> and a random effect for <code>Subject</code> is a natural starting point. The fitted values for this model do not track the data very effectively, with some subjects showing a stronger regreession slope and others a weaker one.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="further-examples-of-mixed-models.html#cb223-1" tabindex="-1"></a>sleep_model_1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span>
-<span id="cb223-2"><a href="further-examples-of-mixed-models.html#cb223-2" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb223-3"><a href="further-examples-of-mixed-models.html#cb223-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(sleep_model_1))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="further-examples-of-mixed-models.html#cb224-1" tabindex="-1"></a>sleep_model_1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span>
+<span id="cb224-2"><a href="further-examples-of-mixed-models.html#cb224-2" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb224-3"><a href="further-examples-of-mixed-models.html#cb224-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(sleep_model_1))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
 <p><img src="book_files/figure-html/sleep_fit_1-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>This suggests that we might do better with a model which allow random variations in both intercept and slope for each subject. The plot below suggests this to be a much better fit.</p>
 <p><span class="math display">\[
@@ -685,14 +680,14 @@ where
 a_i \sim N(0, \sigma^2_a), \hspace{3em}
 b_i \sim N(0, \sigma^2_b), \hspace{3em}
 \]</span></p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="further-examples-of-mixed-models.html#cb224-1" tabindex="-1"></a>sleep_model_2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span>
-<span id="cb224-2"><a href="further-examples-of-mixed-models.html#cb224-2" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb224-3"><a href="further-examples-of-mixed-models.html#cb224-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(sleep_model_2))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="further-examples-of-mixed-models.html#cb225-1" tabindex="-1"></a>sleep_model_2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Reaction <span class="sc">~</span> Days <span class="sc">+</span> (Days <span class="sc">|</span> Subject), <span class="at">data =</span> sleepstudy)</span>
+<span id="cb225-2"><a href="further-examples-of-mixed-models.html#cb225-2" tabindex="-1"></a><span class="fu">ggplot</span>(sleepstudy, <span class="fu">aes</span>(Days, Reaction)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb225-3"><a href="further-examples-of-mixed-models.html#cb225-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(sleep_model_2))) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
 <p><img src="book_files/figure-html/sleep_fit_2-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The evidence for the superiority of the model with this form of random effects can be evaluated in a more formal model comparison.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="further-examples-of-mixed-models.html#cb225-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
-<span id="cb225-2"><a href="further-examples-of-mixed-models.html#cb225-2" tabindex="-1"></a><span class="fu">PBmodcomp</span>(sleep_model_2, sleep_model_1)</span></code></pre></div>
-<pre><code>## Bootstrap test; time: 16.21 sec; samples: 1000; extremes: 0;
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="further-examples-of-mixed-models.html#cb226-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
+<span id="cb226-2"><a href="further-examples-of-mixed-models.html#cb226-2" tabindex="-1"></a><span class="fu">PBmodcomp</span>(sleep_model_2, sleep_model_1)</span></code></pre></div>
+<pre><code>## Bootstrap test; time: 16.68 sec; samples: 1000; extremes: 0;
 ## large : Reaction ~ Days + (Days | Subject)
 ## Reaction ~ Days + (1 | Subject)
 ##          stat df   p.value    
@@ -738,30 +733,30 @@ b_i \sim N(0, \sigma^2_b), \hspace{3em}
 </blockquote>
 <hr />
 <p>First we read the data.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="further-examples-of-mixed-models.html#cb227-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;reading&quot;</span>)</span>
-<span id="cb227-2"><a href="further-examples-of-mixed-models.html#cb227-2" tabindex="-1"></a>d    <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="further-examples-of-mixed-models.html#cb228-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;reading&quot;</span>)</span>
+<span id="cb228-2"><a href="further-examples-of-mixed-models.html#cb228-2" tabindex="-1"></a>d    <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><code>ggplot</code> graphics again provides a simple way of producing some attractive and helpful visualisations.</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="further-examples-of-mixed-models.html#cb228-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb228-2"><a href="further-examples-of-mixed-models.html#cb228-2" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb228-3"><a href="further-examples-of-mixed-models.html#cb228-3" tabindex="-1"></a>   <span class="fu">facet_grid</span>(Ethnicity <span class="sc">~</span> Sex)</span>
-<span id="cb228-4"><a href="further-examples-of-mixed-models.html#cb228-4" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb228-5"><a href="further-examples-of-mixed-models.html#cb228-5" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> School)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-846-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-846-2.png" width="49%" /></p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="further-examples-of-mixed-models.html#cb229-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb229-2"><a href="further-examples-of-mixed-models.html#cb229-2" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb229-3"><a href="further-examples-of-mixed-models.html#cb229-3" tabindex="-1"></a>   <span class="fu">facet_grid</span>(Ethnicity <span class="sc">~</span> Sex)</span>
+<span id="cb229-4"><a href="further-examples-of-mixed-models.html#cb229-4" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">col =</span> Sex)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb229-5"><a href="further-examples-of-mixed-models.html#cb229-5" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="sc">~</span> School)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-850-1.png" width="49%" /><img src="book_files/figure-html/unnamed-chunk-850-2.png" width="49%" /></p>
 <p>We need to think carefully about how the variability should be modelled. For the moment, we will include only <code>Age</code> in the fixed effects, as this is the variable which clearly influences reading ability strongly. A random effect for each pupil, which allows them to display greater or lesser individual ability, is a good starting point. A residual plot helps us to assess the adequacy of this model, in an informal manner. Some non-random patterns suggest that we need to improve the model.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="further-examples-of-mixed-models.html#cb229-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb229-2"><a href="further-examples-of-mixed-models.html#cb229-2" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> School<span class="sc">/</span>Pupil), <span class="at">data =</span> d)</span>
-<span id="cb229-3"><a href="further-examples-of-mixed-models.html#cb229-3" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-847-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="further-examples-of-mixed-models.html#cb230-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb230-2"><a href="further-examples-of-mixed-models.html#cb230-2" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> School<span class="sc">/</span>Pupil), <span class="at">data =</span> d)</span>
+<span id="cb230-3"><a href="further-examples-of-mixed-models.html#cb230-3" tabindex="-1"></a><span class="fu">plot</span>(model1)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-851-1.png" width="49%" style="display: block; margin: auto;" /></p>
 <p>Another plot may help. This one shsows the trajectory of each individual over time. An interesting feature is a suggestion that these trajectories ‘fan out’ a little over time. This may suggest that pupils who are good readers at an early stage improve their reading ability over time at a greater rate than those who are poorer readers. This sounds plausible.</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="further-examples-of-mixed-models.html#cb230-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">group =</span> Pupil)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb230-2"><a href="further-examples-of-mixed-models.html#cb230-2" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(School))</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-848-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="further-examples-of-mixed-models.html#cb231-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Age, Readatt, <span class="at">group =</span> Pupil)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb231-2"><a href="further-examples-of-mixed-models.html#cb231-2" tabindex="-1"></a>   <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(School))</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-852-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We can incorporate this into a model by describing these trajectories through straight lines (plus random error) whose slopes are described by random effects. The <code>lme</code> syntax enables this to be specified easily. The residual plot nolonger shows non-random features and a formal test confirms that the simple random effects model is inadequate, in comparison with the model which allows random slopes.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="further-examples-of-mixed-models.html#cb231-1" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> (Age <span class="sc">|</span> School<span class="sc">/</span>Pupil), <span class="at">data =</span> d)</span>
-<span id="cb231-2"><a href="further-examples-of-mixed-models.html#cb231-2" tabindex="-1"></a><span class="fu">plot</span>(model2)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-849-1.png" width="49%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="further-examples-of-mixed-models.html#cb232-1" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> (Age <span class="sc">|</span> School<span class="sc">/</span>Pupil), <span class="at">data =</span> d)</span>
+<span id="cb232-2"><a href="further-examples-of-mixed-models.html#cb232-2" tabindex="-1"></a><span class="fu">plot</span>(model2)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-853-1.png" width="49%" style="display: block; margin: auto;" /></p>
 <p>The residual plot has improved. We might also confirm the suitability of the random slopes model by performing a more formal model comparison.</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="further-examples-of-mixed-models.html#cb232-1" tabindex="-1"></a><span class="fu">anova</span>(model1, model2)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="further-examples-of-mixed-models.html#cb233-1" tabindex="-1"></a><span class="fu">anova</span>(model1, model2)</span></code></pre></div>
 <pre><code>## refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>## Data: d
 ## Models:
@@ -773,9 +768,9 @@ b_i \sim N(0, \sigma^2_b), \hspace{3em}
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Now that our model has a good random effects structure, we can examine the fixed effects in greater detail. The summary gives no evidence of an ethnicity effect, but does show a sex effect with girls producing a better average performance, in addition to the age effect which we already know is present.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="further-examples-of-mixed-models.html#cb235-1" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> Sex <span class="sc">+</span> Ethnicity <span class="sc">+</span> (Age <span class="sc">|</span> School<span class="sc">/</span>Pupil),</span>
-<span id="cb235-2"><a href="further-examples-of-mixed-models.html#cb235-2" tabindex="-1"></a>               <span class="at">data =</span> d)</span>
-<span id="cb235-3"><a href="further-examples-of-mixed-models.html#cb235-3" tabindex="-1"></a><span class="fu">summary</span>(model3)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="further-examples-of-mixed-models.html#cb236-1" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Readatt <span class="sc">~</span> Age <span class="sc">+</span> Sex <span class="sc">+</span> Ethnicity <span class="sc">+</span> (Age <span class="sc">|</span> School<span class="sc">/</span>Pupil),</span>
+<span id="cb236-2"><a href="further-examples-of-mixed-models.html#cb236-2" tabindex="-1"></a>               <span class="at">data =</span> d)</span>
+<span id="cb236-3"><a href="further-examples-of-mixed-models.html#cb236-3" tabindex="-1"></a><span class="fu">summary</span>(model3)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                   Estimate Std. Error   t value
 ## (Intercept)     7.11786451 0.08078863 88.104779
 ## Age             0.99302496 0.01567806 63.338498
@@ -819,42 +814,42 @@ Belenky, Gregory, Nancy J Wesensten, David R Thorne, Maria L Thomas, Helen C Sin
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

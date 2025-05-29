@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -563,31 +558,31 @@ kilocalories per trout per day.</p>
 <hr />
 </blockquote>
 <p>The left hand panel below uses boxplots to give a direct comparison between the rations gained by the two groups of fish. This does suggest there may be a difference in mean values. The middle panel shows a plot of ration against expenditure, with a separate regression line for each group. Now the two groups are almost completely separated. The final plot fits a model which assumes the slopes of the two lines are identical.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="including-factors-in-linear-models.html#cb140-1" tabindex="-1"></a>  path  <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;trout&quot;</span>)</span>
-<span id="cb140-2"><a href="including-factors-in-linear-models.html#cb140-2" tabindex="-1"></a>  trout <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb140-3"><a href="including-factors-in-linear-models.html#cb140-3" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
-<span id="cb140-4"><a href="including-factors-in-linear-models.html#cb140-4" tabindex="-1"></a></span>
-<span id="cb140-5"><a href="including-factors-in-linear-models.html#cb140-5" tabindex="-1"></a>  model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group, <span class="at">data =</span> trout)</span>
-<span id="cb140-6"><a href="including-factors-in-linear-models.html#cb140-6" tabindex="-1"></a>  model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group <span class="sc">*</span> energy, <span class="at">data =</span> trout)</span>
-<span id="cb140-7"><a href="including-factors-in-linear-models.html#cb140-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group <span class="sc">+</span> energy, <span class="at">data =</span> trout)</span>
-<span id="cb140-8"><a href="including-factors-in-linear-models.html#cb140-8" tabindex="-1"></a></span>
-<span id="cb140-9"><a href="including-factors-in-linear-models.html#cb140-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(group, ration)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb140-10"><a href="including-factors-in-linear-models.html#cb140-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb140-11"><a href="including-factors-in-linear-models.html#cb140-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model2)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
-<span id="cb140-12"><a href="including-factors-in-linear-models.html#cb140-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb140-13"><a href="including-factors-in-linear-models.html#cb140-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model3)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-640-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-640-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-640-3.png" width="32%" /></p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="including-factors-in-linear-models.html#cb141-1" tabindex="-1"></a>  <span class="fu">summary</span>(model1)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="including-factors-in-linear-models.html#cb141-1" tabindex="-1"></a>  path  <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;trout&quot;</span>)</span>
+<span id="cb141-2"><a href="including-factors-in-linear-models.html#cb141-2" tabindex="-1"></a>  trout <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb141-3"><a href="including-factors-in-linear-models.html#cb141-3" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb141-4"><a href="including-factors-in-linear-models.html#cb141-4" tabindex="-1"></a></span>
+<span id="cb141-5"><a href="including-factors-in-linear-models.html#cb141-5" tabindex="-1"></a>  model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group, <span class="at">data =</span> trout)</span>
+<span id="cb141-6"><a href="including-factors-in-linear-models.html#cb141-6" tabindex="-1"></a>  model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group <span class="sc">*</span> energy, <span class="at">data =</span> trout)</span>
+<span id="cb141-7"><a href="including-factors-in-linear-models.html#cb141-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ration <span class="sc">~</span> group <span class="sc">+</span> energy, <span class="at">data =</span> trout)</span>
+<span id="cb141-8"><a href="including-factors-in-linear-models.html#cb141-8" tabindex="-1"></a></span>
+<span id="cb141-9"><a href="including-factors-in-linear-models.html#cb141-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(group, ration)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb141-10"><a href="including-factors-in-linear-models.html#cb141-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb141-11"><a href="including-factors-in-linear-models.html#cb141-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model2)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
+<span id="cb141-12"><a href="including-factors-in-linear-models.html#cb141-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(trout, <span class="fu">aes</span>(energy, ration, <span class="at">col =</span> group)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb141-13"><a href="including-factors-in-linear-models.html#cb141-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(energy, <span class="fu">fitted</span>(model3)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-644-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-644-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-644-3.png" width="32%" /></p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="including-factors-in-linear-models.html#cb142-1" tabindex="-1"></a>  <span class="fu">summary</span>(model1)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                  Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept)        79.644   4.422643 18.008235 5.843017e-13
 ## groupsubordinate  -16.815   6.254562 -2.688438 1.501569e-02</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="including-factors-in-linear-models.html#cb143-1" tabindex="-1"></a>  <span class="fu">summary</span>(model2)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="including-factors-in-linear-models.html#cb144-1" tabindex="-1"></a>  <span class="fu">summary</span>(model2)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                           Estimate Std. Error    t value     Pr(&gt;|t|)
 ## (Intercept)             28.7070826   9.806857  2.9272461 9.866556e-03
 ## groupsubordinate         3.5475060  12.515835  0.2834414 7.804732e-01
 ## energy                   0.9150618   0.170874  5.3551863 6.440794e-05
 ## groupsubordinate:energy -0.3659327   0.216484 -1.6903454 1.103471e-01</code></pre>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="including-factors-in-linear-models.html#cb145-1" tabindex="-1"></a>  <span class="fu">summary</span>(model3)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="including-factors-in-linear-models.html#cb146-1" tabindex="-1"></a>  <span class="fu">summary</span>(model3)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                     Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept)       41.3977252  6.6451243  6.229789 9.149947e-06
 ## groupsubordinate -16.8239320  3.5566779 -4.730238 1.933996e-04
@@ -603,20 +598,20 @@ Premature babies often suffer from a variety of problems, of which a major one i
 <p>These data were kindly provided by Dr. Haider, Queen Mother’s Hospital, Glasgow. The data are available through <code>rp.datalink('rds')</code>.</p>
 <hr />
 </blockquote>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="including-factors-in-linear-models.html#cb147-1" tabindex="-1"></a>  path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;rds&#39;</span>)</span>
-<span id="cb147-2"><a href="including-factors-in-linear-models.html#cb147-2" tabindex="-1"></a>  rds  <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb147-3"><a href="including-factors-in-linear-models.html#cb147-3" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
-<span id="cb147-4"><a href="including-factors-in-linear-models.html#cb147-4" tabindex="-1"></a></span>
-<span id="cb147-5"><a href="including-factors-in-linear-models.html#cb147-5" tabindex="-1"></a>  model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS, <span class="at">data =</span> rds)</span>
-<span id="cb147-6"><a href="including-factors-in-linear-models.html#cb147-6" tabindex="-1"></a>  model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">*</span> GA, <span class="at">data =</span> rds)</span>
-<span id="cb147-7"><a href="including-factors-in-linear-models.html#cb147-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">+</span> GA, <span class="at">data =</span> rds)</span>
-<span id="cb147-8"><a href="including-factors-in-linear-models.html#cb147-8" tabindex="-1"></a></span>
-<span id="cb147-9"><a href="including-factors-in-linear-models.html#cb147-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(RDS, lrate)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb147-10"><a href="including-factors-in-linear-models.html#cb147-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(GA, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb147-11"><a href="including-factors-in-linear-models.html#cb147-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model2)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
-<span id="cb147-12"><a href="including-factors-in-linear-models.html#cb147-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(GA, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb147-13"><a href="including-factors-in-linear-models.html#cb147-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model3)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-642-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-642-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-642-3.png" width="32%" /></p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="including-factors-in-linear-models.html#cb148-1" tabindex="-1"></a>  path <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&#39;rds&#39;</span>)</span>
+<span id="cb148-2"><a href="including-factors-in-linear-models.html#cb148-2" tabindex="-1"></a>  rds  <span class="ot">&lt;-</span> <span class="fu">read.table</span>(path, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb148-3"><a href="including-factors-in-linear-models.html#cb148-3" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb148-4"><a href="including-factors-in-linear-models.html#cb148-4" tabindex="-1"></a></span>
+<span id="cb148-5"><a href="including-factors-in-linear-models.html#cb148-5" tabindex="-1"></a>  model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS, <span class="at">data =</span> rds)</span>
+<span id="cb148-6"><a href="including-factors-in-linear-models.html#cb148-6" tabindex="-1"></a>  model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">*</span> GA, <span class="at">data =</span> rds)</span>
+<span id="cb148-7"><a href="including-factors-in-linear-models.html#cb148-7" tabindex="-1"></a>  model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">+</span> GA, <span class="at">data =</span> rds)</span>
+<span id="cb148-8"><a href="including-factors-in-linear-models.html#cb148-8" tabindex="-1"></a></span>
+<span id="cb148-9"><a href="including-factors-in-linear-models.html#cb148-9" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(RDS, lrate)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb148-10"><a href="including-factors-in-linear-models.html#cb148-10" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(GA, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb148-11"><a href="including-factors-in-linear-models.html#cb148-11" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model2)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span>
+<span id="cb148-12"><a href="including-factors-in-linear-models.html#cb148-12" tabindex="-1"></a>  <span class="fu">ggplot</span>(rds, <span class="fu">aes</span>(GA, lrate, <span class="at">col =</span> RDS)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb148-13"><a href="including-factors-in-linear-models.html#cb148-13" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model3)), <span class="at">linewidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-646-1.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-646-2.png" width="32%" /><img src="book_files/figure-html/unnamed-chunk-646-3.png" width="32%" /></p>
 <p>The three plots above again compare the groups directly, then adjust for the effects of gestational age with separate regression lines, and then lines with common slope. There are strikingly different results. Look at summaries of the three models to see that the direct group comparison (<code>model1</code>) shows a (just) significant result, while <code>model2</code> shows no evidence of interaction between group and gestational age and <code>model3</code> shows no evidence of a difference between the groups. So this is a case where the inclusion of a covariate prevents us from drawing an inappropriate conclusion of a group difference when in fact this is due the dominance of later gestational ages in the babies who do not have RDS.</p>
 </div>
 </div>
@@ -640,42 +635,42 @@ Premature babies often suffer from a variety of problems, of which a major one i
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

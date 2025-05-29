@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -550,24 +545,24 @@ div.csl-indent {
 <h3><span class="header-section-number">13.5.1</span> Simulating time series<a href="exercises-10.html#simulating-time-series" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The code below explores what time series structures look like, as well as the effectiveness of fitting models, incluidng smooth trends plus time series errors.</p>
 <p>There could be a useful exercise to explore the effectiveness of <code>gamm</code> in this setting. Plot the estimates of the correlation parameter etc.</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="exercises-10.html#cb272-1" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
-<span id="cb272-2"><a href="exercises-10.html#cb272-2" tabindex="-1"></a></span>
-<span id="cb272-3"><a href="exercises-10.html#cb272-3" tabindex="-1"></a>n   <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb272-4"><a href="exercises-10.html#cb272-4" tabindex="-1"></a>fn  <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> x <span class="sc">/</span> n)</span>
-<span id="cb272-5"><a href="exercises-10.html#cb272-5" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb272-6"><a href="exercises-10.html#cb272-6" tabindex="-1"></a>x   <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
-<span id="cb272-7"><a href="exercises-10.html#cb272-7" tabindex="-1"></a></span>
-<span id="cb272-8"><a href="exercises-10.html#cb272-8" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ar =</span> rho), <span class="at">n =</span> n)</span>
-<span id="cb272-9"><a href="exercises-10.html#cb272-9" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">fn</span>(x) <span class="sc">+</span> y</span>
-<span id="cb272-10"><a href="exercises-10.html#cb272-10" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb272-11"><a href="exercises-10.html#cb272-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(y), <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> stats<span class="sc">::</span><span class="fu">lag</span>(y))) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb272-12"><a href="exercises-10.html#cb272-12" tabindex="-1"></a><span class="co"># plot(y)</span></span>
-<span id="cb272-13"><a href="exercises-10.html#cb272-13" tabindex="-1"></a><span class="co"># plot(y, lag(y))</span></span>
-<span id="cb272-14"><a href="exercises-10.html#cb272-14" tabindex="-1"></a></span>
-<span id="cb272-15"><a href="exercises-10.html#cb272-15" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gamm</span>(y <span class="sc">~</span> <span class="fu">s</span>(x), <span class="at">correlation =</span> <span class="fu">corARMA</span>(<span class="at">form =</span> <span class="sc">~</span> x, <span class="at">p =</span> <span class="dv">1</span>))</span>
-<span id="cb272-16"><a href="exercises-10.html#cb272-16" tabindex="-1"></a><span class="fu">plot</span>(model<span class="sc">$</span>gam)</span>
-<span id="cb272-17"><a href="exercises-10.html#cb272-17" tabindex="-1"></a><span class="fu">curve</span>(fn, <span class="dv">1</span>, n, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>)</span>
-<span id="cb272-18"><a href="exercises-10.html#cb272-18" tabindex="-1"></a><span class="fu">coef</span>(model<span class="sc">$</span>lme<span class="sc">$</span>modelStruct<span class="sc">$</span>corStruct, <span class="at">unconstrained =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="exercises-10.html#cb273-1" tabindex="-1"></a><span class="fu">library</span>(mgcv)</span>
+<span id="cb273-2"><a href="exercises-10.html#cb273-2" tabindex="-1"></a></span>
+<span id="cb273-3"><a href="exercises-10.html#cb273-3" tabindex="-1"></a>n   <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb273-4"><a href="exercises-10.html#cb273-4" tabindex="-1"></a>fn  <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">cos</span>(<span class="dv">2</span> <span class="sc">*</span> pi <span class="sc">*</span> x <span class="sc">/</span> n)</span>
+<span id="cb273-5"><a href="exercises-10.html#cb273-5" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb273-6"><a href="exercises-10.html#cb273-6" tabindex="-1"></a>x   <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
+<span id="cb273-7"><a href="exercises-10.html#cb273-7" tabindex="-1"></a></span>
+<span id="cb273-8"><a href="exercises-10.html#cb273-8" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">ar =</span> rho), <span class="at">n =</span> n)</span>
+<span id="cb273-9"><a href="exercises-10.html#cb273-9" tabindex="-1"></a>y   <span class="ot">&lt;-</span> <span class="fu">fn</span>(x) <span class="sc">+</span> y</span>
+<span id="cb273-10"><a href="exercises-10.html#cb273-10" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb273-11"><a href="exercises-10.html#cb273-11" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(y), <span class="fu">aes</span>(<span class="at">x =</span> y, <span class="at">y =</span> stats<span class="sc">::</span><span class="fu">lag</span>(y))) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb273-12"><a href="exercises-10.html#cb273-12" tabindex="-1"></a><span class="co"># plot(y)</span></span>
+<span id="cb273-13"><a href="exercises-10.html#cb273-13" tabindex="-1"></a><span class="co"># plot(y, lag(y))</span></span>
+<span id="cb273-14"><a href="exercises-10.html#cb273-14" tabindex="-1"></a></span>
+<span id="cb273-15"><a href="exercises-10.html#cb273-15" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">gamm</span>(y <span class="sc">~</span> <span class="fu">s</span>(x), <span class="at">correlation =</span> <span class="fu">corARMA</span>(<span class="at">form =</span> <span class="sc">~</span> x, <span class="at">p =</span> <span class="dv">1</span>))</span>
+<span id="cb273-16"><a href="exercises-10.html#cb273-16" tabindex="-1"></a><span class="fu">plot</span>(model<span class="sc">$</span>gam)</span>
+<span id="cb273-17"><a href="exercises-10.html#cb273-17" tabindex="-1"></a><span class="fu">curve</span>(fn, <span class="dv">1</span>, n, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>)</span>
+<span id="cb273-18"><a href="exercises-10.html#cb273-18" tabindex="-1"></a><span class="fu">coef</span>(model<span class="sc">$</span>lme<span class="sc">$</span>modelStruct<span class="sc">$</span>corStruct, <span class="at">unconstrained =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>##       Phi 
 ## 0.3759031</code></pre>
 <p><img src="book_files/figure-html/time_series_simulation-1.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/time_series_simulation-2.png" width="70%" style="display: block; margin: auto;" /></p>
@@ -595,42 +590,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

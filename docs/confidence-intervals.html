@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -552,15 +547,15 @@ div.csl-indent {
 \]</span>
 is therefore a range of plausible values for the true mean <span class="math inline">\(\mu\)</span>. This is called a <em>confidence interval</em> because we can attach some useful proporties of this kind of interval; these are discussed below. We can also carry out some more careful probability calculations which show that, while the multiplier 2 is a good approximation, a more precise value is the percentile of a <span class="math inline">\(t\)</span>-distribution with <span class="math inline">\((n-1)\)</span> <em>degrees of freedom</em>.</p>
 <p>The first person to propose this idea was W.S.Gossett, in a famous paper in 1908. He published under the pseudonym <em>Student</em> because he was working for the <em>Guiness</em> brewery at the time. He used data from a paper by Cushny &amp; Peebles (1905) which compared the effects of two different drugs on lengthening the hours of sleep in 10 different subjects. The experimental design involved each subject taking each of the two drugs, so this is <em>paired</em> data. A helpful first step is to plot the paired values against one another, with the line <code>y = x</code> providing a reference. If there is no systematic difference between the effects of the drugs then the observations should cluster around this line.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="confidence-intervals.html#cb93-1" tabindex="-1"></a>sleep_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(sleep, <span class="at">values_from =</span> extra, <span class="at">names_from =</span> group,</span>
-<span id="cb93-2"><a href="confidence-intervals.html#cb93-2" tabindex="-1"></a>                          <span class="at">names_prefix =</span> <span class="st">&#39;drug_&#39;</span>)</span>
-<span id="cb93-3"><a href="confidence-intervals.html#cb93-3" tabindex="-1"></a><span class="fu">ggplot</span>(sleep_wide, <span class="fu">aes</span>(drug_1, drug_2)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb93-4"><a href="confidence-intervals.html#cb93-4" tabindex="-1"></a>   <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>, <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="confidence-intervals.html#cb94-1" tabindex="-1"></a>sleep_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(sleep, <span class="at">values_from =</span> extra, <span class="at">names_from =</span> group,</span>
+<span id="cb94-2"><a href="confidence-intervals.html#cb94-2" tabindex="-1"></a>                          <span class="at">names_prefix =</span> <span class="st">&#39;drug_&#39;</span>)</span>
+<span id="cb94-3"><a href="confidence-intervals.html#cb94-3" tabindex="-1"></a><span class="fu">ggplot</span>(sleep_wide, <span class="fu">aes</span>(drug_1, drug_2)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb94-4"><a href="confidence-intervals.html#cb94-4" tabindex="-1"></a>   <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>, <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/sleep-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The extra times for drug 2 are higher than those for drug 1, apart from one patient where the times were identical. In one patient the difference between the two drugs is particularly large but otherwise the differences are broadly similar. In particular, there is no obvious change in the size of the difference as the size of the response to drug 1 changes. This allows us to focus on the differences of the responses from the two drugs as the key information to analyse.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="confidence-intervals.html#cb94-1" tabindex="-1"></a>sleep_diff <span class="ot">&lt;-</span> <span class="fu">with</span>(sleep_wide, drug_2 <span class="sc">-</span> drug_1)</span>
-<span id="cb94-2"><a href="confidence-intervals.html#cb94-2" tabindex="-1"></a><span class="fu">rp.t_test</span>(sleep_diff)</span>
-<span id="cb94-3"><a href="confidence-intervals.html#cb94-3" tabindex="-1"></a><span class="fu">rp.t_test</span>(sleep_diff, <span class="at">mu =</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="confidence-intervals.html#cb95-1" tabindex="-1"></a>sleep_diff <span class="ot">&lt;-</span> <span class="fu">with</span>(sleep_wide, drug_2 <span class="sc">-</span> drug_1)</span>
+<span id="cb95-2"><a href="confidence-intervals.html#cb95-2" tabindex="-1"></a><span class="fu">rp.t_test</span>(sleep_diff)</span>
+<span id="cb95-3"><a href="confidence-intervals.html#cb95-3" tabindex="-1"></a><span class="fu">rp.t_test</span>(sleep_diff, <span class="at">mu =</span> <span class="dv">0</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/sleep_uncertainty-1.png" width="49%" /><img src="book_files/figure-html/sleep_uncertainty-2.png" width="49%" /></p>
 <p>Comment that the areas of the data density and uncertainy distribution are not comparable. It is only relative sizes within in each distribution which matter.</p>
 <p>Discuss the construction of a confidence interval.</p>
@@ -590,42 +585,42 @@ is therefore a range of plausible values for the true mean <span class="math inl
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

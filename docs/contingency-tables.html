@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -548,10 +543,10 @@ div.csl-indent {
 <h2><span class="header-section-number">8.3</span> Contingency tables<a href="contingency-tables.html#contingency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The data on smoking and lung cancer can also be treated as a simple example of a <em>contingency table</em>, which cross-classifies counts by two different factors. In fact, this was how the data were viewed in the original paper by Doll &amp; Hill. The method of analysis we will explore can be implemented in contingency tables with any number of rows or columns.</p>
 <p>As ever, a helpful first step is to visualise the data, even when this consists of a very simple tabluation. The mosiacplot discussed earlier helps with this. The columns of the plot refer to the case and control groups. Here these are equal in size (60) but differences in in numbers would have been reflected in the width of the columns. This means that the height of each block now refers to proprtions of observations within each column.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="contingency-tables.html#cb108-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">41</span>, <span class="dv">19</span>, <span class="dv">28</span>, <span class="dv">32</span>), <span class="at">ncol =</span> <span class="dv">2</span>,</span>
-<span id="cb108-2"><a href="contingency-tables.html#cb108-2" tabindex="-1"></a>            <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;smoker&quot;</span>, <span class="st">&quot;non-smoker&quot;</span>),</span>
-<span id="cb108-3"><a href="contingency-tables.html#cb108-3" tabindex="-1"></a>                            <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;controls&quot;</span>)))</span>
-<span id="cb108-4"><a href="contingency-tables.html#cb108-4" tabindex="-1"></a><span class="fu">rp.contingency</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="contingency-tables.html#cb109-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">41</span>, <span class="dv">19</span>, <span class="dv">28</span>, <span class="dv">32</span>), <span class="at">ncol =</span> <span class="dv">2</span>,</span>
+<span id="cb109-2"><a href="contingency-tables.html#cb109-2" tabindex="-1"></a>            <span class="at">dimnames =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;smoker&quot;</span>, <span class="st">&quot;non-smoker&quot;</span>),</span>
+<span id="cb109-3"><a href="contingency-tables.html#cb109-3" tabindex="-1"></a>                            <span class="fu">c</span>(<span class="st">&quot;cases&quot;</span>, <span class="st">&quot;controls&quot;</span>)))</span>
+<span id="cb109-4"><a href="contingency-tables.html#cb109-4" tabindex="-1"></a><span class="fu">rp.contingency</span>(x)</span></code></pre></div>
 <p><img src="book_files/figure-html/smoking_mosaic-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>If there is no association between smoking and lung cancer, then the proportions associated with each column will be identical. We can use this idea to calculate <em>expected values</em>, which describe the pattern we expect to see if the null hypothesis of no association is correct. Estimates of the common probabilities for each column are (69/120, 51/120) = (0.575, 0.425). The expected values by row are therefore obtained by multiplying the column totals by these probabilities. It so happens that the column totals are identical in this dataset, namely 60.</p>
 <pre><code>                            60 * 0.575, 60 * 0.575 = 34.5, 34.5
@@ -562,12 +557,12 @@ div.csl-indent {
 \]</span></p>
 <p>where the subscripts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> index the rows and columns. The chi-squared statistic for the current dataset is <span class="math inline">\(5.76\)</span>.</p>
 <p>This value is meaningful only when we compare it to a reference distribution. The theory for this setting tells us that the relevant comparison is with a <span class="math inline">\(\chi^2\)</span> distribution, which is plotted below. This distribution is indexed by a parameter known as the <em>degrees of freedom</em>. For contingency tables with <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, the degrees of freedom should be set to <span class="math inline">\((r-1)(c-1)\)</span>, which in the current case is <span class="math inline">\(1\)</span>.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="contingency-tables.html#cb110-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
-<span id="cb110-2"><a href="contingency-tables.html#cb110-2" tabindex="-1"></a><span class="fu">rp.tables</span>(<span class="at">panel =</span> <span class="cn">FALSE</span>, <span class="at">distribution =</span> <span class="st">&quot;chi-squared&quot;</span>, <span class="at">degf1 =</span> <span class="dv">1</span>, <span class="at">observed.value =</span> <span class="fl">5.76</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-578-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="contingency-tables.html#cb111-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
+<span id="cb111-2"><a href="contingency-tables.html#cb111-2" tabindex="-1"></a><span class="fu">rp.tables</span>(<span class="at">panel =</span> <span class="cn">FALSE</span>, <span class="at">distribution =</span> <span class="st">&quot;chi-squared&quot;</span>, <span class="at">degf1 =</span> <span class="dv">1</span>, <span class="at">observed.value =</span> <span class="fl">5.76</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-582-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>The observed value of the test statistic, which is also shown in the plot, is much higher than values we expect to see from this reference distribution. The upper 5% point of the distribution is 3.84, which gives us a specific benchmark. We therefore have significant evidence that the proportions of smokers are different in the cases and controls. This formn of analysis has, unsurprisingly, confirmed the conclusions of the comparison of proportions in the previous section.</p>
 <p>The chi-squared test can be easily implemented in <code>R</code> through the <code>chisq.test</code> function. By default this includes a correction for 2x2 tables in order to improve the accuracy of the reference distribution. However, the conclusion is unchanged.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="contingency-tables.html#cb111-1" tabindex="-1"></a><span class="fu">chisq.test</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="contingency-tables.html#cb112-1" tabindex="-1"></a><span class="fu">chisq.test</span>(x)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -594,42 +589,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

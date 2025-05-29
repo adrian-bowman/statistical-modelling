@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -552,8 +547,8 @@ div.csl-indent {
 \]</span>
 where <span class="math inline">\(\alpha_i\)</span> gives the adjustment from the overall mean <span class="math inline">\(\mu\)</span> for the mean of treatment <span class="math inline">\(i\)</span> and <span class="math inline">\(\beta_j\)</span> gives the adjustment for the mean of blend <span class="math inline">\(j\)</span>. This is a convenient was of expressing the model but there are actually more parameters here than we need. A simple solution is to set <span class="math inline">\(\alpha_1 = 0\)</span> so that the other treatment effects refer to the differences from treatment level 1. Similarly, we can set <span class="math inline">\(\beta_1 = 0\)</span>. The error terms <span class="math inline">\(\varepsilon_{ij}\)</span> are assumed to be independent of one another, with a <span class="math inline">\(N(0, \sigma^2)\)</span> distribution.</p>
 <p>This is a classic <em>randomised blocks</em> design. As it is a simple linear model so the <code>lm</code> function can be used to fit it.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb193-1" tabindex="-1"></a>model_tb <span class="ot">&lt;-</span> <span class="fu">lm</span>(yield <span class="sc">~</span> treat <span class="sc">+</span> blend, <span class="at">data =</span> penicillin)</span>
-<span id="cb193-2"><a href="formulating-and-fitting-mixed-effects-models.html#cb193-2" tabindex="-1"></a><span class="fu">summary</span>(model_tb)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb194-1" tabindex="-1"></a>model_tb <span class="ot">&lt;-</span> <span class="fu">lm</span>(yield <span class="sc">~</span> treat <span class="sc">+</span> blend, <span class="at">data =</span> penicillin)</span>
+<span id="cb194-2"><a href="formulating-and-fitting-mixed-effects-models.html#cb194-2" tabindex="-1"></a><span class="fu">summary</span>(model_tb)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##             Estimate Std. Error    t value     Pr(&gt;|t|)
 ## (Intercept)       90   2.744692 32.7905663 4.097853e-13
 ## treatB             1   2.744692  0.3643396 7.219436e-01
@@ -604,15 +599,15 @@ The trouble is that we don’t actually observe <span class="math inline">\(b\)<
 <p>A solution is to estimate the variances by integrating out the fixed effect parameters, <span class="math inline">\(\alpha\)</span>, as well as the random effects <span class="math inline">\(b\)</span>. These estimated variances are then used in estimation of the fixed effect parameters. This is known as <em>Restricted Maximum Likelihood</em>, or REML, estimation. One consequence to be aware of is that REML estimation cannot be used when comparing models which have different fixed effect structures, as the likelihoods are then not comparable.</p>
 <p>Maximising likelihoods for mixed models is relatively straightforward in simple cases but much trickier for more complex models. There are efficient methods of numerical maximisation which can help.</p>
 <p>In practice, the <code>lmer</code> function in the <code>lme4</code> package gives us a powerful mechanism for fitting models which include random effects. The code below applies this to the penicillin data. In the model formula, the term <code>(1 | blend)</code> indicates that we wish a random effect which allows a random adjustment to the mean for each blend. (The <code>1</code> is simply a symbol to indicate a mean.) We can now examine the estimates of the fixed parameters. As we suspected, these don’t suggest any strong treatment effects. We can also the estimates of the standard deviation of the blend variation as well as the standard deviation of the error associated with each observation.</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb195-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb195-2"><a href="formulating-and-fitting-mixed-effects-models.html#cb195-2" tabindex="-1"></a>model_tr <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
-<span id="cb195-3"><a href="formulating-and-fitting-mixed-effects-models.html#cb195-3" tabindex="-1"></a><span class="fu">summary</span>(model_tr)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb196-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb196-2"><a href="formulating-and-fitting-mixed-effects-models.html#cb196-2" tabindex="-1"></a>model_tr <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> treat <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
+<span id="cb196-3"><a href="formulating-and-fitting-mixed-effects-models.html#cb196-3" tabindex="-1"></a><span class="fu">summary</span>(model_tr)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##             Estimate Std. Error    t value
 ## (Intercept)       84   2.474874 33.9411255
 ## treatB             1   2.744692  0.3643396
 ## treatC             5   2.744692  1.8216981
 ## treatD             2   2.744692  0.7286793</code></pre>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb197-1" tabindex="-1"></a><span class="fu">summary</span>(model_tr)<span class="sc">$</span>varcor</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="formulating-and-fitting-mixed-effects-models.html#cb198-1" tabindex="-1"></a><span class="fu">summary</span>(model_tr)<span class="sc">$</span>varcor</span></code></pre></div>
 <pre><code>##  Groups   Name        Std.Dev.
 ##  blend    (Intercept) 3.4339  
 ##  Residual             4.3397</code></pre>
@@ -637,42 +632,42 @@ The trouble is that we don’t actually observe <span class="math inline">\(b\)<
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -547,18 +542,18 @@ div.csl-indent {
 <div id="simple-regression-rodents-revisited" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Simple regression: rodents revisited<a href="simple-regression-rodents-revisited.html#simple-regression-rodents-revisited" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We looked at the <code>rodent</code> data earlier. Our discussion about suitable scales and the exclusion of the porcupine were already preliminary parts of the process of building a model. We then proposed a straight line model to describe the connection between log(Mass) and log(Speed). This simple setting sets the pattern for more general linear models.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="simple-regression-rodents-revisited.html#cb113-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
-<span id="cb113-2"><a href="simple-regression-rodents-revisited.html#cb113-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb113-3"><a href="simple-regression-rodents-revisited.html#cb113-3" tabindex="-1"></a>rodent <span class="ot">&lt;-</span> <span class="fu">filter</span>(rodent, <span class="fu">rownames</span>(rodent) <span class="sc">!=</span> <span class="st">&quot;North American Porcupine&quot;</span>)</span>
-<span id="cb113-4"><a href="simple-regression-rodents-revisited.html#cb113-4" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Speed) <span class="sc">~</span> <span class="fu">log</span>(Mass), <span class="at">data =</span> rodent)</span>
-<span id="cb113-5"><a href="simple-regression-rodents-revisited.html#cb113-5" tabindex="-1"></a><span class="fu">ggplot</span>(rodent, <span class="fu">aes</span>(<span class="fu">log</span>(Mass), <span class="fu">log</span>(Speed))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb113-6"><a href="simple-regression-rodents-revisited.html#cb113-6" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb113-7"><a href="simple-regression-rodents-revisited.html#cb113-7" tabindex="-1"></a>   <span class="fu">geom_segment</span>(<span class="at">xend =</span> <span class="fu">log</span>(rodent<span class="sc">$</span>Mass), <span class="at">yend =</span> <span class="fu">fitted</span>(model2), <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="simple-regression-rodents-revisited.html#cb114-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
+<span id="cb114-2"><a href="simple-regression-rodents-revisited.html#cb114-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb114-3"><a href="simple-regression-rodents-revisited.html#cb114-3" tabindex="-1"></a>rodent <span class="ot">&lt;-</span> <span class="fu">filter</span>(rodent, <span class="fu">rownames</span>(rodent) <span class="sc">!=</span> <span class="st">&quot;North American Porcupine&quot;</span>)</span>
+<span id="cb114-4"><a href="simple-regression-rodents-revisited.html#cb114-4" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Speed) <span class="sc">~</span> <span class="fu">log</span>(Mass), <span class="at">data =</span> rodent)</span>
+<span id="cb114-5"><a href="simple-regression-rodents-revisited.html#cb114-5" tabindex="-1"></a><span class="fu">ggplot</span>(rodent, <span class="fu">aes</span>(<span class="fu">log</span>(Mass), <span class="fu">log</span>(Speed))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb114-6"><a href="simple-regression-rodents-revisited.html#cb114-6" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb114-7"><a href="simple-regression-rodents-revisited.html#cb114-7" tabindex="-1"></a>   <span class="fu">geom_segment</span>(<span class="at">xend =</span> <span class="fu">log</span>(rodent<span class="sc">$</span>Mass), <span class="at">yend =</span> <span class="fu">fitted</span>(model2), <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
 <p><img src="book_files/figure-html/rodent_least_squares-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The process of <em>fitting</em> the model involves quantifying, for any particular line we might consider, how well this line captures the pattern in the data. The red lines in the plot above show the deviations of the data from the line and this can be quantified in the sum-of-squares of these deviations. The <em>fitted model</em> corresponds to the straight line which minimises this sum-of-squares. The problem can be expressed and solved in a general way, giving simple formulae for the slope and the intercept of the fitted line. These are <em>estimates</em> of the true underlying slope and intercept for the relationship which generated the data.</p>
 <p>The individual data points show considerable variation around the fitted line and a description of this is also part of the modelling process. The deviations of the points from the fitted model are called the <em>residuals</em>. Essentially, we calculate the standard deviation of these residuals (with a slight technical modification) to estimate the variation of the observations around the model.</p>
 <p>The estimates of intercept and slope are usually of principal interest. We can view these as:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="simple-regression-rodents-revisited.html#cb114-1" tabindex="-1"></a><span class="fu">summary</span>(model2)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="simple-regression-rodents-revisited.html#cb115-1" tabindex="-1"></a><span class="fu">summary</span>(model2)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##             Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept) 2.989936 0.15518074 19.267444 2.199202e-14
 ## log(Mass)   0.142214 0.05858014  2.427683 2.475992e-02</code></pre>
@@ -585,42 +580,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

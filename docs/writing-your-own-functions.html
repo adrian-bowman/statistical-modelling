@@ -248,7 +248,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.3" data-path="collating-data-from-different-sources.html"><a href="collating-data-from-different-sources.html"><i class="fa fa-check"></i><b>3.3</b> Collating data from different sources</a></li>
 <li class="chapter" data-level="3.4" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>3.4</b> Tidy data</a></li>
 <li class="chapter" data-level="3.5" data-path="further-reading-2.html"><a href="further-reading-2.html"><i class="fa fa-check"></i><b>3.5</b> Further reading</a></li>
-<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
+<li class="chapter" data-level="3.6" data-path="exercises-2.html"><a href="exercises-2.html"><i class="fa fa-check"></i><b>3.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="exercises-2.html"><a href="exercises-2.html#data-wrangling-exercise-UN-demography"><i class="fa fa-check"></i><b>3.6.1</b> UN demography data</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>II Exploring data</b></span></li>
 <li class="chapter" data-level="4" data-path="data-visualisation.html"><a href="data-visualisation.html"><i class="fa fa-check"></i><b>4</b> Data Visualisation</a>
@@ -515,14 +518,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="thinking-clearly-with-probability.html"><a href="thinking-clearly-with-probability.html"><i class="fa fa-check"></i><b>18</b> Thinking clearly with probability</a>
-<ul>
-<li class="chapter" data-level="18.1" data-path="asking-awkward-questions.html"><a href="asking-awkward-questions.html"><i class="fa fa-check"></i><b>18.1</b> Asking awkward questions</a></li>
-</ul></li>
-<li class="chapter" data-level="19" data-path="further-reading-10.html"><a href="further-reading-10.html"><i class="fa fa-check"></i><b>19</b> Further reading</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="data-in-general.html"><a href="data-in-general.html"><i class="fa fa-check"></i><b>19.1</b> Data in general</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -547,28 +542,28 @@ div.csl-indent {
 <div id="writing-your-own-functions" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Writing your own functions<a href="writing-your-own-functions.html#writing-your-own-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once we have a useful block of code, which we may wish to use repeatedly and in different circumstances, it can be very useful to turn this into a new function. This is done simply by assigning a name to a function which consists of this block of code. The value of the last instruction in the function is <em>returned</em> as the value of the function. The <code>invisible</code> function is useful to avoid this being printed out.</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="writing-your-own-functions.html#cb350-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb350-2"><a href="writing-your-own-functions.html#cb350-2" tabindex="-1"></a>    nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb350-3"><a href="writing-your-own-functions.html#cb350-3" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb350-4"><a href="writing-your-own-functions.html#cb350-4" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
-<span id="cb350-5"><a href="writing-your-own-functions.html#cb350-5" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
-<span id="cb350-6"><a href="writing-your-own-functions.html#cb350-6" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb350-7"><a href="writing-your-own-functions.html#cb350-7" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb350-8"><a href="writing-your-own-functions.html#cb350-8" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="writing-your-own-functions.html#cb351-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb351-2"><a href="writing-your-own-functions.html#cb351-2" tabindex="-1"></a>    nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb351-3"><a href="writing-your-own-functions.html#cb351-3" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb351-4"><a href="writing-your-own-functions.html#cb351-4" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
+<span id="cb351-5"><a href="writing-your-own-functions.html#cb351-5" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
+<span id="cb351-6"><a href="writing-your-own-functions.html#cb351-6" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb351-7"><a href="writing-your-own-functions.html#cb351-7" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb351-8"><a href="writing-your-own-functions.html#cb351-8" tabindex="-1"></a>  }</span></code></pre></div>
 <p>The function can then be activated (or <em>called</em>) simply by typing its name in the usual way.</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="writing-your-own-functions.html#cb351-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1121-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="writing-your-own-functions.html#cb352-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-1125-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>To provide detailed control of the function we can add <em>arguments</em>. These have stated default values but we can override these by specifying (or <em>passing</em>) different values.</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="writing-your-own-functions.html#cb352-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
-<span id="cb352-2"><a href="writing-your-own-functions.html#cb352-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
-<span id="cb352-3"><a href="writing-your-own-functions.html#cb352-3" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> n)</span>
-<span id="cb352-4"><a href="writing-your-own-functions.html#cb352-4" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
-<span id="cb352-5"><a href="writing-your-own-functions.html#cb352-5" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb352-6"><a href="writing-your-own-functions.html#cb352-6" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb352-7"><a href="writing-your-own-functions.html#cb352-7" tabindex="-1"></a>  }</span>
-<span id="cb352-8"><a href="writing-your-own-functions.html#cb352-8" tabindex="-1"></a></span>
-<span id="cb352-9"><a href="writing-your-own-functions.html#cb352-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1122-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="writing-your-own-functions.html#cb353-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
+<span id="cb353-2"><a href="writing-your-own-functions.html#cb353-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
+<span id="cb353-3"><a href="writing-your-own-functions.html#cb353-3" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> n)</span>
+<span id="cb353-4"><a href="writing-your-own-functions.html#cb353-4" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
+<span id="cb353-5"><a href="writing-your-own-functions.html#cb353-5" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb353-6"><a href="writing-your-own-functions.html#cb353-6" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb353-7"><a href="writing-your-own-functions.html#cb353-7" tabindex="-1"></a>  }</span>
+<span id="cb353-8"><a href="writing-your-own-functions.html#cb353-8" tabindex="-1"></a></span>
+<span id="cb353-9"><a href="writing-your-own-functions.html#cb353-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-1126-1.png" width="50%" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 
@@ -590,42 +585,42 @@ div.csl-indent {
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["book.pdf", "book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["book.pdf", "book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
