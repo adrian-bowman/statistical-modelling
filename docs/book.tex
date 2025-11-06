@@ -89,15 +89,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
@@ -137,9 +139,6 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
@@ -161,7 +160,7 @@
 \makeatother
 \subtitle{A conceptual, visual and practical introduction}
 \author{true}
-\date{23 April, 2025}
+\date{20 August, 2025}
 
 \begin{document}
 \maketitle
@@ -254,278 +253,17 @@ Throughout the book there are frequent references to the widely used statistical
 
 \textbf{Please note that this is a work in progress. Please forgive some rough edges in the presentation here and there.}
 
-\chapter{Where do data come from?}\label{where-data}
+\part{Inference: turning data into evidence}\label{part-inference-turning-data-into-evidence}
 
-Data can take many forms. Sometimes we are dealing with simple numbers, such as blood pressure measurements or age. Some data may consist of categories, such as country of origin or presence/absence of a characteristic of interest. Modern data can be much more sophisticated, arising in the form of images, temperature curves, three-dimensional surfaces or networks. This chapter focuses on relatively simple data forms but uses these to discuss some important principles of how data are collected and what they are able to tell us.
+\chapter{Inference on means}\label{inference}
 
-\section{Some examples of data}\label{examples-data}
-
-\subsection{CO2 and global warming}\label{co2-and-global-warming}
-
-One of the world's most pressing issue is climate change as a result of global warming. The levels of CO2 in the atmosphere are clearly implicated in this as a result of the `greenhouse' effect. Accurate monitoring of CO2 began in the late 1950's through the pioneering work of Charles David Keeling at Mauna Loa Observatory in Hawaii and measurements have been made continuously since then, providing an invaluable record of change. This `time series' is displayed at monthly resolution in the left hand panel below.
-
-\includegraphics[width=0.49\linewidth]{book_files/figure-latex/global_warming-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/global_warming-2}
-
-This time series makes it clear that there has been a steady rise in atmospheric CO2 over the entire period of monitoring. The implications of this become startling when we compare the series to data which indicate the levels of CO2 which correspond to earlier historical times. This can be done by measuring the CO2 content of air trapped in ice cores. Careful analysis of the ice layers allow the identification of the time scale, which stretches back over hundreds of thousands of years. The CO2 measurements from ice cores has been superimposed on the plot of the Mauna Loa data in the right hand panel above. This makes it clear that the modern measurements of CO2 are `off the scale' of the historical levels.
-
-In order to assuage any concerns about the comparability between the modern atmospheric and historical ice core CO2 measurements, the plots below focus on the period where these overlap. The left hand plot highlights the sudden dramatic rise in CO2 as the industrial revolution gathered pace. The right hand panel zooms in on the years when both types of measurement are available, indicating the very strong level of agreement between the two.
-
-We will look at corresponding temperature changes later, but these data already paint a stark picture of the nature and size of the challenge we face in addressing climate change. The Intergovernmental Panel on Climate Change synthesises our scientific understanding of the process and continues to \href{https://www.ipcc.ch/2021/08/09/ar6-wg1-20210809-pr/}{report} on the current situation, with urgent calls to action.
-
-\includegraphics[width=0.49\linewidth]{book_files/figure-latex/law_dome-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/law_dome-2}
-
-This example highlights that, in some settings, there is a need for an appropriate \emph{control} to enable informative comparisons. Controls can sometimes be difficult to identify. In this case, considerable effort has been undertaken to ensure the validity of comparisons with the control data. The example also highlights the relevance of our scientific understanding of the context in which the experiment takes place. The physics of greenhouse gasses is well understood and this allows us to strengthen the interpretation of what we see in the data.
-
-\subsection{The first tuberculosis trial}\label{the-first-tuberculosis-trial}
-
-One of the very earliest systematic evaluations of medical treatment, marking a significant step in what we now term `clinical trials', was a study on the effects of \emph{Streptomycin} on pulmonary tuberculosis by Marshall et al. (\citeproc{ref-marshall_1948_bmj}{1948}).
-
-The statistician Austin Bradford Hill, whose picture is below, introduced very important methodology in this study. In his \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3149409/}{review} of the development of clinical trials, Bhatt (\citeproc{ref-bhatt_2010_perspclinres}{2010}) writes ``This trial was a model of meticulousness in design and implementation, with systematic enrolment criteria and data collection compared with the ad hoc nature of other contemporary research. A key advantage of Dr Hill's randomization scheme over alternation procedure was ``allocation concealment'' at the time patients were enrolled in the trial. Another significant feature of the trial was the use of objective measures such as interpretation of x-rays by experts who were blinded to the patient's treatment assignment.''
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.2\linewidth]{images/bradford-hill} 
-
-}
-
-\caption{Sir Austin Bradford Hill,  Wellcome Collection, CC BY.}\label{fig:bradford-hill-image}
-\end{figure}
-
-The headline results reported in the \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2091872/pdf/brmedj03701-0007.pdf}{scientific paper} are shown in the table below.
-
-\begin{tabular}{l|r|r}
-\hline
-Radiological assessment & Streptomycin group & Control group\\
-\hline
-Considerable improvement & 28 & 4\\
-\hline
-Moderate or slight improvement & 10 & 13\\
-\hline
-No material change & 2 & 3\\
-\hline
-Moderate or slight deterioration & 5 & 12\\
-\hline
-Considerable deterioration & 6 & 6\\
-\hline
-Deaths & 4 & 14\\
-\hline
-**Total** & **55** & **52**\\
-\hline
-\end{tabular}
-
-The beneficial effects of the treatment are clear and we can have confidence in the conclusion because of the careful conduct of the trial. Key features of the design include the presence of a \emph{control} group and the use of randomisation.
-
-\subsection{The birds and the bees: how to tell the sex of a herring gull}\label{the-birds-and-the-bees-how-to-tell-the-sex-of-a-herring-gull}
-
-Herring gulls are found across the coastal regions of North-Western Europe. When studying the behaviour of these birds, it is useful to be able to identify sex. With this species, this is not possible by visual examination of the obvious anatomical features as the appropriate organs are internal. It would therefore be very useful to be able to identify the sex of a bird by taking simple measurements of some kind, on the assumption that the sexes are lijkely to differn in size, as happens with many animal species. The correct identification of the sex of a herring gull has to be carried out by dissection. The most suitable source of data for this purpose is therefore birds which have been found dead or have been culled for other reasons. Measurements from a sample of 100 male and 100 female birds, kindly provided by Prof.~Pat Monaghan from thte University of Glasgow, are available for investigation.
-
-\begin{center}\includegraphics[width=0.5\linewidth]{images/herring-gull} \end{center}
-
-Length measurements, based on the distance between two of the yellow landmarks in the picture above, could be useful in distinguishing between the sexes. as males and females tend to have different sizes in many species. There is an interactive application in R which can help in thinking this through. A gentle introduction to R is provided in Chapter \ref{R-introduction} but, if you have followed the guidance at the start of the book on installing R and the add-on package \texttt{rpanel}, then type in the following instructions into the \emph{console} window to launch the app.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(rpanel)}
-\FunctionTok{rp.gulls}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-Consider which pairs of landmarks might provide a suitable length measurement. Suitable criteria are:
-
-\begin{itemize}
-\tightlist
-\item
-  \emph{reproducible}, by yourself and others;
-\item
-  \emph{valid}, in what they aim to measure;
-\item
-  \emph{informative}, as they are likely to be different for male and females;
-\item
-  \emph{well calibrated}, as they target a feature of interest;
-\item
-  \emph{practical}, as measurements can be made reasonably easily.
-\end{itemize}
-
-Click on your selected pairs of landmarks and some feedback will be given. If you are able to identify some suitable measurements, checkboxes and buttons will appear to allow you to see some plots of the data, separated out by sex.
-
-\subsection{Tracking the covid pandemic}\label{tracking-the-covid-pandemic}
-
-When the covid19 pandemic began there was immediate and urgent effort to track its progress. That happened in many ways, most immediately in the numbers of deaths and hospital admissions. In the UK, when tests became available, the number of positive results was also regularly reported. The symptoms data collected by the app from the \href{https://health-study.zoe.com/data}{ZOE Health Study} provided another source of information.
-
-Although these sources provided useful information, the most reliable estimates of covid infection levels came from a large survey conducted by the Office of National Statistics (ONS), in partnership with the University of Oxford, the University of Manchester, the UK Health Security Agency (UKHSA) and the Wellcome Trust. Swab and blood samples were provided by thousands of people from across the UK who had been selected and random and who had agreed to participate by providing repeated samples over an extended time period. Statistical modeling was also undertaken to ensure that the results represented the population as a whole.
-
-The ONS provided extensive \href{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveypilot/24march2023}{information} about the data, including details of the \href{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/methodologies/covid19infectionsurveypilotmethodsandfurtherinformation}{methods and study design}. Scientific publication of the methods appeared in a \href{https://doi.org/10.1016/S2468-2667(20)30282-6}{\emph{Lancet} paper}. This is an example where very considerable effort was made to ensure that what we observe is an accurate representation of what is happening.
-
-\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/covid_ons_survey-1} \end{center}
-
-The plot above uses the survey data to track the pandemic in terms of the percentage of people in the UK who tested positive. The virulence of the infection changed over time so deaths and hospital admissions show rather different patterns. We will look at data on those later.
-
-An account of the covid-19 tracking project is given in an \href{https://rss.org.uk/policy-campaigns/policy-groups/statistics-under-pressure-steering-group/statistics-under-pressure-informing-decision-makin/statistics-under-pressure-case-studies/how-do-we-know-how-many-people-have-covid-19-the-c/}{article} published by the Royal Statistical Society in its \emph{Statistics Under Pressure} series.
-The hugely valuable nature of the information provided by the ONS survey is discussed in a \href{https://theconversation.com/the-ons-has-published-its-final-covid-infection-survey-heres-why-its-been-such-a-valuable-resource-202589?utm_medium=email&utm_campaign=Latest\%20from\%20The\%20Conversation\%20for\%20March\%2030\%202023\%20-\%202584725991&utm_content=Latest\%20from\%20The\%20Conversation\%20for\%20March\%2030\%202023\%20-\%202584725991+CID_f84345cb33348a28f83cffbda29f758a&utm_source=campaign_monitor_uk&utm_term=The\%20ONS\%20has\%20published\%20its\%20final\%20COVID\%20infection\%20survey\%20\%20heres\%20why\%20its\%20been\%20such\%20a\%20valuable\%20resource}{\emph{Conversation} article}.
-
-\subsection{More complex data objects}\label{more-complex-data-objects}
-
-The examples above mostly involve measurements of a single quantity of interest, such as CO\(_2\), the level of health improvement or the proportion of people with covid19. The herring gulls example might involve several different measurements on each bird. However, data can be much more complex. Some examples are:
-
-\begin{itemize}
-\tightlist
-\item
-  high-resolution images captured from a video camera monitoring wildlife movement;
-\item
-  free-form text entered into the search box of a web browser;
-\item
-  an extensive set of responses recorded from an individual in a survey, including later questions which are conditional on the responses to earlier questions;
-\item
-  a network describing the interactions of one individual with others in a group;
-\item
-  the life history of a hospital patient.
-\end{itemize}
-
-As the complexity of data increases, so the models required for analysis may also need to increase in sophistication. Nonetheless, some basic principles and concepts still apply and it is the aim of this book to discuss these. While the focus is on relatively straightforward types of data, the ideas will provide helpful building blocks for more complex situations.
-
-\section{Some broad issues}\label{some-broad-issues}
-
-It is worthwhile reflecting on some of the broad issues which have already arisen in our review of these examples of data. To structure our reflections it will be helpful to recall the PPDAC framework discussed in the Preface, displayed below in graphical form. In this section we will focus on the \emph{Problem}, \emph{Plan} and \emph{Data} stages.
-
-\begin{center}\includegraphics[width=0.7\linewidth]{images/ppdac_1} \end{center}
-
-\subsection{What's the problem?}\label{whats-the-problem}
-
-It is very important to define the objectives of an experiment clearly. Failure to do this will make subsequent analysis and interpretation very difficult. Pilot studies are a perfectly valid preliminary step but a clear objective is still needed. `Fishing expeditions' are of rather limited use.
-
-Our objectives will be informed by previous work so a review of the scientific literature is a wise start. Scientific knowledge of the subject domain will be very helpful not only in deciding what problem to tackle but also in informing later decisions in the planning process and in due course in interpreting the results of our analysis.
-
-There are some general aspects of this process which are worth highlighting. The first is the distinction between an \emph{observational study} where we simply observe and record variables of interest. We do not intervene or influence the situation in any way other by recording what we see. In an observational study we can only identify \emph{association} between variables. A simple of example is the association between social or economic characteristics and political voting patterns.
-
-In contrast, a \emph{designed experiment} involves the specification of `treatments' which are assigned by the experimenter. Rather than simply observe, we intervene. We are then interested in the way the treatments affect the outcome. If a designed experiment is conducted well it allows us to identify \emph{causal} relationships between variables. A simple example is a clinical trial, such as the tuberculosis trial described in Section \ref{examples-data}, where we compare the effects of different treatments on the recovery of patients suffering from a particular medical condition.
-
-A second general issue is whether our aim is to \emph{understand} the processes at work in our scientific context or whether we simply want to \emph{predict} an outcome or design a system which will \emph{classify} future observations into different groups. The classification of herring gulls into male and female groups discussed in Section \ref{examples-data} is an example of the latter. This is a case where we may not be primarily interested in which variables are involved in our model, simply in how successful our model is in prediction or classification. This may change our attitude to building a model, when the time comes, but it is also helpful to be aware of the distinction between these two aims from the start of the planning process.
-
-\subsection{What's the plan?}\label{whats-the-plan}
-
-Acquiring data which are appropriate, informative and unbiase requires careful thought. The ONS covid-19 survey was described in Section \ref{where-data}. Take a look at the \href{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/methodologies/covid19infectionsurveypilotmethodsandfurtherinformation}{methodology guide} for this survey. It is very extensive, covering all the major issues which had to be considered.
-
-One of the exercises at the end of this chapter ask you to consider how you might design a simple experiment to investigate the operation of short term memory, known to psychologists as ``working memory''. How is a list of items recalled from memory? This is an experiment which can be caried out in a classroom or small group setting. It might surprise you just how extensive the list of detailed arrangements needs to be.
-
-One of the important tasks is to identify which measurements should be taken. The list should include not only those which are mentioned in the definition of the problem being tackled but also those which we know or suspect from previous work or our scientific understanding are likely to influence the process we are studying. This will help us to consider an appropriate experimental design - a topic we will revisit in a later chapter.
-
-\subsection{Where do the data come from?}\label{where-data-subsection}
-
-The diagram at the start of this section includes two headings, ``Real world'' and ``Model world''. The question our experiment aims to tackle is about what is going on ``out there in the wild'', even when the ``wild'' refers to a laboratory setting. If we consider all the observations we might ever make then we can view this as the \emph{population} we are studying. The process of collecting a particular dataset then delivers a \emph{sample}. Our modelling process will use this sample to try to understand what is going on in the population. It is then crucially important to obtain a sample which properly represents the population and does not suffer from serious \emph{bias}. If we make serious mistakes at this stage, it is unlikely that we will be able to retrieve the situation.
-
-A good mechanism for avoiding bias is to use \emph{randomisation}. This applies in two ways. The first is to the process of identifying which items from the population are recruited into our sample, ideally ensuring that all potential items have an equal chance of appearing. The second applies to the allocation of any treatments to sampled items. The tuberculosis trial outlined in Section \ref{examples-data} is one of the first occasions where this was used. It is now a standard component of clinical trials worldwide.
-
-\subsection{Who do you trust?}\label{who-do-you-trust}
-
-We live in a world where `fake news' has become a commonly used term. Not everyone is careful in the way data are collected, analysed and interpreted. Sadly, data are sometimes used selectively to support a conclusion already adopted. It is very important that this is countered and that the analysis of data is conducted in an honest and professional manner.
-
-The UK Statistics Authority is the body which oversees the production of official statistics in the UK. Its \href{https://code.statisticsauthority.gov.uk}{code of practice} is based on the principles of:
-
-\begin{itemize}
-\tightlist
-\item
-  \emph{trustworthiness}, confidence in the people and organisations that produce statistics and data;
-\item
-  \emph{quality}, data and methods that produce assured statistics;
-\item
-  \emph{value}, statistics that support society's needs for information.
-\end{itemize}
-
-The \href{https://code.statisticsauthority.gov.uk/wp-content/uploads/2022/05/Code-of-Practice-for-Statistics-REVISED.pdf}{full code} is well worth reading. Although it is couched in terms of official statistics, providing information for the public and for government, the principles it describes are very important. A \href{https://isi-web.org/declaration-professional-ethics}{Declaration on Professional Ethics} is also provided by the \emph{International Statistical Institute}.
-
-In addition to the obligation on all who collect and analyse data to act with professionalism and integrity, specific ethical considerations arise in the planning and design of experiments, particularly those involving humans. Indeed, the protocol for any experiment involving humans must be approved by an appropriate ethical committee before it can be put into practice. A simple example is in a clinical trial to compare two treatments where the size of the sample must be considered very carefully. The sample must be large enough to enable a clear conclusion about the treatments to be reached, but if it is too large then some patients may end up being given a treatment which might clearly have been shown by a smaller trial to be inferior. That would not be ethical.
-
-We will often find ourselves using data from other sources as part of our investigations. Indeed, many different sources are used in this book.
-The issue of trustworthiness, raised in the UK Statistics Authority code of conduct, again arises. What sources can we trust as reliable?
-
-Some guidance comes from the source organisations stated aims and code of conduct. Reputation also matters. Open documentation is important, so that the details of the data collection process can be reviewed. Accountability matters too, so that there is a mechanism for query and complaint if the need arises.
-
-The RSS has provided a document, \href{https://rss.org.uk/RSS/media/File-library/Policy/2024/RSS-guide-to-statistics-on-social-media.pdf}{\emph{Sound or suspicious? Ten tips to be statistically savvy}} which offers advice on how to assess claims that are made.
-
-\section{What could possibly go wrong?}\label{what-could-possibly-go-wrong}
-
-It is very instructive to think about studies which went wrong.
-
-\subsection{US presidential elections, 1936 and 1948}\label{us-presidential-elections-1936-and-1948}
-
-The \emph{Literary Digest} was a magazine which surveyed 10 million people, beginning with its own readers, who they planned to vote for in the 1936 US presidential election. A massive 2.4 million people responded, leading to the prediction of a clear win for the candidate Alf Landon. In fact, Franklin Delano Roosevelt had a landslide victory. What went wrong?
-
-For another occasion when things went wrong in the prediction of the outcome of a US presidential election, see the \href{https://www.latimes.com/archives/la-xpm-1998-nov-01-mn-38174-story.html}{article in the Los Angeles Times} about the 1948 election.
-
-\section{Further reading}\label{further-reading}
-
-The Royal Statistical Society has a very helpful \href{https://rss.org.uk/RSS/media/File-library/Policy/2025/RSS-CCTF-guide-to-UK-official-statistics-on-climate-change.pdf}{Guide to UK official statistics on climate change}.
-
-The \href{https://archive.ceda.ac.uk}{CEDA Archive}, maintained by the National Environmental Research Council (NERC) in the UK, contains a very large collection of environmental data from atmospheric and earth observation research.
-
-If data are to be collected through a survey, the nature and construction of the questions are very important, to avoid bias or leading the respondent. The Pew Research Centre, a high profile independent organisation, provides a helpful discussion of \href{https://www.pewresearch.org/our-methods/u-s-surveys/writing-survey-questions/}{writing survey questions}.
-
-Copernicus: European environmental data.
-\url{https://surfobs.climate.copernicus.eu/dataaccess/index.php}
-
-Diggle and Chetwynd (\citeproc{ref-diggle_2011_book}{2011})
-
-Rosling (\citeproc{ref-rosling_2018_book}{2018})
-
-The Tiger That Isn't. Andrew Dilnot \& Michael Blastland.
-
-How to lie with Statistics. Darrell Huff.
-
-Damned Lies and Statistics. Joel BEst.
-
-More Damned Lies and Statistics. Joel Best.
-
-Innumeracy. John Allen Paulos.
-
-Reckoning with Risk. Gerd Gegerenzer. (Some people object to technical errors?)
-
-Dicing with Death. Stephen Senn.
-
-Risk. John Adams.
-
-Britain in Numbers. Simon Briscoe.
-
-Why Do Buses Come in Threes. Rob Eastaway.
-
-How Long is a Piece of String. Rob Eastaway.
-
-How to Take a Penalty. Rob Eastaway.
-
-\section{Exercises}\label{exercises}
-
-\subsection{An investigation of short-term memory}\label{an-investigation-of-short-term-memory}
-
-Consider how you might design a simple experiment to investigate the operation of short term memory, known to psychologists as ``working memory''? How is a list of items recalled from memory? This is an experiment which can be caried out in a classroom or small group setting. It might surprise you just how extensive the list of detailed arrangements needs to be.
-
-Once you have spent some time considering this, you may like tyo consult Bowman (\citeproc{ref-bowman-1994-teachingstatistics}{1994}) which describes some of the issues which arose in a classroom setting.
-
-\subsection{A survey of dental health}\label{a-survey-of-dental-health}
-
-Imagine you have been commissioned to conduct a survey of the dental health of five year old children in England. Write down some of the things on which you will need to make decisions and sketch out some possible answers. This should include how a suitable sample of children will be selected, what measurements will be made, how this will be done, and another other issues which you think are relevant.
-
-In fact, a survey of exactly this type is regularly conducted under the National Dental Epidemiology Programme (NDEP) for England. Once you have spent some time considering the issues, you can see the detail of what was done in the documents available \href{https://www.gov.uk/government/statistics/oral-health-survey-of-5-year-old-children-2017\#:~:text=The\%20results\%20of\%20the\%20oral,experience\%20of\%20obvious\%20dental\%20decay}{here} for the 2016-2017 survey. The \href{https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/774469/Oral_health_survey_protocol_5_year_olds_2016.pdf}{protocol document} describes the planning of the survey in considerable detail. The results of a further survey in 2022, using the same protocol, are also \href{https://www.gov.uk/government/statistics/oral-health-survey-of-5-year-old-children-2022}{available}.
-
-\subsection{Hearings aid and dementia}\label{hearings-aid-and-dementia}
-
-A \href{https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(23)00048-8/fulltext}{Lancet paper} studied the association between hearing loss and dementia, in particular examining the role of hearing aids. The interpretation of the findings were:
-
-\begin{quote}
-In people with hearing loss, hearing aid use is associated with a risk of dementia of a similar level to that of people without hearing loss. With the postulation that up to 8\% of dementia cases could be prevented with proper hearing loss management, our findings highlight the urgent need to take measures to address hearing loss to improve cognitive decline.
-\end{quote}
-
-Are there other possible interpretations? You may wish to look at \href{https://www.bgs.org.uk/blog/hearing-aid-use-reduces-dementia-or-is-it-dementia-reduces-hearing-aid-use-its-both}{this article} published by the British Geriatrics Society which discusses the issue. The article also provides a link to a further scientific paper for the technical detail.
-
-\part{Statistical Inference}\label{part-statistical-inference}
-
-\chapter{Inference: turning data into evidence}\label{inference}
-
-So far we have considered how to read, organise and visualise datasets. We are now ready to discuss one of the main themes of statistics, namely weighing up the evidence for the presence or size of different features in the population lying behind the data. That process is referred to as \emph{statistical inference}. The first step in doing this is to think about the uncertainty or variation involved in the data and how to quantify this. That will enable us to discuss some standard tools, such as confidence intervals and hypothesis test, which we will explore in this chapter in some simple settings.
+So far we have considered how to read, organise and visualise datasets. We are now ready to discuss one of the main themes of statistics, namely weighing up the evidence for the presence, characteristics or size of different features in the population lying behind the data. That process is referred to as \emph{statistical inference}. The first step in doing this is to think about the uncertainty or variation involved in the data and how to quantify this. That will enable us to discuss some standard tools, such as confidence intervals and hypothesis test, which we will explore in this chapter in some simple settings.
 
 \section{Samples and populations}\label{samples-and-populations}
 
 The distinction between a \emph{sample} of data and the \emph{population} from which the data come was mentioned briefly in Section \ref{where-data-subsection}, where a population was defined rather informally as the collection of all the observations we could ever make of the process we are studying. We will now explore this further by carrying out a kind of `thought experiment'. By sampling from a population whose characteristics are known, using R to do so, we can investigate how well the features of a sample guide us on the features of the underlying population.
 
-To give our thought experiment a little context, let's assume we are taking water samples from a particular location on a river with a view to assessing the water quality. This is often quantified through the percentage of dissolved oxygen.
+To give our thought experiment a little context, let's assume we are taking water samples from a particular location on a river with a view to assessing the water quality. This is often quantified through the percentage of dissolved oxygen. So we are dealing with measurements on a continuous scale.
 
 The \texttt{rp.sample} function in the \texttt{rpanel} package provides a convenient means of experimenting with this situation. The plots below give a flavour of what can be done but you may find it more instructive to run the function `live' to create your own images and experiment with different settings. The simple instruction \texttt{rp.sample()} will launch a window with a panel of interactive controls.
 
@@ -553,43 +291,44 @@ The normal distribution is a very important one for modelling measurements on a 
 
 \section{Quantifying uncertainty: standard error}\label{quantifying-uncertainty-standard-error}
 
-The `thought experiment' of the previous section explored the relationship between a sample and a population but this was necessarily set up rather artificially, as we defined (through the settings in \texttt{rp.sample}) the population from which the samples were being drawn. In practice, of course, a sample is all we have and we seek to use this to learn about the population - perhaps simply its mean, or perhaps other features of interest. This is why the title of the current chapter is `Inference', as we seek to infer features of the unknown population from the (usually rather limited) data in our sample.
+The setup of the `thought experiment' of the previous section was necessarily rather artificial, as we defined, through the settings in \texttt{rp.sample}, the population from which the samples were being drawn. In practice, of course, a sample is all we have and we seek to use this to learn about the population - perhaps simply its mean, or perhaps other features of interest. This is why the title of the current chapter is `Inference', as we seek to infer features of the unknown population from the - usually rather limited - data in our sample.
 
-We will explore this by continuing our thought experiment, using the population mean as the focus, as this is often a parameter of major interest. How accurate is the sample mean as a guide to the population mean? The \texttt{rp.sample} function can again help us think this through. The plots below show, in the upper row, multiple samples, each of size 25. The second row of plots shows the mean of each sample, with the final plot in this row showing sample means accumulated over 50 different samples. The sample means are clustered round the true mean. There is variation in the sample means but the size of this is much smaller than the variation in the individual observations.
+We will explore this by continuing our thought experiment, using the population mean as the focus, as this is often a parameter of major interest. How accurate is the sample mean as a guide to the population mean? The plots below show, in the upper row, multiple samples, each of size 25. The second row of plots shows the mean of each sample, with the final plot in this row showing sample means accumulated over 50 different samples. The sample means are clustered round the true mean. There is variation in the sample means but the size of this is much smaller than the variation in the individual observations.
 
 \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-1} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-2} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-3} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-4} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-5} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-6} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-7} \includegraphics[width=0.24\linewidth]{book_files/figure-latex/sample_mean-8}
 
-This is the point at which some theory can help us. This shows that the standard deviation of the sample mean, known as the \emph{standard error}, can be easily calculated as
+This is the point at which some theory can help us. If we denote the population standard deviation by \(\sigma\) and the size of the sample by \(n\), then a theoretical calculation tells that the standard deviation of the sample mean is
 \[
    \mbox{se}(\bar{x}) =  \sigma / \sqrt{n} .
 \]
-This gives us a measure of uncertainty, or inaccuracy, of the sample mean \(\bar x\) as an estimate of the true mean \(\mu\). In practice, we would estimate this as \(s / \sqrt{n}\).
+This gives us a measure of uncertainty, or inaccuracy, of the sample mean \(\bar x\) as an estimate of the true mean \(\mu\). In a change of terminology which reflects the fact that we are no longer dealing with the uncertainty of individual observations but of a feature of the underlying population, we refer to this as the \emph{standard error}.
 
-\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/sample_mean_se-1} \end{center}
-
-This is a very important fact which we should pause to highlight in general terms of a true \emph{parameter}, here the mean \(\mu\), and an \emph{estimate} of it, here the sample mean \(\bar x\).
+The left hand plot below shows a large collection of sample means along with a standard error scale. We can see that the sample means mostly lie within two standard errors of the true mean. This is a very important phenomenon which we should pause to highlight.
 
 \begin{verbatim}
-                              Most of the time,
-   the true parameter and the estimate are within 2 standard errors of one another.
+                                    Most of the time,
+         the sample mean is within 2 standard errors of the population mean.
 \end{verbatim}
 
-The sample mean has a distribution. If we knew what this was then we could quantify the uncertainty of the mean of our sample.
-Theoretical calculations tell us that the sample mean also has a normal distribution, that it's mean is the mean of the original distribution, and we can derive an expression for the standard deviation of this distribution. Formula.
+We will exploit to this to create some very useful inferential tools. In fact, as we will see later, this principle is a much more general one which applies in many different settings involving a population \emph{parameter} and an \emph{estimate} of it.
 
-Estimated standard error. t-statistic. t-distribution.
+\includegraphics[width=0.49\linewidth]{book_files/figure-latex/sample_mean_se-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/sample_mean_se-2}
 
-This very important principle will be the basis of the tools we now develop.
+One issue remains, however, as the standard error involves the standard deviation of the population which, usually, we do not know. It is natural to estimate this by the sample standard deviation, \(s\). We can use \texttt{rp.sample} to investigate the effect of this. As the standard deviation of the data changes with every sample, it is easier to investigate this in terms of the \emph{t-statistic}
+\[
+             \frac{\bar{x} - \mu}{se(\bar x)} = \frac{\bar{x} - \mu}{s / \sqrt{n}} ,
+\]
+where \(\bar{x}\) and \(s\) denote the sample mean and standard deviation and \(\mu\) denotes the population mean. We can think of this as measuring the distance between the population and sample means in units of (estimated) standard error. The right hand plot below shows the t-statistics produced by \texttt{rp.sample}. Reassuringly, these generally lie within \(\pm 2\) which confirms that that principle highlighted above still applies. (From now on, we will generally assume that the term `standard error' implies the estimation of any unknown parameters in the standard error formula.)
+
+This gives a very helpful guide to the accuracy of the sample mean as a guide to the population mean but a more precise guide is available and so we should use this. Theoretical calculations can tell us about the complete distribution of the sample mean. When we are sampling from a normal population, it turns out that the sample mean also has a normal distribution, with mean \(\mu\) and the standard error shown above. When we use the estimated standard error, the t-statistic then becomes the focus and it turns out to have a \emph{t-distribution}. The plot below superimposes the density function for this distribution on the t-statistics generated by \texttt{rp.sample}. The shape is very similar to the normal distribution with the main difference being that the t-distribution usually has slightly thicker tails. (This is due to the additional variation which arises from using the sample standard deviation in the expression for the standard error.) The t-distribution has a parameter called the \emph{degrees of freedom} and in this setting that takes the value \(n-1\).
+
+\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/sample_mean_t-1} \end{center}
+
+These `thought experiments' have enabled us to consider some of the concepts involved when we aim to learn about a population parameter, such as a mean, from a sample of data. This places us in an good position to interpret what individual samples are able to tell us, using tools developed in the following sections.
 
 \section{Confidence intervals}\label{confidence-intervals}
 
-This statement describes how the sample means \(\bar x\) varies around the true mean \(\mu\). In practice all we see from our observed sample of data is a single \(\bar x\) and its estimated standard error. However, we can turn the statement around and expect that the true value of \(\mu\) will lie somewhere within 2 standard errors of \(\bar x\). The interval
-\[
-      ( \bar{x} - 2 \mbox{se}(\bar x), \bar{x} + 2 \mbox{se}(\bar x) )
-\]
-is therefore a range of plausible values for the true mean \(\mu\). This is called a \emph{confidence interval} because we can attach some useful proporties of this kind of interval; these are discussed below. We can also carry out some more careful probability calculations which show that, while the multiplier 2 is a good approximation, a more precise value is the percentile of a \(t\)-distribution with \((n-1)\) \emph{degrees of freedom}.
-
-The first person to propose this idea was W.S.Gossett, in a famous paper in 1908. He published under the pseudonym \emph{Student} because he was working for the \emph{Guiness} brewery at the time. He used data from a paper by Cushny \& Peebles (1905) which compared the effects of two different drugs on lengthening the hours of sleep in 10 different subjects. The experimental design involved each subject taking each of the two drugs, so this is \emph{paired} data. A helpful first step is to plot the paired values against one another, with the line \texttt{y\ =\ x} providing a reference. If there is no systematic difference between the effects of the drugs then the observations should cluster around this line.
+One of the earliest people to think about the issue of quantifying the uncertainty of a sample mean as a guide to the true mean was W.S.Gossett, in a famous paper in 1908. He published under the pseudonym \emph{Student} because he was working for the \emph{Guiness} brewery at the time. He used data from a paper by Cushny \& Peebles (1905) which compared the effects of two different drugs on lengthening the hours of sleep in 10 different subjects. The experimental design involved each subject taking each of the two drugs, so this is \emph{paired} data. A helpful first step is to plot the paired values against one another, with the line \texttt{y\ =\ x} providing a reference. If there is no systematic difference between the effects of the drugs then the observations should cluster around this line.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -604,21 +343,28 @@ The first person to propose this idea was W.S.Gossett, in a famous paper in 1908
 
 The extra times for drug 2 are higher than those for drug 1, apart from one patient where the times were identical. In one patient the difference between the two drugs is particularly large but otherwise the differences are broadly similar. In particular, there is no obvious change in the size of the difference as the size of the response to drug 1 changes. This allows us to focus on the differences of the responses from the two drugs as the key information to analyse.
 
+This statement describes how the sample means \(\bar x\) varies around the true mean \(\mu\). In practice all we see from our observed sample of data is a single \(\bar x\) and its estimated standard error. However, we can turn the statement around and expect that the true value of \(\mu\) will lie somewhere within 2 standard errors of \(\bar x\). The interval
+\[
+      ( \bar{x} - 2 \mbox{se}(\bar x), \bar{x} + 2 \mbox{se}(\bar x) )
+\]
+is therefore a range of plausible values for the true mean \(\mu\). This is called a \emph{confidence interval} because we can attach some useful proporties of this kind of interval; these are discussed below. We can also carry out some more careful probability calculations which show that, while the multiplier 2 is a good approximation, a more precise value is the percentile of a \(t\)-distribution with \((n-1)\) \emph{degrees of freedom}.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{sleep\_diff }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(sleep\_wide, drug\_2 }\SpecialCharTok{{-}}\NormalTok{ drug\_1)}
 \FunctionTok{rp.t\_test}\NormalTok{(sleep\_diff)}
-\FunctionTok{rp.t\_test}\NormalTok{(sleep\_diff, }\AttributeTok{mu =} \DecValTok{0}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_uncertainty-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_uncertainty-2}
+\includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_candidates-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_candidates-2}
 
-Comment that the areas of the data density and uncertainy distribution are not comparable. It is only relative sizes within in each distribution which matter.
+\includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_ci-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_ci-2}
 
-Discuss the construction of a confidence interval.
+Emphasise that the true mean is fixed while the sample mean is subject to sampling variation.
 
-Two sample example.
+Comment that the areas of the data density and uncertainty distribution are not comparable. It is only relative sizes within in each distribution which matter.
+
+Discuss the construction of a more accurate confidence interval.
 
 Relegate rp.ci to an exercise?
 
@@ -646,8 +392,6 @@ To distinguish between these hypothesis we can use again the helpful principle w
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_ht-1} \end{center}
-
 We view things through the eyes of the null hypothesis. If this is true then, most of the time, \(\bar x\) and \(\mu_0\) will be within 2 standard errors of one another. If we define the \emph{test statistic} to be
 \[
       t = \frac{\bar{x} - \mu_0}{\mbox{s.e.}(\bar{x})}
@@ -656,24 +400,65 @@ then we should expect \(-2 \leq t \leq 2\) most of the time. More precisely, \((
 
 Formal operation of a hypothesis test involves specifying the values of \(t\) which will lead us to reject the null hypothesis that \(\mu = \mu_0\). The left hand plot below shows a \(t\)-distribution with the tail areas corresponding to 2.5\% probability highlighted. This leaves 95\% of the distribution on the central area. If the test statistic \(t\) falls in the highlighted region then this is taken as evidence that the null hypothesis is implausible. In other words, there is significant evidence that the true mean is different from \(\mu_o\).
 
-The plots can be reproduced by using the \texttt{rp.tables} function from the \texttt{rpanel} package.
-
 \begin{Shaded}
 \begin{Highlighting}[]
-   \FunctionTok{rp.tables}\NormalTok{(}\AttributeTok{panel =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{distribution =} \StringTok{"t"}\NormalTok{, }\AttributeTok{degf1 =} \DecValTok{24}\NormalTok{, }\AttributeTok{observed.value =} \StringTok{"2.5"}\NormalTok{,}
-             \AttributeTok{tail.probability =} \StringTok{"fixed probability"}\NormalTok{)}
-   \FunctionTok{rp.tables}\NormalTok{(}\AttributeTok{panel =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{distribution =} \StringTok{"t"}\NormalTok{, }\AttributeTok{degf1 =} \DecValTok{24}\NormalTok{, }\AttributeTok{observed.value =} \StringTok{"2.5"}\NormalTok{,}
-             \AttributeTok{tail.probability =} \StringTok{"from observed value"}\NormalTok{)}
+\FunctionTok{rp.t\_test}\NormalTok{(sleep\_diff, }\AttributeTok{mu =} \DecValTok{0}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=0.5\linewidth]{book_files/figure-latex/hypothesis-tests-1} \includegraphics[width=0.5\linewidth]{book_files/figure-latex/hypothesis-tests-2}
+\includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_ht-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/sleep_ht-2}
 
 There is an alternative way of quantifying the outcome of the test. We compare the observed value of the test statistic to the reference distribution by computing how much of the distribution is more extreme than the observed value. This is called the \emph{p-value}. If we did not specify in advance that the alternative involved only values below \(\mu_0\) or only values above \(\mu_0\) then we should measure extremity in both tails of the reference distribution. This is illustrated in the right hand plot above, where we see the p-value is 0.02. As this is less than the conventional threshold of 0.05, we again have significant evidence that the true value of the mean is not \(\mu_0\).
 
 \section{Comparing two means}\label{comparing-two-means}
 
-\section{Further reading}\label{further-reading-1}
+Fisher et al. (\citeproc{ref-fisher_1925_metron}{1925}) - see books and papers - used a small agricultural experiment to illustrate the two-sample t-test. Number of tillers (independent lateral branches) which grow on barley in two expereimental groups - electrified and caged.
+
+Comment on small sample sizes - so msall that it can easily be typed into the code!
+
+Agriculture, and Fisher, were key historical settings.
+
+Discuss the standard error as the combination of the se for each group, as well as the pooled variance case.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{electrified }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{16}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{21}\NormalTok{)}
+\NormalTok{caged       }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{17}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{17}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{64318}\NormalTok{)}
+\FunctionTok{rp.t\_test}\NormalTok{(electrified, caged, }\AttributeTok{vlab =} \StringTok{\textquotesingle{}Number of tillers\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/two_means_se-1} \end{center}
+
+The more accurate distribution.
+
+\includegraphics[width=0.49\linewidth]{book_files/figure-latex/two_means_ci-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/two_means_ci-2}
+
+Hypothesis test perspective.
+
+\includegraphics[width=0.49\linewidth]{book_files/figure-latex/two_means_ht-1} \includegraphics[width=0.49\linewidth]{book_files/figure-latex/two_means_ht-2}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  x and y
+## t = -3.1753, df = 11.847, p-value = 0.008109
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -9.630924 -1.785743
+## sample estimates:
+## mean of x mean of y 
+##  17.62500  23.33333
+\end{verbatim}
+
+\section{Further reading}\label{further-reading}
 
 M., D., and M. (\citeproc{ref-diez_2019_book}{2019})
 
@@ -684,140 +469,6 @@ Hubbard, Haig, and Parsa (\citeproc{ref-hubbard_2019_amerstat}{2019})
 \subsection{Standard errors}\label{standard-errors}
 
 Use the \texttt{rp.sample} function to explore the phenomenon that \emph{most of the time, the true parameter and the estimate are within 2 standard errors}. Try setting the true mean and standard deviation to different values to confirm that this priniciple holds.
-
-\chapter{Other approaches to inference}\label{other-approaches-to-inference}
-
-\section{Computational inference}\label{computational-inference}
-
-The problems we have discussed so far have been very simple once where theory can be worked out analytically to provide simple formulate and procedures. With more complex data structures, that can become much more difficult so this section will discuss some ways of approaching inference by computational means. The underlying principles are essentially the same but the method of implementation is different.
-
-\subsection{Simulation methods}\label{simulation-methods}
-
-There are some circumstances where the model whose suitability we wish to assess is completely known, without any dependence on unknown parameters. A simple example arises from spatial point patterns where we may wish to assess the evidence that the point pattern is generated by a process which is not simply uniform. The plot below shows data on large (breast height diameter \textgreater= 50cm) longleaf pine trees in a 200m x 200m sqaure of forest.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(spatstat)}
-\NormalTok{x }\OtherTok{\textless{}{-}}\NormalTok{ longleaf}\SpecialCharTok{$}\NormalTok{x[longleaf}\SpecialCharTok{$}\NormalTok{marks }\SpecialCharTok{\textgreater{}=}\DecValTok{50}\NormalTok{]}
-\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ longleaf}\SpecialCharTok{$}\NormalTok{y[longleaf}\SpecialCharTok{$}\NormalTok{marks }\SpecialCharTok{\textgreater{}=}\DecValTok{50}\NormalTok{]}
-\FunctionTok{library}\NormalTok{(ggplot2)}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(x, y)) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/unnamed-chunk-85-1} \end{center}
-
-We can generate our own trees patterns in a uniform random manner simply by locating each tree at an x and y position each of which is generated uniformly in the range (0, 200). here are some examples of patterns generated in this way.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x)}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
-\NormalTok{   plt }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{), }\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{))) }\SpecialCharTok{+}
-            \FunctionTok{geom\_point}\NormalTok{()}
-  \FunctionTok{print}\NormalTok{(plt)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\includegraphics[width=0.32\linewidth]{book_files/figure-latex/unnamed-chunk-86-1} \includegraphics[width=0.32\linewidth]{book_files/figure-latex/unnamed-chunk-86-2} \includegraphics[width=0.32\linewidth]{book_files/figure-latex/unnamed-chunk-86-3}
-
-How should we compare the observed pattern with the randomly generated ones? A simple way of doing this is to measure for each tree the distance to its nearest neighbour. If the pattern exhibits clustering, then these distances should be small, while if the pattern is uniform they will tend to be larger. We might then use as our test statistic the average of the distances to each nearest neighbour. We can generate the distribution of this average distance in the case where the locations are uniformly distributed simply by repeatedly simulating locations and retaining the average nearest neighbour distance for each one. The \texttt{nndist} function from the \texttt{spatstat} package can help us with the nearest neighbour distances.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{nsim  }\OtherTok{\textless{}{-}} \DecValTok{10000}
-\NormalTok{tstat }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nsim)}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nsim) \{}
-\NormalTok{  pp }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{), }\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{))}
-\NormalTok{  tstat[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{nndist}\NormalTok{(pp[ , }\DecValTok{1}\NormalTok{], pp[ , }\DecValTok{2}\NormalTok{]))}
-\NormalTok{\}}
-\NormalTok{tstat.obs }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{nndist}\NormalTok{(x, y))}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(tstat)) }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{() }\SpecialCharTok{+}
-   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ tstat.obs, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
-\FunctionTok{length}\NormalTok{(tstat[tstat }\SpecialCharTok{\textless{}}\NormalTok{ tstat.obs]) }\SpecialCharTok{/}\NormalTok{ nsim}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.3141
-\end{verbatim}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/unnamed-chunk-87-1} \end{center}
-
-The histogram shows the distribution (subject to the variation present through simulation) of the average nearest neighbour distance when of atoms really are uniform. The red line shows the average neighbour distance for the observed data. Informally, but clearly, we can see that from this perspective the observed data is entirely consistent with the assumption of uniformity. An empirical p-value can be computed simply from the proportion of simulated values which fall below the observed one (as we look for evidence against uniformity in small nearest neighbour distances).
-
-\subsection{Randomisation tests}\label{randomisation-tests}
-
-Randomisation is very important principle in designing experiments as it helps to overcome issues of bias. We will consider this in detail elsewhere. Randomisation can also be used as the basis for analysis when we are reluctant to make the normality and independence assumptions which underlie standard methods. The dataset below provides a very simple example of this it refers to an experiment to assess the possibly different effects of two fertilisers applied to tomato plants growing in a row. (This example comes from the book \emph{Statistics for Experimenters} by Box, Hunter and Hunter.)
-
-\begin{verbatim}
-      Row position     1     2     3     4     5     6     7     8     9    10    11
-      Fertiliser       A     A     B     B     A     B     B     B     A     A     B
-      Yield (pounds) 29.9  11.4  26.6  23.7  25.3  28.5  14.2  17.9  16.5  21.1  24.3
-\end{verbatim}
-
-If the positions the fertilisers in the row have been randomised, and if the two fertilisers A and B are in fact equivalent in the effects, then the labels attached to the observations are immaterial. There is no connection between the labels and the outcomes. This allows us to calculate the distribution of the difference between the mean yields of A and B which is generated by the randomisation procedure. The histogram below shows this. For convenience (indeed, laziness!) it has been constructed from random permutations rather than the systematic list of all possible randomisations.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fertiliser }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{)}
-\NormalTok{yield      }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{29.9}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{26.6}\NormalTok{, }\FloatTok{23.7}\NormalTok{, }\FloatTok{25.3}\NormalTok{, }\FloatTok{28.5}\NormalTok{, }\FloatTok{14.2}\NormalTok{, }\FloatTok{17.9}\NormalTok{, }\FloatTok{16.5}\NormalTok{, }\FloatTok{21.1}\NormalTok{, }\FloatTok{24.3}\NormalTok{)}
-\NormalTok{nperm      }\OtherTok{\textless{}{-}} \DecValTok{1000}
-\NormalTok{tstat      }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nperm)}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nperm) \{}
-\NormalTok{  smp      }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(fertiliser)}
-\NormalTok{  tstat[i] }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(}\FunctionTok{tapply}\NormalTok{(yield, smp, mean))}
-\NormalTok{\}}
-\NormalTok{tstat.obs }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(}\FunctionTok{tapply}\NormalTok{(yield, fertiliser, mean))}
-\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(tstat)) }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{() }\SpecialCharTok{+}
-   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ tstat.obs, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/unnamed-chunk-88-1} \end{center}
-
-There are several new functions used in the \texttt{R} code here (\texttt{c}, \texttt{diff}, \texttt{tapply}). You will hopefully feel ready to explore these through the help system by this stage. The end result is a histogram which represents the distribution, induced by randomisation, of the mean sample difference between A and B when the two treatments have identical effects. When we compare this with the observed mean difference it is clear that the two are compatible. So there is no evidence that A and B have different effects. If required, a p-value could be obtained by the means discussed in the simulation test section above. However, the conclusion is already clear.
-
-\subsection{The bootstrap}\label{the-bootstrap}
-
-We generally regard observed data as having been generated by some underlying distribution. If we construct an estimator of some quantity of interest, such as a population mean, then we need to know how accurate estimate is as a guide to the true value. The simple but surprising idea behind the bootstrap is that we mimic the variation of the sample around the distribution by the variation of resampled datasets around our original sample. When the bootstrap was first proposed in the 1970s, it took people by surprise but in fact it can be shown to be well founded theoretically.
-
-Suppose we are dealing with a distribution which has long tails. In other words, we may find that outliers (unusually large or small observations) are often present in sample datasets. Methods based on the assumption of a normal distribution will be strongly affected by this. A simple device is to compute a \emph{trimmed mean}. This simply computes the main of the remaining data after a proportion of the highest and lowest observations has been removed. This is an attractive way of defending against the effect of long tails, but how do we quantify the uncertainty of our sample estimator as a guide to the true trimmed mean of the underlying distribution?
-
-The bootstrap takes the observed sample and resamples the data with replacement. A trimmed mean is calculated on each resample. In the simplest approach to construction of a confidence interval, this is generated simply through percentiles of the trimmed means generated by resampling. The example below shows the mechanics of this, using a simple normal random sample to represent the observed data.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{x      }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{25}\NormalTok{)}
-\NormalTok{tm.obs }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(x, }\AttributeTok{trim =} \FloatTok{0.1}\NormalTok{)}
-
-\NormalTok{nboot  }\OtherTok{\textless{}{-}} \DecValTok{10000}
-\NormalTok{tmdiff }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nboot)}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nboot)}
-\NormalTok{   tmdiff[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{sample}\NormalTok{(x, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{trim =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{{-}}\NormalTok{ tm.obs}
-\NormalTok{tm.obs }\SpecialCharTok{{-}} \FunctionTok{quantile}\NormalTok{(tmdiff, }\FunctionTok{c}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\FloatTok{0.025}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##      97.5%       2.5% 
-## -0.6245322  0.1898431
-\end{verbatim}
-
-\section{Bayesian inference}\label{bayesian-inference}
-
-The methods which have been described in this course have a very long and well established history. They are in widespread use and have brought insight to an enormous array of applications across the board. From a philosophical point of view these methods are referred to as \emph{frequentist}. The name comes from the idea of continued sampling of data, under the same conditions, for which it can be shown that relative frequencies converge eventually to probabilities.
-
-An alternative approach to inference is to consider the uncertainty associated with quantities of interest such as parameters, expressed not only through a model for the observed data but also through a prior distribution for the unknown parameters. Sometimes that prior information can be informative, based on knowledge or data about the situation being modelled. Sometimes the prior information can be vague or uninformative. Bayesian thinking allows uncertainty to be expressed as a combination of these two things, in a posterior distribution. A major step forward took place in the 1990s when computational methods of deriving posterior distributions were developed. For the first time this allowed complex problems to be handled by Bayesian models, with the attractive property that uncertainty at different levels can be propagated to generate posterior uncertainty about the quantities of interest, incorporating all the appropriate sources of uncertainty. This has led to extremely powerful tools for complex systems.
-
-Treatment of this topic is beyond the scope of the current course.
-
-\section{Exercises}\label{exercises-1}
-
-\subsection{Coverage property of bootstrap confidence intervals}\label{coverage-property-of-bootstrap-confidence-intervals}
-
-During the session an example of a confidence interval for a trimmed mean was discussed. Write some code to evaluate the \emph{coverage} of this method of constructing a confidence interval. You can do this by repeatedly simulating sample from the true distribution (\texttt{rnorm(25)}), constructing a bootstrap confidence interval using the code discussed, and counting how many times the calculated confidence interval covers the true value (0).
 
 \chapter{Inference with categorical data}\label{inference-with-categorical-data}
 
@@ -859,7 +510,7 @@ The plot below uses simulation to show the variation in \(\hat{p}\) when samples
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.5\linewidth]{book_files/figure-latex/unnamed-chunk-106-1} \end{center}
+\begin{center}\includegraphics[width=0.5\linewidth]{book_files/figure-latex/unnamed-chunk-54-1} \end{center}
 
 There are two simple points to note:
 
@@ -987,7 +638,7 @@ This value is meaningful only when we compare it to a reference distribution. Th
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.6\linewidth]{book_files/figure-latex/unnamed-chunk-110-1} \end{center}
+\begin{center}\includegraphics[width=0.6\linewidth]{book_files/figure-latex/unnamed-chunk-58-1} \end{center}
 
 The observed value of the test statistic, which is also shown in the plot, is much higher than values we expect to see from this reference distribution. The upper 5\% point of the distribution is 3.84, which gives us a specific benchmark. We therefore have significant evidence that the proportions of smokers are different in the cases and controls. This formn of analysis has, unsurprisingly, confirmed the conclusions of the comparison of proportions in the previous section.
 
@@ -1007,7 +658,7 @@ The chi-squared test can be easily implemented in \texttt{R} through the \texttt
 ## X-squared = 4.9105, df = 1, p-value = 0.02669
 \end{verbatim}
 
-\section{Exercises}\label{exercises-2}
+\section{Exercises}\label{exercises}
 
 \subsection{Opinion polls}\label{opinion-polls}
 
@@ -1039,16 +690,182 @@ The earlier analysis used a chi-squared test to assess the evidence that the pro
 
 In the two examples above, both confidence intervals and hypothesis tests have now been used. These should be equivalent in terms of the evidence for the presence of an effect. What are the relative merits of the confidence interval and hypothesis testing approaches in this context?
 
+\chapter{Likelihood: a powerful principle}\label{likelihood-a-powerful-principle}
+
+\section{The idea}\label{the-idea}
+
+Explain that this principle shows us how to construct estimators.
+
+The idea of likelihood is a very powerful one. To start gently, consider the single observation at ethylene chloride concentration 35.55 which killed 15 beetles out of a group of 29, giving the proportion 0.517. The binomial distribution describes all the possible values that we might observe, and the probabilities of observing them, for a particular \texttt{size} of group and with a particular probability (\texttt{prob}) of success (death in the present case) for each beetle. A formula for the binomial distribution can be derived by the rules of probability but we can use R to compute these conveniently, using the \texttt{dbinom(x,\ size,\ prob)} function. The plots below show all the outcomes (0 to 29) and their probabilities when \texttt{size\ =\ 29} and with \texttt{prob} set to 0.35, 0.50 and 0.65. The code is shown only for the case when \texttt{prob} is 0.35.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_col}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{29}\NormalTok{, }\FunctionTok{dbinom}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{29}\NormalTok{, }\DecValTok{29}\NormalTok{, }\FloatTok{0.35}\NormalTok{))) }\SpecialCharTok{+}
+   \FunctionTok{geom\_col}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\DecValTok{15}\NormalTok{, }\FunctionTok{dbinom}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{29}\NormalTok{, }\FloatTok{0.35}\NormalTok{)), }\AttributeTok{fill =} \StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{\textquotesingle{}x\textquotesingle{}}\NormalTok{, }\AttributeTok{y =} \StringTok{\textquotesingle{}Probability\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.33\linewidth]{book_files/figure-latex/likelihood_single-1} \includegraphics[width=0.33\linewidth]{book_files/figure-latex/likelihood_single-2} \includegraphics[width=0.33\linewidth]{book_files/figure-latex/likelihood_single-3}
+
+The idea of likelihood turns this perspective around. Instead of specifying the parameter of the model, namely the probability of success, and then considering the consequences in terms of the observations we may see, likelihood starts with the observed data and considers what parameter values might be consistent with that. In the plots above, the probability associated with the observed value of 15 is highlighted in red. If we assume that the true parameter is 0.35 then the probability of observing an outcome of 15 is very low and the same is true if we assume the true parameter is 0.65. The probability of observing 15 is much higher when we assume the true parameter to be 0.5. This gives a means of quantifying the relative plausibility of different parameter values.
+
+To use more scientific notation, the binomial probability for any outcome \(k\) for the number killed can be written as \(pr(k; m, p)\), where \(pr\) is a (mathematical) function which gives the probability of outcome \(k\) when the group size is \(m\) and the probability of success for an individual beetle is \(p\). So \(pr\) is a function of \(k\) for fixed values of \(m\) and \(p\). The likelihood function is simply \(pr(k; m, p)\) viewed as a function of \(p\), with \(k\) fixed at the observed value. (The parameter \(m\) is fixed by the design of the experiment.) To emphasise this change in perspective, the likelihood function is written as \(L(p; k, m)\) to indicate that \(k\) is fixed and the likelihood is a function of \(p\).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p    }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{(}\FloatTok{0.25}\NormalTok{, }\FloatTok{0.75}\NormalTok{, }\AttributeTok{length =} \DecValTok{50}\NormalTok{)}
+\NormalTok{dfrm }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(p, }\AttributeTok{likelihood =} \FunctionTok{dbinom}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{29}\NormalTok{, p))}
+\FunctionTok{ggplot}\NormalTok{(dfrm, }\FunctionTok{aes}\NormalTok{(p, likelihood)) }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/likelihood_binomial-1} \end{center}
+
+The plot above shows the likelihood function. The \emph{maximum likelihood estimate} of \(p\) is, as the name suggests, the value of \(p\) which maximises the likelihood function. Inspection of the plot shows this to be just above 0.5. In fact it is 0.517, the sample proportion of beetles killed. It is not a surprise that a good estimate of the proportion of beetles killed in the population at this concentration is the proportion of beetles killed in the sample. However, it is impressive that this has resulted simply by employing the concept of the likelihood function, without building in any further information. This strategy has supplied an obvious estimate in this simple case but it can also provide estimates in much more complex cases where it is not at all clear what might constitute a good estimate.
+
+\section{Inference}\label{inference-1}
+
+\section{An example}\label{an-example}
+
+\chapter{Other approaches to inference}\label{other-approaches-to-inference}
+
+\section{Computational inference}\label{computational-inference}
+
+The problems we have discussed so far have been very simple once where theory can be worked out analytically to provide simple formulate and procedures. With more complex data structures, that can become much more difficult so this section will discuss some ways of approaching inference by computational means. The underlying principles are essentially the same but the method of implementation is different.
+
+\subsection{Simulation methods}\label{simulation-methods}
+
+There are some circumstances where the model whose suitability we wish to assess is completely known, without any dependence on unknown parameters. A simple example arises from spatial point patterns where we may wish to assess the evidence that the point pattern is generated by a process which is not simply uniform. The plot below shows data on large (breast height diameter \textgreater= 50cm) longleaf pine trees in a 200m x 200m sqaure of forest.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(spatstat)}
+\NormalTok{x }\OtherTok{\textless{}{-}}\NormalTok{ longleaf}\SpecialCharTok{$}\NormalTok{x[longleaf}\SpecialCharTok{$}\NormalTok{marks }\SpecialCharTok{\textgreater{}=}\DecValTok{50}\NormalTok{]}
+\NormalTok{y }\OtherTok{\textless{}{-}}\NormalTok{ longleaf}\SpecialCharTok{$}\NormalTok{y[longleaf}\SpecialCharTok{$}\NormalTok{marks }\SpecialCharTok{\textgreater{}=}\DecValTok{50}\NormalTok{]}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(x, y)) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/unnamed-chunk-89-1} \end{center}
+
+We can generate our own trees patterns in a uniform random manner simply by locating each tree at an x and y position each of which is generated uniformly in the range (0, 200). here are some examples of patterns generated in this way.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(x)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{) \{}
+\NormalTok{   plt }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{), }\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{))) }\SpecialCharTok{+}
+            \FunctionTok{geom\_point}\NormalTok{()}
+  \FunctionTok{print}\NormalTok{(plt)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=0.32\linewidth]{book_files/figure-latex/unnamed-chunk-90-1} \includegraphics[width=0.32\linewidth]{book_files/figure-latex/unnamed-chunk-90-2} \includegraphics[width=0.32\linewidth]{book_files/figure-latex/unnamed-chunk-90-3}
+
+How should we compare the observed pattern with the randomly generated ones? A simple way of doing this is to measure for each tree the distance to its nearest neighbour. If the pattern exhibits clustering, then these distances should be small, while if the pattern is uniform they will tend to be larger. We might then use as our test statistic the average of the distances to each nearest neighbour. We can generate the distribution of this average distance in the case where the locations are uniformly distributed simply by repeatedly simulating locations and retaining the average nearest neighbour distance for each one. The \texttt{nndist} function from the \texttt{spatstat} package can help us with the nearest neighbour distances.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nsim  }\OtherTok{\textless{}{-}} \DecValTok{10000}
+\NormalTok{tstat }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nsim)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nsim) \{}
+\NormalTok{  pp }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(}\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{), }\FunctionTok{runif}\NormalTok{(n, }\DecValTok{0}\NormalTok{, }\DecValTok{200}\NormalTok{))}
+\NormalTok{  tstat[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{nndist}\NormalTok{(pp[ , }\DecValTok{1}\NormalTok{], pp[ , }\DecValTok{2}\NormalTok{]))}
+\NormalTok{\}}
+\NormalTok{tstat.obs }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{nndist}\NormalTok{(x, y))}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(tstat)) }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ tstat.obs, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{length}\NormalTok{(tstat[tstat }\SpecialCharTok{\textless{}}\NormalTok{ tstat.obs]) }\SpecialCharTok{/}\NormalTok{ nsim}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.319
+\end{verbatim}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/unnamed-chunk-91-1} \end{center}
+
+The histogram shows the distribution (subject to the variation present through simulation) of the average nearest neighbour distance when of atoms really are uniform. The red line shows the average neighbour distance for the observed data. Informally, but clearly, we can see that from this perspective the observed data is entirely consistent with the assumption of uniformity. An empirical p-value can be computed simply from the proportion of simulated values which fall below the observed one (as we look for evidence against uniformity in small nearest neighbour distances).
+
+\subsection{Randomisation tests}\label{randomisation-tests}
+
+Randomisation is very important principle in designing experiments as it helps to overcome issues of bias. We will consider this in detail elsewhere. Randomisation can also be used as the basis for analysis when we are reluctant to make the normality and independence assumptions which underlie standard methods. The dataset below provides a very simple example of this it refers to an experiment to assess the possibly different effects of two fertilisers applied to tomato plants growing in a row. (This example comes from the book \emph{Statistics for Experimenters} by Box, Hunter and Hunter.)
+
+\begin{verbatim}
+      Row position     1     2     3     4     5     6     7     8     9    10    11
+      Fertiliser       A     A     B     B     A     B     B     B     A     A     B
+      Yield (pounds) 29.9  11.4  26.6  23.7  25.3  28.5  14.2  17.9  16.5  21.1  24.3
+\end{verbatim}
+
+If the positions the fertilisers in the row have been randomised, and if the two fertilisers A and B are in fact equivalent in the effects, then the labels attached to the observations are immaterial. There is no connection between the labels and the outcomes. This allows us to calculate the distribution of the difference between the mean yields of A and B which is generated by the randomisation procedure. The histogram below shows this. For convenience (indeed, laziness!) it has been constructed from random permutations rather than the systematic list of all possible randomisations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fertiliser }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{)}
+\NormalTok{yield      }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{29.9}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{26.6}\NormalTok{, }\FloatTok{23.7}\NormalTok{, }\FloatTok{25.3}\NormalTok{, }\FloatTok{28.5}\NormalTok{, }\FloatTok{14.2}\NormalTok{, }\FloatTok{17.9}\NormalTok{, }\FloatTok{16.5}\NormalTok{, }\FloatTok{21.1}\NormalTok{, }\FloatTok{24.3}\NormalTok{)}
+\NormalTok{nperm      }\OtherTok{\textless{}{-}} \DecValTok{1000}
+\NormalTok{tstat      }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nperm)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nperm) \{}
+\NormalTok{  smp      }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(fertiliser)}
+\NormalTok{  tstat[i] }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(}\FunctionTok{tapply}\NormalTok{(yield, smp, mean))}
+\NormalTok{\}}
+\NormalTok{tstat.obs }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(}\FunctionTok{tapply}\NormalTok{(yield, fertiliser, mean))}
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(tstat)) }\SpecialCharTok{+} \FunctionTok{geom\_histogram}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ tstat.obs, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{book_files/figure-latex/unnamed-chunk-92-1} \end{center}
+
+There are several new functions used in the \texttt{R} code here (\texttt{c}, \texttt{diff}, \texttt{tapply}). You will hopefully feel ready to explore these through the help system by this stage. The end result is a histogram which represents the distribution, induced by randomisation, of the mean sample difference between A and B when the two treatments have identical effects. When we compare this with the observed mean difference it is clear that the two are compatible. So there is no evidence that A and B have different effects. If required, a p-value could be obtained by the means discussed in the simulation test section above. However, the conclusion is already clear.
+
+\subsection{The bootstrap}\label{the-bootstrap}
+
+We generally regard observed data as having been generated by some underlying distribution. If we construct an estimator of some quantity of interest, such as a population mean, then we need to know how accurate estimate is as a guide to the true value. The simple but surprising idea behind the bootstrap is that we mimic the variation of the sample around the distribution by the variation of resampled datasets around our original sample. When the bootstrap was first proposed in the 1970s, it took people by surprise but in fact it can be shown to be well founded theoretically.
+
+Suppose we are dealing with a distribution which has long tails. In other words, we may find that outliers (unusually large or small observations) are often present in sample datasets. Methods based on the assumption of a normal distribution will be strongly affected by this. A simple device is to compute a \emph{trimmed mean}. This simply computes the main of the remaining data after a proportion of the highest and lowest observations has been removed. This is an attractive way of defending against the effect of long tails, but how do we quantify the uncertainty of our sample estimator as a guide to the true trimmed mean of the underlying distribution?
+
+The bootstrap takes the observed sample and resamples the data with replacement. A trimmed mean is calculated on each resample. In the simplest approach to construction of a confidence interval, this is generated simply through percentiles of the trimmed means generated by resampling. The example below shows the mechanics of this, using a simple normal random sample to represent the observed data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x      }\OtherTok{\textless{}{-}} \FunctionTok{rnorm}\NormalTok{(}\DecValTok{25}\NormalTok{)}
+\NormalTok{tm.obs }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(x, }\AttributeTok{trim =} \FloatTok{0.1}\NormalTok{)}
+
+\NormalTok{nboot  }\OtherTok{\textless{}{-}} \DecValTok{10000}
+\NormalTok{tmdiff }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nboot)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nboot)}
+\NormalTok{   tmdiff[i] }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{sample}\NormalTok{(x, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{trim =} \FloatTok{0.1}\NormalTok{) }\SpecialCharTok{{-}}\NormalTok{ tm.obs}
+\NormalTok{tm.obs }\SpecialCharTok{{-}} \FunctionTok{quantile}\NormalTok{(tmdiff, }\FunctionTok{c}\NormalTok{(}\FloatTok{0.975}\NormalTok{, }\FloatTok{0.025}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      97.5%       2.5% 
+## -0.4127958  0.4288787
+\end{verbatim}
+
+\section{Bayesian inference}\label{bayesian-inference}
+
+The methods which have been described in this course have a very long and well established history. They are in widespread use and have brought insight to an enormous array of applications across the board. From a philosophical point of view these methods are referred to as \emph{frequentist}. The name comes from the idea of continued sampling of data, under the same conditions, for which it can be shown that relative frequencies converge eventually to probabilities.
+
+An alternative approach to inference is to consider the uncertainty associated with quantities of interest such as parameters, expressed not only through a model for the observed data but also through a prior distribution for the unknown parameters. Sometimes that prior information can be informative, based on knowledge or data about the situation being modelled. Sometimes the prior information can be vague or uninformative. Bayesian thinking allows uncertainty to be expressed as a combination of these two things, in a posterior distribution. A major step forward took place in the 1990s when computational methods of deriving posterior distributions were developed. For the first time this allowed complex problems to be handled by Bayesian models, with the attractive property that uncertainty at different levels can be propagated to generate posterior uncertainty about the quantities of interest, incorporating all the appropriate sources of uncertainty. This has led to extremely powerful tools for complex systems.
+
+Treatment of this topic is beyond the scope of the current course.
+
+\section{Exercises}\label{exercises-1}
+
+\subsection{Coverage property of bootstrap confidence intervals}\label{coverage-property-of-bootstrap-confidence-intervals}
+
+During the session an example of a confidence interval for a trimmed mean was discussed. Write some code to evaluate the \emph{coverage} of this method of constructing a confidence interval. You can do this by repeatedly simulating sample from the true distribution (\texttt{rnorm(25)}), constructing a bootstrap confidence interval using the code discussed, and counting how many times the calculated confidence interval covers the true value (0).
+
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-bhatt_2010_perspclinres}
-Bhatt, Arun. 2010. {``Evolution of Clinical Research: A History Before and Beyond James Lind.''} \emph{Perspectives in Clinical Research} 1 (1): 6.
-
-\bibitem[\citeproctext]{ref-bowman-1994-teachingstatistics}
-Bowman, A. W. 1994. {``Teaching by Design.''} \emph{Teaching Statistics} 16: 2--4. \url{https://doi.org/10.1111/j.1467-9639.1994.tb00670.x}.
-
-\bibitem[\citeproctext]{ref-diggle_2011_book}
-Diggle, Peter J, and Amanda Chetwynd. 2011. \emph{Statistics and Scientific Method: An Introduction for Students and Researchers}. Oxford University Press.
+\bibitem[\citeproctext]{ref-fisher_1925_metron}
+Fisher, Ronald Aylmer et al. 1925. {``Applications of {`Student's'} Distribution.''} \emph{Metron} 5 (3): 90--104.
 
 \bibitem[\citeproctext]{ref-hubbard_2019_amerstat}
 Hubbard, Raymond, Brian D Haig, and Rahul A Parsa. 2019. {``The Limited Role of Formal Statistical Inference in Scientific Inference.''} \emph{The American Statistician} 73 (sup1): 91--98.
@@ -1058,12 +875,6 @@ M., Diez D., Barr C. D., and Çetinkaya-Rundel M. 2019. \emph{OpenIntro Statisti
 
 \bibitem[\citeproctext]{ref-mackay_2000_statsci}
 MacKay, R Jock, and R Wayne Oldford. 2000. {``Scientific Method, Statistical Method and the Speed of Light.''} \emph{Statistical Science}, 254--78. \url{https://www.jstor.org/stable/2676665}.
-
-\bibitem[\citeproctext]{ref-marshall_1948_bmj}
-Marshall, Geoffrey, J. W. S. Blacklock, C. Cameron, N. B. Capon, R. Cruickshank andJ. H. Gaddum, F. R. G. Heaf, A. Bradford Hill, et al. 1948. {``Streptomycin Treatment of Pulmonary Tuberculosis.''} \emph{British Medical Journal}, 769--82.
-
-\bibitem[\citeproctext]{ref-rosling_2018_book}
-Rosling, Hans. 2018. \emph{Factfulness}. London: Hodder \& Stoughton.
 
 \end{CSLReferences}
 
