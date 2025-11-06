@@ -559,10 +559,6 @@ div.csl-indent {
 <p><em>Exercise</em>: Try the <code>stl</code> decomposition on the Ben Nevis data.</p>
 <div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="visualisation.html#cb280-1" tabindex="-1"></a>Ben_Nevis    <span class="ot">&lt;-</span> <span class="fu">mutate</span>(Ben_Nevis, <span class="at">yday =</span> <span class="fu">yday</span>(Date))</span>
 <span id="cb280-2"><a href="visualisation.html#cb280-2" tabindex="-1"></a>Ben_Nevis.ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(Ben_Nevis<span class="sc">$</span>Tmax, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1883</span>, <span class="dv">335</span>), <span class="at">frequency =</span> <span class="dv">365</span>)</span></code></pre></div>
-<p><span style="color: red;">&gt; <em>Quality control example - or thought experiment?</em></span></p>
-<p><span style="color: red;">&gt; <em>Collections of time series: spark lines
-GWSDAT data are available at:
-<a href="http://gwsdat.net/wp-content/uploads/2021/04/GWSDAT-Online-Input-Data-sets.zip" class="uri">http://gwsdat.net/wp-content/uploads/2021/04/GWSDAT-Online-Input-Data-sets.zip</a></em></span></p>
 </div>
             </section>
 

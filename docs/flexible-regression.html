@@ -602,9 +602,6 @@ This requires the <code>rpanel</code> and <code>tkrplot</code> packages to be in
 <span id="cb93-5"><a href="flexible-regression.html#cb93-5" tabindex="-1"></a><span class="fu">ggplot</span>(mammalSpeed, <span class="fu">aes</span>(<span class="fu">log</span>(Mass), <span class="fu">log</span>(Speed))) <span class="sc">+</span></span>
 <span id="cb93-6"><a href="flexible-regression.html#cb93-6" tabindex="-1"></a>   <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Family)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/mammalSpeed-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p><span style="color: red;">&gt; <em>Another way of identifying where the largest value occurs is to find where the derivative is zero - perhaps an exercise?</em></span></p>
-<p><span style="color: red;">&gt; <em>Discuss complexity - choice of degree of smoothing? If so, this should be light, with reference to a more detailed discussion in the later chapter. Link to the general issue of complexity?</em></span></p>
-<p><span style="color: red;">&gt; <em>Lots of material commented out here.</em></span></p>
 <!-- When the data sometimes have a shape which is not easily described by a simple parametric functional form, a *nonparametric* model is required.  This can be written as -->
 <!-- $$ -->
 <!--       y_i = m(x_i) + \varepsilon_i, -->
@@ -715,7 +712,6 @@ This requires the <code>rpanel</code> and <code>tkrplot</code> packages to be in
 <!-- lines(agem, estf, lty = 3) -->
 <!-- }) -->
 <!-- ``` -->
-<p><span style="color: red;">&gt; <em>Also scope for a discussion of robustness, including quantile regression. See example commented out below.</em></span></p>
 <!-- # Income_and_emotional_wellbeing_a_conflict_resolved -->
 <!-- library(tidyverse) -->
 <!-- library(quantreg) -->

@@ -544,7 +544,6 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="contingency-tables" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Contingency tables<a href="contingency-tables.html#contingency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><span style="color: red;">&gt; <em>Use the hyde data for a more than 2x2 contingency table?</em></span></p>
 <p>The data on smoking and lung cancer can also be treated as a simple example of a <em>contingency table</em>, which cross-classifies counts by two different factors. In fact, this was how the data were viewed in the original paper by Doll &amp; Hill. The method of analysis we will explore can be implemented in contingency tables with any number of rows or columns.</p>
 <p>As ever, a helpful first step is to visualise the data, even when this consists of a very simple tabluation. The mosiacplot discussed earlier helps with this. The columns of the plot refer to the case and control groups. Here these are equal in size (60) but differences in in numbers would have been reflected in the width of the columns. This means that the height of each block now refers to proprtions of observations within each column.</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="contingency-tables.html#cb109-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">41</span>, <span class="dv">19</span>, <span class="dv">28</span>, <span class="dv">32</span>), <span class="at">ncol =</span> <span class="dv">2</span>,</span>
@@ -575,14 +574,6 @@ div.csl-indent {
 ## 
 ## data:  x
 ## X-squared = 4.9105, df = 1, p-value = 0.02669</code></pre>
-<p><span style="color: red;">&gt; <em>Better to use a different example here, with discussion of alignment, and follow-up examination of the fit of each cell?. Reserve the smoking data for an exercise?</em></span></p>
-<p><span style="color: red;">&gt; <em>Follow-up analysis of contingency tables:
-<a href="https://openpublishing.library.umass.edu/pare/article/id/1485/" class="uri">https://openpublishing.library.umass.edu/pare/article/id/1485/</a>
-Agresti (An introduction to categorical data analysis, 2007), “a cell-by-cell comparison of observed and estimated expected frequencies helps us to better
-Practical Assessment, Research &amp; Evaluation, Vol 20, No 8
-Sharpe, Chi-square
-understand the nature of the evidence” and cells with large residuals “show a greater discrepancy…than we would expect if the variables were truly independent” (p. 38).
-</em></span></p>
 </div>
             </section>
 

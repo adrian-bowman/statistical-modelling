@@ -607,9 +607,7 @@ The right hand plot below confirms that the shape of the relationship is the sam
    \frac{1}{n-1} \sum_{i = 1}^n \frac{(x_i - \bar{x})}{s_x} \frac{(y_i - \bar{y})}{s_y}
 \]</span>
 In this example the sample correlation coefficient is <code>cor(gullsM$Weight, gullsM$Head.Length) =</code> 0.462. Exercises at the end of the chapter invite you to explore the behaviour of the sample correlation coefficient in measuring different strengths of association.</p>
-<p><span style="color: red;">&gt; <em>Turn the algebra into an exercise?</em></span>
-<!-- the question becomes how close $x'$ and $y'$ are, on the standardised scale. The dashed line on the right hand plot represents $x' = y'$ and so the extent of the connection between the two variables can be quantified by summing (or averaging) the values of $(x' - y')^2$. Because the variables are standardised, a little algebra shows this can be written as $2 (1 - x' y')$. --></p>
-<p><span style="color: red;">&gt; <em>Simulation exercise too.</em></span></p>
+<!-- the question becomes how close $x'$ and $y'$ are, on the standardised scale. The dashed line on the right hand plot represents $x' = y'$ and so the extent of the connection between the two variables can be quantified by summing (or averaging) the values of $(x' - y')^2$. Because the variables are standardised, a little algebra shows this can be written as $2 (1 - x' y')$. -->
 <p>A variety of tools are now available to help in gaining an overview of the features of the dataset when there are multiple variables present. The <code>ggpairs</code> function in the <code>GGally</code> package can help with this. It provides a set of plots which incorporate a great deal of information in graphical form. As ever, there are various arguments we can use to control the details. Here colour is used to identify males and females. The <code>stars</code> argument is also used to suppress some information which is not relevant to us at this stage.</p>
 <!-- ```{r gulls_skim_groups, message = FALSE, render = knitr::normal_print} -->
 <!-- gulls %>% -->
@@ -622,9 +620,6 @@ In this example the sample correlation coefficient is <code>cor(gullsM$Weight, g
 <span id="cb76-2"><a href="gaining-an-overview-of-datasets.html#cb76-2" tabindex="-1"></a><span class="fu">ggpairs</span>(gulls, <span class="fu">aes</span>(<span class="at">col =</span> Sex, <span class="at">alpha =</span> <span class="fl">0.7</span>),</span>
 <span id="cb76-3"><a href="gaining-an-overview-of-datasets.html#cb76-3" tabindex="-1"></a>        <span class="at">upper =</span> <span class="fu">list</span>(<span class="at">continuous =</span> <span class="fu">wrap</span>(ggally_cor, <span class="at">stars =</span> <span class="cn">FALSE</span>)))</span></code></pre></div>
 <p><img src="book_files/figure-html/gulls_ggpairs-1.png" width="90%" style="display: block; margin: auto;" /></p>
-<p><span style="color: red;">&gt; <em>Describe the correlation coefficient. Make use of overall correlation being greater than group correlations?</em></span></p>
-<p><span style="color: red;">&gt; <em>Correlation, not causation.</em></span></p>
-<p><span style="color: red;">&gt; <em>Use the chocolate and Nobel prizes example for discussion.</em></span></p>
 <p>The idea is to create a set of panels which plot each variable against every other one. The type of plot in each panel adapts to the nature of the variables involved. When both variables are on continuous scales, the relationship is summarised by correlation coefficients in the upper part of the matrix. The boxplots and histograms in the margins indicate that the separation of males and females on each individual variable is strong, which offers encouragement that effective classification may be possible.</p>
 <p>These methods work well when the number of variables is small or modest. Large numbers of variables could be handled in appropriately chosen groups of variables, or by employing methods of dimension reduction, for example principal components.</p>
 </div>

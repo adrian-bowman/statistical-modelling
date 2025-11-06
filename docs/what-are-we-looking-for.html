@@ -557,7 +557,6 @@ div.csl-indent {
 <li><em>discrete</em> scales where the values correspond to integers, usually describing a count;</li>
 <li><em>categorical</em> scales where the recorded value simply indicates the group, out of a finite number of groups, into which the observation falls, for example a blood group; categorical scales are <em>ordinal</em> when the groups have a natural and meaningful ordering and <em>nominal</em> when they do not.</li>
 </ul>
-<p><span style="color: red;">&gt; <em>What about interval, ratio, etc.? Include in continuous scales.</em></span></p>
 <p>We will begin with the description of an interesting historical dataset which will be used to illustrate the issues and methods.</p>
 <blockquote>
 <hr />
@@ -599,9 +598,6 @@ The biological process of ageing is the focus of a great deal of current researc
 <p>although the panels below have been further annotated to illustrate the method of construction.</p>
 <p>A striking feature of these histograms is the very high level of childhood mortality.</p>
 <p><img src="book_files/figure-html/paternity_hist-1.png" width="100%" style="display: block; margin: auto;" /></p>
-<p><span style="color: red;">&gt; <em>Exercise: remove the horizontal axis labels from the upper two rows?</em></span></p>
-<p><span style="color: red;">&gt; <em>Exercise: compare the child longevity with modern data.</em></span></p>
-<p><span style="color: red;">&gt; <em>Plots to illustrate mean, median, quartiles?</em></span></p>
 <p>The bottom row of the figure above shows another common form of display for samples of data on a continuous scale, namely the <em>boxplot</em>. This is based on a summary of each set of data. The <em>median</em> of a sample is the value which has half of the observations below and half of the observations above. (If the number of data points in the sample is odd this will be the middle observation. If the number of data points is even, it is defined as the average of the middle two observations.) Reapplying this thinking to the lower and upper half of the dataset produces the lower and upper <em>quartiles</em> as the middle points of each half. The median and quartiles give a useful summary of the location and spread (distance of the quartiles from the median) of the sample of data. Two further summary numbers are usually added. These could be the extremes (largest and smallest observations) or other values indicating where the ‘tails’ of the sample lie. (There are various algorithms for this latter approach but the details are not crucial here. This allows a small number of unusually large or small data points to be identified separately.) This summary is turned into graphical form through a box whose edges lie at the quartiles, with a central line marking the median and a horizontal line marking the ‘extent’ of the data points. Boxplots can be produced by instructions of the form</p>
 <pre><code>ggplot(hyde, aes(Father)) + geom_boxplot()</code></pre>
 <p>In the panels above the layer <code>scale_y_discrete()</code> has been added to remove the vertical scale which, for a single group of data is not relevant.</p>
@@ -609,8 +605,6 @@ The biological process of ageing is the focus of a great deal of current researc
 <p>It is the relationship between father’s age and child’s longevity which is of interest, so a scatterplot of these two variables in the left hand plot below gives an initial impression. At any father’s age, there is huge variation in the child’s longevity so there is little indication of any underlying relationship. However, one unusual feature is apparent, with a vertical gap at father’s age 36 in an otherwise dense plot. Review of the transcription of the data brought to light that a group of observations has been mistakenly tagged with father’s age 35 when this should have been 36. Correction of this transcription error produces the right hand scatterplot, where the anomalous gap has disappeared. This is a simple example of another of the useful roles of data visualisation, namely <em>data screening</em>.</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="what-are-we-looking-for.html#cb61-1" tabindex="-1"></a><span class="fu">ggplot</span>(hyde, <span class="fu">aes</span>(Father, Child)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="book_files/figure-html/paternity_scatterplot-1.png" width="49%" /><img src="book_files/figure-html/paternity_scatterplot-2.png" width="49%" /></p>
-<p><span style="color: red;">&gt; <em>Opportunity for transparency (see Peng book) and jittering?
-Alpha transparency is good for scatterplots with very large numbers of observations.</em></span></p>
 <p>The high rate of child mortality is again apparent, now in the cluster of observations near the horizontal axis. In addition to the normal process of adult ageing there is a heightened challenge, relative to modern standards, to reach maturity. It may be helpful to separate these two effects by examining any relationship between father’s age and:</p>
 <ul>
 <li>the proportion of children who survive childhood;</li>
@@ -644,7 +638,6 @@ The use of the square-root helpfully takes us back to the original scale of meas
 ## 3 (35,45]           46.8  22.0  39.8
 ## 4 (45,100]          46.2  22.8  49.7</code></pre>
 <p>We can now look for a trend in child longevity against father’s age by adding sample means to the scatterplot, for those cases where the child survived at least until age 10. This shows a small but steady decline in the mean child longevity as father’s age increases. This simple but effective form of insight, employed by Alexander Graham Bell on the full dataset, is regarded as the first indication of a link between the age of the father and the longevity of the child. The effect is small, so this is about understanding the underlying connection between these variables. It is certainly not feasible to predict the longevity of individual children from the father’s age!</p>
-<p><span style="color: red;">&gt; <em>Exercise: repeat this for the full dataset, as A G Bell did.</em></span></p>
 <p>At this stage, we are still dealing with <em>descriptions</em> of the data. We will have to defer the business of weighing <em>evidence</em> for change more carefully until we have the inferential tools introduced in Chapter <a href="inference.html#inference">6</a>.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="what-are-we-looking-for.html#cb64-1" tabindex="-1"></a><span class="co"># Notice that the second instance of geom_point replaces the default `data`</span></span>
 <span id="cb64-2"><a href="what-are-we-looking-for.html#cb64-2" tabindex="-1"></a><span class="co"># with the hyde_10_means dataset and the appropriate `aes`.</span></span>

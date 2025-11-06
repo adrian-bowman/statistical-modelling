@@ -550,15 +550,9 @@ div.csl-indent {
 <span id="cb124-3"><a href="simple-regression-rodents-revisited.html#cb124-3" tabindex="-1"></a><span class="fu">ggplot</span>(rodent1, <span class="fu">aes</span>(<span class="fu">log</span>(Mass), <span class="fu">log</span>(Speed))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb124-4"><a href="simple-regression-rodents-revisited.html#cb124-4" tabindex="-1"></a>   <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb124-5"><a href="simple-regression-rodents-revisited.html#cb124-5" tabindex="-1"></a>   <span class="fu">geom_segment</span>(<span class="at">xend =</span> <span class="fu">log</span>(rodent1<span class="sc">$</span>Mass), <span class="at">yend =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<p><img src="book_files/figure-html/rodent_least_squares-1.png" width="70%" style="display: block; margin: auto;" />
-<span style="color: red;">&gt; <em>rp.lm(log(Speed) ~ log(Mass), data = rodent1, panel = FALSE)</em></span></p>
-<p><span style="color: red;">&gt; <em>Introduce the model formula.</em></span></p>
-<p><span style="color: red;">&gt; <em>Refer to rp.lm interaction with buttons etc.</em></span></p>
+<p><img src="book_files/figure-html/rodent_least_squares-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The process of <em>fitting</em> the model involves quantifying, for any particular line we might consider, how well this line captures the pattern in the data. The red lines in the plot above show the deviations of the data from the line and this can be quantified in the sum-of-squares of these deviations. The <em>fitted model</em> corresponds to the straight line which minimises this sum-of-squares. The problem can be expressed and solved in a general way, giving simple formulae for the slope and the intercept of the fitted line. These are <em>estimates</em> of the true underlying slope and intercept for the relationship which generated the data.</p>
 <p>The individual data points show considerable variation around the fitted line and a description of this is also part of the modelling process. The deviations of the points from the fitted model are called the <em>residuals</em>. Essentially, we calculate the standard deviation of these residuals (with a slight technical modification) to estimate the variation of the observations around the model.</p>
-<p><span style="color: red;">&gt; <em>Model checking - include refer to earlier model formulation discussion - log scale.</em></span></p>
-<p><span style="color: red;">&gt; <em>Comment on re-centering the slope change.</em></span></p>
-<p><span style="color: red;">&gt; <em>Discuss influence informally - porcupine - rp.regression animation.</em></span></p>
 <p>The estimates of intercept and slope are usually of principal interest. We can view these as:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="simple-regression-rodents-revisited.html#cb125-1" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##             Estimate Std. Error   t value     Pr(&gt;|t|)
@@ -566,7 +560,6 @@ div.csl-indent {
 ## log(Mass)   0.142214 0.05858014  2.427683 2.475992e-02</code></pre>
 <p>The standard errors t-statistics (‘t value’) and p-values (‘Pr(&gt;|t|)’) have already been calculated for us. Our main question of interest in this example is whether log(Speed) and log(Mass) are linked and the p-value (0.025) is sufficiently small to indicate that the hypothesis of no link (a slope of 0) is implausible.</p>
 <p>An interesting question here is: what is the population from which our data have been sampled? Most the quadrupedal rodents we know of have been tabulated in the dataset. One view is that the data are sampled from the evolutionary process which has allowed these animals to adapt to their environment. In other evolutionary circumstances we could have observed different rodents.</p>
-<p><span style="color: red;">&gt; <em>Reflect on the general thinking and steps in model building.</em></span></p>
 </div>
             </section>
 

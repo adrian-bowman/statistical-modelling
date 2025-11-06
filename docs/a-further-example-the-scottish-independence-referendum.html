@@ -635,7 +635,6 @@ the percentage who are over 65 years of age
 <p>We can use this information to explore the demographic and geographic patterns of voting.</p>
 <hr />
 </blockquote>
-<p><span style="color: red;">&gt; <em>Create the dataset from open information? There is a House of Commons Library document at <a href="https://researchbriefings.files.parliament.uk/documents/RP14-50/RP14-50.pdf" class="uri">https://researchbriefings.files.parliament.uk/documents/RP14-50/RP14-50.pdf</a></em></span></p>
 <p>The first thing we need to do is to read the data. The <code>rp.datalink</code> function from the <code>rpanel</code> package provides a convenient way of locating the dataset, as described in Section <a href="reading-data.html#reading-data">2.4</a> above. Here we also use the <code>head</code> function to inspect the first few rows.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb19-1" tabindex="-1"></a><span class="fu">head</span>(Scottish_referendum)</span></code></pre></div>
 <pre><code>##                 Council   Yes     No Rejected  Total Electorate
@@ -668,8 +667,6 @@ the percentage who are over 65 years of age
 <span id="cb24-2"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-2" tabindex="-1"></a><span class="fu">text</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>Yes_percent, </span>
 <span id="cb24-3"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-3" tabindex="-1"></a>     Scottish_referendum<span class="sc">$</span>Council)</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-219-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<p><span style="color: red;">&gt; <em>The calculations are cumbersome.</em></span></p>
-<p><span style="color: red;">&gt; <em>Amend the exercise on this.</em></span></p>
 <!-- ## Packages: extending the range of what we can do {#packages} -->
 <!-- ```{r child = 'chapters/R_introduction/packages.Rmd'} -->
 <!-- ``` -->

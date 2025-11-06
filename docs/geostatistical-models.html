@@ -552,17 +552,9 @@ div.csl-indent {
 <p><img src="book_files/figure-html/geosim-1.png" width="33%" /><img src="book_files/figure-html/geosim-2.png" width="33%" /><img src="book_files/figure-html/geosim-3.png" width="33%" /></p>
 <p>At any location in the field, the value observed as a normal random variable with mean 0 and variance controlled by the <em>partial sill</em> parameter (<code>pSill</code>). The correlation between the values at difference locations diminishes with their distance apart. Values at locations which are close look similar while values which are far apart tend to look different. This is controlled by the <code>Range</code> parameter. Values of the field distance at pairs of locations which are this distance apart are virtually independent of one another.</p>
 <p>If a field is <em>isotropic</em> then it has the same characteristics in all directions. The correlation between values of the field is controlled by their distance apart, not their direction. There are sliders to control the degree of anisotropy and its direction. You may like to experiment with this too.</p>
-<p><span style="color: red;">&gt; <em>Discuss the use of sampling points and nugget effects.</em></span></p>
-<p><span style="color: red;">&gt; <em>How to illustrate non-stationarity?</em></span></p>
 </div>
 <div id="geostatistical-models-1" class="section level3 hasAnchor" number="15.3.2">
 <h3><span class="header-section-number">15.3.2</span> Geostatistical models<a href="geostatistical-models.html#geostatistical-models-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span style="color: red;">&gt; <em>glmmTMB</em></span></p>
-<p><span style="color: red;">&gt; <em>Use spaMM because of the similarity of syntax to lme4?
-<a href="https://datascienceplus.com/spatial-regression-in-r-part-1-spamm-vs-glmmtmb/" class="uri">https://datascienceplus.com/spatial-regression-in-r-part-1-spamm-vs-glmmtmb/</a>
-See spaMMintro.pdf in the books_and_papers folder.</em></span></p>
-<p><span style="color: red;">&gt; <em>Fit a non-spatial model and check for spatial correlation.</em></span></p>
-<p><span style="color: red;">&gt; <em>Plot the data as a reminder? Already investigated in the additive models section.</em></span></p>
 <div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="geostatistical-models.html#cb299-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb299-2"><a href="geostatistical-models.html#cb299-2" tabindex="-1"></a><span class="fu">library</span>(dsm)</span>
 <span id="cb299-3"><a href="geostatistical-models.html#cb299-3" tabindex="-1"></a><span class="fu">data</span>(mackerel, <span class="at">package =</span> <span class="st">&#39;sm&#39;</span>)</span>
@@ -614,7 +606,6 @@ See spaMMintro.pdf in the books_and_papers folder.</em></span></p>
 <span id="cb303-6"><a href="geostatistical-models.html#cb303-6" tabindex="-1"></a>dst <span class="ot">&lt;-</span> <span class="fu">crossdist</span>(newdat.space<span class="sc">$</span>long, newdat.space<span class="sc">$</span>lat, mackerel<span class="sc">$</span>long, mackerel<span class="sc">$</span>lat)</span>
 <span id="cb303-7"><a href="geostatistical-models.html#cb303-7" tabindex="-1"></a>dst <span class="ot">&lt;-</span> <span class="fu">apply</span>(dst, <span class="dv">1</span>, min)</span>
 <span id="cb303-8"><a href="geostatistical-models.html#cb303-8" tabindex="-1"></a>newdat.space <span class="ot">&lt;-</span> newdat.space[dst <span class="sc">&lt;</span> <span class="dv">50</span>, ]</span></code></pre></div>
-<p><span style="color: red;">&gt; <em>Use rdist from the fields package</em></span></p>
 <p>The fitted spatial effect.</p>
 <div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="geostatistical-models.html#cb304-1" tabindex="-1"></a>pred.spamm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">predict</span>(model.spamm, newdat.space))</span>
 <span id="cb304-2"><a href="geostatistical-models.html#cb304-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>

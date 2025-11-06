@@ -601,8 +601,6 @@ Premature babies often suffer from a variety of problems, of which a major one i
 <span id="cb156-5"><a href="including-factors-in-linear-models.html#cb156-5" tabindex="-1"></a><span class="fu">rp.lm</span>(lrate <span class="sc">~</span> RDS <span class="sc">+</span> GA, <span class="at">data =</span> rds, <span class="at">panel =</span> <span class="cn">FALSE</span>,)</span></code></pre></div>
 <p><img src="book_files/figure-html/rds_plots_eval-1.png" width="32%" /><img src="book_files/figure-html/rds_plots_eval-2.png" width="32%" /><img src="book_files/figure-html/rds_plots_eval-3.png" width="32%" /></p>
 <p>The three plots above again compare the groups directly, then adjust for the effects of gestational age with separate regression lines, and then lines with common slope. There are strikingly different results. Look at summaries of the three models to see that the direct group comparison (<code>model1</code>) shows a (just) significant result, while <code>model2</code> shows no evidence of interaction between group and gestational age and <code>model3</code> shows no evidence of a difference between the groups. So this is a case where the inclusion of a covariate prevents us from drawing an inappropriate conclusion of a group difference when in fact this is due the dominance of later gestational ages in the babies who do not have RDS.</p>
-<p><span style="color: red;">&gt; <em>Another example - with several covariates?</em></span></p>
-<p><span style="color: red;">&gt; <em>Trigonometric regression?</em></span></p>
 </div>
 </div>
             </section>
