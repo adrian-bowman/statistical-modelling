@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>16.2 Children’s services reform in Scotland | Statistical Modelling</title>
+  <title>18.2 Children’s services reform in Scotland | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="16.2 Children’s services reform in Scotland | Statistical Modelling" />
+  <meta property="og:title" content="18.2 Children’s services reform in Scotland | Statistical Modelling" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="16.2 Children’s services reform in Scotland | Statistical Modelling" />
+  <meta name="twitter:title" content="18.2 Children’s services reform in Scotland | Statistical Modelling" />
   
   <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
   
@@ -51,32 +51,33 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.31/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.31/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.31/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.31/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -86,7 +87,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -304,218 +305,224 @@ div.csl-indent {
 <li class="chapter" data-level="5.4.5" data-path="exercises-4.html"><a href="exercises-4.html#follicle-data"><i class="fa fa-check"></i><b>5.4.5</b> Follicle data</a></li>
 </ul></li>
 </ul></li>
-<li class="part"><span><b>III Statistical Inference</b></span></li>
-<li class="chapter" data-level="6" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>6</b> Inference: turning data into evidence</a>
+<li class="part"><span><b>III Turning data into evidence</b></span></li>
+<li class="chapter" data-level="6" data-path="inference.html"><a href="inference.html"><i class="fa fa-check"></i><b>6</b> Inference on means</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="samples-and-populations.html"><a href="samples-and-populations.html"><i class="fa fa-check"></i><b>6.1</b> Samples and populations</a></li>
-<li class="chapter" data-level="6.2" data-path="quantifying-uncertainty-standard-error.html"><a href="quantifying-uncertainty-standard-error.html"><i class="fa fa-check"></i><b>6.2</b> Quantifying uncertainty: standard error</a></li>
+<li class="chapter" data-level="6.2" data-path="standard-error.html"><a href="standard-error.html"><i class="fa fa-check"></i><b>6.2</b> Quantifying uncertainty: standard error</a></li>
 <li class="chapter" data-level="6.3" data-path="confidence-intervals.html"><a href="confidence-intervals.html"><i class="fa fa-check"></i><b>6.3</b> Confidence intervals</a></li>
 <li class="chapter" data-level="6.4" data-path="hypothesis-tests.html"><a href="hypothesis-tests.html"><i class="fa fa-check"></i><b>6.4</b> Hypothesis tests</a></li>
 <li class="chapter" data-level="6.5" data-path="comparing-two-means.html"><a href="comparing-two-means.html"><i class="fa fa-check"></i><b>6.5</b> Comparing two means</a></li>
-<li class="chapter" data-level="6.6" data-path="further-reading-4.html"><a href="further-reading-4.html"><i class="fa fa-check"></i><b>6.6</b> Further reading</a></li>
+<li class="chapter" data-level="6.6" data-path="going-further-and-deeper.html"><a href="going-further-and-deeper.html"><i class="fa fa-check"></i><b>6.6</b> Going further and deeper</a></li>
 <li class="chapter" data-level="6.7" data-path="quantifying-uncertainty-exercises.html"><a href="quantifying-uncertainty-exercises.html"><i class="fa fa-check"></i><b>6.7</b> Exercises</a>
 <ul>
 <li class="chapter" data-level="6.7.1" data-path="quantifying-uncertainty-exercises.html"><a href="quantifying-uncertainty-exercises.html#standard-errors"><i class="fa fa-check"></i><b>6.7.1</b> Standard errors</a></li>
+<li class="chapter" data-level="6.7.2" data-path="quantifying-uncertainty-exercises.html"><a href="quantifying-uncertainty-exercises.html#what-does-confidence-mean"><i class="fa fa-check"></i><b>6.7.2</b> What does ‘confidence’ mean?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html"><i class="fa fa-check"></i><b>7</b> Other approaches to inference</a>
+<li class="chapter" data-level="7" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html"><i class="fa fa-check"></i><b>7</b> Inference with categorical data</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="computational-inference.html"><a href="computational-inference.html"><i class="fa fa-check"></i><b>7.1</b> Computational inference</a>
+<li class="chapter" data-level="7.1" data-path="simple-proportions.html"><a href="simple-proportions.html"><i class="fa fa-check"></i><b>7.1</b> Simple proportions</a></li>
+<li class="chapter" data-level="7.2" data-path="comparing-proportions.html"><a href="comparing-proportions.html"><i class="fa fa-check"></i><b>7.2</b> Comparing proportions</a></li>
+<li class="chapter" data-level="7.3" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>7.3</b> Contingency tables</a></li>
+<li class="chapter" data-level="7.4" data-path="exercises-5.html"><a href="exercises-5.html"><i class="fa fa-check"></i><b>7.4</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="computational-inference.html"><a href="computational-inference.html#simulation-methods"><i class="fa fa-check"></i><b>7.1.1</b> Simulation methods</a></li>
-<li class="chapter" data-level="7.1.2" data-path="computational-inference.html"><a href="computational-inference.html#randomisation-tests"><i class="fa fa-check"></i><b>7.1.2</b> Randomisation tests</a></li>
-<li class="chapter" data-level="7.1.3" data-path="computational-inference.html"><a href="computational-inference.html#the-bootstrap"><i class="fa fa-check"></i><b>7.1.3</b> The bootstrap</a></li>
+<li class="chapter" data-level="7.4.1" data-path="exercises-5.html"><a href="exercises-5.html#opinion-polls"><i class="fa fa-check"></i><b>7.4.1</b> Opinion polls</a></li>
+<li class="chapter" data-level="7.4.2" data-path="exercises-5.html"><a href="exercises-5.html#respiratory-disease-in-infancy"><i class="fa fa-check"></i><b>7.4.2</b> Respiratory disease in infancy</a></li>
+<li class="chapter" data-level="7.4.3" data-path="exercises-5.html"><a href="exercises-5.html#smoking-and-lung-cancer"><i class="fa fa-check"></i><b>7.4.3</b> Smoking and lung cancer</a></li>
+<li class="chapter" data-level="7.4.4" data-path="exercises-5.html"><a href="exercises-5.html#confidence-intervals-and-p-values"><i class="fa fa-check"></i><b>7.4.4</b> Confidence intervals and p-values</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>7.2</b> Bayesian inference</a></li>
-<li class="chapter" data-level="7.3" data-path="exercises-5.html"><a href="exercises-5.html"><i class="fa fa-check"></i><b>7.3</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="7.3.1" data-path="exercises-5.html"><a href="exercises-5.html#coverage-property-of-bootstrap-confidence-intervals"><i class="fa fa-check"></i><b>7.3.1</b> Coverage property of bootstrap confidence intervals</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="likelihood-a-powerful-principle.html"><a href="likelihood-a-powerful-principle.html"><i class="fa fa-check"></i><b>8</b> Likelihood: a powerful principle</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="the-idea.html"><a href="the-idea.html"><i class="fa fa-check"></i><b>8.1</b> The idea</a></li>
+<li class="chapter" data-level="8.2" data-path="inference-1.html"><a href="inference-1.html"><i class="fa fa-check"></i><b>8.2</b> Inference</a></li>
+<li class="chapter" data-level="8.3" data-path="an-example.html"><a href="an-example.html"><i class="fa fa-check"></i><b>8.3</b> An example</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="inference-with-categorical-data.html"><a href="inference-with-categorical-data.html"><i class="fa fa-check"></i><b>8</b> Inference with categorical data</a>
+<li class="chapter" data-level="9" data-path="other-approaches-to-inference.html"><a href="other-approaches-to-inference.html"><i class="fa fa-check"></i><b>9</b> Other approaches to inference</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="simple-proportions.html"><a href="simple-proportions.html"><i class="fa fa-check"></i><b>8.1</b> Simple proportions</a></li>
-<li class="chapter" data-level="8.2" data-path="comparing-proportions.html"><a href="comparing-proportions.html"><i class="fa fa-check"></i><b>8.2</b> Comparing proportions</a></li>
-<li class="chapter" data-level="8.3" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>8.3</b> Contingency tables</a></li>
-<li class="chapter" data-level="8.4" data-path="exercises-6.html"><a href="exercises-6.html"><i class="fa fa-check"></i><b>8.4</b> Exercises</a>
+<li class="chapter" data-level="9.1" data-path="computational-inference.html"><a href="computational-inference.html"><i class="fa fa-check"></i><b>9.1</b> Computational inference</a>
 <ul>
-<li class="chapter" data-level="8.4.1" data-path="exercises-6.html"><a href="exercises-6.html#opinion-polls"><i class="fa fa-check"></i><b>8.4.1</b> Opinion polls</a></li>
-<li class="chapter" data-level="8.4.2" data-path="exercises-6.html"><a href="exercises-6.html#respiratory-disease-in-infancy"><i class="fa fa-check"></i><b>8.4.2</b> Respiratory disease in infancy</a></li>
-<li class="chapter" data-level="8.4.3" data-path="exercises-6.html"><a href="exercises-6.html#smoking-and-lung-cancer"><i class="fa fa-check"></i><b>8.4.3</b> Smoking and lung cancer</a></li>
-<li class="chapter" data-level="8.4.4" data-path="exercises-6.html"><a href="exercises-6.html#confidence-intervals-and-p-values"><i class="fa fa-check"></i><b>8.4.4</b> Confidence intervals and p-values</a></li>
+<li class="chapter" data-level="9.1.1" data-path="computational-inference.html"><a href="computational-inference.html#simulation-methods"><i class="fa fa-check"></i><b>9.1.1</b> Simulation methods</a></li>
+<li class="chapter" data-level="9.1.2" data-path="computational-inference.html"><a href="computational-inference.html#randomisation-tests"><i class="fa fa-check"></i><b>9.1.2</b> Randomisation tests</a></li>
+<li class="chapter" data-level="9.1.3" data-path="computational-inference.html"><a href="computational-inference.html#the-bootstrap"><i class="fa fa-check"></i><b>9.1.3</b> The bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="bayesian-inference.html"><a href="bayesian-inference.html"><i class="fa fa-check"></i><b>9.2</b> Bayesian inference</a></li>
+<li class="chapter" data-level="9.3" data-path="exercises-6.html"><a href="exercises-6.html"><i class="fa fa-check"></i><b>9.3</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="exercises-6.html"><a href="exercises-6.html#coverage-property-of-bootstrap-confidence-intervals"><i class="fa fa-check"></i><b>9.3.1</b> Coverage property of bootstrap confidence intervals</a></li>
 </ul></li>
 </ul></li>
 <li class="part"><span><b>IV Statistical Models</b></span></li>
-<li class="chapter" data-level="9" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>9</b> Linear models</a>
+<li class="chapter" data-level="10" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>10</b> Linear models</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>9.1</b> Simple regression: rodents revisited</a></li>
-<li class="chapter" data-level="9.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>9.2</b> Linear models with multiple covariates</a></li>
-<li class="chapter" data-level="9.3" data-path="model-checking.html"><a href="model-checking.html"><i class="fa fa-check"></i><b>9.3</b> Model checking</a></li>
-<li class="chapter" data-level="9.4" data-path="inference-on-coefficients.html"><a href="inference-on-coefficients.html"><i class="fa fa-check"></i><b>9.4</b> Inference on coefficients</a></li>
-<li class="chapter" data-level="9.5" data-path="comparing-models.html"><a href="comparing-models.html"><i class="fa fa-check"></i><b>9.5</b> Comparing models</a></li>
-<li class="chapter" data-level="9.6" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>9.6</b> Prediction: Black Cherry trees</a></li>
-<li class="chapter" data-level="9.7" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html"><i class="fa fa-check"></i><b>9.7</b> Including factors in linear models</a>
+<li class="chapter" data-level="10.1" data-path="simple-regression-rodents-revisited.html"><a href="simple-regression-rodents-revisited.html"><i class="fa fa-check"></i><b>10.1</b> Simple regression: rodents revisited</a></li>
+<li class="chapter" data-level="10.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html"><i class="fa fa-check"></i><b>10.2</b> Linear models with multiple covariates</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-groups-analysis-of-variance"><i class="fa fa-check"></i><b>9.7.1</b> Comparing groups: analysis of variance</a></li>
-<li class="chapter" data-level="9.7.2" data-path="including-factors-in-linear-models.html"><a href="including-factors-in-linear-models.html#comparing-regression-lines-analysis-of-covariance"><i class="fa fa-check"></i><b>9.7.2</b> Comparing regression lines: analysis of covariance</a></li>
+<li class="chapter" data-level="10.2.1" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html#model-formulation"><i class="fa fa-check"></i><b>10.2.1</b> Model formulation</a></li>
+<li class="chapter" data-level="10.2.2" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html#model-fitting"><i class="fa fa-check"></i><b>10.2.2</b> Model fitting</a></li>
+<li class="chapter" data-level="10.2.3" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html#model-checking"><i class="fa fa-check"></i><b>10.2.3</b> Model checking</a></li>
+<li class="chapter" data-level="10.2.4" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html#inference-on-coefficients"><i class="fa fa-check"></i><b>10.2.4</b> Inference on coefficients</a></li>
+<li class="chapter" data-level="10.2.5" data-path="linear-models-with-multiple-covariates.html"><a href="linear-models-with-multiple-covariates.html#comparing-models"><i class="fa fa-check"></i><b>10.2.5</b> Comparing models</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>9.8</b> Transforming the response variable: Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.9" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>9.9</b> Simple seasonal terms</a></li>
-<li class="chapter" data-level="9.10" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html"><i class="fa fa-check"></i><b>9.10</b> General thoughts on models</a>
+<li class="chapter" data-level="10.3" data-path="prediction-black-cherry-trees.html"><a href="prediction-black-cherry-trees.html"><i class="fa fa-check"></i><b>10.3</b> Prediction: Black Cherry trees</a></li>
+<li class="chapter" data-level="10.4" data-path="factors-and-interactions-in-linear-models.html"><a href="factors-and-interactions-in-linear-models.html"><i class="fa fa-check"></i><b>10.4</b> Factors and interactions in linear models</a></li>
+<li class="chapter" data-level="10.5" data-path="transforming-the-response-variable-giving-in-the-church-of-england.html"><a href="transforming-the-response-variable-giving-in-the-church-of-england.html"><i class="fa fa-check"></i><b>10.5</b> Transforming the response variable: Giving in the Church of England</a></li>
+<li class="chapter" data-level="10.6" data-path="simple-seasonal-terms.html"><a href="simple-seasonal-terms.html"><i class="fa fa-check"></i><b>10.6</b> Simple seasonal terms</a></li>
+<li class="chapter" data-level="10.7" data-path="exercises-7.html"><a href="exercises-7.html"><i class="fa fa-check"></i><b>10.7</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="9.10.1" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#what-are-models-for"><i class="fa fa-check"></i><b>9.10.1</b> What are models for?</a></li>
-<li class="chapter" data-level="9.10.2" data-path="general-thoughts-on-models.html"><a href="general-thoughts-on-models.html#model-selection"><i class="fa fa-check"></i><b>9.10.2</b> Model selection</a></li>
-</ul></li>
-<li class="chapter" data-level="9.11" data-path="exercises-7.html"><a href="exercises-7.html"><i class="fa fa-check"></i><b>9.11</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="9.11.1" data-path="exercises-7.html"><a href="exercises-7.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>9.11.1</b> Giving in the Church of England</a></li>
-<li class="chapter" data-level="9.11.2" data-path="exercises-7.html"><a href="exercises-7.html#black-cherry-trees"><i class="fa fa-check"></i><b>9.11.2</b> Black Cherry trees</a></li>
-<li class="chapter" data-level="9.11.3" data-path="exercises-7.html"><a href="exercises-7.html#cats"><i class="fa fa-check"></i><b>9.11.3</b> Cats</a></li>
-<li class="chapter" data-level="9.11.4" data-path="exercises-7.html"><a href="exercises-7.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>9.11.4</b> Respiratory distress syndrome</a></li>
-<li class="chapter" data-level="9.11.5" data-path="exercises-7.html"><a href="exercises-7.html#the-clyde-data"><i class="fa fa-check"></i><b>9.11.5</b> The Clyde data</a></li>
-<li class="chapter" data-level="9.11.6" data-path="exercises-7.html"><a href="exercises-7.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>9.11.6</b> Water quality in Loch Leven</a></li>
-<li class="chapter" data-level="9.11.7" data-path="exercises-7.html"><a href="exercises-7.html#so_2-over-europe"><i class="fa fa-check"></i><b>9.11.7</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
-<li class="chapter" data-level="9.11.8" data-path="exercises-7.html"><a href="exercises-7.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>9.11.8</b> Maximal heart rate and age</a></li>
-<li class="chapter" data-level="9.11.9" data-path="exercises-7.html"><a href="exercises-7.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>9.11.9</b> The effects of conservation</a></li>
+<li class="chapter" data-level="10.7.1" data-path="exercises-7.html"><a href="exercises-7.html#rodents"><i class="fa fa-check"></i><b>10.7.1</b> Rodents</a></li>
+<li class="chapter" data-level="10.7.2" data-path="exercises-7.html"><a href="exercises-7.html#giving-in-the-church-of-england"><i class="fa fa-check"></i><b>10.7.2</b> Giving in the Church of England</a></li>
+<li class="chapter" data-level="10.7.3" data-path="exercises-7.html"><a href="exercises-7.html#black-cherry-trees"><i class="fa fa-check"></i><b>10.7.3</b> Black Cherry trees</a></li>
+<li class="chapter" data-level="10.7.4" data-path="exercises-7.html"><a href="exercises-7.html#cats"><i class="fa fa-check"></i><b>10.7.4</b> Cats</a></li>
+<li class="chapter" data-level="10.7.5" data-path="exercises-7.html"><a href="exercises-7.html#respiratory-distress-syndrome"><i class="fa fa-check"></i><b>10.7.5</b> Respiratory distress syndrome</a></li>
+<li class="chapter" data-level="10.7.6" data-path="exercises-7.html"><a href="exercises-7.html#the-clyde-data"><i class="fa fa-check"></i><b>10.7.6</b> The Clyde data</a></li>
+<li class="chapter" data-level="10.7.7" data-path="exercises-7.html"><a href="exercises-7.html#water-quality-in-loch-leven"><i class="fa fa-check"></i><b>10.7.7</b> Water quality in Loch Leven</a></li>
+<li class="chapter" data-level="10.7.8" data-path="exercises-7.html"><a href="exercises-7.html#so_2-over-europe"><i class="fa fa-check"></i><b>10.7.8</b> SO<span class="math inline">\(_2\)</span> over Europe</a></li>
+<li class="chapter" data-level="10.7.9" data-path="exercises-7.html"><a href="exercises-7.html#maximal-heart-rate-and-age"><i class="fa fa-check"></i><b>10.7.9</b> Maximal heart rate and age</a></li>
+<li class="chapter" data-level="10.7.10" data-path="exercises-7.html"><a href="exercises-7.html#the-effects-of-conservation"><i class="fa fa-check"></i><b>10.7.10</b> The effects of conservation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>10</b> Generalised linear models</a>
+<li class="chapter" data-level="11" data-path="issues-in-experimental-design.html"><a href="issues-in-experimental-design.html"><i class="fa fa-check"></i><b>11</b> Issues in experimental design</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>10.1</b> Binomial data: logistic regression</a></li>
-<li class="chapter" data-level="10.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>10.2</b> The concept of likelihood</a></li>
-<li class="chapter" data-level="10.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>10.3</b> Count data: Poisson regression</a></li>
-<li class="chapter" data-level="10.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>10.4</b> A general formulation of GLMs</a></li>
-<li class="chapter" data-level="10.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>10.5</b> Further examples</a>
+<li class="chapter" data-level="11.1" data-path="power.html"><a href="power.html"><i class="fa fa-check"></i><b>11.1</b> Power</a></li>
+<li class="chapter" data-level="11.2" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html"><i class="fa fa-check"></i><b>11.2</b> Principles of experimental design</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="further-examples.html"><a href="further-examples.html#two-covariates-vasoconstriction-of-the-digits"><i class="fa fa-check"></i><b>10.5.1</b> Two covariates: vasoconstriction of the digits</a></li>
-<li class="chapter" data-level="10.5.2" data-path="further-examples.html"><a href="further-examples.html#doctors-and-smoking"><i class="fa fa-check"></i><b>10.5.2</b> Doctors and smoking</a></li>
+<li class="chapter" data-level="11.2.1" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#control"><i class="fa fa-check"></i><b>11.2.1</b> Control</a></li>
+<li class="chapter" data-level="11.2.2" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replicate"><i class="fa fa-check"></i><b>11.2.2</b> Replicate</a></li>
+<li class="chapter" data-level="11.2.3" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#randomise"><i class="fa fa-check"></i><b>11.2.3</b> Randomise</a></li>
+<li class="chapter" data-level="11.2.4" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replication-and-pseudo-replication"><i class="fa fa-check"></i><b>11.2.4</b> Replication and Pseudo-Replication</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>10.6</b> Exercises</a>
+<li class="chapter" data-level="11.3" data-path="exercises-8.html"><a href="exercises-8.html"><i class="fa fa-check"></i><b>11.3</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="10.6.1" data-path="exercises-8.html"><a href="exercises-8.html#bissell-data"><i class="fa fa-check"></i><b>10.6.1</b> Bissell data</a></li>
-<li class="chapter" data-level="10.6.2" data-path="exercises-8.html"><a href="exercises-8.html#vasoconstriction-data"><i class="fa fa-check"></i><b>10.6.2</b> Vasoconstriction data</a></li>
-<li class="chapter" data-level="10.6.3" data-path="exercises-8.html"><a href="exercises-8.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>10.6.3</b> The Framingham heart study</a></li>
-<li class="chapter" data-level="10.6.4" data-path="exercises-8.html"><a href="exercises-8.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>10.6.4</b> The shape of a log-likelihood function</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>11</b> Models with random effects</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>11.1</b> Examples</a>
-<ul>
-<li class="chapter" data-level="11.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>11.1.1</b> The manufacture of penicillin</a></li>
-<li class="chapter" data-level="11.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>11.1.2</b> Childhood growth</a></li>
-<li class="chapter" data-level="11.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>11.1.3</b> The strength of paste</a></li>
-<li class="chapter" data-level="11.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>11.1.4</b> Common features</a></li>
-</ul></li>
-<li class="chapter" data-level="11.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>11.2</b> Formulating and fitting mixed effects models</a></li>
-<li class="chapter" data-level="11.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>11.3</b> Inference with mixed models</a></li>
-<li class="chapter" data-level="11.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>11.4</b> Further examples of mixed models</a>
-<ul>
-<li class="chapter" data-level="11.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>11.4.1</b> Childhood growth</a></li>
-<li class="chapter" data-level="11.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>11.4.2</b> The strength of paste</a></li>
-<li class="chapter" data-level="11.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>11.4.3</b> The sleep deprivation study</a></li>
-<li class="chapter" data-level="11.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>11.4.4</b> Reading attainment in primary school</a></li>
-</ul></li>
-<li class="chapter" data-level="11.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.5</b> Non-linear mixed models</a></li>
-<li class="chapter" data-level="11.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>11.6</b> Generalised linear mixed models</a></li>
-<li class="chapter" data-level="11.7" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>11.7</b> Further reading</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>12</b> Flexible models</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="flexible-methods.html"><a href="flexible-methods.html"><i class="fa fa-check"></i><b>12.1</b> Methods for constructing flexible models</a>
-<ul>
-<li class="chapter" data-level="12.1.1" data-path="flexible-methods.html"><a href="flexible-methods.html#fitting-models-locally"><i class="fa fa-check"></i><b>12.1.1</b> Fitting models locally</a></li>
-<li class="chapter" data-level="12.1.2" data-path="flexible-methods.html"><a href="flexible-methods.html#splines"><i class="fa fa-check"></i><b>12.1.2</b> Splines</a></li>
-</ul></li>
-<li class="chapter" data-level="12.2" data-path="inference-with-simple-flexible-models.html"><a href="inference-with-simple-flexible-models.html"><i class="fa fa-check"></i><b>12.2</b> Inference with simple flexible models</a></li>
-<li class="chapter" data-level="12.3" data-path="a-simple-additive-model.html"><a href="a-simple-additive-model.html"><i class="fa fa-check"></i><b>12.3</b> A simple additive model</a></li>
-<li class="chapter" data-level="12.4" data-path="inference-with-additive-models.html"><a href="inference-with-additive-models.html"><i class="fa fa-check"></i><b>12.4</b> Inference with additive models</a></li>
-<li class="chapter" data-level="12.5" data-path="further-reading-6.html"><a href="further-reading-6.html"><i class="fa fa-check"></i><b>12.5</b> Further reading</a></li>
-<li class="chapter" data-level="12.6" data-path="exercises-9.html"><a href="exercises-9.html"><i class="fa fa-check"></i><b>12.6</b> Exercises</a>
-<ul>
-<li class="chapter" data-level="12.6.1" data-path="exercises-9.html"><a href="exercises-9.html#fitting-a-p-spline-model"><i class="fa fa-check"></i><b>12.6.1</b> Fitting a p-spline model</a></li>
-<li class="chapter" data-level="12.6.2" data-path="exercises-9.html"><a href="exercises-9.html#the-backfitting-algorithm"><i class="fa fa-check"></i><b>12.6.2</b> The backfitting algorithm</a></li>
-<li class="chapter" data-level="12.6.3" data-path="exercises-9.html"><a href="exercises-9.html#water-quality-in-the-clyde-estuary"><i class="fa fa-check"></i><b>12.6.3</b> Water quality in the Clyde estuary</a></li>
+<li class="chapter" data-level="11.3.1" data-path="exercises-8.html"><a href="exercises-8.html#student-cost-of-living"><i class="fa fa-check"></i><b>11.3.1</b> Student cost of living</a></li>
+<li class="chapter" data-level="11.3.2" data-path="exercises-8.html"><a href="exercises-8.html#us-presidential-election-1936"><i class="fa fa-check"></i><b>11.3.2</b> US presidential election 1936</a></li>
+<li class="chapter" data-level="11.3.3" data-path="exercises-8.html"><a href="exercises-8.html#the-parable-of-the-sower"><i class="fa fa-check"></i><b>11.3.3</b> The parable of the sower</a></li>
+<li class="chapter" data-level="11.3.4" data-path="exercises-8.html"><a href="exercises-8.html#mururoa"><i class="fa fa-check"></i><b>11.3.4</b> Mururoa</a></li>
+<li class="chapter" data-level="11.3.5" data-path="exercises-8.html"><a href="exercises-8.html#a-scottish-firth"><i class="fa fa-check"></i><b>11.3.5</b> A Scottish firth</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>13</b> Models for time</a>
+<li class="chapter" data-level="12" data-path="issues-in-building-models.html"><a href="issues-in-building-models.html"><i class="fa fa-check"></i><b>12</b> Issues in building models</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="time-series-data.html"><a href="time-series-data.html"><i class="fa fa-check"></i><b>13.1</b> Time series data</a></li>
-<li class="chapter" data-level="13.2" data-path="visualisation.html"><a href="visualisation.html"><i class="fa fa-check"></i><b>13.2</b> Visualisation</a></li>
-<li class="chapter" data-level="13.3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>13.3</b> Models</a></li>
-<li class="chapter" data-level="13.4" data-path="further-reading-7.html"><a href="further-reading-7.html"><i class="fa fa-check"></i><b>13.4</b> Further reading</a></li>
-<li class="chapter" data-level="13.5" data-path="exercises-10.html"><a href="exercises-10.html"><i class="fa fa-check"></i><b>13.5</b> Exercises</a>
+<li class="chapter" data-level="12.1" data-path="what-are-models-for.html"><a href="what-are-models-for.html"><i class="fa fa-check"></i><b>12.1</b> What are models for?</a></li>
+<li class="chapter" data-level="12.2" data-path="model-selection.html"><a href="model-selection.html"><i class="fa fa-check"></i><b>12.2</b> Model selection</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="generalised-linear-models.html"><a href="generalised-linear-models.html"><i class="fa fa-check"></i><b>13</b> Generalised linear models</a>
 <ul>
-<li class="chapter" data-level="13.5.1" data-path="exercises-10.html"><a href="exercises-10.html#simulating-time-series"><i class="fa fa-check"></i><b>13.5.1</b> Simulating time series</a></li>
+<li class="chapter" data-level="13.1" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i><b>13.1</b> Binomial data: logistic regression</a></li>
+<li class="chapter" data-level="13.2" data-path="likelihood.html"><a href="likelihood.html"><i class="fa fa-check"></i><b>13.2</b> The concept of likelihood</a></li>
+<li class="chapter" data-level="13.3" data-path="poisson-regression.html"><a href="poisson-regression.html"><i class="fa fa-check"></i><b>13.3</b> Count data: Poisson regression</a></li>
+<li class="chapter" data-level="13.4" data-path="general-glms.html"><a href="general-glms.html"><i class="fa fa-check"></i><b>13.4</b> A general formulation of GLMs</a></li>
+<li class="chapter" data-level="13.5" data-path="further-examples.html"><a href="further-examples.html"><i class="fa fa-check"></i><b>13.5</b> Further examples</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="further-examples.html"><a href="further-examples.html#two-covariates-vasoconstriction-of-the-digits"><i class="fa fa-check"></i><b>13.5.1</b> Two covariates: vasoconstriction of the digits</a></li>
+<li class="chapter" data-level="13.5.2" data-path="further-examples.html"><a href="further-examples.html#doctors-and-smoking"><i class="fa fa-check"></i><b>13.5.2</b> Doctors and smoking</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="exercises-9.html"><a href="exercises-9.html"><i class="fa fa-check"></i><b>13.6</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="exercises-9.html"><a href="exercises-9.html#the-glasgow-coma-scale"><i class="fa fa-check"></i><b>13.6.1</b> The Glasgow Coma Scale</a></li>
+<li class="chapter" data-level="13.6.2" data-path="exercises-9.html"><a href="exercises-9.html#bissell-data"><i class="fa fa-check"></i><b>13.6.2</b> Bissell data</a></li>
+<li class="chapter" data-level="13.6.3" data-path="exercises-9.html"><a href="exercises-9.html#vasoconstriction-data"><i class="fa fa-check"></i><b>13.6.3</b> Vasoconstriction data</a></li>
+<li class="chapter" data-level="13.6.4" data-path="exercises-9.html"><a href="exercises-9.html#the-framingham-heart-study"><i class="fa fa-check"></i><b>13.6.4</b> The Framingham heart study</a></li>
+<li class="chapter" data-level="13.6.5" data-path="exercises-9.html"><a href="exercises-9.html#the-shape-of-a-log-likelihood-function"><i class="fa fa-check"></i><b>13.6.5</b> The shape of a log-likelihood function</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="14" data-path="models-for-space.html"><a href="models-for-space.html"><i class="fa fa-check"></i><b>14</b> Models for space</a>
+<li class="chapter" data-level="14" data-path="models-with-random-effects.html"><a href="models-with-random-effects.html"><i class="fa fa-check"></i><b>14</b> Models with random effects</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html"><i class="fa fa-check"></i><b>14.1</b> Visualising spatial data</a>
+<li class="chapter" data-level="14.1" data-path="examples.html"><a href="examples.html"><i class="fa fa-check"></i><b>14.1</b> Examples</a>
 <ul>
-<li class="chapter" data-level="14.1.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#the-maps-package"><i class="fa fa-check"></i><b>14.1.1</b> The <code>maps</code> package</a></li>
-<li class="chapter" data-level="14.1.2" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#leaflet-and-mapview-interactive-maps"><i class="fa fa-check"></i><b>14.1.2</b> <code>leaflet</code> and <code>mapview</code>: interactive maps</a></li>
-<li class="chapter" data-level="14.1.3" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#ggplot-and-ggmap"><i class="fa fa-check"></i><b>14.1.3</b> <code>ggplot</code> and <code>ggmap</code></a></li>
-<li class="chapter" data-level="14.1.4" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#tmap"><i class="fa fa-check"></i><b>14.1.4</b> <code>tmap</code></a></li>
-<li class="chapter" data-level="14.1.5" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatstat-for-spatial-point-patterns"><i class="fa fa-check"></i><b>14.1.5</b> <code>spatstat</code> for spatial point patterns</a></li>
-<li class="chapter" data-level="14.1.6" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#areal-data"><i class="fa fa-check"></i><b>14.1.6</b> Areal data</a></li>
-<li class="chapter" data-level="14.1.7" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#image-data"><i class="fa fa-check"></i><b>14.1.7</b> Image data</a></li>
-<li class="chapter" data-level="14.1.8" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatiotemporal-animation"><i class="fa fa-check"></i><b>14.1.8</b> Spatiotemporal animation</a></li>
+<li class="chapter" data-level="14.1.1" data-path="examples.html"><a href="examples.html#the-manufacture-of-penicillin"><i class="fa fa-check"></i><b>14.1.1</b> The manufacture of penicillin</a></li>
+<li class="chapter" data-level="14.1.2" data-path="examples.html"><a href="examples.html#childhood-growth"><i class="fa fa-check"></i><b>14.1.2</b> Childhood growth</a></li>
+<li class="chapter" data-level="14.1.3" data-path="examples.html"><a href="examples.html#the-strength-of-paste"><i class="fa fa-check"></i><b>14.1.3</b> The strength of paste</a></li>
+<li class="chapter" data-level="14.1.4" data-path="examples.html"><a href="examples.html#common-features"><i class="fa fa-check"></i><b>14.1.4</b> Common features</a></li>
 </ul></li>
-<li class="chapter" data-level="14.2" data-path="models-for-point-pattern-data.html"><a href="models-for-point-pattern-data.html"><i class="fa fa-check"></i><b>14.2</b> Models for point pattern data</a></li>
-<li class="chapter" data-level="14.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html"><i class="fa fa-check"></i><b>14.3</b> Geostatistical models</a>
+<li class="chapter" data-level="14.2" data-path="formulating-and-fitting-mixed-effects-models.html"><a href="formulating-and-fitting-mixed-effects-models.html"><i class="fa fa-check"></i><b>14.2</b> Formulating and fitting mixed effects models</a></li>
+<li class="chapter" data-level="14.3" data-path="inference-with-mixed-models.html"><a href="inference-with-mixed-models.html"><i class="fa fa-check"></i><b>14.3</b> Inference with mixed models</a></li>
+<li class="chapter" data-level="14.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html"><i class="fa fa-check"></i><b>14.4</b> Further examples of mixed models</a>
 <ul>
-<li class="chapter" data-level="14.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-random-fields"><i class="fa fa-check"></i><b>14.3.1</b> Gaussian random fields</a></li>
-<li class="chapter" data-level="14.3.2" data-path="geostatistical-models.html"><a href="geostatistical-models.html#geostatistical-models-1"><i class="fa fa-check"></i><b>14.3.2</b> Geostatistical models</a></li>
-<li class="chapter" data-level="14.3.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>14.3.3</b> SO2: a model based on smoothing</a></li>
+<li class="chapter" data-level="14.4.1" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#childhood-growth-1"><i class="fa fa-check"></i><b>14.4.1</b> Childhood growth</a></li>
+<li class="chapter" data-level="14.4.2" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-strength-of-paste-1"><i class="fa fa-check"></i><b>14.4.2</b> The strength of paste</a></li>
+<li class="chapter" data-level="14.4.3" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#the-sleep-deprivation-study"><i class="fa fa-check"></i><b>14.4.3</b> The sleep deprivation study</a></li>
+<li class="chapter" data-level="14.4.4" data-path="further-examples-of-mixed-models.html"><a href="further-examples-of-mixed-models.html#reading-attainment-in-primary-school"><i class="fa fa-check"></i><b>14.4.4</b> Reading attainment in primary school</a></li>
 </ul></li>
-<li class="chapter" data-level="14.4" data-path="models-for-areal-data.html"><a href="models-for-areal-data.html"><i class="fa fa-check"></i><b>14.4</b> Models for areal data</a></li>
-<li class="chapter" data-level="14.5" data-path="further-reading-8.html"><a href="further-reading-8.html"><i class="fa fa-check"></i><b>14.5</b> Further reading</a></li>
+<li class="chapter" data-level="14.5" data-path="non-linear-mixed-models.html"><a href="non-linear-mixed-models.html"><i class="fa fa-check"></i><b>14.5</b> Non-linear mixed models</a></li>
+<li class="chapter" data-level="14.6" data-path="generalised-linear-mixed-models.html"><a href="generalised-linear-mixed-models.html"><i class="fa fa-check"></i><b>14.6</b> Generalised linear mixed models</a></li>
+<li class="chapter" data-level="14.7" data-path="further-reading-4.html"><a href="further-reading-4.html"><i class="fa fa-check"></i><b>14.7</b> Further reading</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="experimental-design-revisited.html"><a href="experimental-design-revisited.html"><i class="fa fa-check"></i><b>15</b> Experimental design revisited</a>
+<li class="chapter" data-level="15" data-path="flexible-models.html"><a href="flexible-models.html"><i class="fa fa-check"></i><b>15</b> Flexible models</a>
 <ul>
-<li class="chapter" data-level="15.1" data-path="power.html"><a href="power.html"><i class="fa fa-check"></i><b>15.1</b> Power</a></li>
-<li class="chapter" data-level="15.2" data-path="completely-randomised-design-comparing-several-treatments.html"><a href="completely-randomised-design-comparing-several-treatments.html"><i class="fa fa-check"></i><b>15.2</b> Completely randomised design: comparing several treatments</a></li>
-<li class="chapter" data-level="15.3" data-path="randomised-blocks-the-parable-of-the-sower.html"><a href="randomised-blocks-the-parable-of-the-sower.html"><i class="fa fa-check"></i><b>15.3</b> Randomised blocks: the parable of the sower</a></li>
-<li class="chapter" data-level="15.4" data-path="factorial-designs-poisons-and-treatments.html"><a href="factorial-designs-poisons-and-treatments.html"><i class="fa fa-check"></i><b>15.4</b> Factorial designs: poisons and treatments</a></li>
-<li class="chapter" data-level="15.5" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html"><i class="fa fa-check"></i><b>15.5</b> Principles of experimental design</a>
+<li class="chapter" data-level="15.1" data-path="flexible-methods.html"><a href="flexible-methods.html"><i class="fa fa-check"></i><b>15.1</b> Methods for constructing flexible models</a>
 <ul>
-<li class="chapter" data-level="15.5.1" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#control"><i class="fa fa-check"></i><b>15.5.1</b> Control</a></li>
-<li class="chapter" data-level="15.5.2" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replicate"><i class="fa fa-check"></i><b>15.5.2</b> Replicate</a></li>
-<li class="chapter" data-level="15.5.3" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#randomise"><i class="fa fa-check"></i><b>15.5.3</b> Randomise</a></li>
-<li class="chapter" data-level="15.5.4" data-path="principles-of-experimental-design.html"><a href="principles-of-experimental-design.html#replication-and-pseudo-replication"><i class="fa fa-check"></i><b>15.5.4</b> Replication and Pseudo-Replication</a></li>
+<li class="chapter" data-level="15.1.1" data-path="flexible-methods.html"><a href="flexible-methods.html#fitting-models-locally"><i class="fa fa-check"></i><b>15.1.1</b> Fitting models locally</a></li>
+<li class="chapter" data-level="15.1.2" data-path="flexible-methods.html"><a href="flexible-methods.html#splines"><i class="fa fa-check"></i><b>15.1.2</b> Splines</a></li>
 </ul></li>
-<li class="chapter" data-level="15.6" data-path="exercises-11.html"><a href="exercises-11.html"><i class="fa fa-check"></i><b>15.6</b> Exercises</a>
+<li class="chapter" data-level="15.2" data-path="inference-with-simple-flexible-models.html"><a href="inference-with-simple-flexible-models.html"><i class="fa fa-check"></i><b>15.2</b> Inference with simple flexible models</a></li>
+<li class="chapter" data-level="15.3" data-path="a-simple-additive-model.html"><a href="a-simple-additive-model.html"><i class="fa fa-check"></i><b>15.3</b> A simple additive model</a></li>
+<li class="chapter" data-level="15.4" data-path="inference-with-additive-models.html"><a href="inference-with-additive-models.html"><i class="fa fa-check"></i><b>15.4</b> Inference with additive models</a></li>
+<li class="chapter" data-level="15.5" data-path="further-reading-5.html"><a href="further-reading-5.html"><i class="fa fa-check"></i><b>15.5</b> Further reading</a></li>
+<li class="chapter" data-level="15.6" data-path="exercises-10.html"><a href="exercises-10.html"><i class="fa fa-check"></i><b>15.6</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="15.6.1" data-path="exercises-11.html"><a href="exercises-11.html#student-cost-of-living"><i class="fa fa-check"></i><b>15.6.1</b> Student cost of living</a></li>
-<li class="chapter" data-level="15.6.2" data-path="exercises-11.html"><a href="exercises-11.html#us-presidential-election-1936"><i class="fa fa-check"></i><b>15.6.2</b> US presidential election 1936</a></li>
-<li class="chapter" data-level="15.6.3" data-path="exercises-11.html"><a href="exercises-11.html#the-parable-of-the-sower"><i class="fa fa-check"></i><b>15.6.3</b> The parable of the sower</a></li>
-<li class="chapter" data-level="15.6.4" data-path="exercises-11.html"><a href="exercises-11.html#mururoa"><i class="fa fa-check"></i><b>15.6.4</b> Mururoa</a></li>
-<li class="chapter" data-level="15.6.5" data-path="exercises-11.html"><a href="exercises-11.html#a-scottish-firth"><i class="fa fa-check"></i><b>15.6.5</b> A Scottish firth</a></li>
+<li class="chapter" data-level="15.6.1" data-path="exercises-10.html"><a href="exercises-10.html#fitting-a-p-spline-model"><i class="fa fa-check"></i><b>15.6.1</b> Fitting a p-spline model</a></li>
+<li class="chapter" data-level="15.6.2" data-path="exercises-10.html"><a href="exercises-10.html#the-backfitting-algorithm"><i class="fa fa-check"></i><b>15.6.2</b> The backfitting algorithm</a></li>
+<li class="chapter" data-level="15.6.3" data-path="exercises-10.html"><a href="exercises-10.html#water-quality-in-the-clyde-estuary"><i class="fa fa-check"></i><b>15.6.3</b> Water quality in the Clyde estuary</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="models-for-time.html"><a href="models-for-time.html"><i class="fa fa-check"></i><b>16</b> Models for time</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="time-series-data.html"><a href="time-series-data.html"><i class="fa fa-check"></i><b>16.1</b> Time series data</a></li>
+<li class="chapter" data-level="16.2" data-path="visualisation.html"><a href="visualisation.html"><i class="fa fa-check"></i><b>16.2</b> Visualisation</a></li>
+<li class="chapter" data-level="16.3" data-path="models.html"><a href="models.html"><i class="fa fa-check"></i><b>16.3</b> Models</a></li>
+<li class="chapter" data-level="16.4" data-path="further-reading-6.html"><a href="further-reading-6.html"><i class="fa fa-check"></i><b>16.4</b> Further reading</a></li>
+<li class="chapter" data-level="16.5" data-path="exercises-11.html"><a href="exercises-11.html"><i class="fa fa-check"></i><b>16.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="16.5.1" data-path="exercises-11.html"><a href="exercises-11.html#simulating-time-series"><i class="fa fa-check"></i><b>16.5.1</b> Simulating time series</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="models-for-space.html"><a href="models-for-space.html"><i class="fa fa-check"></i><b>17</b> Models for space</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html"><i class="fa fa-check"></i><b>17.1</b> Visualising spatial data</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#the-maps-package"><i class="fa fa-check"></i><b>17.1.1</b> The <code>maps</code> package</a></li>
+<li class="chapter" data-level="17.1.2" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#leaflet-and-mapview-interactive-maps"><i class="fa fa-check"></i><b>17.1.2</b> <code>leaflet</code> and <code>mapview</code>: interactive maps</a></li>
+<li class="chapter" data-level="17.1.3" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#ggplot-and-ggmap"><i class="fa fa-check"></i><b>17.1.3</b> <code>ggplot</code> and <code>ggmap</code></a></li>
+<li class="chapter" data-level="17.1.4" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#tmap"><i class="fa fa-check"></i><b>17.1.4</b> <code>tmap</code></a></li>
+<li class="chapter" data-level="17.1.5" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatstat-for-spatial-point-patterns"><i class="fa fa-check"></i><b>17.1.5</b> <code>spatstat</code> for spatial point patterns</a></li>
+<li class="chapter" data-level="17.1.6" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#areal-data"><i class="fa fa-check"></i><b>17.1.6</b> Areal data</a></li>
+<li class="chapter" data-level="17.1.7" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#image-data"><i class="fa fa-check"></i><b>17.1.7</b> Image data</a></li>
+<li class="chapter" data-level="17.1.8" data-path="visualising-spatial-data.html"><a href="visualising-spatial-data.html#spatiotemporal-animation"><i class="fa fa-check"></i><b>17.1.8</b> Spatiotemporal animation</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="models-for-point-pattern-data.html"><a href="models-for-point-pattern-data.html"><i class="fa fa-check"></i><b>17.2</b> Models for point pattern data</a></li>
+<li class="chapter" data-level="17.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html"><i class="fa fa-check"></i><b>17.3</b> Geostatistical models</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="geostatistical-models.html"><a href="geostatistical-models.html#gaussian-random-fields"><i class="fa fa-check"></i><b>17.3.1</b> Gaussian random fields</a></li>
+<li class="chapter" data-level="17.3.2" data-path="geostatistical-models.html"><a href="geostatistical-models.html#geostatistical-models-1"><i class="fa fa-check"></i><b>17.3.2</b> Geostatistical models</a></li>
+<li class="chapter" data-level="17.3.3" data-path="geostatistical-models.html"><a href="geostatistical-models.html#so2-a-model-based-on-smoothing"><i class="fa fa-check"></i><b>17.3.3</b> SO2: a model based on smoothing</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="models-for-areal-data.html"><a href="models-for-areal-data.html"><i class="fa fa-check"></i><b>17.4</b> Models for areal data</a></li>
+<li class="chapter" data-level="17.5" data-path="further-reading-7.html"><a href="further-reading-7.html"><i class="fa fa-check"></i><b>17.5</b> Further reading</a></li>
 </ul></li>
 <li class="part"><span><b>V Statistical Models in Practice</b></span></li>
-<li class="chapter" data-level="16" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>16</b> Case studies of statistical modelling</a>
+<li class="chapter" data-level="18" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>18</b> Case studies of statistical modelling</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>16.1</b> Covid-19 initial surveillance</a></li>
-<li class="chapter" data-level="16.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>16.2</b> Children’s services reform in Scotland</a></li>
+<li class="chapter" data-level="18.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>18.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="18.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>18.2</b> Children’s services reform in Scotland</a></li>
 </ul></li>
 <li class="part"><span><b>VI Other topics</b></span></li>
-<li class="chapter" data-level="17" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>17</b> More on R</a>
+<li class="chapter" data-level="19" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>19</b> More on R</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="repetition.html"><a href="repetition.html"><i class="fa fa-check"></i><b>17.1</b> Repetition</a>
+<li class="chapter" data-level="19.1" data-path="repetition.html"><a href="repetition.html"><i class="fa fa-check"></i><b>19.1</b> Repetition</a>
 <ul>
-<li class="chapter" data-level="17.1.1" data-path="repetition.html"><a href="repetition.html#standard-loops"><i class="fa fa-check"></i><b>17.1.1</b> Standard loops</a></li>
-<li class="chapter" data-level="17.1.2" data-path="repetition.html"><a href="repetition.html#the-apply-family"><i class="fa fa-check"></i><b>17.1.2</b> The ‘apply’ family</a></li>
+<li class="chapter" data-level="19.1.1" data-path="repetition.html"><a href="repetition.html#standard-loops"><i class="fa fa-check"></i><b>19.1.1</b> Standard loops</a></li>
+<li class="chapter" data-level="19.1.2" data-path="repetition.html"><a href="repetition.html#the-apply-family"><i class="fa fa-check"></i><b>19.1.2</b> The ‘apply’ family</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="writing-your-own-functions.html"><a href="writing-your-own-functions.html"><i class="fa fa-check"></i><b>17.2</b> Writing your own functions</a></li>
-<li class="chapter" data-level="17.3" data-path="conditional-statements-and-while-loops.html"><a href="conditional-statements-and-while-loops.html"><i class="fa fa-check"></i><b>17.3</b> Conditional statements and <code>while</code> loops</a></li>
-<li class="chapter" data-level="17.4" data-path="further-reading-9.html"><a href="further-reading-9.html"><i class="fa fa-check"></i><b>17.4</b> Further reading</a></li>
-<li class="chapter" data-level="17.5" data-path="exercises-12.html"><a href="exercises-12.html"><i class="fa fa-check"></i><b>17.5</b> Exercises</a>
+<li class="chapter" data-level="19.2" data-path="writing-your-own-functions.html"><a href="writing-your-own-functions.html"><i class="fa fa-check"></i><b>19.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="19.3" data-path="conditional-statements-and-while-loops.html"><a href="conditional-statements-and-while-loops.html"><i class="fa fa-check"></i><b>19.3</b> Conditional statements and <code>while</code> loops</a></li>
+<li class="chapter" data-level="19.4" data-path="further-reading-8.html"><a href="further-reading-8.html"><i class="fa fa-check"></i><b>19.4</b> Further reading</a></li>
+<li class="chapter" data-level="19.5" data-path="exercises-12.html"><a href="exercises-12.html"><i class="fa fa-check"></i><b>19.5</b> Exercises</a>
 <ul>
-<li class="chapter" data-level="17.5.1" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function"><i class="fa fa-check"></i><b>17.5.1</b> A simple function</a></li>
-<li class="chapter" data-level="17.5.2" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>17.5.2</b> A simple function: thresholds</a></li>
-<li class="chapter" data-level="17.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>17.5.3</b> Improving the sim.max function</a></li>
+<li class="chapter" data-level="19.5.1" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function"><i class="fa fa-check"></i><b>19.5.1</b> A simple function</a></li>
+<li class="chapter" data-level="19.5.2" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>19.5.2</b> A simple function: thresholds</a></li>
+<li class="chapter" data-level="19.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>19.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -539,8 +546,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="childrens-services-reform-in-scotland" class="section level2 hasAnchor" number="16.2">
-<h2><span class="header-section-number">16.2</span> Children’s services reform in Scotland<a href="childrens-services-reform-in-scotland.html#childrens-services-reform-in-scotland" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="childrens-services-reform-in-scotland" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Children’s services reform in Scotland<a href="childrens-services-reform-in-scotland.html#childrens-services-reform-in-scotland" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In 2021, the Scottish Government committed to building a National Care Service to be responsible for adults’ social work and social care support, as well as taking responsibility for the planning and commissioning of community health services. This led to the question of whether children’s services should also be included. In 2022, <a href="https://www.celcis.org">CELCIS</a>, a centre for excellence for children’s care and protection in Scotland, was asked by the Scottish Government to carry out a research study with the aim of addressing the question: <em>‘What is needed to ensure that children, young people and families get the help they need, when they need it?’</em>.</p>
 <p>Detailed information on the <a href="https://www.celcis.org/our-work/research/childrens-services-reform-research">background</a> to the project is available. Strand 3 of the research was entitled <em>Mapping Integration and Outcomes Across Scotland: A Statistical Analysis</em> and it aim to address the specific question:</p>
 <blockquote>
@@ -552,62 +559,62 @@ div.csl-indent {
 <p><em>Analysis</em></p>
 <p>The results were published as a <a href="https://www.celcis.org/knowledge-bank/search-bank/childrens-services-reform-research-study-mapping-integration-and-outcomes-across-scotland-a-statistical-analysis">report on statistical analysis</a> and the <a href="https://www.celcis.org/application/files/9016/9340/8261/Data_and_Code_CSRR_Strand_3_-_August_2023_Update.zip">data and code</a> are also available. This section discusses the analysis which was undertaken. The code used here reformulates some of the code provided with the report above to use the <code>tidyverse</code> form, in order to be consistent with earlier material.</p>
 <p>As ever, the first step is to read and organise the data. This has been retrieved from different sources and made available as three separate files, in a folder which has been compressed into a ‘zip’ file. The <code>unz</code> function enables us to read the individual files.</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="childrens-services-reform-in-scotland.html#cb325-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
-<span id="cb325-2"><a href="childrens-services-reform-in-scotland.html#cb325-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb325-3"><a href="childrens-services-reform-in-scotland.html#cb325-3" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb325-4"><a href="childrens-services-reform-in-scotland.html#cb325-4" tabindex="-1"></a></span>
-<span id="cb325-5"><a href="childrens-services-reform-in-scotland.html#cb325-5" tabindex="-1"></a>zfile   <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;children_services&quot;</span>)</span>
-<span id="cb325-6"><a href="childrens-services-reform-in-scotland.html#cb325-6" tabindex="-1"></a>dirname <span class="ot">&lt;-</span> <span class="st">&quot;Data and Code CSRR Strand 3 - August 2023 Update&quot;</span></span>
-<span id="cb325-7"><a href="childrens-services-reform-in-scotland.html#cb325-7" tabindex="-1"></a></span>
-<span id="cb325-8"><a href="childrens-services-reform-in-scotland.html#cb325-8" tabindex="-1"></a><span class="co"># Read indicator data</span></span>
-<span id="cb325-9"><a href="childrens-services-reform-in-scotland.html#cb325-9" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;Example_Indicator_CSR.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
-<span id="cb325-10"><a href="childrens-services-reform-in-scotland.html#cb325-10" tabindex="-1"></a>indicator <span class="ot">&lt;-</span></span>
-<span id="cb325-11"><a href="childrens-services-reform-in-scotland.html#cb325-11" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">6</span>, <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;LA&quot;</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb325-12"><a href="childrens-services-reform-in-scotland.html#cb325-12" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>LA, <span class="at">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Offenders&quot;</span>)</span>
-<span id="cb325-13"><a href="childrens-services-reform-in-scotland.html#cb325-13" tabindex="-1"></a></span>
-<span id="cb325-14"><a href="childrens-services-reform-in-scotland.html#cb325-14" tabindex="-1"></a><span class="co"># Read mid-year population estimates to convert indicator to rates per 10,000 - using 0-17 population.</span></span>
-<span id="cb325-15"><a href="childrens-services-reform-in-scotland.html#cb325-15" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;Mid-year-pops-0-17.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
-<span id="cb325-16"><a href="childrens-services-reform-in-scotland.html#cb325-16" tabindex="-1"></a>mid_year_pops <span class="ot">&lt;-</span></span>
-<span id="cb325-17"><a href="childrens-services-reform-in-scotland.html#cb325-17" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb325-18"><a href="childrens-services-reform-in-scotland.html#cb325-18" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;LA&#39;</span> <span class="ot">=</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb325-19"><a href="childrens-services-reform-in-scotland.html#cb325-19" tabindex="-1"></a>  <span class="fu">filter</span>(LA <span class="sc">!=</span> <span class="st">&#39;Scotland&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb325-20"><a href="childrens-services-reform-in-scotland.html#cb325-20" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(LA, <span class="st">`</span><span class="at">2011</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2021</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb325-21"><a href="childrens-services-reform-in-scotland.html#cb325-21" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>LA, <span class="at">names_to =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;young_pop&#39;</span>)</span>
-<span id="cb325-22"><a href="childrens-services-reform-in-scotland.html#cb325-22" tabindex="-1"></a></span>
-<span id="cb325-23"><a href="childrens-services-reform-in-scotland.html#cb325-23" tabindex="-1"></a><span class="co"># Read data on contextual factors</span></span>
-<span id="cb325-24"><a href="childrens-services-reform-in-scotland.html#cb325-24" tabindex="-1"></a><span class="co"># The pivot_longer instruction took a very long time to puzzle out!</span></span>
-<span id="cb325-25"><a href="childrens-services-reform-in-scotland.html#cb325-25" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;contextual_factors.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
-<span id="cb325-26"><a href="childrens-services-reform-in-scotland.html#cb325-26" tabindex="-1"></a>context <span class="ot">&lt;-</span></span>
-<span id="cb325-27"><a href="childrens-services-reform-in-scotland.html#cb325-27" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">3</span>, <span class="at">n_max =</span> <span class="dv">32</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb325-28"><a href="childrens-services-reform-in-scotland.html#cb325-28" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HSCP_start =</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(<span class="fu">as.Date</span>(HSCP_start, <span class="at">format =</span> <span class="st">&quot;%d-%b-%y&quot;</span>), <span class="st">&quot;%Y&quot;</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb325-29"><a href="childrens-services-reform-in-scotland.html#cb325-29" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> SIMD_2011<span class="sc">:</span>PopDens_2021,</span>
-<span id="cb325-30"><a href="childrens-services-reform-in-scotland.html#cb325-30" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;Year&quot;</span>),</span>
-<span id="cb325-31"><a href="childrens-services-reform-in-scotland.html#cb325-31" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb325-32"><a href="childrens-services-reform-in-scotland.html#cb325-32" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">covid =</span> <span class="fu">as.numeric</span>(Year <span class="sc">==</span> <span class="dv">2021</span>),</span>
-<span id="cb325-33"><a href="childrens-services-reform-in-scotland.html#cb325-33" tabindex="-1"></a>         <span class="at">Int_level =</span> <span class="fu">recode</span>(Int_level, <span class="st">&quot;No structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;none&quot;</span>,</span>
-<span id="cb325-34"><a href="childrens-services-reform-in-scotland.html#cb325-34" tabindex="-1"></a>                                       <span class="st">&quot;Partial structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;partial&quot;</span>,</span>
-<span id="cb325-35"><a href="childrens-services-reform-in-scotland.html#cb325-35" tabindex="-1"></a>                                       <span class="st">&quot;Full structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;full&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="childrens-services-reform-in-scotland.html#cb330-1" tabindex="-1"></a><span class="fu">library</span>(rpanel)</span>
+<span id="cb330-2"><a href="childrens-services-reform-in-scotland.html#cb330-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb330-3"><a href="childrens-services-reform-in-scotland.html#cb330-3" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb330-4"><a href="childrens-services-reform-in-scotland.html#cb330-4" tabindex="-1"></a></span>
+<span id="cb330-5"><a href="childrens-services-reform-in-scotland.html#cb330-5" tabindex="-1"></a>zfile   <span class="ot">&lt;-</span> <span class="fu">rp.datalink</span>(<span class="st">&quot;children_services&quot;</span>)</span>
+<span id="cb330-6"><a href="childrens-services-reform-in-scotland.html#cb330-6" tabindex="-1"></a>dirname <span class="ot">&lt;-</span> <span class="st">&quot;Data and Code CSRR Strand 3 - August 2023 Update&quot;</span></span>
+<span id="cb330-7"><a href="childrens-services-reform-in-scotland.html#cb330-7" tabindex="-1"></a></span>
+<span id="cb330-8"><a href="childrens-services-reform-in-scotland.html#cb330-8" tabindex="-1"></a><span class="co"># Read indicator data</span></span>
+<span id="cb330-9"><a href="childrens-services-reform-in-scotland.html#cb330-9" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;Example_Indicator_CSR.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb330-10"><a href="childrens-services-reform-in-scotland.html#cb330-10" tabindex="-1"></a>indicator <span class="ot">&lt;-</span></span>
+<span id="cb330-11"><a href="childrens-services-reform-in-scotland.html#cb330-11" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">6</span>, <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;LA&quot;</span>, <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb330-12"><a href="childrens-services-reform-in-scotland.html#cb330-12" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>LA, <span class="at">names_to =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;Offenders&quot;</span>)</span>
+<span id="cb330-13"><a href="childrens-services-reform-in-scotland.html#cb330-13" tabindex="-1"></a></span>
+<span id="cb330-14"><a href="childrens-services-reform-in-scotland.html#cb330-14" tabindex="-1"></a><span class="co"># Read mid-year population estimates to convert indicator to rates per 10,000 - using 0-17 population.</span></span>
+<span id="cb330-15"><a href="childrens-services-reform-in-scotland.html#cb330-15" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;Mid-year-pops-0-17.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb330-16"><a href="childrens-services-reform-in-scotland.html#cb330-16" tabindex="-1"></a>mid_year_pops <span class="ot">&lt;-</span></span>
+<span id="cb330-17"><a href="childrens-services-reform-in-scotland.html#cb330-17" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb330-18"><a href="childrens-services-reform-in-scotland.html#cb330-18" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">&#39;LA&#39;</span> <span class="ot">=</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb330-19"><a href="childrens-services-reform-in-scotland.html#cb330-19" tabindex="-1"></a>  <span class="fu">filter</span>(LA <span class="sc">!=</span> <span class="st">&#39;Scotland&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb330-20"><a href="childrens-services-reform-in-scotland.html#cb330-20" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(LA, <span class="st">`</span><span class="at">2011</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2021</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb330-21"><a href="childrens-services-reform-in-scotland.html#cb330-21" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">!</span>LA, <span class="at">names_to =</span> <span class="st">&#39;Year&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;young_pop&#39;</span>)</span>
+<span id="cb330-22"><a href="childrens-services-reform-in-scotland.html#cb330-22" tabindex="-1"></a></span>
+<span id="cb330-23"><a href="childrens-services-reform-in-scotland.html#cb330-23" tabindex="-1"></a><span class="co"># Read data on contextual factors</span></span>
+<span id="cb330-24"><a href="childrens-services-reform-in-scotland.html#cb330-24" tabindex="-1"></a><span class="co"># The pivot_longer instruction took a very long time to puzzle out!</span></span>
+<span id="cb330-25"><a href="childrens-services-reform-in-scotland.html#cb330-25" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">unz</span>(zfile, <span class="fu">paste</span>(dirname, <span class="st">&quot;contextual_factors.csv&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;/&quot;</span>))</span>
+<span id="cb330-26"><a href="childrens-services-reform-in-scotland.html#cb330-26" tabindex="-1"></a>context <span class="ot">&lt;-</span></span>
+<span id="cb330-27"><a href="childrens-services-reform-in-scotland.html#cb330-27" tabindex="-1"></a>  <span class="fu">read_csv</span>(path, <span class="at">skip =</span> <span class="dv">3</span>, <span class="at">n_max =</span> <span class="dv">32</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb330-28"><a href="childrens-services-reform-in-scotland.html#cb330-28" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">HSCP_start =</span> <span class="fu">as.numeric</span>(<span class="fu">format</span>(<span class="fu">as.Date</span>(HSCP_start, <span class="at">format =</span> <span class="st">&quot;%d-%b-%y&quot;</span>), <span class="st">&quot;%Y&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb330-29"><a href="childrens-services-reform-in-scotland.html#cb330-29" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> SIMD_2011<span class="sc">:</span>PopDens_2021,</span>
+<span id="cb330-30"><a href="childrens-services-reform-in-scotland.html#cb330-30" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">&quot;.value&quot;</span>, <span class="st">&quot;Year&quot;</span>),</span>
+<span id="cb330-31"><a href="childrens-services-reform-in-scotland.html#cb330-31" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">&quot;_&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb330-32"><a href="childrens-services-reform-in-scotland.html#cb330-32" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">covid =</span> <span class="fu">as.numeric</span>(Year <span class="sc">==</span> <span class="dv">2021</span>),</span>
+<span id="cb330-33"><a href="childrens-services-reform-in-scotland.html#cb330-33" tabindex="-1"></a>         <span class="at">Int_level =</span> <span class="fu">recode</span>(Int_level, <span class="st">&quot;No structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb330-34"><a href="childrens-services-reform-in-scotland.html#cb330-34" tabindex="-1"></a>                                       <span class="st">&quot;Partial structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;partial&quot;</span>,</span>
+<span id="cb330-35"><a href="childrens-services-reform-in-scotland.html#cb330-35" tabindex="-1"></a>                                       <span class="st">&quot;Full structural integration&quot;</span> <span class="ot">=</span> <span class="st">&quot;full&quot;</span>))</span></code></pre></div>
 <p>Create one dataset containing all data.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="childrens-services-reform-in-scotland.html#cb326-1" tabindex="-1"></a><span class="fu">anti_join</span>(indicator, context)</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="childrens-services-reform-in-scotland.html#cb331-1" tabindex="-1"></a><span class="fu">anti_join</span>(indicator, context)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 3
 ## # ℹ 3 variables: LA &lt;chr&gt;, Year &lt;chr&gt;, Offenders &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="childrens-services-reform-in-scotland.html#cb328-1" tabindex="-1"></a><span class="fu">anti_join</span>(indicator, mid_year_pops)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="childrens-services-reform-in-scotland.html#cb333-1" tabindex="-1"></a><span class="fu">anti_join</span>(indicator, mid_year_pops)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 3
 ## # ℹ 3 variables: LA &lt;chr&gt;, Year &lt;chr&gt;, Offenders &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="childrens-services-reform-in-scotland.html#cb330-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">full_join</span>(indicator, context) <span class="sc">%&gt;%</span></span>
-<span id="cb330-2"><a href="childrens-services-reform-in-scotland.html#cb330-2" tabindex="-1"></a>  <span class="fu">full_join</span>(mid_year_pops) <span class="sc">%&gt;%</span></span>
-<span id="cb330-3"><a href="childrens-services-reform-in-scotland.html#cb330-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Int_level   =</span> <span class="fu">fct</span>(Int_level, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;partial&quot;</span>, <span class="st">&quot;full&quot;</span>)),</span>
-<span id="cb330-4"><a href="childrens-services-reform-in-scotland.html#cb330-4" tabindex="-1"></a>         <span class="at">Coterminous =</span> <span class="fu">fct</span>(Coterminous),</span>
-<span id="cb330-5"><a href="childrens-services-reform-in-scotland.html#cb330-5" tabindex="-1"></a>         <span class="at">LA          =</span> <span class="fu">fct</span>(LA),</span>
-<span id="cb330-6"><a href="childrens-services-reform-in-scotland.html#cb330-6" tabindex="-1"></a>         <span class="at">Year        =</span> <span class="fu">as.numeric</span>(Year),</span>
-<span id="cb330-7"><a href="childrens-services-reform-in-scotland.html#cb330-7" tabindex="-1"></a>         <span class="at">Year2       =</span> <span class="fu">c</span>(<span class="fu">scale</span>(Year)),</span>
-<span id="cb330-8"><a href="childrens-services-reform-in-scotland.html#cb330-8" tabindex="-1"></a>         <span class="at">pre_or_post =</span> <span class="fu">fct_recode</span>(<span class="fu">fct</span>(<span class="fu">as.character</span>(Year <span class="sc">-</span> HSCP_start <span class="sc">&gt;</span> <span class="dv">0</span>)),</span>
-<span id="cb330-9"><a href="childrens-services-reform-in-scotland.html#cb330-9" tabindex="-1"></a>                                  <span class="st">&quot;Pre_Int&quot;</span> <span class="ot">=</span> <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;Post_Int&quot;</span> <span class="ot">=</span> <span class="st">&quot;TRUE&quot;</span>),</span>
-<span id="cb330-10"><a href="childrens-services-reform-in-scotland.html#cb330-10" tabindex="-1"></a>         <span class="at">PopDens     =</span> <span class="fu">c</span>(<span class="fu">scale</span>(PopDens)),</span>
-<span id="cb330-11"><a href="childrens-services-reform-in-scotland.html#cb330-11" tabindex="-1"></a>         <span class="at">SIMD        =</span> <span class="fu">c</span>(<span class="fu">scale</span>(SIMD)),</span>
-<span id="cb330-12"><a href="childrens-services-reform-in-scotland.html#cb330-12" tabindex="-1"></a>         <span class="at">rate        =</span> Offenders <span class="sc">*</span> <span class="dv">10000</span> <span class="sc">/</span> young_pop,</span>
-<span id="cb330-13"><a href="childrens-services-reform-in-scotland.html#cb330-13" tabindex="-1"></a>         <span class="at">ln_pops     =</span> <span class="fu">log</span>(young_pop <span class="sc">/</span> <span class="dv">10000</span>))</span>
-<span id="cb330-14"><a href="childrens-services-reform-in-scotland.html#cb330-14" tabindex="-1"></a><span class="fu">str</span>(d)</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="childrens-services-reform-in-scotland.html#cb335-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">full_join</span>(indicator, context) <span class="sc">%&gt;%</span></span>
+<span id="cb335-2"><a href="childrens-services-reform-in-scotland.html#cb335-2" tabindex="-1"></a>  <span class="fu">full_join</span>(mid_year_pops) <span class="sc">%&gt;%</span></span>
+<span id="cb335-3"><a href="childrens-services-reform-in-scotland.html#cb335-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Int_level   =</span> <span class="fu">fct</span>(Int_level, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;none&quot;</span>, <span class="st">&quot;partial&quot;</span>, <span class="st">&quot;full&quot;</span>)),</span>
+<span id="cb335-4"><a href="childrens-services-reform-in-scotland.html#cb335-4" tabindex="-1"></a>         <span class="at">Coterminous =</span> <span class="fu">fct</span>(Coterminous),</span>
+<span id="cb335-5"><a href="childrens-services-reform-in-scotland.html#cb335-5" tabindex="-1"></a>         <span class="at">LA          =</span> <span class="fu">fct</span>(LA),</span>
+<span id="cb335-6"><a href="childrens-services-reform-in-scotland.html#cb335-6" tabindex="-1"></a>         <span class="at">Year        =</span> <span class="fu">as.numeric</span>(Year),</span>
+<span id="cb335-7"><a href="childrens-services-reform-in-scotland.html#cb335-7" tabindex="-1"></a>         <span class="at">Year2       =</span> <span class="fu">c</span>(<span class="fu">scale</span>(Year)),</span>
+<span id="cb335-8"><a href="childrens-services-reform-in-scotland.html#cb335-8" tabindex="-1"></a>         <span class="at">pre_or_post =</span> <span class="fu">fct_recode</span>(<span class="fu">fct</span>(<span class="fu">as.character</span>(Year <span class="sc">-</span> HSCP_start <span class="sc">&gt;</span> <span class="dv">0</span>)),</span>
+<span id="cb335-9"><a href="childrens-services-reform-in-scotland.html#cb335-9" tabindex="-1"></a>                                  <span class="st">&quot;Pre_Int&quot;</span> <span class="ot">=</span> <span class="st">&quot;FALSE&quot;</span>, <span class="st">&quot;Post_Int&quot;</span> <span class="ot">=</span> <span class="st">&quot;TRUE&quot;</span>),</span>
+<span id="cb335-10"><a href="childrens-services-reform-in-scotland.html#cb335-10" tabindex="-1"></a>         <span class="at">PopDens     =</span> <span class="fu">c</span>(<span class="fu">scale</span>(PopDens)),</span>
+<span id="cb335-11"><a href="childrens-services-reform-in-scotland.html#cb335-11" tabindex="-1"></a>         <span class="at">SIMD        =</span> <span class="fu">c</span>(<span class="fu">scale</span>(SIMD)),</span>
+<span id="cb335-12"><a href="childrens-services-reform-in-scotland.html#cb335-12" tabindex="-1"></a>         <span class="at">rate        =</span> Offenders <span class="sc">*</span> <span class="dv">10000</span> <span class="sc">/</span> young_pop,</span>
+<span id="cb335-13"><a href="childrens-services-reform-in-scotland.html#cb335-13" tabindex="-1"></a>         <span class="at">ln_pops     =</span> <span class="fu">log</span>(young_pop <span class="sc">/</span> <span class="dv">10000</span>))</span>
+<span id="cb335-14"><a href="childrens-services-reform-in-scotland.html#cb335-14" tabindex="-1"></a><span class="fu">str</span>(d)</span></code></pre></div>
 <pre><code>## tibble [352 × 14] (S3: tbl_df/tbl/data.frame)
 ##  $ LA         : Factor w/ 32 levels &quot;Aberdeen City&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Year       : num [1:352] 2011 2012 2013 2014 2015 ...
@@ -624,92 +631,92 @@ div.csl-indent {
 ##  $ rate       : num [1:352] 66.5 37.2 29.9 23.5 19.3 ...
 ##  $ ln_pops    : num [1:352] 1.3 1.31 1.31 1.32 1.33 ...</code></pre>
 <p>Plot data by integration level (ignores correlated data structure so not definitive, but provides an idea of trend.)</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="childrens-services-reform-in-scotland.html#cb332-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate, <span class="at">colour =</span> LA)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb332-2"><a href="childrens-services-reform-in-scotland.html#cb332-2" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Int_level) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Offender rate per 10,000&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb332-3"><a href="childrens-services-reform-in-scotland.html#cb332-3" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
-<span id="cb332-4"><a href="childrens-services-reform-in-scotland.html#cb332-4" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="fu">aes</span>()) <span class="sc">+</span></span>
-<span id="cb332-5"><a href="childrens-services-reform-in-scotland.html#cb332-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Int_level) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Offender rate per 10,000&quot;</span>) <span class="sc">+</span></span>
-<span id="cb332-6"><a href="childrens-services-reform-in-scotland.html#cb332-6" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">colour =</span> <span class="fu">I</span>(<span class="st">&quot;red&quot;</span>), <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/celcis_plot_data-1.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_plot_data-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="childrens-services-reform-in-scotland.html#cb337-1" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate, <span class="at">colour =</span> LA)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb337-2"><a href="childrens-services-reform-in-scotland.html#cb337-2" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Int_level) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Offender rate per 10,000&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb337-3"><a href="childrens-services-reform-in-scotland.html#cb337-3" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb337-4"><a href="childrens-services-reform-in-scotland.html#cb337-4" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate)) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="fu">aes</span>()) <span class="sc">+</span></span>
+<span id="cb337-5"><a href="childrens-services-reform-in-scotland.html#cb337-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Int_level) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Offender rate per 10,000&quot;</span>) <span class="sc">+</span></span>
+<span id="cb337-6"><a href="childrens-services-reform-in-scotland.html#cb337-6" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">colour =</span> <span class="fu">I</span>(<span class="st">&quot;red&quot;</span>), <span class="at">linetype =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/celcis_plot_data-1.png" alt="" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_plot_data-2.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <p>Negative binomial models.
 Note - Fit is almost identical with nAGQ=0 but much faster,
 used to decrease computing time for PBmodcomp.</p>
 <p>MODEL A0 - Two slopes model with covariates added and NO integration
 MODEL A1 - Integration as additive effect (same pre- vs post-)
 MODEL A2 - Integration as interaction effect (different pre- vs post-)</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="childrens-services-reform-in-scotland.html#cb333-1" tabindex="-1"></a>modelA0 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span> Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
-<span id="cb333-2"><a href="childrens-services-reform-in-scotland.html#cb333-2" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
-<span id="cb333-3"><a href="childrens-services-reform-in-scotland.html#cb333-3" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
-<span id="cb333-4"><a href="childrens-services-reform-in-scotland.html#cb333-4" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action=</span>na.exclude, <span class="at">nAGQ=</span><span class="dv">0</span>)</span>
-<span id="cb333-5"><a href="childrens-services-reform-in-scotland.html#cb333-5" tabindex="-1"></a><span class="co"># summary(modelA0)</span></span>
-<span id="cb333-6"><a href="childrens-services-reform-in-scotland.html#cb333-6" tabindex="-1"></a></span>
-<span id="cb333-7"><a href="childrens-services-reform-in-scotland.html#cb333-7" tabindex="-1"></a>modelA1 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span> Int_level <span class="sc">+</span></span>
-<span id="cb333-8"><a href="childrens-services-reform-in-scotland.html#cb333-8" tabindex="-1"></a>                                Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
-<span id="cb333-9"><a href="childrens-services-reform-in-scotland.html#cb333-9" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
-<span id="cb333-10"><a href="childrens-services-reform-in-scotland.html#cb333-10" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
-<span id="cb333-11"><a href="childrens-services-reform-in-scotland.html#cb333-11" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action =</span> na.exclude, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
-<span id="cb333-12"><a href="childrens-services-reform-in-scotland.html#cb333-12" tabindex="-1"></a><span class="co"># summary(modelA1)</span></span>
-<span id="cb333-13"><a href="childrens-services-reform-in-scotland.html#cb333-13" tabindex="-1"></a></span>
-<span id="cb333-14"><a href="childrens-services-reform-in-scotland.html#cb333-14" tabindex="-1"></a>modelA2 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span></span>
-<span id="cb333-15"><a href="childrens-services-reform-in-scotland.html#cb333-15" tabindex="-1"></a>                                Int_level <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
-<span id="cb333-16"><a href="childrens-services-reform-in-scotland.html#cb333-16" tabindex="-1"></a>                                Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span> </span>
-<span id="cb333-17"><a href="childrens-services-reform-in-scotland.html#cb333-17" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
-<span id="cb333-18"><a href="childrens-services-reform-in-scotland.html#cb333-18" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
-<span id="cb333-19"><a href="childrens-services-reform-in-scotland.html#cb333-19" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action =</span> na.exclude, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
-<span id="cb333-20"><a href="childrens-services-reform-in-scotland.html#cb333-20" tabindex="-1"></a><span class="co"># summary(modelA2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="childrens-services-reform-in-scotland.html#cb338-1" tabindex="-1"></a>modelA0 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span> Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
+<span id="cb338-2"><a href="childrens-services-reform-in-scotland.html#cb338-2" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
+<span id="cb338-3"><a href="childrens-services-reform-in-scotland.html#cb338-3" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
+<span id="cb338-4"><a href="childrens-services-reform-in-scotland.html#cb338-4" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action=</span>na.exclude, <span class="at">nAGQ=</span><span class="dv">0</span>)</span>
+<span id="cb338-5"><a href="childrens-services-reform-in-scotland.html#cb338-5" tabindex="-1"></a><span class="co"># summary(modelA0)</span></span>
+<span id="cb338-6"><a href="childrens-services-reform-in-scotland.html#cb338-6" tabindex="-1"></a></span>
+<span id="cb338-7"><a href="childrens-services-reform-in-scotland.html#cb338-7" tabindex="-1"></a>modelA1 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span> Int_level <span class="sc">+</span></span>
+<span id="cb338-8"><a href="childrens-services-reform-in-scotland.html#cb338-8" tabindex="-1"></a>                                Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
+<span id="cb338-9"><a href="childrens-services-reform-in-scotland.html#cb338-9" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
+<span id="cb338-10"><a href="childrens-services-reform-in-scotland.html#cb338-10" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
+<span id="cb338-11"><a href="childrens-services-reform-in-scotland.html#cb338-11" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action =</span> na.exclude, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
+<span id="cb338-12"><a href="childrens-services-reform-in-scotland.html#cb338-12" tabindex="-1"></a><span class="co"># summary(modelA1)</span></span>
+<span id="cb338-13"><a href="childrens-services-reform-in-scotland.html#cb338-13" tabindex="-1"></a></span>
+<span id="cb338-14"><a href="childrens-services-reform-in-scotland.html#cb338-14" tabindex="-1"></a>modelA2 <span class="ot">&lt;-</span> <span class="fu">glmer.nb</span>(Offenders <span class="sc">~</span> <span class="fu">offset</span>(ln_pops) <span class="sc">+</span></span>
+<span id="cb338-15"><a href="childrens-services-reform-in-scotland.html#cb338-15" tabindex="-1"></a>                                Int_level <span class="sc">*</span> pre_or_post <span class="sc">+</span></span>
+<span id="cb338-16"><a href="childrens-services-reform-in-scotland.html#cb338-16" tabindex="-1"></a>                                Year2 <span class="sc">*</span> pre_or_post <span class="sc">+</span> </span>
+<span id="cb338-17"><a href="childrens-services-reform-in-scotland.html#cb338-17" tabindex="-1"></a>                                covid <span class="sc">+</span> Coterminous <span class="sc">+</span> SIMD <span class="sc">+</span> PopDens <span class="sc">+</span></span>
+<span id="cb338-18"><a href="childrens-services-reform-in-scotland.html#cb338-18" tabindex="-1"></a>                                (<span class="dv">1</span><span class="sc">|</span>LA),</span>
+<span id="cb338-19"><a href="childrens-services-reform-in-scotland.html#cb338-19" tabindex="-1"></a>                    <span class="at">data =</span> d, <span class="at">na.action =</span> na.exclude, <span class="at">nAGQ =</span> <span class="dv">0</span>)</span>
+<span id="cb338-20"><a href="childrens-services-reform-in-scotland.html#cb338-20" tabindex="-1"></a><span class="co"># summary(modelA2)</span></span></code></pre></div>
 <p>Set up matrix to plot model estimates for the pre- and post-integration trends, using 2016 as the cutoff.</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="childrens-services-reform-in-scotland.html#cb334-1" tabindex="-1"></a>predict_pre <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Int_level =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Int_level),</span>
-<span id="cb334-2"><a href="childrens-services-reform-in-scotland.html#cb334-2" tabindex="-1"></a>                          <span class="at">pre_or_post =</span> <span class="st">&quot;Pre_Int&quot;</span>, </span>
-<span id="cb334-3"><a href="childrens-services-reform-in-scotland.html#cb334-3" tabindex="-1"></a>                          <span class="at">Year2 =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Year2[d<span class="sc">$</span>Year <span class="sc">&lt;=</span> <span class="dv">2016</span>]),</span>
-<span id="cb334-4"><a href="childrens-services-reform-in-scotland.html#cb334-4" tabindex="-1"></a>                          <span class="at">SIMD =</span> <span class="dv">0</span>, <span class="at">covid =</span> <span class="dv">0</span>, <span class="at">PopDens =</span> <span class="dv">0</span>,</span>
-<span id="cb334-5"><a href="childrens-services-reform-in-scotland.html#cb334-5" tabindex="-1"></a>                          <span class="at">Coterminous =</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb334-6"><a href="childrens-services-reform-in-scotland.html#cb334-6" tabindex="-1"></a>                          <span class="at">ln_pops =</span> <span class="fu">mean</span>(d<span class="sc">$</span>ln_pops)) <span class="sc">%&gt;%</span></span>
-<span id="cb334-7"><a href="childrens-services-reform-in-scotland.html#cb334-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">rep</span>(<span class="dv">2011</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">each =</span> <span class="dv">3</span>))</span>
-<span id="cb334-8"><a href="childrens-services-reform-in-scotland.html#cb334-8" tabindex="-1"></a>predict_post <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Int_level =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Int_level),</span>
-<span id="cb334-9"><a href="childrens-services-reform-in-scotland.html#cb334-9" tabindex="-1"></a>                           <span class="at">pre_or_post =</span> <span class="st">&quot;Post_Int&quot;</span>, </span>
-<span id="cb334-10"><a href="childrens-services-reform-in-scotland.html#cb334-10" tabindex="-1"></a>                           <span class="at">Year2 =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Year2[d<span class="sc">$</span>Year <span class="sc">&gt;=</span> <span class="dv">2016</span>]),</span>
-<span id="cb334-11"><a href="childrens-services-reform-in-scotland.html#cb334-11" tabindex="-1"></a>                           <span class="at">SIMD =</span> <span class="dv">0</span>, <span class="at">covid =</span> <span class="dv">0</span>, <span class="at">PopDens =</span> <span class="dv">0</span>,</span>
-<span id="cb334-12"><a href="childrens-services-reform-in-scotland.html#cb334-12" tabindex="-1"></a>                           <span class="at">Coterminous =</span> <span class="st">&quot;No&quot;</span>,</span>
-<span id="cb334-13"><a href="childrens-services-reform-in-scotland.html#cb334-13" tabindex="-1"></a>                           <span class="at">ln_pops =</span> <span class="fu">mean</span>(d<span class="sc">$</span>ln_pops)) <span class="sc">%&gt;%</span></span>
-<span id="cb334-14"><a href="childrens-services-reform-in-scotland.html#cb334-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">rep</span>(<span class="dv">2016</span><span class="sc">:</span><span class="dv">2021</span>, <span class="at">each =</span> <span class="dv">3</span>),</span>
-<span id="cb334-15"><a href="childrens-services-reform-in-scotland.html#cb334-15" tabindex="-1"></a>         <span class="at">covid =</span> <span class="fu">case_when</span>(Year <span class="sc">==</span> <span class="dv">2021</span> <span class="sc">~</span> <span class="dv">1</span>, Year <span class="sc">!=</span> <span class="dv">2021</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
-<span id="cb334-16"><a href="childrens-services-reform-in-scotland.html#cb334-16" tabindex="-1"></a></span>
-<span id="cb334-17"><a href="childrens-services-reform-in-scotland.html#cb334-17" tabindex="-1"></a>prefits_A0  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA0, <span class="at">newdata =</span> predict_pre,  <span class="at">re.form=</span> <span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb334-18"><a href="childrens-services-reform-in-scotland.html#cb334-18" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
-<span id="cb334-19"><a href="childrens-services-reform-in-scotland.html#cb334-19" tabindex="-1"></a>postfits_A0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA0, <span class="at">newdata =</span> predict_post, <span class="at">re.form=</span> <span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb334-20"><a href="childrens-services-reform-in-scotland.html#cb334-20" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
-<span id="cb334-21"><a href="childrens-services-reform-in-scotland.html#cb334-21" tabindex="-1"></a>prefits_A1  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA1, <span class="at">newdata=</span>predict_pre,  <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb334-22"><a href="childrens-services-reform-in-scotland.html#cb334-22" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
-<span id="cb334-23"><a href="childrens-services-reform-in-scotland.html#cb334-23" tabindex="-1"></a>postfits_A1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA1, <span class="at">newdata=</span>predict_post, <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb334-24"><a href="childrens-services-reform-in-scotland.html#cb334-24" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
-<span id="cb334-25"><a href="childrens-services-reform-in-scotland.html#cb334-25" tabindex="-1"></a>prefits_A2  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA2, <span class="at">newdata =</span> predict_pre,  <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb334-26"><a href="childrens-services-reform-in-scotland.html#cb334-26" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
-<span id="cb334-27"><a href="childrens-services-reform-in-scotland.html#cb334-27" tabindex="-1"></a>postfits_A2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA2, <span class="at">newdata =</span> predict_post, <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
-<span id="cb334-28"><a href="childrens-services-reform-in-scotland.html#cb334-28" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="childrens-services-reform-in-scotland.html#cb339-1" tabindex="-1"></a>predict_pre <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Int_level =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Int_level),</span>
+<span id="cb339-2"><a href="childrens-services-reform-in-scotland.html#cb339-2" tabindex="-1"></a>                          <span class="at">pre_or_post =</span> <span class="st">&quot;Pre_Int&quot;</span>, </span>
+<span id="cb339-3"><a href="childrens-services-reform-in-scotland.html#cb339-3" tabindex="-1"></a>                          <span class="at">Year2 =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Year2[d<span class="sc">$</span>Year <span class="sc">&lt;=</span> <span class="dv">2016</span>]),</span>
+<span id="cb339-4"><a href="childrens-services-reform-in-scotland.html#cb339-4" tabindex="-1"></a>                          <span class="at">SIMD =</span> <span class="dv">0</span>, <span class="at">covid =</span> <span class="dv">0</span>, <span class="at">PopDens =</span> <span class="dv">0</span>,</span>
+<span id="cb339-5"><a href="childrens-services-reform-in-scotland.html#cb339-5" tabindex="-1"></a>                          <span class="at">Coterminous =</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb339-6"><a href="childrens-services-reform-in-scotland.html#cb339-6" tabindex="-1"></a>                          <span class="at">ln_pops =</span> <span class="fu">mean</span>(d<span class="sc">$</span>ln_pops)) <span class="sc">%&gt;%</span></span>
+<span id="cb339-7"><a href="childrens-services-reform-in-scotland.html#cb339-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">rep</span>(<span class="dv">2011</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">each =</span> <span class="dv">3</span>))</span>
+<span id="cb339-8"><a href="childrens-services-reform-in-scotland.html#cb339-8" tabindex="-1"></a>predict_post <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">Int_level =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Int_level),</span>
+<span id="cb339-9"><a href="childrens-services-reform-in-scotland.html#cb339-9" tabindex="-1"></a>                           <span class="at">pre_or_post =</span> <span class="st">&quot;Post_Int&quot;</span>, </span>
+<span id="cb339-10"><a href="childrens-services-reform-in-scotland.html#cb339-10" tabindex="-1"></a>                           <span class="at">Year2 =</span> <span class="fu">unique</span>(d<span class="sc">$</span>Year2[d<span class="sc">$</span>Year <span class="sc">&gt;=</span> <span class="dv">2016</span>]),</span>
+<span id="cb339-11"><a href="childrens-services-reform-in-scotland.html#cb339-11" tabindex="-1"></a>                           <span class="at">SIMD =</span> <span class="dv">0</span>, <span class="at">covid =</span> <span class="dv">0</span>, <span class="at">PopDens =</span> <span class="dv">0</span>,</span>
+<span id="cb339-12"><a href="childrens-services-reform-in-scotland.html#cb339-12" tabindex="-1"></a>                           <span class="at">Coterminous =</span> <span class="st">&quot;No&quot;</span>,</span>
+<span id="cb339-13"><a href="childrens-services-reform-in-scotland.html#cb339-13" tabindex="-1"></a>                           <span class="at">ln_pops =</span> <span class="fu">mean</span>(d<span class="sc">$</span>ln_pops)) <span class="sc">%&gt;%</span></span>
+<span id="cb339-14"><a href="childrens-services-reform-in-scotland.html#cb339-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">rep</span>(<span class="dv">2016</span><span class="sc">:</span><span class="dv">2021</span>, <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb339-15"><a href="childrens-services-reform-in-scotland.html#cb339-15" tabindex="-1"></a>         <span class="at">covid =</span> <span class="fu">case_when</span>(Year <span class="sc">==</span> <span class="dv">2021</span> <span class="sc">~</span> <span class="dv">1</span>, Year <span class="sc">!=</span> <span class="dv">2021</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb339-16"><a href="childrens-services-reform-in-scotland.html#cb339-16" tabindex="-1"></a></span>
+<span id="cb339-17"><a href="childrens-services-reform-in-scotland.html#cb339-17" tabindex="-1"></a>prefits_A0  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA0, <span class="at">newdata =</span> predict_pre,  <span class="at">re.form=</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb339-18"><a href="childrens-services-reform-in-scotland.html#cb339-18" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb339-19"><a href="childrens-services-reform-in-scotland.html#cb339-19" tabindex="-1"></a>postfits_A0 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA0, <span class="at">newdata =</span> predict_post, <span class="at">re.form=</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb339-20"><a href="childrens-services-reform-in-scotland.html#cb339-20" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb339-21"><a href="childrens-services-reform-in-scotland.html#cb339-21" tabindex="-1"></a>prefits_A1  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA1, <span class="at">newdata=</span>predict_pre,  <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb339-22"><a href="childrens-services-reform-in-scotland.html#cb339-22" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb339-23"><a href="childrens-services-reform-in-scotland.html#cb339-23" tabindex="-1"></a>postfits_A1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA1, <span class="at">newdata=</span>predict_post, <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb339-24"><a href="childrens-services-reform-in-scotland.html#cb339-24" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb339-25"><a href="childrens-services-reform-in-scotland.html#cb339-25" tabindex="-1"></a>prefits_A2  <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA2, <span class="at">newdata =</span> predict_pre,  <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb339-26"><a href="childrens-services-reform-in-scotland.html#cb339-26" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span>
+<span id="cb339-27"><a href="childrens-services-reform-in-scotland.html#cb339-27" tabindex="-1"></a>postfits_A2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelA2, <span class="at">newdata =</span> predict_post, <span class="at">re.form =</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb339-28"><a href="childrens-services-reform-in-scotland.html#cb339-28" tabindex="-1"></a>                       <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="sc">/</span> <span class="fu">exp</span>(<span class="fu">mean</span>(d<span class="sc">$</span>ln_pops))</span></code></pre></div>
 <p>Create the basic plot then add the specifics for each model
 This is much neater than repeating code</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="childrens-services-reform-in-scotland.html#cb335-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate, <span class="at">colour=</span>Int_level)) <span class="sc">+</span> </span>
-<span id="cb335-2"><a href="childrens-services-reform-in-scotland.html#cb335-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> LA), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span>  </span>
-<span id="cb335-3"><a href="childrens-services-reform-in-scotland.html#cb335-3" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb335-4"><a href="childrens-services-reform-in-scotland.html#cb335-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Rate per 10,000 children&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;Integration Level&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb335-5"><a href="childrens-services-reform-in-scotland.html#cb335-5" tabindex="-1"></a>  <span class="co"># scale_colour_manual(values=colours_vec[c(1,3,4)]) +</span></span>
-<span id="cb335-6"><a href="childrens-services-reform-in-scotland.html#cb335-6" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>)</span>
-<span id="cb335-7"><a href="childrens-services-reform-in-scotland.html#cb335-7" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A0),</span>
-<span id="cb335-8"><a href="childrens-services-reform-in-scotland.html#cb335-8" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb335-9"><a href="childrens-services-reform-in-scotland.html#cb335-9" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A0),</span>
-<span id="cb335-10"><a href="childrens-services-reform-in-scotland.html#cb335-10" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb335-11"><a href="childrens-services-reform-in-scotland.html#cb335-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A0: No group effect&quot;</span>)</span>
-<span id="cb335-12"><a href="childrens-services-reform-in-scotland.html#cb335-12" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A1),</span>
-<span id="cb335-13"><a href="childrens-services-reform-in-scotland.html#cb335-13" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
-<span id="cb335-14"><a href="childrens-services-reform-in-scotland.html#cb335-14" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A1),</span>
-<span id="cb335-15"><a href="childrens-services-reform-in-scotland.html#cb335-15" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span> </span>
-<span id="cb335-16"><a href="childrens-services-reform-in-scotland.html#cb335-16" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A1: Group effect constant over time&quot;</span>)</span>
-<span id="cb335-17"><a href="childrens-services-reform-in-scotland.html#cb335-17" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A2),</span>
-<span id="cb335-18"><a href="childrens-services-reform-in-scotland.html#cb335-18" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
-<span id="cb335-19"><a href="childrens-services-reform-in-scotland.html#cb335-19" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A2),</span>
-<span id="cb335-20"><a href="childrens-services-reform-in-scotland.html#cb335-20" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span> </span>
-<span id="cb335-21"><a href="childrens-services-reform-in-scotland.html#cb335-21" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A2: Group effect can differ pre- vs post-integration&quot;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/celcis_model_plots-1.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_model_plots-2.png" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_model_plots-3.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="childrens-services-reform-in-scotland.html#cb340-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, rate, <span class="at">colour=</span>Int_level)) <span class="sc">+</span> </span>
+<span id="cb340-2"><a href="childrens-services-reform-in-scotland.html#cb340-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> LA), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span>  </span>
+<span id="cb340-3"><a href="childrens-services-reform-in-scotland.html#cb340-3" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2016</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb340-4"><a href="childrens-services-reform-in-scotland.html#cb340-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Rate per 10,000 children&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;Integration Level&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb340-5"><a href="childrens-services-reform-in-scotland.html#cb340-5" tabindex="-1"></a>  <span class="co"># scale_colour_manual(values=colours_vec[c(1,3,4)]) +</span></span>
+<span id="cb340-6"><a href="childrens-services-reform-in-scotland.html#cb340-6" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2021</span>)</span>
+<span id="cb340-7"><a href="childrens-services-reform-in-scotland.html#cb340-7" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A0),</span>
+<span id="cb340-8"><a href="childrens-services-reform-in-scotland.html#cb340-8" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb340-9"><a href="childrens-services-reform-in-scotland.html#cb340-9" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A0),</span>
+<span id="cb340-10"><a href="childrens-services-reform-in-scotland.html#cb340-10" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb340-11"><a href="childrens-services-reform-in-scotland.html#cb340-11" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A0: No group effect&quot;</span>)</span>
+<span id="cb340-12"><a href="childrens-services-reform-in-scotland.html#cb340-12" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A1),</span>
+<span id="cb340-13"><a href="childrens-services-reform-in-scotland.html#cb340-13" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb340-14"><a href="childrens-services-reform-in-scotland.html#cb340-14" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A1),</span>
+<span id="cb340-15"><a href="childrens-services-reform-in-scotland.html#cb340-15" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span> </span>
+<span id="cb340-16"><a href="childrens-services-reform-in-scotland.html#cb340-16" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A1: Group effect constant over time&quot;</span>)</span>
+<span id="cb340-17"><a href="childrens-services-reform-in-scotland.html#cb340-17" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> predict_post, <span class="fu">aes</span>(Year, postfits_A2),</span>
+<span id="cb340-18"><a href="childrens-services-reform-in-scotland.html#cb340-18" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb340-19"><a href="childrens-services-reform-in-scotland.html#cb340-19" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">data =</span> predict_pre,  <span class="fu">aes</span>(Year, prefits_A2),</span>
+<span id="cb340-20"><a href="childrens-services-reform-in-scotland.html#cb340-20" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="at">each =</span> <span class="dv">6</span>)) <span class="sc">+</span> </span>
+<span id="cb340-21"><a href="childrens-services-reform-in-scotland.html#cb340-21" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Model A2: Group effect can differ pre- vs post-integration&quot;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/celcis_model_plots-1.png" alt="" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_model_plots-2.png" alt="" width="70%" style="display: block; margin: auto;" /><img src="book_files/figure-html/celcis_model_plots-3.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <p>Model comparison: set seed so simulations are reproducible. Note the use of the <code>::</code> syntax to avoid loading the full package.</p>
 <p>Results:<br />
 stat df p.value<br />
@@ -730,20 +737,20 @@ PBtest 4.231913 NA 0.1474704</p>
 <!-- #highland_ind <- which(d$LA=="Highland") -->
 <!-- #d <- d[-highland_ind,] -->
 <p>Plot of predicted values vs observed values - Good.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="childrens-services-reform-in-scotland.html#cb337-1" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>Offenders, <span class="fu">predict</span>(modelA2, <span class="at">type=</span><span class="st">&quot;response&quot;</span>))</span>
-<span id="cb337-2"><a href="childrens-services-reform-in-scotland.html#cb337-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb337-3"><a href="childrens-services-reform-in-scotland.html#cb337-3" tabindex="-1"></a></span>
-<span id="cb337-4"><a href="childrens-services-reform-in-scotland.html#cb337-4" tabindex="-1"></a><span class="do">## Check dispersion for best model (or full model) - only applicable to poisson/neg binom</span></span>
-<span id="cb337-5"><a href="childrens-services-reform-in-scotland.html#cb337-5" tabindex="-1"></a><span class="co"># overdisp_fun(modelA2) # ratio=0.9, so okay</span></span>
-<span id="cb337-6"><a href="childrens-services-reform-in-scotland.html#cb337-6" tabindex="-1"></a></span>
-<span id="cb337-7"><a href="childrens-services-reform-in-scotland.html#cb337-7" tabindex="-1"></a><span class="do">### Check for multicollinearity in the explanatory variables</span></span>
-<span id="cb337-8"><a href="childrens-services-reform-in-scotland.html#cb337-8" tabindex="-1"></a></span>
-<span id="cb337-9"><a href="childrens-services-reform-in-scotland.html#cb337-9" tabindex="-1"></a><span class="do">##Check for correlation of SIMD and POP dens</span></span>
-<span id="cb337-10"><a href="childrens-services-reform-in-scotland.html#cb337-10" tabindex="-1"></a><span class="fu">plot</span>(context<span class="sc">$</span>PopDens, context<span class="sc">$</span>SIMD)</span>
-<span id="cb337-11"><a href="childrens-services-reform-in-scotland.html#cb337-11" tabindex="-1"></a><span class="fu">cor</span>(context<span class="sc">$</span>PopDens, context<span class="sc">$</span>SIMD) <span class="do">##r=.547 </span></span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="childrens-services-reform-in-scotland.html#cb342-1" tabindex="-1"></a><span class="fu">plot</span>(d<span class="sc">$</span>Offenders, <span class="fu">predict</span>(modelA2, <span class="at">type=</span><span class="st">&quot;response&quot;</span>))</span>
+<span id="cb342-2"><a href="childrens-services-reform-in-scotland.html#cb342-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb342-3"><a href="childrens-services-reform-in-scotland.html#cb342-3" tabindex="-1"></a></span>
+<span id="cb342-4"><a href="childrens-services-reform-in-scotland.html#cb342-4" tabindex="-1"></a><span class="do">## Check dispersion for best model (or full model) - only applicable to poisson/neg binom</span></span>
+<span id="cb342-5"><a href="childrens-services-reform-in-scotland.html#cb342-5" tabindex="-1"></a><span class="co"># overdisp_fun(modelA2) # ratio=0.9, so okay</span></span>
+<span id="cb342-6"><a href="childrens-services-reform-in-scotland.html#cb342-6" tabindex="-1"></a></span>
+<span id="cb342-7"><a href="childrens-services-reform-in-scotland.html#cb342-7" tabindex="-1"></a><span class="do">### Check for multicollinearity in the explanatory variables</span></span>
+<span id="cb342-8"><a href="childrens-services-reform-in-scotland.html#cb342-8" tabindex="-1"></a></span>
+<span id="cb342-9"><a href="childrens-services-reform-in-scotland.html#cb342-9" tabindex="-1"></a><span class="do">##Check for correlation of SIMD and POP dens</span></span>
+<span id="cb342-10"><a href="childrens-services-reform-in-scotland.html#cb342-10" tabindex="-1"></a><span class="fu">plot</span>(context<span class="sc">$</span>PopDens, context<span class="sc">$</span>SIMD)</span>
+<span id="cb342-11"><a href="childrens-services-reform-in-scotland.html#cb342-11" tabindex="-1"></a><span class="fu">cor</span>(context<span class="sc">$</span>PopDens, context<span class="sc">$</span>SIMD) <span class="do">##r=.547 </span></span></code></pre></div>
 <pre><code>## [1] 0.5472664</code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="childrens-services-reform-in-scotland.html#cb339-1" tabindex="-1"></a><span class="do">## Confirm levels of correlation are not problematic through inspection of VIF (variance inflation factors)</span></span>
-<span id="cb339-2"><a href="childrens-services-reform-in-scotland.html#cb339-2" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">vif</span>(modelA2) <span class="do">## All non-interaction terms under 3, indicating levels of correlation are not problematic.</span></span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="childrens-services-reform-in-scotland.html#cb344-1" tabindex="-1"></a><span class="do">## Confirm levels of correlation are not problematic through inspection of VIF (variance inflation factors)</span></span>
+<span id="cb344-2"><a href="childrens-services-reform-in-scotland.html#cb344-2" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">vif</span>(modelA2) <span class="do">## All non-interaction terms under 3, indicating levels of correlation are not problematic.</span></span></code></pre></div>
 <pre><code>##                           GVIF Df GVIF^(1/(2*Df))
 ## Int_level             1.401894  2        1.088125
 ## pre_or_post           5.823416  1        2.413176
@@ -754,26 +761,26 @@ PBtest 4.231913 NA 0.1474704</p>
 ## PopDens               1.450657  1        1.204432
 ## Int_level:pre_or_post 2.688646  2        1.280511
 ## pre_or_post:Year2     6.447831  1        2.539258</code></pre>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="childrens-services-reform-in-scotland.html#cb341-1" tabindex="-1"></a><span class="do">## Check for normality of random effects</span></span>
-<span id="cb341-2"><a href="childrens-services-reform-in-scotland.html#cb341-2" tabindex="-1"></a></span>
-<span id="cb341-3"><a href="childrens-services-reform-in-scotland.html#cb341-3" tabindex="-1"></a>r_int<span class="ot">&lt;-</span> <span class="fu">ranef</span>(modelA2)<span class="sc">$</span>LA</span>
-<span id="cb341-4"><a href="childrens-services-reform-in-scotland.html#cb341-4" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">unlist</span>(r_int))</span>
-<span id="cb341-5"><a href="childrens-services-reform-in-scotland.html#cb341-5" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">unlist</span>(r_int))</span>
-<span id="cb341-6"><a href="childrens-services-reform-in-scotland.html#cb341-6" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">unlist</span>(r_int))</span>
-<span id="cb341-7"><a href="childrens-services-reform-in-scotland.html#cb341-7" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">unlist</span>(r_int)) </span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="childrens-services-reform-in-scotland.html#cb346-1" tabindex="-1"></a><span class="do">## Check for normality of random effects</span></span>
+<span id="cb346-2"><a href="childrens-services-reform-in-scotland.html#cb346-2" tabindex="-1"></a></span>
+<span id="cb346-3"><a href="childrens-services-reform-in-scotland.html#cb346-3" tabindex="-1"></a>r_int<span class="ot">&lt;-</span> <span class="fu">ranef</span>(modelA2)<span class="sc">$</span>LA</span>
+<span id="cb346-4"><a href="childrens-services-reform-in-scotland.html#cb346-4" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">unlist</span>(r_int))</span>
+<span id="cb346-5"><a href="childrens-services-reform-in-scotland.html#cb346-5" tabindex="-1"></a><span class="fu">qqline</span>(<span class="fu">unlist</span>(r_int))</span>
+<span id="cb346-6"><a href="childrens-services-reform-in-scotland.html#cb346-6" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">unlist</span>(r_int))</span>
+<span id="cb346-7"><a href="childrens-services-reform-in-scotland.html#cb346-7" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">unlist</span>(r_int)) </span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  unlist(r_int)
 ## W = 0.95697, p-value = 0.2265</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="childrens-services-reform-in-scotland.html#cb343-1" tabindex="-1"></a><span class="do">## Assumption okay. Shapiro test p-value &gt; 0.05 (p=.21), implying that the distribution of the random effects are </span></span>
-<span id="cb343-2"><a href="childrens-services-reform-in-scotland.html#cb343-2" tabindex="-1"></a><span class="do">## not significantly different from normal distribution.</span></span>
-<span id="cb343-3"><a href="childrens-services-reform-in-scotland.html#cb343-3" tabindex="-1"></a></span>
-<span id="cb343-4"><a href="childrens-services-reform-in-scotland.html#cb343-4" tabindex="-1"></a></span>
-<span id="cb343-5"><a href="childrens-services-reform-in-scotland.html#cb343-5" tabindex="-1"></a><span class="do">## Check for any residual autocorrelation</span></span>
-<span id="cb343-6"><a href="childrens-services-reform-in-scotland.html#cb343-6" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">residuals</span>(modelA2, <span class="at">retype=</span><span class="st">&quot;normalized&quot;</span>)) <span class="co">#Fine</span></span>
-<span id="cb343-7"><a href="childrens-services-reform-in-scotland.html#cb343-7" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">residuals</span>(modelA2, <span class="at">retype=</span><span class="st">&quot;normalized&quot;</span>))  <span class="co">#Fine</span></span></code></pre></div>
-<p><img src="book_files/figure-html/celcis_checking-1.png" width="33%" /><img src="book_files/figure-html/celcis_checking-2.png" width="33%" /><img src="book_files/figure-html/celcis_checking-3.png" width="33%" /><img src="book_files/figure-html/celcis_checking-4.png" width="33%" /><img src="book_files/figure-html/celcis_checking-5.png" width="33%" /><img src="book_files/figure-html/celcis_checking-6.png" width="33%" /></p>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="childrens-services-reform-in-scotland.html#cb348-1" tabindex="-1"></a><span class="do">## Assumption okay. Shapiro test p-value &gt; 0.05 (p=.21), implying that the distribution of the random effects are </span></span>
+<span id="cb348-2"><a href="childrens-services-reform-in-scotland.html#cb348-2" tabindex="-1"></a><span class="do">## not significantly different from normal distribution.</span></span>
+<span id="cb348-3"><a href="childrens-services-reform-in-scotland.html#cb348-3" tabindex="-1"></a></span>
+<span id="cb348-4"><a href="childrens-services-reform-in-scotland.html#cb348-4" tabindex="-1"></a></span>
+<span id="cb348-5"><a href="childrens-services-reform-in-scotland.html#cb348-5" tabindex="-1"></a><span class="do">## Check for any residual autocorrelation</span></span>
+<span id="cb348-6"><a href="childrens-services-reform-in-scotland.html#cb348-6" tabindex="-1"></a><span class="fu">acf</span>(<span class="fu">residuals</span>(modelA2, <span class="at">retype=</span><span class="st">&quot;normalized&quot;</span>)) <span class="co">#Fine</span></span>
+<span id="cb348-7"><a href="childrens-services-reform-in-scotland.html#cb348-7" tabindex="-1"></a><span class="fu">pacf</span>(<span class="fu">residuals</span>(modelA2, <span class="at">retype=</span><span class="st">&quot;normalized&quot;</span>))  <span class="co">#Fine</span></span></code></pre></div>
+<p><img src="book_files/figure-html/celcis_checking-1.png" alt="" width="33%" /><img src="book_files/figure-html/celcis_checking-2.png" alt="" width="33%" /><img src="book_files/figure-html/celcis_checking-3.png" alt="" width="33%" /><img src="book_files/figure-html/celcis_checking-4.png" alt="" width="33%" /><img src="book_files/figure-html/celcis_checking-5.png" alt="" width="33%" /><img src="book_files/figure-html/celcis_checking-6.png" alt="" width="33%" /></p>
 <p>See Benjamini (1995) paper for FDR.</p>
 <!--  -->
 <!-- ## UK parliamentary election 2024 -->

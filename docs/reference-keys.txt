@@ -220,6 +220,9 @@ geostatistical-models-1
 so2-a-model-based-on-smoothing
 models-for-areal-data
 further-reading-7
+case-studies-of-statistical-modelling
+covid-19-initial-surveillance
+childrens-services-reform-in-scotland
 more-on-r
 repetition
 standard-loops

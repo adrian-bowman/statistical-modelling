@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>18.2 Writing your own functions | Statistical Modelling</title>
+  <title>19.2 Writing your own functions | Statistical Modelling</title>
   <meta name="description" content="A conceptual, visual and practical introduction to statistical modelling" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="18.2 Writing your own functions | Statistical Modelling" />
+  <meta property="og:title" content="19.2 Writing your own functions | Statistical Modelling" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="A conceptual, visual and practical introduction to statistical modelling" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="18.2 Writing your own functions | Statistical Modelling" />
+  <meta name="twitter:title" content="19.2 Writing your own functions | Statistical Modelling" />
   
   <meta name="twitter:description" content="A conceptual, visual and practical introduction to statistical modelling" />
   
@@ -51,24 +51,24 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/rglWebGL-binding-1.3.17/rglWebGL.js"></script>
-<link href="libs/rglwidgetClass-1.3.17/rgl.css" rel="stylesheet" />
-<script src="libs/rglwidgetClass-1.3.17/rglClass.min.js"></script>
-<script src="libs/CanvasMatrix4-1.3.17/CanvasMatrix.min.js"></script>
+<script src="libs/rglWebGL-binding-1.3.31/rglWebGL.js"></script>
+<link href="libs/rglwidgetClass-1.3.31/rgl.css" rel="stylesheet" />
+<script src="libs/rglwidgetClass-1.3.31/rglClass.min.js"></script>
+<script src="libs/CanvasMatrix4-1.3.31/CanvasMatrix.min.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
 <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-1.3.1/leaflet.js"></script>
 <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
 <script src="libs/proj4-2.6.2/proj4.min.js"></script>
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
+<script src="libs/leaflet-binding-2.2.3/leaflet.js"></script>
 <script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
+<script src="libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
 <script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
 <link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
 <link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
@@ -501,22 +501,28 @@ div.csl-indent {
 <li class="chapter" data-level="17.4" data-path="models-for-areal-data.html"><a href="models-for-areal-data.html"><i class="fa fa-check"></i><b>17.4</b> Models for areal data</a></li>
 <li class="chapter" data-level="17.5" data-path="further-reading-7.html"><a href="further-reading-7.html"><i class="fa fa-check"></i><b>17.5</b> Further reading</a></li>
 </ul></li>
-<li class="part"><span><b>V Other topics</b></span></li>
-<li class="chapter" data-level="18" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>18</b> More on R</a>
+<li class="part"><span><b>V Statistical Models in Practice</b></span></li>
+<li class="chapter" data-level="18" data-path="case-studies-of-statistical-modelling.html"><a href="case-studies-of-statistical-modelling.html"><i class="fa fa-check"></i><b>18</b> Case studies of statistical modelling</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="repetition.html"><a href="repetition.html"><i class="fa fa-check"></i><b>18.1</b> Repetition</a>
-<ul>
-<li class="chapter" data-level="18.1.1" data-path="repetition.html"><a href="repetition.html#standard-loops"><i class="fa fa-check"></i><b>18.1.1</b> Standard loops</a></li>
-<li class="chapter" data-level="18.1.2" data-path="repetition.html"><a href="repetition.html#the-apply-family"><i class="fa fa-check"></i><b>18.1.2</b> The ‘apply’ family</a></li>
+<li class="chapter" data-level="18.1" data-path="covid-19-initial-surveillance.html"><a href="covid-19-initial-surveillance.html"><i class="fa fa-check"></i><b>18.1</b> Covid-19 initial surveillance</a></li>
+<li class="chapter" data-level="18.2" data-path="childrens-services-reform-in-scotland.html"><a href="childrens-services-reform-in-scotland.html"><i class="fa fa-check"></i><b>18.2</b> Children’s services reform in Scotland</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="writing-your-own-functions.html"><a href="writing-your-own-functions.html"><i class="fa fa-check"></i><b>18.2</b> Writing your own functions</a></li>
-<li class="chapter" data-level="18.3" data-path="conditional-statements-and-while-loops.html"><a href="conditional-statements-and-while-loops.html"><i class="fa fa-check"></i><b>18.3</b> Conditional statements and <code>while</code> loops</a></li>
-<li class="chapter" data-level="18.4" data-path="further-reading-8.html"><a href="further-reading-8.html"><i class="fa fa-check"></i><b>18.4</b> Further reading</a></li>
-<li class="chapter" data-level="18.5" data-path="exercises-12.html"><a href="exercises-12.html"><i class="fa fa-check"></i><b>18.5</b> Exercises</a>
+<li class="part"><span><b>VI Other topics</b></span></li>
+<li class="chapter" data-level="19" data-path="more-on-r.html"><a href="more-on-r.html"><i class="fa fa-check"></i><b>19</b> More on R</a>
 <ul>
-<li class="chapter" data-level="18.5.1" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function"><i class="fa fa-check"></i><b>18.5.1</b> A simple function</a></li>
-<li class="chapter" data-level="18.5.2" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>18.5.2</b> A simple function: thresholds</a></li>
-<li class="chapter" data-level="18.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>18.5.3</b> Improving the sim.max function</a></li>
+<li class="chapter" data-level="19.1" data-path="repetition.html"><a href="repetition.html"><i class="fa fa-check"></i><b>19.1</b> Repetition</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="repetition.html"><a href="repetition.html#standard-loops"><i class="fa fa-check"></i><b>19.1.1</b> Standard loops</a></li>
+<li class="chapter" data-level="19.1.2" data-path="repetition.html"><a href="repetition.html#the-apply-family"><i class="fa fa-check"></i><b>19.1.2</b> The ‘apply’ family</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="writing-your-own-functions.html"><a href="writing-your-own-functions.html"><i class="fa fa-check"></i><b>19.2</b> Writing your own functions</a></li>
+<li class="chapter" data-level="19.3" data-path="conditional-statements-and-while-loops.html"><a href="conditional-statements-and-while-loops.html"><i class="fa fa-check"></i><b>19.3</b> Conditional statements and <code>while</code> loops</a></li>
+<li class="chapter" data-level="19.4" data-path="further-reading-8.html"><a href="further-reading-8.html"><i class="fa fa-check"></i><b>19.4</b> Further reading</a></li>
+<li class="chapter" data-level="19.5" data-path="exercises-12.html"><a href="exercises-12.html"><i class="fa fa-check"></i><b>19.5</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="19.5.1" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function"><i class="fa fa-check"></i><b>19.5.1</b> A simple function</a></li>
+<li class="chapter" data-level="19.5.2" data-path="exercises-12.html"><a href="exercises-12.html#a-simple-function-thresholds"><i class="fa fa-check"></i><b>19.5.2</b> A simple function: thresholds</a></li>
+<li class="chapter" data-level="19.5.3" data-path="exercises-12.html"><a href="exercises-12.html#improving-the-sim.max-function"><i class="fa fa-check"></i><b>19.5.3</b> Improving the sim.max function</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -540,31 +546,31 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="writing-your-own-functions" class="section level2 hasAnchor" number="18.2">
-<h2><span class="header-section-number">18.2</span> Writing your own functions<a href="writing-your-own-functions.html#writing-your-own-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="writing-your-own-functions" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Writing your own functions<a href="writing-your-own-functions.html#writing-your-own-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once we have a useful block of code, which we may wish to use repeatedly and in different circumstances, it can be very useful to turn this into a new function. This is done simply by assigning a name to a function which consists of this block of code. The value of the last instruction in the function is <em>returned</em> as the value of the function. The <code>invisible</code> function is useful to avoid this being printed out.</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="writing-your-own-functions.html#cb337-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb337-2"><a href="writing-your-own-functions.html#cb337-2" tabindex="-1"></a>    nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb337-3"><a href="writing-your-own-functions.html#cb337-3" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb337-4"><a href="writing-your-own-functions.html#cb337-4" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
-<span id="cb337-5"><a href="writing-your-own-functions.html#cb337-5" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
-<span id="cb337-6"><a href="writing-your-own-functions.html#cb337-6" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb337-7"><a href="writing-your-own-functions.html#cb337-7" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb337-8"><a href="writing-your-own-functions.html#cb337-8" tabindex="-1"></a>  }</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="writing-your-own-functions.html#cb356-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb356-2"><a href="writing-your-own-functions.html#cb356-2" tabindex="-1"></a>    nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb356-3"><a href="writing-your-own-functions.html#cb356-3" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb356-4"><a href="writing-your-own-functions.html#cb356-4" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
+<span id="cb356-5"><a href="writing-your-own-functions.html#cb356-5" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
+<span id="cb356-6"><a href="writing-your-own-functions.html#cb356-6" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb356-7"><a href="writing-your-own-functions.html#cb356-7" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb356-8"><a href="writing-your-own-functions.html#cb356-8" tabindex="-1"></a>  }</span></code></pre></div>
 <p>The function can then be activated (or <em>called</em>) simply by typing its name in the usual way.</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="writing-your-own-functions.html#cb338-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1107-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="writing-your-own-functions.html#cb357-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-1151-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>To provide detailed control of the function we can add <em>arguments</em>. These have stated default values but we can override these by specifying (or <em>passing</em>) different values.</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="writing-your-own-functions.html#cb339-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
-<span id="cb339-2"><a href="writing-your-own-functions.html#cb339-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
-<span id="cb339-3"><a href="writing-your-own-functions.html#cb339-3" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> n)</span>
-<span id="cb339-4"><a href="writing-your-own-functions.html#cb339-4" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
-<span id="cb339-5"><a href="writing-your-own-functions.html#cb339-5" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb339-6"><a href="writing-your-own-functions.html#cb339-6" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb339-7"><a href="writing-your-own-functions.html#cb339-7" tabindex="-1"></a>  }</span>
-<span id="cb339-8"><a href="writing-your-own-functions.html#cb339-8" tabindex="-1"></a></span>
-<span id="cb339-9"><a href="writing-your-own-functions.html#cb339-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1108-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="writing-your-own-functions.html#cb358-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
+<span id="cb358-2"><a href="writing-your-own-functions.html#cb358-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
+<span id="cb358-3"><a href="writing-your-own-functions.html#cb358-3" tabindex="-1"></a>    mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> n)</span>
+<span id="cb358-4"><a href="writing-your-own-functions.html#cb358-4" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
+<span id="cb358-5"><a href="writing-your-own-functions.html#cb358-5" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb358-6"><a href="writing-your-own-functions.html#cb358-6" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb358-7"><a href="writing-your-own-functions.html#cb358-7" tabindex="-1"></a>  }</span>
+<span id="cb358-8"><a href="writing-your-own-functions.html#cb358-8" tabindex="-1"></a></span>
+<span id="cb358-9"><a href="writing-your-own-functions.html#cb358-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-1152-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 
