@@ -572,23 +572,39 @@ the Scottish council name
 </tr>
 <tr>
 <td style="text-align:left;font-family: monospace;">
-<code>Voted.no</code>
+<code>Yes</code>
 </td>
 <td style="text-align:left;width: 15em; ">
-the percentage of people who voted no
+the number of people who voted yes
 </td>
 </tr>
 <tr>
 <td style="text-align:left;font-family: monospace;">
-<code>Turnout</code>
+<code>No</code>
 </td>
 <td style="text-align:left;width: 15em; ">
-the percentage of people who voted
+the number of people who voted no
 </td>
 </tr>
 <tr>
 <td style="text-align:left;font-family: monospace;">
-<code>Population</code>
+<code>Rejected</code>
+</td>
+<td style="text-align:left;width: 15em; ">
+the number of people whose vote was rejected
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+<code>Total</code>
+</td>
+<td style="text-align:left;width: 15em; ">
+the number of people who voted
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;">
+<code>Electorate</code>
 </td>
 <td style="text-align:left;width: 15em; ">
 the number of people eligible to vote
@@ -604,7 +620,7 @@ the percentage unemployed
 </tr>
 <tr>
 <td style="text-align:left;font-family: monospace;">
-<code>Scottish.identity.only</code>
+<code>Scottish_only_identity</code>
 </td>
 <td style="text-align:left;width: 15em; ">
 the percentage who identify themselves as Scottish only
@@ -612,26 +628,18 @@ the percentage who identify themselves as Scottish only
 </tr>
 <tr>
 <td style="text-align:left;font-family: monospace;">
-<code>Aged.16</code>
+<code>Born_in_Scotland</code>
 </td>
 <td style="text-align:left;width: 15em; ">
-the percentage who are 16 years of age
+the percentage who were born in Scotland
 </td>
 </tr>
 <tr>
 <td style="text-align:left;font-family: monospace;">
-<code>Aged.over.50</code>
+<code>Age_65_or_over</code>
 </td>
 <td style="text-align:left;width: 15em; ">
-the percentage who are over 50 years of age
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-family: monospace;">
-<code>Aged.over.65</code>
-</td>
-<td style="text-align:left;width: 15em; ">
-the percentage who are over 65 years of age
+the percentage who are 65 of more years of age
 </td>
 </tr>
 </tbody>
@@ -655,20 +663,19 @@ the percentage who are over 65 years of age
 ## 4                   57.4             76.1       10.3           23.4
 ## 5                   67.0             86.4       14.9           17.6
 ## 6                   59.6             77.1       11.4           23.3</code></pre>
-<p>R can act as a simple calculator. For example, consider the data recording the proportion of people voting ‘no’ and the proportion of people who voted. We can identify the number of people who voted ‘no’ in each region, and then confirm the percentage of those who voted ‘no’ across the country, by</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-1" tabindex="-1"></a>Scottish_referendum<span class="sc">$</span>Vote    <span class="ot">&lt;-</span> Scottish_referendum<span class="sc">$</span>Yes <span class="sc">+</span> Scottish_referendum<span class="sc">$</span>No <span class="sc">+</span></span>
-<span id="cb21-2"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-2" tabindex="-1"></a>                               Scottish_referendum<span class="sc">$</span>Rejected</span>
-<span id="cb21-3"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-3" tabindex="-1"></a>Scottish_referendum<span class="sc">$</span>Turnout <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> Scottish_referendum<span class="sc">$</span>Vote <span class="sc">/</span> Scottish_referendum<span class="sc">$</span>Electorate</span>
-<span id="cb21-4"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-4" tabindex="-1"></a>Scottish_referendum<span class="sc">$</span>Yes_percent <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> Scottish_referendum<span class="sc">$</span>Yes <span class="sc">/</span> Scottish_referendum<span class="sc">$</span>Vote</span>
-<span id="cb21-5"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-5" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(Scottish_referendum<span class="sc">$</span>No) <span class="sc">/</span> <span class="fu">sum</span>(Scottish_referendum<span class="sc">$</span>Vote)</span></code></pre></div>
-<pre><code>## [1] 55.25078</code></pre>
-<p>The first instruction multiplies each population by the corresponding turnout proportion to find the number of people who voted in each region. Notice that the operation is performed for each element of <code>Scottish_referendum$Population</code> and the corresponding element of <code>Scottish_referendum$Turnout</code>. The resulting vector of numbers is stored in a new component of the <code>Scottish_referendum</code> dataframe, with the variable name <code>Vote</code>. The second instruction calculates a weighted average of the percentages voting ‘no’, using the number of people voting in each region as the weights. This creates the overall percentage who voted ‘no’.</p>
+<p>R can act as a simple calculator. Here are some examples of things we may be interested in computing.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-1" tabindex="-1"></a>Scottish_referendum<span class="sc">$</span>Turnout <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> Scottish_referendum<span class="sc">$</span>Total <span class="sc">/</span> Scottish_referendum<span class="sc">$</span>Electorate</span>
+<span id="cb21-2"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-2" tabindex="-1"></a>Scottish_referendum<span class="sc">$</span>No_percent <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> Scottish_referendum<span class="sc">$</span>No <span class="sc">/</span></span>
+<span id="cb21-3"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-3" tabindex="-1"></a>                                       (Scottish_referendum<span class="sc">$</span>Yes <span class="sc">+</span> Scottish_referendum<span class="sc">$</span>No)</span>
+<span id="cb21-4"><a href="a-further-example-the-scottish-independence-referendum.html#cb21-4" tabindex="-1"></a><span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(Scottish_referendum<span class="sc">$</span>No) <span class="sc">/</span> <span class="fu">sum</span>(Scottish_referendum<span class="sc">$</span>Yes <span class="sc">+</span> Scottish_referendum<span class="sc">$</span>No)</span></code></pre></div>
+<pre><code>## [1] 55.30312</code></pre>
+<p>The first instruction divides the total number of voters by the size of the electorate to find the proportion of people who turned out to vote, multiplying this by 100 to express it as a percentage. Notice that the operation is performed for each element of <code>Scottish_referendum$Total</code> and the corresponding element of <code>Scottish_referendum$Electorate</code>. The resulting vector of numbers is stored in a new component of the <code>Scottish_referendum</code> dataframe, with the variable name <code>Turnout</code>. The second instruction finds the percentage of those voting no in each council region. The third instruction calculates the overall percentage who voted no by summing the no votes and expressing this as a percentage of those who cast votes which were not rejected.</p>
 <p>It would be interesting to produce a scatterplot to explore the relationship between the percentage of people who voted ‘no’ and the unemployment rate of the Council regions. The <code>plot</code> function can do this for us. There seems to be quite a strong relationship here.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb23-1" tabindex="-1"></a><span class="fu">plot</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>Yes_percent)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb23-1" tabindex="-1"></a><span class="fu">plot</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>No_percent)</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-220-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>It might be more helpful to plot the Council names instead of simple points. Here we add the argument <code>type = "n"</code> to the <code>plot</code> function to stop any points being plotted and then use the <code>text</code> function to plot the Council names instead.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-1" tabindex="-1"></a><span class="fu">plot</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>Yes_percent, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb24-2"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-2" tabindex="-1"></a><span class="fu">text</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>Yes_percent, </span>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-1" tabindex="-1"></a><span class="fu">plot</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>No_percent, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb24-2"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-2" tabindex="-1"></a><span class="fu">text</span>(Scottish_referendum<span class="sc">$</span>Unemployed, Scottish_referendum<span class="sc">$</span>No_percent, </span>
 <span id="cb24-3"><a href="a-further-example-the-scottish-independence-referendum.html#cb24-3" tabindex="-1"></a>     Scottish_referendum<span class="sc">$</span>Council)</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-221-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <!-- ## Packages: extending the range of what we can do {#packages} -->

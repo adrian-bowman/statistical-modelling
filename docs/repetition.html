@@ -558,11 +558,11 @@ div.csl-indent {
 <p>Let’s start with a week. The <code>rnorm</code> function generates random values from a normal distribution.</p>
 <div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="repetition.html#cb349-1" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">7</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb349-2"><a href="repetition.html#cb349-2" tabindex="-1"></a>  <span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1137-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1139-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>With only 7 observations the histogram is highly variable. Let’s move to a month.</p>
 <div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="repetition.html#cb350-1" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb350-2"><a href="repetition.html#cb350-2" tabindex="-1"></a>  <span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1138-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1140-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>The <code>max</code> function makes the largest value easy to find.</p>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="repetition.html#cb351-1" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb351-2"><a href="repetition.html#cb351-2" tabindex="-1"></a>  <span class="fu">max</span>(y)</span></code></pre></div>
@@ -572,13 +572,13 @@ div.csl-indent {
 <span id="cb353-2"><a href="repetition.html#cb353-2" tabindex="-1"></a>  mx   <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
 <span id="cb353-3"><a href="repetition.html#cb353-3" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) mx[i] <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
 <span id="cb353-4"><a href="repetition.html#cb353-4" tabindex="-1"></a>  <span class="fu">hist</span>(mx)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1140-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1142-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>We can obtain a clearer picture of the distribution by increasing the number of simulations.</p>
 <div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="repetition.html#cb354-1" tabindex="-1"></a>  nsim <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb354-2"><a href="repetition.html#cb354-2" tabindex="-1"></a>  mx   <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
 <span id="cb354-3"><a href="repetition.html#cb354-3" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) mx[i] <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>))</span>
 <span id="cb354-4"><a href="repetition.html#cb354-4" tabindex="-1"></a>  <span class="fu">hist</span>(mx)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1141-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1143-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>The <code>for</code> construction provides a clear and simple method of looping but it can be very inefficient. Much more efficient methds are available in the <code>apply</code> family of functions.</p>
 </div>
 <div id="the-apply-family" class="section level3 hasAnchor" number="19.1.2">
@@ -592,7 +592,7 @@ div.csl-indent {
 <span id="cb355-3"><a href="repetition.html#cb355-3" tabindex="-1"></a>  mat  <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="dv">30</span>)</span>
 <span id="cb355-4"><a href="repetition.html#cb355-4" tabindex="-1"></a>  mx   <span class="ot">&lt;-</span> <span class="fu">apply</span>(mat, <span class="dv">1</span>, max)</span>
 <span id="cb355-5"><a href="repetition.html#cb355-5" tabindex="-1"></a>  <span class="fu">hist</span>(mx)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1142-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1144-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
             </section>

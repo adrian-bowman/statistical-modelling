@@ -555,7 +555,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="inference-with-mixed-models.html#cb217-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
 <span id="cb217-2"><a href="inference-with-mixed-models.html#cb217-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
 <span id="cb217-3"><a href="inference-with-mixed-models.html#cb217-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
-<pre><code>## Bootstrap test; time: 20.25 sec; samples: 1000; extremes: 332;
+<pre><code>## Bootstrap test; time: 21.12 sec; samples: 1000; extremes: 332;
 ## large : yield ~ treat + (1 | blend)
 ##          stat df p.value
 ## LRT    4.0474  3  0.2564
@@ -565,7 +565,7 @@ div.csl-indent {
 <span id="cb219-2"><a href="inference-with-mixed-models.html#cb219-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
 <span id="cb219-3"><a href="inference-with-mixed-models.html#cb219-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
 <span id="cb219-4"><a href="inference-with-mixed-models.html#cb219-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-892-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-894-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <!-- @halekoh_2014_jstatsoft -->
 <p>Halekoh et a. (2014) provide a <a href="https://www.jstatsoft.org/index.php/jss/article/view/v059i09/771">systematic description</a> of the <code>pbkrtest</code> package, and examples of its use.</p>
 <p>With a little more work, we can produce estimates of the individual random effects.</p>

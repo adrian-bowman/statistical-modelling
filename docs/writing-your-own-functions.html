@@ -559,7 +559,7 @@ div.csl-indent {
 <span id="cb356-8"><a href="writing-your-own-functions.html#cb356-8" tabindex="-1"></a>  }</span></code></pre></div>
 <p>The function can then be activated (or <em>called</em>) simply by typing its name in the usual way.</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="writing-your-own-functions.html#cb357-1" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1151-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1153-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>To provide detailed control of the function we can add <em>arguments</em>. These have stated default values but we can override these by specifying (or <em>passing</em>) different values.</p>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="writing-your-own-functions.html#cb358-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn =</span> <span class="dv">10</span>, <span class="at">s =</span> <span class="dv">2</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
 <span id="cb358-2"><a href="writing-your-own-functions.html#cb358-2" tabindex="-1"></a>    x    <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsim <span class="sc">*</span> n, <span class="at">mean =</span> mn, <span class="at">sd =</span> s)</span>
@@ -570,7 +570,7 @@ div.csl-indent {
 <span id="cb358-7"><a href="writing-your-own-functions.html#cb358-7" tabindex="-1"></a>  }</span>
 <span id="cb358-8"><a href="writing-your-own-functions.html#cb358-8" tabindex="-1"></a></span>
 <span id="cb358-9"><a href="writing-your-own-functions.html#cb358-9" tabindex="-1"></a>  <span class="fu">sim.max</span>(<span class="dv">50</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-1152-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-1154-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 </div>
             </section>
 

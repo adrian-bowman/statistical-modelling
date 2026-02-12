@@ -577,7 +577,7 @@ These smoothing operations are repeated until convergence. This is called the <e
 <span id="cb271-4"><a href="a-simple-additive-model.html#cb271-4" tabindex="-1"></a>ind         <span class="ot">&lt;-</span> (trawl<span class="sc">$</span>Year<span class="sc">==</span><span class="dv">0</span> <span class="sc">&amp;</span> trawl<span class="sc">$</span>Zone<span class="sc">==</span><span class="dv">1</span>)</span>
 <span id="cb271-5"><a href="a-simple-additive-model.html#cb271-5" tabindex="-1"></a>trawl.model <span class="ot">&lt;-</span> <span class="fu">gam</span>(Score1 <span class="sc">~</span> <span class="fu">s</span>(Latitude) <span class="sc">+</span> <span class="fu">s</span>(Longitude), <span class="at">data =</span> trawl, <span class="at">subset =</span> ind)</span>
 <span id="cb271-6"><a href="a-simple-additive-model.html#cb271-6" tabindex="-1"></a><span class="fu">draw</span>(trawl.model, <span class="at">residuals =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-955-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-957-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <p>The non-linear effect of Longitude is apparent, as we saw in earlier examples. Here the model selection methods included in <code>mgcv</code> have led to a proposed linear relationship with Latitude.</p>
 </div>
             </section>

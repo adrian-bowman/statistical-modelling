@@ -561,7 +561,7 @@ Kinetics of Indomethicin absorption, elimination, and enterohepatic circulation 
 <div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="non-linear-mixed-models.html#cb255-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb255-2"><a href="non-linear-mixed-models.html#cb255-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject, <span class="at">col =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
 <span id="cb255-3"><a href="non-linear-mixed-models.html#cb255-3" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-931-1.png" alt="" width="49%" /><img src="book_files/figure-html/unnamed-chunk-931-2.png" alt="" width="49%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-933-1.png" alt="" width="49%" /><img src="book_files/figure-html/unnamed-chunk-933-2.png" alt="" width="49%" /></p>
 <p>Pharmacokinetics often uses <em>compartmental models</em> which result in descriptions of decay over time in the form of sums of exponential terms. For this example, two exponential terms should suffice. If <span class="math inline">\(y_{ij}\)</span> denotes the measurement on individual <span class="math inline">\(i\)</span> at time point <span class="math inline">\(j\)</span>, then
 <span class="math display">\[
       y_{ij} = \beta_{1i} \exp(-\beta_{2i} t_j) + \beta_{3i} \exp(-\beta_{4i} t_j) + \varepsilon_{ij},  
@@ -577,7 +577,7 @@ In order to make the problem identifiable, we can insist that <span class="math 
 <span id="cb256-6"><a href="non-linear-mixed-models.html#cb256-6" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlsList</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
 <span id="cb256-7"><a href="non-linear-mixed-models.html#cb256-7" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
 <span id="cb256-8"><a href="non-linear-mixed-models.html#cb256-8" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> Subject))</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-932-1.png" alt="" width="49%" /><img src="book_files/figure-html/unnamed-chunk-932-2.png" alt="" width="49%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-934-1.png" alt="" width="49%" /><img src="book_files/figure-html/unnamed-chunk-934-2.png" alt="" width="49%" /></p>
 <p>A random effects model can be constructed as
 <span class="math display">\[
       y_{ij} = (\beta_{1} + b_{1i}) \exp(-\exp(\beta_{2} + b_{2i}) \, t_j) +
@@ -618,7 +618,7 @@ where the additional use of <span class="math inline">\(\exp\)</span> ensures th
 ## Number of Observations: 66
 ## Number of Groups: 6</code></pre>
 <div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="non-linear-mixed-models.html#cb259-1" tabindex="-1"></a><span class="fu">plot</span>(model)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-933-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-935-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <!-- ### Growth of Soyabean plants -->
 <!-- In this experiment, eight plots were planted with each of two strains of soyabean in each of three years.  The data record the average leaf weight (in gms) of six plants chosen at random from each plot. -->
 <!-- What are the principal sources of variation in the data? -->

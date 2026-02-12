@@ -590,7 +590,7 @@ This emphasises that the ‘engine’ of the model is a linear expression, refer
 <span id="cb187-3"><a href="logistic-regression.html#cb187-3" tabindex="-1"></a>pgrid <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">Concentration =</span> xgrid), <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
 <span id="cb187-4"><a href="logistic-regression.html#cb187-4" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(Concentration, Proportion_killed), <span class="at">data =</span> ethylene) <span class="sc">+</span></span>
 <span id="cb187-5"><a href="logistic-regression.html#cb187-5" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(xgrid, pgrid, <span class="at">col =</span> <span class="fu">I</span>(<span class="st">&quot;blue&quot;</span>)))</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-825-1.png" alt="" width="50%" /><img src="book_files/figure-html/unnamed-chunk-825-2.png" alt="" width="50%" /></p>
+<p><img src="book_files/figure-html/unnamed-chunk-827-1.png" alt="" width="50%" /><img src="book_files/figure-html/unnamed-chunk-827-2.png" alt="" width="50%" /></p>
 <p>The right hand plot above uses some additional code (not shown) to locate the estimated LD50 as the concentration value at which the fitted logistic curve reaches 0.5.</p>
 </div>
 <h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
