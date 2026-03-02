@@ -34,7 +34,6 @@ further-reading-1
 exercises-1
 scottish-referendum-data
 aircraft-designs
-centenarians
 justification-of-the-log-transformation-for-the-rodent-data
 data-wrangling
 reorganising-data
@@ -64,7 +63,6 @@ exercises-3
 rodent-mass-and-speed
 uk-covid-19-deaths
 scottish-referendum
-centenarians-in-scotland
 flour-beetles
 clyde-estuary-water-quality
 crabs-multivariate
@@ -180,7 +178,6 @@ further-examples-of-mixed-models
 childhood-growth-1
 the-strength-of-paste-1
 the-sleep-deprivation-study
-reading-attainment-in-primary-school
 non-linear-mixed-models
 generalised-linear-mixed-models
 further-reading-4
