@@ -574,14 +574,14 @@ div.csl-indent {
 </blockquote>
 <hr />
 <p>We begin by renaming the <code>Girth</code> variable, as it is really <code>Diameter</code>. Setting the <code>Girth</code> to <code>NULL</code> will remove it.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="prediction-black-cherry-trees.html#cb148-1" tabindex="-1"></a>   trees<span class="sc">$</span>Diameter <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
-<span id="cb148-2"><a href="prediction-black-cherry-trees.html#cb148-2" tabindex="-1"></a>   trees<span class="sc">$</span>Girth    <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="prediction-black-cherry-trees.html#cb152-1" tabindex="-1"></a>   trees<span class="sc">$</span>Diameter <span class="ot">&lt;-</span> trees<span class="sc">$</span>Girth</span>
+<span id="cb152-2"><a href="prediction-black-cherry-trees.html#cb152-2" tabindex="-1"></a>   trees<span class="sc">$</span>Girth    <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code></pre></div>
 <p>A <code>pairs</code> plot gives us a useful overall view. It would be neater to place the <code>Volume</code> variable first, so that it appears in the top row. The square bracket syntax allows us to put the columns of the dataframe in a different order. It is also useful to apply a <code>log</code> transformation. Can you see why? (And what more appropriate transformation could there be for trees? :-))</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="prediction-black-cherry-trees.html#cb149-1" tabindex="-1"></a>   <span class="fu">pairs</span>(<span class="fu">log</span>(trees)[ , <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="prediction-black-cherry-trees.html#cb153-1" tabindex="-1"></a>   <span class="fu">pairs</span>(<span class="fu">log</span>(trees)[ , <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)])</span></code></pre></div>
 <p><img src="book_files/figure-html/trees_pairs-1.png" alt="" width="80%" style="display: block; margin: auto;" /></p>
 <p>Now we fit a regression model</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="prediction-black-cherry-trees.html#cb150-1" tabindex="-1"></a>   model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Volume) <span class="sc">~</span> <span class="fu">log</span>(Diameter) <span class="sc">+</span> <span class="fu">log</span>(Height), <span class="at">data =</span> trees)</span>
-<span id="cb150-2"><a href="prediction-black-cherry-trees.html#cb150-2" tabindex="-1"></a>   <span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="prediction-black-cherry-trees.html#cb154-1" tabindex="-1"></a>   model <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Volume) <span class="sc">~</span> <span class="fu">log</span>(Diameter) <span class="sc">+</span> <span class="fu">log</span>(Height), <span class="at">data =</span> trees)</span>
+<span id="cb154-2"><a href="prediction-black-cherry-trees.html#cb154-2" tabindex="-1"></a>   <span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept)   -6.631617 0.79978973 -8.291701 5.057138e-09
 ## log(Diameter)  1.982650 0.07501061 26.431592 2.422550e-21
@@ -600,12 +600,12 @@ where <span class="math inline">\(\hat{y}_i\)</span> denotes the ‘fitted value
    R^2 = \frac{TSS - RSS}{TSS}
 \]</span>
 <span class="math inline">\(R^2\)</span> can be adjusted to account for different numbers of explanatory variables in different models being compared.</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="prediction-black-cherry-trees.html#cb152-1" tabindex="-1"></a>   modelD <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Volume) <span class="sc">~</span> <span class="fu">log</span>(Diameter), <span class="at">data =</span> trees)</span>
-<span id="cb152-2"><a href="prediction-black-cherry-trees.html#cb152-2" tabindex="-1"></a>   modelH <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Volume) <span class="sc">~</span> <span class="fu">log</span>(Height),   <span class="at">data =</span> trees)</span>
-<span id="cb152-3"><a href="prediction-black-cherry-trees.html#cb152-3" tabindex="-1"></a>   </span>
-<span id="cb152-4"><a href="prediction-black-cherry-trees.html#cb152-4" tabindex="-1"></a>   <span class="fu">summary</span>(modelD)<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="prediction-black-cherry-trees.html#cb156-1" tabindex="-1"></a>   modelD <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Volume) <span class="sc">~</span> <span class="fu">log</span>(Diameter), <span class="at">data =</span> trees)</span>
+<span id="cb156-2"><a href="prediction-black-cherry-trees.html#cb156-2" tabindex="-1"></a>   modelH <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(Volume) <span class="sc">~</span> <span class="fu">log</span>(Height),   <span class="at">data =</span> trees)</span>
+<span id="cb156-3"><a href="prediction-black-cherry-trees.html#cb156-3" tabindex="-1"></a>   </span>
+<span id="cb156-4"><a href="prediction-black-cherry-trees.html#cb156-4" tabindex="-1"></a>   <span class="fu">summary</span>(modelD)<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.9538743</code></pre>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="prediction-black-cherry-trees.html#cb154-1" tabindex="-1"></a>   <span class="fu">summary</span>(modelH)<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="prediction-black-cherry-trees.html#cb158-1" tabindex="-1"></a>   <span class="fu">summary</span>(modelH)<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.4207309</code></pre>
 <p>The model which uses <code>Diameter</code> alone is almost as good as that of the model
 which uses both. There is therefore a strong argument, for practical

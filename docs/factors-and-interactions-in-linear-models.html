@@ -559,7 +559,7 @@ report a subsample of measurements from an early study of health and nutrition b
 where the variable <span class="math inline">\(z_i\)</span> takes the value <span class="math inline">\(0\)</span> if <code>Location</code> is <code>Iowa</code> and <span class="math inline">\(1\)</span> if it is <code>Nebraska</code>. The parameter <span class="math inline">\(\beta_2\)</span> then describes the <em>shift</em> in cholesterol level from Iowa to Nebraska. As <code>Location</code> has the special property of a <code>factor</code>, this can be expressed in a model formula as:</p>
 <pre><code>Cholesterol ~ Age + Location</code></pre>
 <p>and <code>R</code> will construct the appropriate 0/1 coding for <code>Location</code>. The <code>rp.lm</code> function can launch an interactive exploration of this. The fitted model is shown in the left hand plot below.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="factors-and-interactions-in-linear-models.html#cb157-1" tabindex="-1"></a><span class="fu">rp.lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">+</span> Location, <span class="at">data =</span> cholesterol)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="factors-and-interactions-in-linear-models.html#cb161-1" tabindex="-1"></a><span class="fu">rp.lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">+</span> Location, <span class="at">data =</span> cholesterol)</span></code></pre></div>
 <p><img src="book_files/figure-html/cholesterol_models-1.png" alt="" width="49%" /><img src="book_files/figure-html/cholesterol_models-2.png" alt="" width="49%" /></p>
 <p>However, there is another possibility to consider. It could be that the <em>slope</em> of the regression line with <code>Age</code> is also different in Iowa and Nebraska. The model for observation <span class="math inline">\(i\)</span> should then be written as:
 <span class="math display">\[
@@ -573,16 +573,16 @@ When <span class="math inline">\(z_i\)</span> is <span class="math inline">\(1\)
                   the effect of one variable on the response
                  depends on the setting of the other variable.</code></pre>
 <p>In the present case, the effect of <code>Age</code> depends on the setting of <code>Location</code> because an adjustment to the slope is included when the subject is from Nebraska. To examine whether this more complex model is needed, we can examine the coefficients:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="factors-and-interactions-in-linear-models.html#cb160-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">*</span> Location, <span class="at">data =</span> cholesterol)</span>
-<span id="cb160-2"><a href="factors-and-interactions-in-linear-models.html#cb160-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="factors-and-interactions-in-linear-models.html#cb164-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">*</span> Location, <span class="at">data =</span> cholesterol)</span>
+<span id="cb164-2"><a href="factors-and-interactions-in-linear-models.html#cb164-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                        Estimate Std. Error    t value    Pr(&gt;|t|)
 ## (Intercept)          35.8112138  55.116605  0.6497355 0.521562661
 ## Age                   3.2381449   1.008827  3.2098104 0.003516155
 ## LocationNebraska     65.4865523  61.983368  1.0565181 0.300450053
 ## Age:LocationNebraska -0.7177069   1.162845 -0.6171990 0.542471382</code></pre>
 <p>The interaction term <code>Age:LocationNebraska</code> has a p-value of 0.54 so we may reasonably adopt the model without the interaction term. This is referred to as the <em>additive</em> model. An examination of that one shows that the shift from Iowa to Nebraska (<code>LocationNebraska</code>) is also not signficantly different from <span class="math inline">\(0\)</span>, so there is some justification for pooling the groups.</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="factors-and-interactions-in-linear-models.html#cb162-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">+</span> Location, <span class="at">data =</span> cholesterol)</span>
-<span id="cb162-2"><a href="factors-and-interactions-in-linear-models.html#cb162-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="factors-and-interactions-in-linear-models.html#cb166-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Cholesterol <span class="sc">~</span> Age <span class="sc">+</span> Location, <span class="at">data =</span> cholesterol)</span>
+<span id="cb166-2"><a href="factors-and-interactions-in-linear-models.html#cb166-2" tabindex="-1"></a><span class="fu">summary</span>(model)<span class="sc">$</span>coefficients</span></code></pre></div>
 <pre><code>##                   Estimate Std. Error  t value     Pr(&gt;|t|)
 ## (Intercept)      64.489772 29.3024531 2.200832 3.648161e-02
 ## Age               2.697967  0.4959532 5.439963 9.361235e-06

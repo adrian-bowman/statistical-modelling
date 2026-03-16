@@ -559,11 +559,11 @@ div.csl-indent {
 \]</span></p>
 <p>We need to quantify the uncertainty associated with estimating <span class="math inline">\(p\)</span> by <span class="math inline">\(\hat{p}\)</span>. As usual, the <em>standard error</em> does this for us.</p>
 <p>The plot below uses simulation to show the variation in <span class="math inline">\(\hat{p}\)</span> when samples of size <span class="math inline">\(n\)</span> are repeatedly drawn from populations where the true proportion if <span class="math inline">\(p\)</span>. You might like to experiment with this code tp see the effectsd of changing <code>n</code> and <code>p</code>.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="simple-proportions.html#cb107-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb107-2"><a href="simple-proportions.html#cb107-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb107-3"><a href="simple-proportions.html#cb107-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1000</span>, n, p) </span>
-<span id="cb107-4"><a href="simple-proportions.html#cb107-4" tabindex="-1"></a><span class="fu">hist</span>(x <span class="sc">/</span> n, <span class="at">col =</span> <span class="st">&#39;grey&#39;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&#39;n =&#39;</span>, n, <span class="st">&#39;  p =&#39;</span>, p))</span>
-<span id="cb107-5"><a href="simple-proportions.html#cb107-5" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> p, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="simple-proportions.html#cb111-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb111-2"><a href="simple-proportions.html#cb111-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb111-3"><a href="simple-proportions.html#cb111-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">1000</span>, n, p) </span>
+<span id="cb111-4"><a href="simple-proportions.html#cb111-4" tabindex="-1"></a><span class="fu">hist</span>(x <span class="sc">/</span> n, <span class="at">col =</span> <span class="st">&#39;grey&#39;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&#39;n =&#39;</span>, n, <span class="st">&#39;  p =&#39;</span>, p))</span>
+<span id="cb111-5"><a href="simple-proportions.html#cb111-5" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> p, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-516-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 <p>There are two simple points to note:</p>
 <ul>
