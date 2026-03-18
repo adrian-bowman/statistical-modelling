@@ -126,13 +126,15 @@ rodents
 giving-in-the-church-of-england
 black-cherry-trees
 cats
-respiratory-distress-syndrome
 the-clyde-data
 water-quality-in-loch-leven
 so_2-over-europe
 maximal-heart-rate-and-age
 the-effects-of-conservation
 issues-in-experimental-design
+completely-randomised-design-comparing-several-treatments
+randomised-blocks-the-parable-of-the-sower
+factorial-designs-poisons-and-treatments
 power
 principles-of-experimental-design
 control
@@ -231,3 +233,7 @@ exercises-12
 a-simple-function
 a-simple-function-thresholds
 improving-the-sim.max-function
+thinking-clearly-with-probability
+asking-awkward-questions
+further-reading-9
+data-in-general
