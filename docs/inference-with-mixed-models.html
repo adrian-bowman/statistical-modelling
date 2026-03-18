@@ -559,24 +559,24 @@ div.csl-indent {
 <p>The first makes some progress by computing appropriate ‘degrees of freedom’ when comparing models. The <em>Kenward-Rogers</em> approach is popular. However, there may still remain underlying issues that the assumed distribution of the model comparison test statistic is not correct.</p>
 <p>A second, very general, approach is to employ the <em>bootstrap</em>. If we repeatedly simulate new data from a fitted model, for each new dataset we can compute the model comparison statistic ((log-)likelihood ratio) for a more complex model. This builds up a picture of the distribution of our model comparison statistic when the simpler model is correct. This provides a reference distribution against which we can compare the value of the model comparison statistic on the original data.</p>
 <p>The <code>PBmodcomp</code> function from the <code>pbkrtest</code> package can help us with this. Recall that REML should not be used when models with different fixed effects are to be compared, so the function will refit the model using ML if necessary.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="inference-with-mixed-models.html#cb231-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
-<span id="cb231-2"><a href="inference-with-mixed-models.html#cb231-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
-<span id="cb231-3"><a href="inference-with-mixed-models.html#cb231-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
-<pre><code>## Bootstrap test; time: 19.26 sec; samples: 1000; extremes: 364;
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="inference-with-mixed-models.html#cb228-1" tabindex="-1"></a><span class="fu">library</span>(pbkrtest)</span>
+<span id="cb228-2"><a href="inference-with-mixed-models.html#cb228-2" tabindex="-1"></a>model_r <span class="ot">&lt;-</span> <span class="fu">lmer</span>(yield <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">|</span> blend), <span class="at">data =</span> penicillin)</span>
+<span id="cb228-3"><a href="inference-with-mixed-models.html#cb228-3" tabindex="-1"></a><span class="fu">PBmodcomp</span>(model_tr, model_r)</span></code></pre></div>
+<pre><code>## Bootstrap test; time: 20.55 sec; samples: 1000; extremes: 342;
 ## large : yield ~ treat + (1 | blend)
 ##          stat df p.value
 ## LRT    4.0474  3  0.2564
-## PBtest 4.0474     0.3646</code></pre>
+## PBtest 4.0474     0.3427</code></pre>
 <p>We can look at a slightly lower level of detail by displaying the simulated test statistics and comparing these with the one observed on our original data. Conveniently, the observed test statistic is available as one of the <em>attributes</em> of the simulations returned by <code>PBrefdist</code>. The attributes of <code>refdist</code> can be removed by applying the <code>c</code> function, before passing the vector to <code>ggplot</code>.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="inference-with-mixed-models.html#cb233-1" tabindex="-1"></a>refdist <span class="ot">&lt;-</span> <span class="fu">PBrefdist</span>(model_tr, model_r)</span>
-<span id="cb233-2"><a href="inference-with-mixed-models.html#cb233-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
-<span id="cb233-3"><a href="inference-with-mixed-models.html#cb233-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
-<span id="cb233-4"><a href="inference-with-mixed-models.html#cb233-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
-<p><img src="book_files/figure-html/unnamed-chunk-846-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="inference-with-mixed-models.html#cb230-1" tabindex="-1"></a>refdist <span class="ot">&lt;-</span> <span class="fu">PBrefdist</span>(model_tr, model_r)</span>
+<span id="cb230-2"><a href="inference-with-mixed-models.html#cb230-2" tabindex="-1"></a>lrtstat <span class="ot">&lt;-</span> <span class="fu">attributes</span>(refdist)<span class="sc">$</span>stat[<span class="st">&#39;tobs&#39;</span>]</span>
+<span id="cb230-3"><a href="inference-with-mixed-models.html#cb230-3" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="fu">c</span>(refdist))) <span class="sc">+</span></span>
+<span id="cb230-4"><a href="inference-with-mixed-models.html#cb230-4" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> lrtstat, <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span></code></pre></div>
+<p><img src="book_files/figure-html/unnamed-chunk-850-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <!-- @halekoh_2014_jstatsoft -->
 <p>Halekoh et a. (2014) provide a <a href="https://www.jstatsoft.org/index.php/jss/article/view/v059i09/771">systematic description</a> of the <code>pbkrtest</code> package, and examples of its use.</p>
 <p>With a little more work, we can produce estimates of the individual random effects.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="inference-with-mixed-models.html#cb234-1" tabindex="-1"></a><span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="inference-with-mixed-models.html#cb231-1" tabindex="-1"></a><span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend</span></code></pre></div>
 <pre><code>##        (Intercept)
 ## Blend1   4.2878788
 ## Blend2  -2.1439394
@@ -584,11 +584,11 @@ div.csl-indent {
 ## Blend4   1.4292929
 ## Blend5  -2.8585859</code></pre>
 <p>How do these compare with the estimates of the blend effects in our earlier simple randomised blocks model? As the result of <code>ranef</code> is a dataframe, and the estimated effects are mean centred, we will first produce differences from Blend 1.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="inference-with-mixed-models.html#cb236-1" tabindex="-1"></a>reff <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend[ , <span class="dv">1</span>]</span>
-<span id="cb236-2"><a href="inference-with-mixed-models.html#cb236-2" tabindex="-1"></a>reff <span class="ot">&lt;-</span> reff <span class="sc">-</span> reff[<span class="dv">1</span>]</span>
-<span id="cb236-3"><a href="inference-with-mixed-models.html#cb236-3" tabindex="-1"></a>reff[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="inference-with-mixed-models.html#cb233-1" tabindex="-1"></a>reff <span class="ot">&lt;-</span> <span class="fu">ranef</span>(model_tr)<span class="sc">$</span>blend[ , <span class="dv">1</span>]</span>
+<span id="cb233-2"><a href="inference-with-mixed-models.html#cb233-2" tabindex="-1"></a>reff <span class="ot">&lt;-</span> reff <span class="sc">-</span> reff[<span class="dv">1</span>]</span>
+<span id="cb233-3"><a href="inference-with-mixed-models.html#cb233-3" tabindex="-1"></a>reff[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] -6.431818 -5.002525 -2.858586 -7.146465</code></pre>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="inference-with-mixed-models.html#cb238-1" tabindex="-1"></a><span class="fu">coefficients</span>(model_tb)[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="inference-with-mixed-models.html#cb235-1" tabindex="-1"></a><span class="fu">coefficients</span>(model_tb)[<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## blendBlend2 blendBlend3 blendBlend4 blendBlend5 
 ##          -9          -7          -4         -10</code></pre>
 <p>Notice that the random effects model estimates the sizes of the random effects to be smaller. This effect is known as <em>shrinkage</em>. It is linked to the joint estimation of the random effects through a common distribution.</p>
