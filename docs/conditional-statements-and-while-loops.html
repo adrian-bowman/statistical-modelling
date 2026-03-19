@@ -563,21 +563,21 @@ div.csl-indent {
 <p>If that’s the case then we simulate a value from a lognormal distribution (see the help file for <code>rlnorm</code>) and add it to <code>samp</code> using the <code>c</code> function if it lies below the threshold. (The <code>if</code> construction also has the possibility of a following <code>else</code> statement but that’s not needed here.)</p>
 <p>The rest of the function follows as before.</p>
 <p>There are usually many ways of coding any task. The example below is not the most elegant or efficient. It’s primary aim is to illustrate the <code>while</code> and <code>if</code> constructions.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="conditional-statements-and-while-loops.html#cb360-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn.log =</span> <span class="dv">2</span>, <span class="at">s.log =</span> <span class="dv">1</span>, <span class="at">threshold =</span> <span class="dv">50</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
-<span id="cb360-2"><a href="conditional-statements-and-while-loops.html#cb360-2" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
-<span id="cb360-3"><a href="conditional-statements-and-while-loops.html#cb360-3" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) {</span>
-<span id="cb360-4"><a href="conditional-statements-and-while-loops.html#cb360-4" tabindex="-1"></a>      samp <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb360-5"><a href="conditional-statements-and-while-loops.html#cb360-5" tabindex="-1"></a>      <span class="cf">while</span> (<span class="fu">length</span>(samp) <span class="sc">&lt;</span> n) {</span>
-<span id="cb360-6"><a href="conditional-statements-and-while-loops.html#cb360-6" tabindex="-1"></a>        value <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">1</span>, mn.log, s.log)</span>
-<span id="cb360-7"><a href="conditional-statements-and-while-loops.html#cb360-7" tabindex="-1"></a>        <span class="cf">if</span> (value <span class="sc">&lt;</span> threshold) samp <span class="ot">&lt;-</span> <span class="fu">c</span>(samp, value)</span>
-<span id="cb360-8"><a href="conditional-statements-and-while-loops.html#cb360-8" tabindex="-1"></a>      }</span>
-<span id="cb360-9"><a href="conditional-statements-and-while-loops.html#cb360-9" tabindex="-1"></a>      mx[i] <span class="ot">&lt;-</span> <span class="fu">max</span>(samp)</span>
-<span id="cb360-10"><a href="conditional-statements-and-while-loops.html#cb360-10" tabindex="-1"></a>    }</span>
-<span id="cb360-11"><a href="conditional-statements-and-while-loops.html#cb360-11" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
-<span id="cb360-12"><a href="conditional-statements-and-while-loops.html#cb360-12" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
-<span id="cb360-13"><a href="conditional-statements-and-while-loops.html#cb360-13" tabindex="-1"></a>  }</span>
-<span id="cb360-14"><a href="conditional-statements-and-while-loops.html#cb360-14" tabindex="-1"></a></span>
-<span id="cb360-15"><a href="conditional-statements-and-while-loops.html#cb360-15" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="conditional-statements-and-while-loops.html#cb357-1" tabindex="-1"></a>  sim.max <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mn.log =</span> <span class="dv">2</span>, <span class="at">s.log =</span> <span class="dv">1</span>, <span class="at">threshold =</span> <span class="dv">50</span>, <span class="at">nsim =</span> <span class="dv">1000</span>) {</span>
+<span id="cb357-2"><a href="conditional-statements-and-while-loops.html#cb357-2" tabindex="-1"></a>    mx   <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, nsim)</span>
+<span id="cb357-3"><a href="conditional-statements-and-while-loops.html#cb357-3" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) {</span>
+<span id="cb357-4"><a href="conditional-statements-and-while-loops.html#cb357-4" tabindex="-1"></a>      samp <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb357-5"><a href="conditional-statements-and-while-loops.html#cb357-5" tabindex="-1"></a>      <span class="cf">while</span> (<span class="fu">length</span>(samp) <span class="sc">&lt;</span> n) {</span>
+<span id="cb357-6"><a href="conditional-statements-and-while-loops.html#cb357-6" tabindex="-1"></a>        value <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">1</span>, mn.log, s.log)</span>
+<span id="cb357-7"><a href="conditional-statements-and-while-loops.html#cb357-7" tabindex="-1"></a>        <span class="cf">if</span> (value <span class="sc">&lt;</span> threshold) samp <span class="ot">&lt;-</span> <span class="fu">c</span>(samp, value)</span>
+<span id="cb357-8"><a href="conditional-statements-and-while-loops.html#cb357-8" tabindex="-1"></a>      }</span>
+<span id="cb357-9"><a href="conditional-statements-and-while-loops.html#cb357-9" tabindex="-1"></a>      mx[i] <span class="ot">&lt;-</span> <span class="fu">max</span>(samp)</span>
+<span id="cb357-10"><a href="conditional-statements-and-while-loops.html#cb357-10" tabindex="-1"></a>    }</span>
+<span id="cb357-11"><a href="conditional-statements-and-while-loops.html#cb357-11" tabindex="-1"></a>    <span class="fu">hist</span>(mx)</span>
+<span id="cb357-12"><a href="conditional-statements-and-while-loops.html#cb357-12" tabindex="-1"></a>    <span class="fu">invisible</span>(mx)</span>
+<span id="cb357-13"><a href="conditional-statements-and-while-loops.html#cb357-13" tabindex="-1"></a>  }</span>
+<span id="cb357-14"><a href="conditional-statements-and-while-loops.html#cb357-14" tabindex="-1"></a></span>
+<span id="cb357-15"><a href="conditional-statements-and-while-loops.html#cb357-15" tabindex="-1"></a>  <span class="fu">sim.max</span>()</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-1104-1.png" alt="" width="50%" style="display: block; margin: auto;" /></p>
 </div>
             </section>

@@ -565,9 +565,9 @@ Kinetics of Indomethicin absorption, elimination, and enterohepatic circulation 
 </blockquote>
 <hr />
 <p>Plots of the data is shown below.</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="non-linear-mixed-models.html#cb256-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb256-2"><a href="non-linear-mixed-models.html#cb256-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject, <span class="at">col =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
-<span id="cb256-3"><a href="non-linear-mixed-models.html#cb256-3" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="non-linear-mixed-models.html#cb253-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb253-2"><a href="non-linear-mixed-models.html#cb253-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject, <span class="at">col =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span>
+<span id="cb253-3"><a href="non-linear-mixed-models.html#cb253-3" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject)</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-874-1.png" alt="" width="49%" /><img src="book_files/figure-html/unnamed-chunk-874-2.png" alt="" width="49%" /></p>
 <p>Pharmacokinetics often uses <em>compartmental models</em> which result in descriptions of decay over time in the form of sums of exponential terms. For this example, two exponential terms should suffice. If <span class="math inline">\(y_{ij}\)</span> denotes the measurement on individual <span class="math inline">\(i\)</span> at time point <span class="math inline">\(j\)</span>, then
 <span class="math display">\[
@@ -576,14 +576,14 @@ Kinetics of Indomethicin absorption, elimination, and enterohepatic circulation 
 \]</span>
 In order to make the problem identifiable, we can insist that <span class="math inline">\(\beta_{2i} &gt; \beta_{4i}\)</span> for each <span class="math inline">\(i\)</span>.</p>
 <p>The left hand plot below, shows the results of fitting a single regression model to all the data, while the right hand plot fits a separate regression for each subject.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="non-linear-mixed-models.html#cb257-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nls</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
-<span id="cb257-2"><a href="non-linear-mixed-models.html#cb257-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb257-3"><a href="non-linear-mixed-models.html#cb257-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model)), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
-<span id="cb257-4"><a href="non-linear-mixed-models.html#cb257-4" tabindex="-1"></a></span>
-<span id="cb257-5"><a href="non-linear-mixed-models.html#cb257-5" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
-<span id="cb257-6"><a href="non-linear-mixed-models.html#cb257-6" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlsList</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
-<span id="cb257-7"><a href="non-linear-mixed-models.html#cb257-7" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb257-8"><a href="non-linear-mixed-models.html#cb257-8" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> Subject))</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="non-linear-mixed-models.html#cb254-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nls</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
+<span id="cb254-2"><a href="non-linear-mixed-models.html#cb254-2" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb254-3"><a href="non-linear-mixed-models.html#cb254-3" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model)), <span class="at">col =</span> <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb254-4"><a href="non-linear-mixed-models.html#cb254-4" tabindex="-1"></a></span>
+<span id="cb254-5"><a href="non-linear-mixed-models.html#cb254-5" tabindex="-1"></a><span class="fu">library</span>(nlme)</span>
+<span id="cb254-6"><a href="non-linear-mixed-models.html#cb254-6" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlsList</span>(conc <span class="sc">~</span> <span class="fu">SSbiexp</span>(time, A1, lrc1, A2, lrc2), <span class="at">data =</span> Indometh)</span>
+<span id="cb254-7"><a href="non-linear-mixed-models.html#cb254-7" tabindex="-1"></a><span class="fu">ggplot</span>(Indometh, <span class="fu">aes</span>(time, conc, <span class="at">group =</span> Subject)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb254-8"><a href="non-linear-mixed-models.html#cb254-8" tabindex="-1"></a>   <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fitted</span>(model), <span class="at">col =</span> Subject))</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-875-1.png" alt="" width="49%" /><img src="book_files/figure-html/unnamed-chunk-875-2.png" alt="" width="49%" /></p>
 <p>A random effects model can be constructed as
 <span class="math display">\[
@@ -591,8 +591,8 @@ In order to make the problem identifiable, we can insist that <span class="math 
                   (\beta_{3} + b_{3i}) \exp(-\exp(\beta_{4} + b_{4i}) \, t_j) + \varepsilon_{ij},  
 \]</span>
 where the additional use of <span class="math inline">\(\exp\)</span> ensures that the coefficients inside the original <span class="math inline">\(\exp\)</span> terms are positive. The code below shows what it is possible to do in <code>nlme</code>. The Pinheiro &amp; Bates book explains this in greater detail and suggests some further amendments to the random effects and variance structure of the model.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="non-linear-mixed-models.html#cb258-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlme</span>(model, <span class="at">random =</span> <span class="fu">pdDiag</span>(A1 <span class="sc">+</span> lrc1 <span class="sc">+</span> A2 <span class="sc">+</span> lrc2 <span class="sc">~</span> <span class="dv">1</span>))</span>
-<span id="cb258-2"><a href="non-linear-mixed-models.html#cb258-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="non-linear-mixed-models.html#cb255-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">nlme</span>(model, <span class="at">random =</span> <span class="fu">pdDiag</span>(A1 <span class="sc">+</span> lrc1 <span class="sc">+</span> A2 <span class="sc">+</span> lrc2 <span class="sc">~</span> <span class="dv">1</span>))</span>
+<span id="cb255-2"><a href="non-linear-mixed-models.html#cb255-2" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>## Nonlinear mixed-effects model fit by maximum likelihood
 ##   Model: conc ~ SSbiexp(time, A1, lrc1, A2, lrc2) 
 ##   Data: Indometh 
@@ -624,7 +624,7 @@ where the additional use of <span class="math inline">\(\exp\)</span> ensures th
 ## 
 ## Number of Observations: 66
 ## Number of Groups: 6</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="non-linear-mixed-models.html#cb260-1" tabindex="-1"></a><span class="fu">plot</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="non-linear-mixed-models.html#cb257-1" tabindex="-1"></a><span class="fu">plot</span>(model)</span></code></pre></div>
 <p><img src="book_files/figure-html/unnamed-chunk-876-1.png" alt="" width="70%" style="display: block; margin: auto;" /></p>
 <!-- ### Growth of Soyabean plants -->
 <!-- In this experiment, eight plots were planted with each of two strains of soyabean in each of three years.  The data record the average leaf weight (in gms) of six plants chosen at random from each plot. -->
